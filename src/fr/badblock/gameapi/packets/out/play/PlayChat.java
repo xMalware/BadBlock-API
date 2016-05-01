@@ -1,0 +1,69 @@
+package fr.badblock.gameapi.packets.out.play;
+
+import fr.badblock.gameapi.packets.BadblockOutPacket;
+import lombok.Getter;
+import net.md_5.bungee.api.chat.BaseComponent;
+
+/**
+ * Packet envoyé lorsque l'on veut envoyer un message chat/actionbar au joueur
+ * @author LeLanN
+ */
+public interface PlayChat extends BadblockOutPacket {
+	/**
+	 * Récupère le type de message
+	 * @return Le type
+	 */
+	public ChatType getType();
+	
+	/**
+	 * Définit le type de message
+	 * @param type Le type
+	 * @return Le packet
+	 */
+	public PlayChat setType(ChatType type);
+	
+	/**
+	 * Récupère les messages à envoyer
+	 * @return Les messages
+	 */
+	public BaseComponent[] getComponents();
+	
+	/**
+	 * Définit les messages à envoyer
+	 * @param components Les messages
+	 * @return Le packet
+	 */
+	public PlayChat setComponents(BaseComponent[] components);
+	
+	/**
+	 * Représente les différents types de messages envoyables grâce à {@link PlayChat}
+	 * @author LeLanN
+	 */
+	public enum ChatType {
+		/**
+		 * Message dans le chat
+		 */
+	    CHAT(0),
+	    /**
+	     * Message (système) dans le chat
+	     */
+	    SYSTEM(1),
+	    /**
+	     * ActionBar
+	     */
+	    ACTION(2);
+		
+		@Getter private byte value;
+		
+		ChatType(int value){
+			this.value = (byte) value;
+		}
+		
+		public static ChatType getByValue(byte value){
+			for(ChatType c : values())
+				if(c.getValue() == value)
+					return c;
+			return null;
+		}
+	}
+}

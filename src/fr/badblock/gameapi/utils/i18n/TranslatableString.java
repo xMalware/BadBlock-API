@@ -1,0 +1,63 @@
+package fr.badblock.gameapi.utils.i18n;
+
+import org.bukkit.command.CommandSender;
+
+import fr.badblock.gameapi.GameAPI;
+import fr.badblock.gameapi.players.BadblockPlayer;
+import lombok.Data;
+
+/**
+ * Représente une chaîne de caractère traductible. Utiliser à plusieurs endroit dans l'API pour simplifier.
+ * @author LeLanN
+ */
+@Data public class TranslatableString {
+	private String 	 key;
+	private Object[] objects;
+	
+	/**
+	 * Crée une nouvelle chaîne traduisible
+	 * @param key La key
+	 * @param objects Les arguments
+	 */
+	public TranslatableString(String key, Object... objects){
+		this.key 	 = key;
+		this.objects = objects;
+	}
+	
+	/**
+	 * Envoit le message à un command sender
+	 * @param sender Le sender
+	 */
+	public void send(CommandSender sender){
+		GameAPI.i18n().sendMessage(sender, key, objects);
+	}
+	
+	/**
+	 * Envoit le message à tous les joueurs
+	 */
+	public void broadcast(){
+		GameAPI.i18n().broadcast(key, objects);
+	}
+	
+	/**
+	 * Récupère la première ligne du message
+	 * @param player Le joueur (pour la langue)
+	 * @return La ligne
+	 */
+	public String getAsLine(BadblockPlayer player){
+		Locale locale = player.getPlayerData().getLocale();
+		
+		return GameAPI.i18n().get(locale, key, objects)[0];
+	}
+	
+	/**
+	 * Récupère le message sur plusieurs lignes
+	 * @param player Le joueur (pour avoir la langue)
+	 * @return Le message
+	 */
+	public String[] get(BadblockPlayer player){
+		Locale locale = player.getPlayerData().getLocale();
+		
+		return GameAPI.i18n().get(locale, key, objects);
+	}
+}
