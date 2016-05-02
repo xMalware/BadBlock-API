@@ -6,10 +6,9 @@ import org.bukkit.event.HandlerList;
 
 import fr.badblock.gameapi.game.GameServer;
 import fr.badblock.gameapi.game.GameServer.WhileRunningConnectionTypes;
-import fr.badblock.gameapi.players.BadblockOfflinePlayer;
 import fr.badblock.gameapi.players.BadblockPlayer;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -18,14 +17,12 @@ import lombok.Setter;
  * 
  * @author LeLanN
  */
-@Getter@Setter@AllArgsConstructor
+@Getter@Setter@RequiredArgsConstructor
 public class PlayerReconnectionPropositionEvent extends Event implements Cancellable{
 	private static final HandlerList	handlers	= new HandlerList();
 
 	private final BadblockPlayer		player;
-	private final BadblockOfflinePlayer playerData;
-	
-	private boolean 				    isCancelled;
+	private boolean 				    isCancelled = false;
 	
 	public HandlerList getHandlers() {
 		return handlers;

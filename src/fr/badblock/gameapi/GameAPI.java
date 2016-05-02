@@ -228,7 +228,8 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract void unregisterTeam(BadblockTeam team);
 	
 	/**
-	 * Récupère les données d'un joueur ayant déconnecter après le début de la partie
+	 * Récupère les données d'un joueur ayant déconnecter après le début de la partie, si le jeu a demandé
+	 * la sauvegarde
 	 * @param uniqueId L'UUID du joueur
 	 * @return Les données joueurs (ou null)
 	 */
