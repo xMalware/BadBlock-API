@@ -32,6 +32,7 @@ import fr.badblock.gameapi.players.kits.PlayerKit;
 import fr.badblock.gameapi.players.kits.PlayerKitContentManager;
 import fr.badblock.gameapi.servers.JoinItems;
 import fr.badblock.gameapi.servers.MapProtector;
+import fr.badblock.gameapi.technologies.RabbitSpeaker;
 import fr.badblock.gameapi.utils.CustomObjective;
 import fr.badblock.gameapi.utils.JsonConfiguration;
 import fr.badblock.gameapi.utils.i18n.I18n;
@@ -120,6 +121,13 @@ public abstract class GameAPI extends JavaPlugin {
 	 * @return La classe permettant de communiquer avec Ladder
 	 */
 	public abstract LadderSpeaker getLadderDatabase();
+	
+	/**
+	 * Récupère la classe permettant de communiquer avec RabbitMQ
+	 * @return La classe permettant de communiquer avec RabbitMQ
+	 * @author xMalware
+	 */
+	public abstract RabbitSpeaker getRabbitSpeaker();
 	
 	/**
 	 * Change la classe protégeant la map
