@@ -4,8 +4,7 @@ import fr.badblock.gameapi.events.api.PlayerReconnectionPropositionEvent;
 
 /**
  * Classe permettant de gérer le statut des jeux
- * @author LeLanN
- * @author xMalware
+ * @authors xMalware & LeLanN
  */
 public interface GameServer {
 	/**
@@ -42,7 +41,7 @@ public interface GameServer {
 	 * Si la phase du jeu change (entrée en Deathmatch par exemple), utiliser ceci pour cancel les propositions pour rejoindre le serveur<br>
 	 * Autrement, utilisé automatiquement à la fin de la partie
 	 */
-	public void cancelReconnectionInvatations();
+	public void cancelReconnectionInvitations();
 	
 	/**
 	 * Représente les différents types de reconnection
