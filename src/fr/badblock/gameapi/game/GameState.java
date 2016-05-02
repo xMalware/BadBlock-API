@@ -11,7 +11,7 @@ import lombok.Getter;
 	WAITING_FULL(1),
 	RUNNING(2),
 	FINISHED(3),
-	STOPING(4);
+	STOPPING(4);
 
 	private final int id;
 
