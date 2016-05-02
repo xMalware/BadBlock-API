@@ -2,6 +2,7 @@ package fr.badblock.gameapi;
 
 import java.util.Collection;
 import java.util.Map;
+import java.util.UUID;
 import java.util.logging.Level;
 
 import org.bukkit.Bukkit;
@@ -22,6 +23,7 @@ import fr.badblock.gameapi.packets.watchers.WatcherArmorStand;
 import fr.badblock.gameapi.packets.watchers.WatcherEntity;
 import fr.badblock.gameapi.particles.ParticleEffect;
 import fr.badblock.gameapi.particles.ParticleEffectType;
+import fr.badblock.gameapi.players.BadblockOfflinePlayer;
 import fr.badblock.gameapi.players.BadblockPlayer;
 import fr.badblock.gameapi.players.BadblockScoreboard;
 import fr.badblock.gameapi.players.BadblockTeam;
@@ -218,6 +220,13 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract void unregisterTeam(BadblockTeam team);
 	
 	/**
+	 * Récupère les données d'un joueur ayant déconnecter après le début de la partie
+	 * @param uniqueId L'UUID du joueur
+	 * @return Les données joueurs (ou null)
+	 */
+	public abstract BadblockOfflinePlayer getOfflinePlayer(UUID uniqueId);
+	
+	/**
 	 * Récupère les jeux enregistrés possédant des achievements
 	 * @return
 	 */
@@ -255,8 +264,16 @@ public abstract class GameAPI extends JavaPlugin {
 	 */
 	public abstract <T extends BadblockOutPacket> T createPacket(Class<T> clazz);
 	
+	/**
+	 * Ecoute sur un packet entrant avec un listener
+	 * @param listener Le listener
+	 */
 	public abstract <T extends BadblockInPacket> void listenAtPacket(InPacketListener<T> listener);
 	
+	/**
+	 * Ecoute sur un packet sortant avec un listener
+	 * @param listener Le listener
+	 */
 	public abstract <T extends BadblockOutPacket> void listenAtPacket(OutPacketListener<T> listener);
 
 	/**
