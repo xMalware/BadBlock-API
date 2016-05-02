@@ -9,6 +9,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
 import fr.badblock.gameapi.GameAPI;
+import fr.badblock.gameapi.game.result.Result;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 import fr.badblock.gameapi.particles.ParticleEffect;
 import fr.badblock.gameapi.players.data.InGameData;
@@ -110,6 +111,14 @@ public interface BadblockPlayer extends Player {
 	 */
 	public int getPing();
 
+	/**
+	 * Récupère un message traduit dans la langue du joueur
+	 * @param key La key du message
+	 * @param args Les arguments
+	 * @return Le message
+	 */
+	public String[] getTranslatedMessage(String key, Object... args);
+	
 	/**
 	 * Envoit un message traduit au joueur. Pour plus d'informations voir {@link fr.badblock.gameapi.utils.i18n.I18n}
 	 * @param key La key du message
@@ -344,6 +353,12 @@ public interface BadblockPlayer extends Player {
 	 * @return La team
 	 */
 	public BadblockTeam getTeam();
+	
+	/**
+	 * Upload un résultat de partie pour le joueur. Le joueur en sera notifié.
+	 * @param result Le résultat
+	 */
+	public void postResult(Result result);
 	
 	/**
 	 * Représente les permissions basiques des MiniJeux, pour une gestion plus simple.
