@@ -25,6 +25,10 @@ public class JsonUtils {
 			.disableHtmlEscaping()
 			.create();
 
+	public static Gson getGson() {
+		return gson;
+	}
+	
 	public static JsonArray loadArray(File file){
 		if(!file.exists() || file.length() == 0){
 			save(file, "[]");
