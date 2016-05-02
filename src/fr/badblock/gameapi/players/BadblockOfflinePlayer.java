@@ -2,7 +2,6 @@ package fr.badblock.gameapi.players;
 
 import java.util.UUID;
 
-import org.bukkit.Location;
 import org.bukkit.World;
 
 import fr.badblock.gameapi.game.GameServer;
@@ -28,12 +27,6 @@ public interface BadblockOfflinePlayer {
 	 * @return Le pseudo
 	 */
 	public String getName();
-	
-	/**
-	 * La dernière position du joueur
-	 * @return La dernière position
-	 */
-	public Location getLastLocation();
 	
 	/**
 	 * Récupère la fausse dimension dans laquelle le joueur était (afin de lui recharger au retour :o)
