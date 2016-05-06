@@ -1,5 +1,6 @@
 package fr.badblock.gameapi;
 
+import java.io.File;
 import java.util.Collection;
 import java.util.Map;
 import java.util.UUID;
@@ -12,6 +13,9 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.google.gson.JsonObject;
+
+import fr.badblock.gameapi.configuration.BadConfiguration;
 import fr.badblock.gameapi.databases.LadderSpeaker;
 import fr.badblock.gameapi.fakeentities.FakeEntity;
 import fr.badblock.gameapi.game.GameServer;
@@ -34,7 +38,6 @@ import fr.badblock.gameapi.servers.JoinItems;
 import fr.badblock.gameapi.servers.MapProtector;
 import fr.badblock.gameapi.technologies.RabbitSpeaker;
 import fr.badblock.gameapi.utils.CustomObjective;
-import fr.badblock.gameapi.utils.JsonConfiguration;
 import fr.badblock.gameapi.utils.i18n.I18n;
 import fr.badblock.gameapi.utils.itemstack.CustomInventory;
 import fr.badblock.gameapi.utils.itemstack.DefaultItems;
@@ -316,10 +319,19 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract ParticleEffect createParticleEffect(ParticleEffectType type);
 	
 	/**
-	 * Récupère la classe permettant d'aider à la configuration JSON
-	 * @return La classe
+	 * Charge une configuration JSON depuis un fichier
+	 * @param file Le fichier
+	 * @return La configuration
 	 */
-	public abstract JsonConfiguration getJsonConfiguration();
+	public abstract BadConfiguration loadConfiguration(File file);
+	
+	/**
+	 * Charge une configuration JSON depuis un objet JSON
+	 * @param content L'object
+	 * @return La configuration
+	 */
+	public abstract BadConfiguration loadConfiguration(JsonObject content);
+
 	
 	public abstract CustomMerchantInventory getCustomMarchantInventory();
 	
