@@ -15,6 +15,7 @@ import fr.badblock.gameapi.particles.ParticleEffect;
 import fr.badblock.gameapi.players.data.InGameData;
 import fr.badblock.gameapi.players.data.PlayerData;
 import fr.badblock.gameapi.utils.CustomObjective;
+import fr.badblock.gameapi.utils.selections.CuboidSelection;
 import lombok.Getter;
 
 /**
@@ -341,6 +342,12 @@ public interface BadblockPlayer extends Player {
 	 * @param adminMode Un boolean
 	 */
 	public void setAdminMode(boolean adminMode);
+	
+	/**
+	 * Récupère la séléction définie par le joueur via un baton de blaze. Peut retourner null si non définie.
+	 * @return La séléction ou null
+	 */
+	public CuboidSelection getSelection();
 	
 	/**
 	 * Fait changer le joueur de serveur
