@@ -5,12 +5,14 @@ import java.util.Random;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
+import lombok.Getter;
+
 /**
  * Représente une séléction en forme de cube, définie par deux vecteurs et un monde
  * @author LeLanN
  */
 public class CuboidSelection extends AbstractSelection {
-	private Vector3f firstBound, secondBound;
+	@Getter private Vector3f firstBound, secondBound;
 	
 	/**
 	 * Crée une nouvelle séléction à partir du nom du monde et deux de points

@@ -87,9 +87,14 @@ public interface FakeEntity<T extends WatcherEntity> {
 	public void kill();
 	
 	/**
-	 * Supprime l'entité.
+	 * Supprime l'entité. L'entité pour être respawn. Pour la supprimer de la mémoire utiliser {@link destroy}.
 	 */
 	public void remove();
+	
+	/**
+	 * Supprime l'entité si ce n'est pas fait et la supprime du cache (ne pourra plus être réutilisée).
+	 */
+	public void destroy();
 
 	/**
 	 * Vérifie si l'entité est remove.
