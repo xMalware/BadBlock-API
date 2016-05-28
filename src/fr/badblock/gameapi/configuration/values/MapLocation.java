@@ -1,5 +1,7 @@
 package fr.badblock.gameapi.configuration.values;
 
+import java.util.List;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
@@ -31,5 +33,15 @@ public class MapLocation implements MapValue<Location> {
 	@Override
 	public Location getHandle() {
 		return new Location(Bukkit.getWorld(world), x, y, z, yaw, pitch);
+	}
+	
+	public static MapList<MapLocation, Location> toMapList(List<Location> objs){
+		MapList<MapLocation, Location> result = new MapList<>();
+		
+		for(Location is : objs){
+			result.add(new MapLocation(is));
+		}
+		
+		return result;
 	}
 }

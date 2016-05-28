@@ -29,15 +29,16 @@ import fr.badblock.gameapi.particles.ParticleEffect;
 import fr.badblock.gameapi.particles.ParticleEffectType;
 import fr.badblock.gameapi.players.BadblockOfflinePlayer;
 import fr.badblock.gameapi.players.BadblockPlayer;
-import fr.badblock.gameapi.players.BadblockScoreboard;
 import fr.badblock.gameapi.players.BadblockTeam;
 import fr.badblock.gameapi.players.PlayerAchievement;
 import fr.badblock.gameapi.players.kits.PlayerKit;
 import fr.badblock.gameapi.players.kits.PlayerKitContentManager;
+import fr.badblock.gameapi.players.scoreboard.BadblockScoreboard;
+import fr.badblock.gameapi.players.scoreboard.CustomObjective;
 import fr.badblock.gameapi.servers.JoinItems;
 import fr.badblock.gameapi.servers.MapProtector;
 import fr.badblock.gameapi.technologies.RabbitSpeaker;
-import fr.badblock.gameapi.utils.CustomObjective;
+import fr.badblock.gameapi.utils.entities.CustomCreature;
 import fr.badblock.gameapi.utils.i18n.I18n;
 import fr.badblock.gameapi.utils.itemstack.CustomInventory;
 import fr.badblock.gameapi.utils.itemstack.DefaultItems;
@@ -231,6 +232,12 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract void unregisterTeam(BadblockTeam team);
 	
 	/**
+	 * Permet d'équilibrer les teams
+	 * @param sameSize Si il faut que toutes les teams ai le même nombre de joueurs
+	 */
+	public abstract void balanceTeams(boolean sameSize);
+	
+	/**
 	 * Récupère les données d'un joueur ayant déconnecter après le début de la partie, si le jeu a demandé
 	 * la sauvegarde
 	 * @param uniqueId L'UUID du joueur
@@ -332,8 +339,9 @@ public abstract class GameAPI extends JavaPlugin {
 	 */
 	public abstract BadConfiguration loadConfiguration(JsonObject content);
 
+	public abstract CustomCreature spawnCustomEntity(Location location, EntityType type);
 	
-	public abstract CustomMerchantInventory getCustomMarchantInventory();
+	public abstract CustomMerchantInventory getCustomMerchantInventory();
 	
 	public abstract DefaultItems getDefaultItems();
 

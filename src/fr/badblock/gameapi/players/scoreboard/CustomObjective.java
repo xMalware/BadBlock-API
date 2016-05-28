@@ -1,4 +1,4 @@
-package fr.badblock.gameapi.utils;
+package fr.badblock.gameapi.players.scoreboard;
 
 import fr.badblock.gameapi.players.BadblockPlayer;
 
@@ -44,4 +44,15 @@ public interface CustomObjective {
 	 * Réinitialise l'Objective.
 	 */
 	public void reset();
+	
+	/**
+	 * Définit le générateur
+	 * @param generator Le générateur
+	 */
+	public void setGenerator(BadblockScoreboardGenerator generator);
+	
+	/**
+	 * Actuallise le scoreboard
+	 */
+	public void generate();
 }

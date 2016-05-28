@@ -73,7 +73,7 @@ public interface Language {
 	 * 
 	 * @return Le header trouvé, n'est pas censé être null.
 	 */
-	public String getHeader();
+	public String[] getHeader();
 	
 	/**
 	 * Le footer (c'est à dire partie de message succédant la principale).

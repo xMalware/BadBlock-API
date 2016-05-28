@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.google.gson.JsonObject;
 
+import fr.badblock.gameapi.configuration.values.MapList;
 import fr.badblock.gameapi.configuration.values.MapValue;
 
 /**
@@ -35,7 +36,7 @@ public interface BadConfiguration {
 	 * @param clazzValue Le type de valeur
 	 * @return La liste de valeurs (les modifications ne s'appliquent pas à la configuration)
 	 */
-	public <T extends MapValue<?>> List<T> getValueList(String key, Class<T> clazzValue);
+	public <T extends MapValue<K>, K> MapList<T, K> getValueList(String key, Class<T> clazzValue);
 	
 	/**
 	 * Récupère une liste de valeurs
@@ -44,7 +45,7 @@ public interface BadConfiguration {
 	 * @param def La valeur par défaut (sera set si non trouvée)
 	 * @return La liste de valeurs (les modifications ne s'appliquent pas à la configuration)
 	 */
-	public <T extends MapValue<?>> List<T> getValueList(String key, Class<T> clazzValue, List<T> def);
+	public <T extends MapValue<K>, K> MapList<T, K> getValueList(String key, Class<T> clazzValue, List<T> def);
 	
 	/**
 	 * Définit une valeur

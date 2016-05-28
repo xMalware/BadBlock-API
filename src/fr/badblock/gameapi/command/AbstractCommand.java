@@ -68,7 +68,7 @@ import net.md_5.bungee.api.ChatColor;
 	public void allowConsole(boolean console){
 		this.allowConsole = console;
 	}
-
+	
 	@Override
 	public final boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if(permission != null && !permission.isEmpty() && !sender.hasPermission(permission)){

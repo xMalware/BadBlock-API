@@ -1,6 +1,7 @@
 package fr.badblock.gameapi.game;
 
 import fr.badblock.gameapi.events.api.PlayerReconnectionPropositionEvent;
+import fr.badblock.gameapi.players.BadblockTeam;
 
 /**
  * Classe permettant de gérer le statut des jeux
@@ -42,6 +43,12 @@ public interface GameServer {
 	 * Autrement, utilisé automatiquement à la fin de la partie
 	 */
 	public void cancelReconnectionInvitations();
+	
+	/**
+	 * Si une team perd, utiliser ceci pour cancel les propositions pour rejoindre le serveur
+	 * @param team La team
+	 */
+	public void cancelReconnectionInvitations(BadblockTeam team);
 	
 	/**
 	 * Représente les différents types de reconnection

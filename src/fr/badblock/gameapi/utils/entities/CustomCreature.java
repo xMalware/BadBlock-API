@@ -1,6 +1,7 @@
 package fr.badblock.gameapi.utils.entities;
 
 import org.bukkit.Location;
+import org.bukkit.entity.Entity;
 
 /**
  * Représentante une créature vivante (monstre, animal ou ambient).<br>
@@ -129,4 +130,10 @@ public interface CustomCreature {
 	 * @param smoking Si l'explosion provoque de la fumée
 	 */
 	public void    explode(Location location, float power, boolean flaming, boolean smoking);
+	
+	/**
+	 * Récupère l'entité Bukkit
+	 * @return L'entité Bukkit
+	 */
+	public Entity  getBukkit();
 }

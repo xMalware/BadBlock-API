@@ -85,6 +85,12 @@ public interface PlayerData {
 	public boolean canUnlockNextLevel(PlayerKit kit);
 
 	/**
+	 * Débloque le niveau suivant du kit. Ne fonctionne pas si {@link #canUnlockNextLevel(PlayerKit)} retourne false.
+	 * @param kit Le kit
+	 */
+	public void unlockNextLevel(PlayerKit kit);
+	
+	/**
 	 * Récupère le nom interne du dernier kit utilisé dans un jeu
 	 * @param game Le nom (interne) du jeu
 	 * @return Le nom interne du kit ou null si aucun
@@ -117,7 +123,7 @@ public interface PlayerData {
 	 * @param gameName Le jeu
 	 * @param stat La statistique
 	 */
-	public void incrementStastic(String gameName, String stat);
+	public void incrementStatistic(String gameName, String stat);
 	
 	/**
 	 * Augment la statistique du joueur

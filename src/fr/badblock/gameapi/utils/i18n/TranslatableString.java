@@ -45,8 +45,15 @@ import lombok.Data;
 	 * @return La ligne
 	 */
 	public String getAsLine(BadblockPlayer player){
-		Locale locale = player.getPlayerData().getLocale();
-		
+		return getAsLine(player.getPlayerData().getLocale());
+	}
+	
+	/**
+	 * Récupère la première ligne du message
+	 * @param player La langue
+	 * @return La ligne
+	 */
+	public String getAsLine(Locale locale){
 		return GameAPI.i18n().get(locale, key, objects)[0];
 	}
 	

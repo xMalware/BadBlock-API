@@ -1,10 +1,11 @@
-package fr.badblock.gameapi.players;
+package fr.badblock.gameapi.players.scoreboard;
 
 import org.bukkit.scoreboard.Scoreboard;
 
 import com.google.gson.JsonArray;
 
 import fr.badblock.gameapi.GameAPI;
+import fr.badblock.gameapi.players.BadblockPlayer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -30,7 +31,13 @@ public interface BadblockScoreboard {
 	public void doBelowNameHealth();
 
 	/**
-	 * Si la méthode est appelée, l'API va rigster des teams (scoreboard) pour gérer l'affichage des teams des joueurs dans la tablist
+	 * Si la méthode est appelée, l'API va register des teams (scoreboard) pour gérer l'affichage des groups des joueurs dans la tablist
+	 * et au dessus des noms du joueur<br>
+	 */
+	public void doGroupsPrefix();
+	
+	/**
+	 * Si la méthode est appelée, l'API va register des teams (scoreboard) pour gérer l'affichage des teams des joueurs dans la tablist
 	 * et au dessus des noms du joueur<br>
 	 * A appelé après avoir register les teams via {@link GameAPI#registerTeams(int, org.bukkit.configuration.ConfigurationSection)} !
 	 */

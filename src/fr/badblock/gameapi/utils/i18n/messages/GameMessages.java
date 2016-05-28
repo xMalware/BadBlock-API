@@ -1,5 +1,7 @@
 package fr.badblock.gameapi.utils.i18n.messages;
 
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 
 import fr.badblock.gameapi.events.fakedeaths.FightingDeathEvent;
@@ -26,12 +28,25 @@ public class GameMessages {
 	/**
 	 * Lorsqu'un un joueur join, récupère le message de join
 	 * @param name Le nom du jeu ou serveur.
+	 * @param player Le nom du joueur
 	 * @param current Le nombre de joueurs connectés
 	 * @param max Le nombre maximum de joueurs connectés.
 	 * @return Le message
 	 */
-	public static TranslatableString joinMessage(String name, int current, int max){
-		return new TranslatableString("game.join", name, current, max);
+	public static TranslatableString joinMessage(String name, String player, int current, int max){
+		return new TranslatableString("game.join", name, player, current, max);
+	}
+	
+	public static TranslatableString startIn(int time, ChatColor color){
+		return new TranslatableString("game.startin.title", time, color.getChar());
+	}
+	
+	public static TranslatableString startInActionBar(int time, ChatColor color){
+		return new TranslatableString("game.startin.actionbar", time, color.getChar());
+	}
+	
+	public static TranslatableString missingPlayersActionBar(int players){
+		return new TranslatableString("game.missingplayers", players);
 	}
 	
 	public static TranslatableString deathEventMessage(NormalDeathEvent e){
@@ -53,5 +68,9 @@ public class GameMessages {
 	 */
 	public static String respawnTitleKey(){
 		return "game.respawnIn-title";
+	}
+	
+	public static TranslatableWord material(Material material, boolean plural, WordDeterminant determinant){
+		return new TranslatableWord("materials." +  material.name().toLowerCase(), plural, determinant);
 	}
 }

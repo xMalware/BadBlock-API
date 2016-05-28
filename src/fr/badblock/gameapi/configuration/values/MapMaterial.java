@@ -1,6 +1,7 @@
 package fr.badblock.gameapi.configuration.values;
 
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
 import lombok.AllArgsConstructor;
@@ -33,6 +34,16 @@ public class MapMaterial implements MapValue<Material> {
 	 */
 	public boolean match(ItemStack item){
 		return item.getType() == getHandle() && item.getDurability() == materialData;
+	}
+	
+	/**
+	 * Vérifie si l'item correspond au Block
+	 * @param block Le block
+	 * @return Si il correspond
+	 */
+	@SuppressWarnings("deprecation")
+	public boolean match(Block item){
+		return item.getType() == getHandle() && item.getData() == materialData;
 	}
 	
 	public Material getHandle(){

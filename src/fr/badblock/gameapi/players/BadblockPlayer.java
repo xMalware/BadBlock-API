@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import org.bukkit.Chunk;
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -14,7 +15,8 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
 import fr.badblock.gameapi.particles.ParticleEffect;
 import fr.badblock.gameapi.players.data.InGameData;
 import fr.badblock.gameapi.players.data.PlayerData;
-import fr.badblock.gameapi.utils.CustomObjective;
+import fr.badblock.gameapi.players.scoreboard.CustomObjective;
+import fr.badblock.gameapi.utils.i18n.TranslatableString;
 import fr.badblock.gameapi.utils.selections.CuboidSelection;
 import lombok.Getter;
 
@@ -112,6 +114,19 @@ public interface BadblockPlayer extends Player {
 	 */
 	public int getPing();
 
+	/**
+	 * Fait jouer un son au joueur avec des paramètres par défaut
+	 * @param sound Le son à jouer
+	 */
+	public void playSound(Sound sound);
+	
+	/**
+	 * Fait jouer un son au joueur avec des paramètres par défaut
+	 * @param location L'origine du son
+	 * @param sound Le son à jouer
+	 */
+	public void playSound(Location location, Sound sound);
+	
 	/**
 	 * Récupère un message traduit dans la langue du joueur
 	 * @param key La key du message
@@ -214,10 +229,24 @@ public interface BadblockPlayer extends Player {
 	public void jailPlayerAt(Location location);
 	
 	/**
+	 * Permet de faire que le joueur ne puisse pas bouger en dehors d'une certaine zone<br>
+	 * Si null, le joueur pourra de nouveau aller partout.
+	 * @param location La position où il doit rester
+	 * @param radius Le rayon autour duquel il peut se déplacer
+	 */
+	public void pseudoJail(Location location, double radius);
+	
+	/**
 	 * Permet de savoir si le joueur a été bloqué avec {@link #jailPlayerAt(Location)}.
 	 * @return Si il est bloqué
 	 */
 	public boolean isJailed();
+	
+	/**
+	 * Permet de vérifier si le joueur est confiné dans une zone
+	 * @return Si il est bloqué
+	 */
+	public boolean isPseudoJailed();
 	
 	/**
 	 * Joue l'animation de l'ouverture ou fermeture d'un coffre au joueur
@@ -305,7 +334,7 @@ public interface BadblockPlayer extends Player {
 	 * Récupère le préfixe (par exemple [Admin]) pour afficher le nom du group du joueur
 	 * @return Le préfixe
 	 */
-	public String getGroupPrefix();
+	public TranslatableString getGroupPrefix();
 	
 	/**
 	 * Récupère le groupe principal du joueur (par exemple admin)

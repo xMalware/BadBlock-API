@@ -8,7 +8,7 @@ import fr.badblock.gameapi.game.GameServer;
 import fr.badblock.gameapi.game.GameServer.WhileRunningConnectionTypes;
 import fr.badblock.gameapi.players.data.InGameData;
 import fr.badblock.gameapi.players.data.PlayerData;
-import fr.badblock.gameapi.utils.CustomObjective;
+import fr.badblock.gameapi.players.scoreboard.CustomObjective;
 
 /**
  * Donne les anciennes données d'un joueur ayant déconnecté après le début de la partie.<br>

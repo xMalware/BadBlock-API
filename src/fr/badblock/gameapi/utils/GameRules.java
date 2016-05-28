@@ -1,6 +1,9 @@
 package fr.badblock.gameapi.utils;
 
 import org.bukkit.Bukkit;
+import org.bukkit.command.CommandMap;
+
+import fr.badblock.gameapi.utils.reflection.Reflector;
 
 /**
  * Représentation des différentes GameRules par défaut de MineCraft, afin de pouvoir les modifier aisément.<br>
@@ -28,26 +31,51 @@ public enum GameRules {
 	sendCommandFeedback,
 	reducedDebugInfo,
 	spectatorsGenerateChunks;
-	
+
 	/**
 	 * Définit une GameRule. Marche pour toute sauf randomTickSpeed qui nécessite une valeur numérique.
 	 * @param value La valeur
 	 */
 	public void setGameRule(boolean value){
 		if(GameRules.randomTickSpeed == this) return;
-		
+
 		String command = "gamerule " + this.name() + " " + value;
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
+		dispatch(command);
 	}
-	
+
 	/**
 	 * Définit une GameRule. Marche uniquement pour randomTickSpeed qui nécessite une valeur numérique.
 	 * @param value La valeur
 	 */
 	public void setGameRule(int value){
 		if(GameRules.randomTickSpeed != this) return;
-		
+
 		String command = "gamerule " + this.name() + " " + value;
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
+		dispatch(command);
+	}
+
+	private void dispatch(String command){
+
+		new Thread(){
+			@Override
+			public void run(){
+				try {
+					CommandMap map = (CommandMap) new Reflector(Bukkit.getServer()).getFieldValue("commandMap");
+
+					while(map.getCommand("gamerule") == null){
+						try {
+							Thread.sleep(20L);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+				} catch (Exception e) { 
+					e.printStackTrace(); 
+				}
+
+				Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
+			}
+		}.start();
+
 	}
 }

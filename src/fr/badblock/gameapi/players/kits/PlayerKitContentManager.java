@@ -17,4 +17,11 @@ public interface PlayerKitContentManager {
 	 * @param player Le joueur
 	 */
 	public void give(JsonObject content, BadblockPlayer player);
+	
+	/**
+	 * Permet de récupère des données depuis l'inventaire d'un joueur
+	 * @param player Le joueur
+	 * @return Les données créées
+	 */
+	public JsonObject createFromInventory(BadblockPlayer player);
 }

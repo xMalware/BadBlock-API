@@ -34,6 +34,13 @@ public interface FakeEntity<T extends WatcherEntity> {
 	public void show(BadblockPlayer player);
 	
 	/**
+	 * Si le joueur voit l'entité
+	 * @param player Le joueur
+	 * @return Si il la voit
+	 */
+	public boolean see(BadblockPlayer player);
+	
+	/**
 	 * Récupère la position du joueur
 	 * @return La position
 	 */
@@ -90,6 +97,12 @@ public interface FakeEntity<T extends WatcherEntity> {
 	 * Supprime l'entité. L'entité pour être respawn. Pour la supprimer de la mémoire utiliser {@link destroy}.
 	 */
 	public void remove();
+	
+	/**
+	 * Supprime l'entité pour un seul joueur.
+	 * @param player Le joueur
+	 */
+	public void remove(BadblockPlayer player);
 	
 	/**
 	 * Supprime l'entité si ce n'est pas fait et la supprime du cache (ne pourra plus être réutilisée).
