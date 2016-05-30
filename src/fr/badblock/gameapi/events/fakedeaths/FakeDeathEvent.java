@@ -1,8 +1,12 @@
 package fr.badblock.gameapi.events.fakedeaths;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bukkit.Location;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
+import org.bukkit.inventory.ItemStack;
 
 import fr.badblock.gameapi.utils.i18n.TranslatableString;
 import lombok.Getter;
@@ -31,5 +35,7 @@ public abstract class FakeDeathEvent extends Event implements Cancellable {
 	@Getter@Setter 
 	private boolean  		   lightning		 = false;
 	@Getter@Setter
-	private boolean			   drop				 = true;
+	private boolean			   keepInventory	 = false;
+	@Getter
+	private List<ItemStack>	   drops			 = new ArrayList<>();
 }

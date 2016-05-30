@@ -14,6 +14,7 @@ import fr.badblock.gameapi.game.result.Result;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 import fr.badblock.gameapi.particles.ParticleEffect;
 import fr.badblock.gameapi.players.scoreboard.CustomObjective;
+import fr.badblock.gameapi.utils.i18n.TranslatableString;
 import fr.badblock.gameapi.utils.selections.CuboidSelection;
 import lombok.Getter;
 
@@ -198,6 +199,13 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 * @param footer Le footer
 	 */
 	public void sendTabHeader(String header, String footer);
+	
+	/**
+	 * Envoit le header et le footer de la tablist au joueur.
+	 * @param header Le header
+	 * @param footer Le footer
+	 */
+	public void sendTranslatedTabHeader(TranslatableString header, TranslatableString footer);
 	
 	/**
 	 * Affiche un texte 'volant' au joueur.

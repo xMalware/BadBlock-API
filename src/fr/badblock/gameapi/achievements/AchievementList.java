@@ -82,7 +82,7 @@ public class AchievementList {
 	
 	private static <T extends PlayerAchievement> T addAchievement(String game, T achievement){
 		if(!achievements.containsKey(game))
-			achievements.put(game, Maps.newConcurrentMap());
+			achievements.put(game, Maps.newLinkedHashMap());
 		
 		achievements.get(game).put(achievement.getName(), achievement);
 		
