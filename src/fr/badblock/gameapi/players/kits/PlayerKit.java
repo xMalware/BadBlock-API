@@ -1,7 +1,7 @@
 package fr.badblock.gameapi.players.kits;
 
+import fr.badblock.gameapi.achievements.PlayerAchievement;
 import fr.badblock.gameapi.players.BadblockPlayer;
-import fr.badblock.gameapi.players.PlayerAchievement;
 import fr.badblock.gameapi.utils.itemstack.ItemStackExtra;
 
 /**

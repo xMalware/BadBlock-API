@@ -8,7 +8,6 @@ import lombok.Getter;
  */
 @Getter public enum GameState {
 	WAITING(1),
-	WAITING_FULL(1),
 	RUNNING(2),
 	FINISHED(3),
 	STOPPING(4);

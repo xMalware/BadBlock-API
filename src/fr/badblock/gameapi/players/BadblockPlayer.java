@@ -13,10 +13,7 @@ import fr.badblock.gameapi.GameAPI;
 import fr.badblock.gameapi.game.result.Result;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 import fr.badblock.gameapi.particles.ParticleEffect;
-import fr.badblock.gameapi.players.data.InGameData;
-import fr.badblock.gameapi.players.data.PlayerData;
 import fr.badblock.gameapi.players.scoreboard.CustomObjective;
-import fr.badblock.gameapi.utils.i18n.TranslatableString;
 import fr.badblock.gameapi.utils.selections.CuboidSelection;
 import lombok.Getter;
 
@@ -26,7 +23,7 @@ import lombok.Getter;
  * 
  * @author LeLanN
  */
-public interface BadblockPlayer extends Player {
+public interface BadblockPlayer extends Player, BadblockPlayerData {
 	/**
 	 * Vérifie si le joueur est invulnérable (si il ne peut pas prendre de dégats).
 	 * @return Si le joueur est invulnérable
@@ -310,31 +307,11 @@ public interface BadblockPlayer extends Player {
 	public void showCustomObjective(CustomObjective objective);
 	
 	/**
-	 * Récupère les données du joueur
-	 * @return Les données
-	 */
-	public PlayerData getPlayerData();
-	
-	/**
-	 * Récupère les données ingame du joueur. Attention, la classe fournie doit avoir un constructeur sans arguments.
-	 * 
-	 * @param clazz La classe implémentant InGameData
-	 * @return Les données joueurs (ou null si la classe donnée n'est pas correcte)
-	 */
-	public <T extends InGameData> T inGameData(Class<T> clazz);
-	
-	/**
 	 * Vérifie si le joueur a une des permissions basiques des mini-jeux.
 	 * @param permission La permission
 	 * @return Si le joueur a la permission
 	 */
 	public boolean hasPermission(GamePermission permission);
-	
-	/**
-	 * Récupère le préfixe (par exemple [Admin]) pour afficher le nom du group du joueur
-	 * @return Le préfixe
-	 */
-	public TranslatableString getGroupPrefix();
 	
 	/**
 	 * Récupère le groupe principal du joueur (par exemple admin)
@@ -385,16 +362,15 @@ public interface BadblockPlayer extends Player {
 	public void sendPlayer(String server);
 	
 	/**
-	 * Récupère la team du joueur
-	 * @return La team
-	 */
-	public BadblockTeam getTeam();
-	
-	/**
 	 * Upload un résultat de partie pour le joueur. Le joueur en sera notifié.
 	 * @param result Le résultat
 	 */
 	public void postResult(Result result);
+	
+	/**
+	 * Sauvegarde (envoit à Ladder) les données joueurs
+	 */
+	public void saveGameData();
 	
 	/**
 	 * Représente les permissions basiques des MiniJeux, pour une gestion plus simple.

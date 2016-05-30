@@ -1,6 +1,6 @@
 package fr.badblock.gameapi.players.data;
 
-import fr.badblock.gameapi.players.PlayerAchievement;
+import fr.badblock.gameapi.achievements.PlayerAchievement;
 import fr.badblock.gameapi.players.kits.PlayerKit;
 import fr.badblock.gameapi.utils.i18n.Locale;
 
@@ -65,7 +65,7 @@ public interface PlayerData {
 	
 	/**
 	 * Récupère l'avancement du joueur dans un achievement
-	 * @param achievement L'achievement en question, récupérable avec {@link fr.badblock.gameapi.GameAPI}
+	 * @param achievement L'achievement en question
 	 * @return L'avancement du joueur (si pas d'avancement, un nouveau sera créé)
 	 */
 	public PlayerAchievementState getAchievementState(PlayerAchievement achievement);

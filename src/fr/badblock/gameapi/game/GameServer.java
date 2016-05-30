@@ -1,6 +1,9 @@
 package fr.badblock.gameapi.game;
 
+import java.util.Collection;
+
 import fr.badblock.gameapi.events.api.PlayerReconnectionPropositionEvent;
+import fr.badblock.gameapi.players.BadblockPlayerData;
 import fr.badblock.gameapi.players.BadblockTeam;
 
 /**
@@ -19,6 +22,12 @@ public interface GameServer {
 	 * @return gameState Le statut
 	 */
 	public GameState getGameState();
+	
+	/**
+	 * Récupère la date/heure de début du jeu (GameState = RUNNING)
+	 * @return La date/heure
+	 */
+	public String getGameBegin();
 	
 	/**
 	 * Définit le nombre max de joueurs
@@ -49,6 +58,23 @@ public interface GameServer {
 	 * @param team La team
 	 */
 	public void cancelReconnectionInvitations(BadblockTeam team);
+	
+	/**
+	 * Sauvegarde les teams/joueurs pour pouvoir les récupérer pour le résultat final
+	 */
+	public void saveTeamsAndPlayersForResult();
+	
+	/**
+	 * Récupère les teams sauvegardés avec {@link #saveTeamsAndPlayersForResult()}
+	 * @return Une liste des toutes les teams
+	 */
+	public Collection<BadblockTeam> getSavedTeams();
+	
+	/**
+	 * Récupère les joueurs sauvegardés avec {@link #saveTeamsAndPlayersForResult()}
+	 * @return Une liste des tous les joueurs
+	 */
+	public Collection<BadblockPlayerData> getSavedPlayers();
 	
 	/**
 	 * Représente les différents types de reconnection

@@ -10,8 +10,6 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
 import com.google.common.base.Charsets;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonIOException;
@@ -20,15 +18,9 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 
-public class JsonUtils {
-	private static Gson gson = new GsonBuilder().setPrettyPrinting()
-			.disableHtmlEscaping()
-			.create();
+import fr.badblock.gameapi.GameAPI;
 
-	public static Gson getGson() {
-		return gson;
-	}
-	
+public class JsonUtils {
 	public static JsonArray loadArray(File file){
 		if(!file.exists() || file.length() == 0){
 			save(file, "[]");
@@ -74,7 +66,7 @@ public class JsonUtils {
 			if(!file.exists())
 				save(file, "{}");
 			
-			return gson.fromJson(getInputStream(file), clazz);
+			return GameAPI.getGson().fromJson(getInputStream(file), clazz);
 		} catch (JsonSyntaxException | JsonIOException | UnsupportedEncodingException e) {
 			e.printStackTrace();
 			return null;
@@ -84,16 +76,16 @@ public class JsonUtils {
 	}
 
 	public static <T> T convert(JsonElement element, Class<T> clazz){
-		return gson.fromJson(element, clazz);
+		return GameAPI.getGson().fromJson(element, clazz);
 	}
 
 	public static void save(File file, Object object, boolean indented){
-		JsonElement element = gson.toJsonTree(object);
+		JsonElement element = GameAPI.getGson().toJsonTree(object);
 		save(file, element, indented);
 	}
 
 	public static void save(File file, JsonElement element, boolean indented){
-		String toSave = !indented ? element.toString() : gson.toJson(element);;
+		String toSave = !indented ? GameAPI.getGson().toJson(element) : GameAPI.getPrettyGson().toJson(element);;
 		save(file, toSave);
 	}
 

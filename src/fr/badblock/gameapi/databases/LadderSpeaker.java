@@ -63,6 +63,13 @@ public interface LadderSpeaker {
 	 */
 	public void keepAlive(GameState state, int current, int max);
 	
+	/**
+	 * Envoit une demande de nombre de joueurs
+	 * @param servers Les serveurs (* = tous)
+	 * @param count Les joueurs
+	 */
+	public void sendPing(String[] servers, Callback<Integer> count);
+	
 	/***
 	 * Envoit une proposition (ou annulation) pour revenir à la partie
 	 * @param uniqueId Le joueur

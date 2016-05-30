@@ -1,6 +1,7 @@
 package fr.badblock.gameapi.players;
 
 import java.util.Collection;
+import java.util.UUID;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Color;
@@ -83,7 +84,19 @@ public interface BadblockTeam {
 	 * Récupère les noms des joueurs de la team étant connectés
 	 * @return Une collection
 	 */
-	public Collection<String> getAllPlayers();
+	public Collection<String> getOnlinePlayersName();
+	
+	/**
+	 * Récupère les joueurs présent lors du démarrage
+	 * @return Les joueurs
+	 */
+	public Collection<UUID> getPlayersAtStart();
+	
+	/**
+	 * Récupère les joueurs présent lors du démarrage
+	 * @return Les joueurs
+	 */
+	public Collection<String> getPlayersNameAtStart();
 	
 	/**
 	 * Permet à un BadblockPlayer de rejoindre la team.

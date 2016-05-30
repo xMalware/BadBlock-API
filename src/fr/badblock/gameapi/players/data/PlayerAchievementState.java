@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import fr.badblock.gameapi.achievements.PlayerAchievement;
+import fr.badblock.gameapi.players.BadblockPlayer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -26,6 +28,8 @@ public class PlayerAchievementState {
 	 * Change l'achievement en 'réussi'. Sauvegarde la date de réussite et réinitialisera l'avancée.
 	 */
 	public void succeed(){
+		if(succeeds) return;
+		
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		
 		this.succeeds 	  = true;
@@ -38,6 +42,18 @@ public class PlayerAchievementState {
 	 * @param progression Les 'points' de progression a ajouter.
 	 */
 	public void progress(double progression){
-		this.progress += progression;
+		if(!succeeds)
+			this.progress += progression;
+	}
+	
+	/**
+	 * Essaye de terminer l'achievement (si il est complet)
+	 * @param achievement L'achievement
+	 */
+	public void trySucceed(BadblockPlayer player, PlayerAchievement achievement){
+		if(!succeeds && progress >= achievement.getNeededValue()){
+			succeed();
+			achievement.reward(player);
+		}
 	}
 }

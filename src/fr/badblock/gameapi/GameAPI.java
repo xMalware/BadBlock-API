@@ -1,6 +1,7 @@
 package fr.badblock.gameapi;
 
 import java.io.File;
+import java.lang.reflect.Modifier;
 import java.util.Collection;
 import java.util.Map;
 import java.util.UUID;
@@ -13,10 +14,13 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 
 import fr.badblock.gameapi.configuration.BadConfiguration;
 import fr.badblock.gameapi.databases.LadderSpeaker;
+import fr.badblock.gameapi.databases.SQLDatabase;
 import fr.badblock.gameapi.fakeentities.FakeEntity;
 import fr.badblock.gameapi.game.GameServer;
 import fr.badblock.gameapi.packets.BadblockInPacket;
@@ -30,7 +34,6 @@ import fr.badblock.gameapi.particles.ParticleEffectType;
 import fr.badblock.gameapi.players.BadblockOfflinePlayer;
 import fr.badblock.gameapi.players.BadblockPlayer;
 import fr.badblock.gameapi.players.BadblockTeam;
-import fr.badblock.gameapi.players.PlayerAchievement;
 import fr.badblock.gameapi.players.kits.PlayerKit;
 import fr.badblock.gameapi.players.kits.PlayerKitContentManager;
 import fr.badblock.gameapi.players.scoreboard.BadblockScoreboard;
@@ -41,7 +44,6 @@ import fr.badblock.gameapi.technologies.RabbitSpeaker;
 import fr.badblock.gameapi.utils.entities.CustomCreature;
 import fr.badblock.gameapi.utils.i18n.I18n;
 import fr.badblock.gameapi.utils.itemstack.CustomInventory;
-import fr.badblock.gameapi.utils.itemstack.DefaultItems;
 import fr.badblock.gameapi.utils.itemstack.ItemStackExtra;
 import fr.badblock.gameapi.utils.itemstack.ItemStackFactory;
 import fr.badblock.gameapi.utils.merchants.CustomMerchantInventory;
@@ -67,6 +69,11 @@ public abstract class GameAPI extends JavaPlugin {
 	@Getter 	   protected static GameAPI API;
 	@Getter@Setter protected static String	gameName;
 	@Getter@Setter protected static String  internalGameName;
+	@Getter		   protected static Gson	gson 			  = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT)
+																				 .disableHtmlEscaping().create();
+	@Getter		   protected static Gson	prettyGson 		  = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT)
+																				 .disableHtmlEscaping()
+																				 .setPrettyPrinting().create();
 
 	/**
 	 * Log un message 'normal' (plus rapide que de récupérrer le logger)
@@ -121,6 +128,12 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract GameServer getGameServer();
 	
 	/**
+	 * Récupère la base de donnée SQl
+	 * @return La base de donnée
+	 */
+	public abstract SQLDatabase getSqlDatabase();
+	
+	/**
 	 * Récupère la classe permettant de communiquer avec Ladder
 	 * @return La classe permettant de communiquer avec Ladder
 	 */
@@ -144,6 +157,11 @@ public abstract class GameAPI extends JavaPlugin {
 	 * @return La classe
 	 */
 	public abstract MapProtector getMapProtector();
+	
+	/**
+	 * Active l'anti-spawnkill
+	 */
+	public abstract void enableAntiSpawnKill();
 	
 	/**
 	 * Crée une nouvelle factory d'items
@@ -246,25 +264,6 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract BadblockOfflinePlayer getOfflinePlayer(UUID uniqueId);
 	
 	/**
-	 * Récupère les jeux enregistrés possédant des achievements
-	 * @return
-	 */
-	public abstract Collection<String> getAchievementsGames();
-	
-	/**
-	 * Récupère les différents achievements (chargés) d'un jeu
-	 * @return Une collection d'achievements (si aucun, simplement vide).
-	 */
-	public abstract Collection<PlayerAchievement> getAchievements(String game);
-	
-	/**
-	 * Récupère un achievement via son non interne.
-	 * @param key Le nom interne
-	 * @return L'achievement (ou null si inexistant)
-	 */
-	public abstract PlayerAchievement getAchievement(String key);
-	
-	/**
 	 * Créé un nouveau objective custom
 	 * @param name Le nom (interne) de l'objective
 	 * @return Le CustomObjective créé.
@@ -343,8 +342,6 @@ public abstract class GameAPI extends JavaPlugin {
 	
 	public abstract CustomMerchantInventory getCustomMerchantInventory();
 	
-	public abstract DefaultItems getDefaultItems();
-
 	/*
 	 * TODO IN IMPLEMENTATION :
 	 * - register packets
