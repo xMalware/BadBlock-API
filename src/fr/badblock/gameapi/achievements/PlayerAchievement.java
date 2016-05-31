@@ -35,7 +35,7 @@ public class PlayerAchievement {
 		return new TranslatableString("achievements." + name + ".displayname");
 	}
 	
-	public TranslatableString getDescription(){
-		return new TranslatableString("achievements." + name + ".description");
+	public TranslatableString getDescription(int progress){
+		return new TranslatableString("achievements." + name + ".description", neededValue, progress, xpReward, coinsReward);
 	}
 }

@@ -7,6 +7,7 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
 import fr.badblock.gameapi.utils.i18n.Locale;
+import fr.badblock.gameapi.utils.i18n.TranslatableString;
 
 /**
  * Classe permettant de créer un item stack complexe de manière beaucoup plus simple.<br>
@@ -37,11 +38,26 @@ public interface ItemStackFactory {
 	public ItemStackFactory lore(String... lore);
 	
 	/**
+	 * Permet de changer la description du futur item. Les codes couleurs seront remplacée automatiquement.
+	 * @param lore La liste de description
+	 * @return La factory
+	 */
+	public ItemStackFactory lore(TranslatableString lore);
+
+	
+	/**
 	 * Permet de changer le displayname du futur item. Les codes couleurs seront remplacée automatiquement.
 	 * @param displayName Le displayName à mettre à l'item
 	 * @return La factory
 	 */
 	public ItemStackFactory displayName(String displayName);
+	
+	/**
+	 * Permet de changer le displayname du futur item. Les codes couleurs seront remplacée automatiquement.
+	 * @param displayName Le displayName à mettre à l'item
+	 * @return La factory
+	 */
+	public ItemStackFactory displayName(TranslatableString displayName);
 	
 	/**
 	 * Change la durabilité (ou le data, c'est équivalent) du futur item.
