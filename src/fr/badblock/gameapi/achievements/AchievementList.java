@@ -87,6 +87,11 @@ public class AchievementList {
 	 */
 	public static final PlayerAchievement RUSH_EXPLODER = addAchievement("rush", new PlayerAchievement("rush_exploder", 150, 75, 3, true));
 
+	/**
+	 * Exploser 3 lits dans une même partie
+	 */
+	public static final PlayerAchievement RUSH_ALLKITS = addAchievement("rush", new PlayerAchievement("rush_allkits", 300, 150, 3, true));
+
 	
 	private static <T extends PlayerAchievement> T addAchievement(String game, T achievement){
 		if(!achievements.containsKey(game))

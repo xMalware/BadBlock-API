@@ -36,6 +36,12 @@ public interface BadblockPlayerData {
 	public TranslatableString getGroupPrefix();
 	
 	/**
+	 * Récupère le préfixe (par exemple [Admin]) pour afficher le nom du group du joueur en tablist
+	 * @return Le préfixe
+	 */
+	public TranslatableString getTabGroupPrefix();
+	
+	/**
 	 * Récupère les données ingame du joueur, avant sa déconnection. Attention, la classe fournie doit avoir un constructeur sans arguments.
 	 * 
 	 * @param clazz La classe implémentant InGameData

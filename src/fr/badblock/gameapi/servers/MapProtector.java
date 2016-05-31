@@ -2,6 +2,7 @@ package fr.badblock.gameapi.servers;
 
 import org.bukkit.Location;
 import org.bukkit.block.Block;
+import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;
 import org.bukkit.event.block.Action;
@@ -43,6 +44,8 @@ public interface MapProtector {
 	public boolean canInteract(BadblockPlayer player, Action action, Block block);
 	
 	public boolean canInteractEntity(BadblockPlayer player, Entity entity);
+	
+	public boolean canInteractArmorStand(BadblockPlayer player, ArmorStand entity);
 	
 	public boolean canEnchant(BadblockPlayer player, Block table);
 	

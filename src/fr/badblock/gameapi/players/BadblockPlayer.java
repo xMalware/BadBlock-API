@@ -186,6 +186,11 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	public void sendTranslatedTitle(String key, Object...args);
 	
 	/**
+	 * Enlève le title de l'écran du joueur
+	 */
+	public void clearTitle();
+	
+	/**
 	 * Envoit les timings (du title/action bar) au joueur
 	 * @param fadeIn Le temps que le message met à s'afficher
 	 * @param stay Le temps où le message reste

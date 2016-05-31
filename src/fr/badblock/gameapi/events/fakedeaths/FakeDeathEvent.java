@@ -32,6 +32,8 @@ public abstract class FakeDeathEvent extends Event implements Cancellable {
 	private TranslatableString deathMessageEnd 	 = null;
 	@Getter@Setter@NonNull 
 	private Location 		   respawnPlace	     = null;
+	@Getter@Setter@NonNull 
+	private Location 		   whileRespawnPlace = null;
 	@Getter@Setter 
 	private boolean  		   lightning		 = false;
 	@Getter@Setter

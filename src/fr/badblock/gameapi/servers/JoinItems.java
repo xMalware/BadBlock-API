@@ -32,6 +32,12 @@ public interface JoinItems {
 	public void registerVoteItem(int slot);
 	
 	/**
+	 * Demande à l'API de gérer l'item permettant de voir les achievements
+	 * @param slot Le slot
+	 */
+	public void registerAchievementsItem(int slot, String game);
+	
+	/**
 	 * Demande à l'API de gérer l'item pour quitter la partie
 	 * @param slot Le slot
 	 * @param fallbackServer Le serveur sur lequel téléporter le joueur
