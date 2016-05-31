@@ -22,6 +22,13 @@ public interface ItemStackExtra {
 	 * @return L'item extra
 	 */
 	public ItemStackExtra disallow(ItemAction... action);
+	
+	/**
+	 * Si l'item peut drop lorsque le joueur mort
+	 * @param can Si il peut
+	 * @return L'item extra
+	 */
+	public ItemStackExtra allowDropOnDeath(boolean can);
 
 	
 	/**

@@ -204,6 +204,12 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract void setKitContentManager(PlayerKitContentManager manager);
 
 	/**
+	 * Redéfinit le manager de kit par défaut, où changer la paramètre allowDrop (de base à true)
+	 * @param allowDrop Si les items du kit peuvent être drop par le joueur ou à la mort
+	 */
+	public abstract void setDefaultKitContentManager(boolean allowDrop);
+	
+	/**
 	 * Récupère une liste de kit via un nom de jeu
 	 * @param game Le nom du jeu
 	 * @return Les kits, en fonction de leur nom interne
@@ -215,6 +221,13 @@ public abstract class GameAPI extends JavaPlugin {
 	 * @return L'instance
 	 */
 	public abstract JoinItems getJoinItems();
+	
+	/**
+	 * Active le formattage du chat par l'API
+	 * @param format Si le formattage est activé
+	 * @param doTeamChat Si (lorsque formattage activé) le les messages précédés de $ sont pour la team
+	 */
+	public abstract void formatChat(boolean format, boolean doTeamChat);
 	
 	/**
 	 * Register les teams (ne peut être appelé qu'une fois !) à partir d'une configuration.
