@@ -230,6 +230,14 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract void formatChat(boolean format, boolean doTeamChat);
 	
 	/**
+	 * Active le formattage du chat par l'API
+	 * @param format Si le formattage est activé
+	 * @param doTeamChat Si (lorsque formattage activé) le les messages précédés de $ sont pour la team
+	 * @param custom Si le chat est différent d'autres serveurs, le nom custom
+	 */
+	public abstract void formatChat(boolean format, boolean doTeamChat, String custom);
+	
+	/**
 	 * Register les teams (ne peut être appelé qu'une fois !) à partir d'une configuration.
 	 * @param maxPlayers Le nombre maximum de joueurs par teams.
 	 * @param clazz La classe représentant les données in-game d'une team.
