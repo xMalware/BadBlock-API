@@ -10,6 +10,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
 import fr.badblock.gameapi.GameAPI;
+import fr.badblock.gameapi.disguise.Disguise;
 import fr.badblock.gameapi.game.result.Result;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 import fr.badblock.gameapi.particles.ParticleEffect;
@@ -385,6 +386,12 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 */
 	public void saveGameData();
 	
+	public void disguise(Disguise disguise);
+	
+	public boolean isDisguised();
+	
+	public void undisguise();
+	
 	/**
 	 * Représente les permissions basiques des MiniJeux, pour une gestion plus simple.
 	 * @author LeLanN
@@ -393,6 +400,7 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 		PLAYER(null),
 		VIP("badblock.vip"),
 		MODERATOR("badblock.modo"),
+		BMODERATOR("badblock.modo+"),
 		ADMIN("badblock.admin");
 		
 		@Getter private final String permission;

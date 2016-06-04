@@ -6,6 +6,7 @@ import com.google.gson.JsonArray;
 
 import fr.badblock.gameapi.GameAPI;
 import fr.badblock.gameapi.players.BadblockPlayer;
+import fr.badblock.gameapi.utils.i18n.TranslatableString;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -72,6 +73,13 @@ public interface BadblockScoreboard {
 	 * @return Le nombre de votes
 	 */
 	public int getVotesForWinner();
+	
+	/**
+	 * Récupère le nom d'affichage utilisé pour le joueur
+	 * @param player Le joueur
+	 * @return Le nom, ou null si aucun
+	 */
+	public TranslatableString getUsedName(BadblockPlayer player);
 	
 	/**
 	 * Représente un élément du vote

@@ -35,7 +35,7 @@ public abstract class AbstractSelection {
 	 */
 	public boolean isInSelection(Location loc){
 		return loc.getWorld().getName().equalsIgnoreCase(worldName) 
-				&& isInSelection(new Vector3f(loc));
+				&& isInSelection(new Vector3f(loc.getBlockX(), loc.getBlockY(), loc.getBlockZ()));
 	}
 	
 	/**

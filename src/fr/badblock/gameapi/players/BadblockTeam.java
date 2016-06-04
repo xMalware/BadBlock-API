@@ -69,6 +69,12 @@ public interface BadblockTeam {
 	public int getMaxPlayers();
 	
 	/**
+	 * Définit le nombre maximum de joueurs dans la team.
+	 * @param maxPlayers Le nombre maximum.
+	 */
+	public void setMaxPlayers(int maxPlayers);
+	
+	/**
 	 * Récupère le nombre de joueurs dans la team connectés sur le serveur.
 	 * @return Le nombre de joueurs.
 	 */

@@ -9,6 +9,7 @@ import java.util.logging.Level;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
@@ -38,6 +39,7 @@ import fr.badblock.gameapi.players.kits.PlayerKit;
 import fr.badblock.gameapi.players.kits.PlayerKitContentManager;
 import fr.badblock.gameapi.players.scoreboard.BadblockScoreboard;
 import fr.badblock.gameapi.players.scoreboard.CustomObjective;
+import fr.badblock.gameapi.portal.Portal;
 import fr.badblock.gameapi.servers.JoinItems;
 import fr.badblock.gameapi.servers.MapProtector;
 import fr.badblock.gameapi.technologies.RabbitSpeaker;
@@ -332,6 +334,15 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract <T extends WatcherEntity> FakeEntity<T> spawnFakeLivingEntity(Location location, EntityType type, Class<T> clazz);
 	
 	/**
+	 * Spawn un faux falling block
+	 * @param location La position
+	 * @param type Le type de falling block
+	 * @param data Le 'data'
+	 * @return L'entité
+	 */
+	public abstract FakeEntity<WatcherEntity> spawnFakeFallingBlock(Location location, Material type, byte data);
+	
+	/**
 	 * Fait spawn une fausse armor stand
 	 * @param location Sa position
 	 * @return
@@ -359,16 +370,80 @@ public abstract class GameAPI extends JavaPlugin {
 	 */
 	public abstract BadConfiguration loadConfiguration(JsonObject content);
 
+	/**
+	 * Manage les portails, en les chargeants / sauvegardants avec le dossier donné
+	 * @param folder Le dossier
+	 */
+	public abstract void managePortals(File folder);
+	
+	/**
+	 * Récupère la liste des portails chargés
+	 * @return La liste des portails
+	 */
+	public abstract Collection<Portal> getLoadedPortals();
+	
+	/**
+	 * Récupère un portail par son nom
+	 * @param name Le nom
+	 * @return Le portail
+	 */
+	public abstract Portal getPortal(String name);
+	
+	/**
+	 * Récupère un portail par une location
+	 * @param location La location
+	 * @return Le portail
+	 */
+	public abstract Portal getPortal(Location location);
+
+	/**
+	 * Fait spawn une entité custom
+	 * @param location La position de l'entité
+	 * @param type Le type de l'entité
+	 * @return L'entité
+	 */
 	public abstract CustomCreature spawnCustomEntity(Location location, EntityType type);
 	
-	public abstract CustomMerchantInventory getCustomMerchantInventory();
-	
-	/*
-	 * TODO IN IMPLEMENTATION :
-	 * - register packets
-	 * - register entities
-	 * - register potions
-	 * - load i18n
-	 * - create itemstackfactory
+	/**
+	 * Créé un inventaire de marchant custom
+	 * @return Le marchant
 	 */
+	public abstract CustomMerchantInventory getCustomMerchantInventory();
+
+	/**
+	 * Récupère les joueurs dans la whitelist
+	 * @return Les joueurs
+	 */
+	public abstract Collection<String> getWhitelistedPlayers();
+	
+	/**
+	 * Met temporairement (jusqu'au redémarrage) un joueur dans la whitelist
+	 * @param player Le joueur
+	 */
+	public abstract void whitelistPlayer(String player);
+
+	/**
+	 * Enlève un joueur temporairement (jusqu'au redémarrage) de la whitelist
+	 * @param player Le joueur
+	 */
+	public abstract void unwhitelistPlayer(String player);
+	
+	/**
+	 * Vérifie si le joueur est whitelisté
+	 * @param player Le joueur
+	 * @return Si il est whitelisté
+	 */
+	public abstract boolean isWhitelisted(String player);
+	
+	/**
+	 * Récupère si la whitelist est on ou non
+	 * @return Le statut
+	 */
+	public abstract boolean getWhitelistStatus();
+
+	/**
+	 * Définit si la whitelist est on ou non
+	 * @param on Si elle est on
+	 */
+	public abstract void setWhitelistStatus(boolean on);
 }
