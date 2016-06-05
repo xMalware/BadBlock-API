@@ -1,6 +1,7 @@
 package fr.badblock.gameapi.configuration;
 
 import java.io.File;
+import java.util.Collection;
 import java.util.List;
 
 import com.google.gson.JsonObject;
@@ -59,7 +60,7 @@ public interface BadConfiguration {
 	 * @param key La clé de la liste
 	 * @param value La liste de valeurs
 	 */
-	public <T extends MapValue<?>> void setValueList(String key, List<T> value);
+	public <T extends MapValue<?>> void setValueList(String key, Collection<T> value);
 	
 	/**
 	 * Récupère une sous-section à la configuration

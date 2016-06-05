@@ -371,6 +371,13 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract BadConfiguration loadConfiguration(JsonObject content);
 
 	/**
+	 * Manage les shops, en les chargeants / sauvegardants avec le dossier donné
+	 * @param folder Le dossier
+	 */
+	public abstract void manageShops(File folder);
+
+	
+	/**
 	 * Manage les portails, en les chargeants / sauvegardants avec le dossier donné
 	 * @param folder Le dossier
 	 */

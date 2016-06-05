@@ -26,6 +26,12 @@ public class CuboidSelection extends AbstractSelection {
 		this.secondBound = secondBound;
 	}
 	
+	public CuboidSelection(Location firstBound, Location secondBound){
+		super(firstBound.getWorld().getName());
+		this.firstBound  = new Vector3f(firstBound);
+		this.secondBound = new Vector3f(secondBound);
+	}
+	
 	@Override
 	public boolean isInSelection(Vector3f loc) {
 		return loc.getX() >= getMinX()
