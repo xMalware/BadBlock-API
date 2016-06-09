@@ -140,7 +140,7 @@ public interface PlayerData {
 	 * @param clazz La classe
 	 * @return Le PlayerData
 	 */
-	public <T extends PlayerData> T gameData(String key, Class<T> clazz);
+	public <T extends GameData> T gameData(String key, Class<T> clazz);
 	
 	/**
 	 * Renvoit les informations modifiées à Ladder pour qu'elles soient sauvegardées.

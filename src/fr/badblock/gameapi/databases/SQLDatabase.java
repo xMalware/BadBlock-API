@@ -28,7 +28,6 @@ public interface SQLDatabase {
 	 * Envoi une requête de query
 	 * @param request La requête
 	 * @return La réponse
-	 * @deprecated please use request(String, SQLRequestType) instead of that not correctly managed multithreading
 	 */
 	public ResultSet query(String request) throws Exception;
 	
@@ -36,7 +35,6 @@ public interface SQLDatabase {
 	 * Envoi une requête de query
 	 * @param request La requête
 	 * @param callback Le callback pour la réponse
-	 * @deprecated please use request(String, SQLRequestType) instead of that not correctly managed multithreading
 	 */
 	public void queryAsynchronously(String request, Callback<ResultSet> callback);
 	
@@ -44,7 +42,6 @@ public interface SQLDatabase {
 	 * Envoi une requête d'update
 	 * @param request La requ$ete
 	 * @param synchronously Si la requête doit être fait de manière synchrone
-	 * @deprecated please use call(String, SQLRequestType) instead of that not correctly managed multithreading
 	 */
 	public void update(String request, boolean synchronously) throws Exception;
 
