@@ -1,5 +1,7 @@
 package fr.badblock.gameapi.players.data;
 
+import com.google.gson.JsonObject;
+
 import fr.badblock.gameapi.achievements.PlayerAchievement;
 import fr.badblock.gameapi.players.kits.PlayerKit;
 import fr.badblock.gameapi.utils.i18n.Locale;
@@ -144,6 +146,7 @@ public interface PlayerData {
 	
 	/**
 	 * Renvoit les informations modifiées à Ladder pour qu'elles soient sauvegardées.
+	 * @return L'objet
 	 */
-	public void saveData();
+	public JsonObject saveData();
 }
