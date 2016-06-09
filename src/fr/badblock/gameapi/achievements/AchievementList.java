@@ -2,11 +2,14 @@ package fr.badblock.gameapi.achievements;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
+import java.util.Set;
 
 import org.bukkit.Material;
 
 import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 
 import fr.badblock.gameapi.GameAPI;
 import fr.badblock.gameapi.players.BadblockPlayer;
@@ -16,7 +19,7 @@ import fr.badblock.gameapi.utils.itemstack.ItemAction;
 
 public class AchievementList {
 	private static Map<String, Map<String, PlayerAchievement>> achievements = Maps.newConcurrentMap();
-	
+	private static Set<PlayerAchievement>					   all			= Sets.newConcurrentHashSet();
 	/*
 	 * Tuer X personnes
 	 */
@@ -98,8 +101,13 @@ public class AchievementList {
 			achievements.put(game, Maps.newLinkedHashMap());
 		
 		achievements.get(game).put(achievement.getName(), achievement);
+		all.add(achievement);
 		
 		return achievement;
+	}
+	
+	public static Collection<PlayerAchievement> getAllAchievements(){
+		return Collections.unmodifiableCollection(all);
 	}
 	
 	public static PlayerAchievement getGameAchievement(String game, String achievement){
