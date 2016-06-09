@@ -5,6 +5,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 
+import fr.badblock.gameapi.packets.out.play.PlayEntityStatus.EntityStatus;
 import fr.badblock.gameapi.packets.watchers.WatcherEntity;
 import fr.badblock.gameapi.players.BadblockPlayer;
 
@@ -87,6 +88,12 @@ public interface FakeEntity<T extends WatcherEntity> {
 	 * @param itemstack L'item
 	 */
 	public void setEquipment(EquipmentSlot equipmentSlot, ItemStack itemstack);
+	
+	/**
+	 * Donne un statut à l'entité
+	 * @param status Le statut
+	 */
+	public void playStatus(EntityStatus status);
 	
 	/**
 	 * Tue (naturellement) l'entité. Autrement, même effet que remove().
