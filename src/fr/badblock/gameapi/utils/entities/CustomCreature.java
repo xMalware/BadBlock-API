@@ -39,6 +39,8 @@ public interface CustomCreature {
 	 */
 	public boolean isFireProof();
 	
+	public void   setInvisible(boolean invisible);
+	
 	/**
 	 * Défini si la créature est résistante au feu
 	 * @param fireProof Sa résistance (ou non)
