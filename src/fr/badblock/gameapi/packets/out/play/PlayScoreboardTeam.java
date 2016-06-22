@@ -89,4 +89,11 @@ public interface PlayScoreboardTeam extends BadblockOutPacket {
 		hideForOwnTeam,
 		never;
 	}
+	
+	public enum CollisionRule {
+		always,
+		pushOtherTeams,
+		pushOwnTeam,
+		never;
+	}
 }

@@ -1,7 +1,5 @@
 package fr.badblock.gameapi.databases;
 
-import java.util.UUID;
-
 import com.google.gson.JsonObject;
 
 import fr.badblock.gameapi.game.GameState;
@@ -72,10 +70,10 @@ public interface LadderSpeaker {
 	
 	/***
 	 * Envoit une proposition (ou annulation) pour revenir à la partie
-	 * @param uniqueId Le joueur
+	 * @param name Le joueur
 	 * @param invited Si le joueur peut encore venir
 	 */
-	public void sendReconnectionInvitation(UUID uniqueId, boolean invited);
+	public void sendReconnectionInvitation(String name, boolean invited);
 	
 	/**
 	 * Demande les permissions à Ladder.

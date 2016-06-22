@@ -4,7 +4,6 @@ import java.io.File;
 import java.lang.reflect.Modifier;
 import java.util.Collection;
 import java.util.Map;
-import java.util.UUID;
 import java.util.logging.Level;
 
 import org.bukkit.Bukkit;
@@ -281,10 +280,10 @@ public abstract class GameAPI extends JavaPlugin {
 	/**
 	 * Récupère les données d'un joueur ayant déconnecter après le début de la partie, si le jeu a demandé
 	 * la sauvegarde
-	 * @param uniqueId L'UUID du joueur
+	 * @param name Le joueur
 	 * @return Les données joueurs (ou null)
 	 */
-	public abstract BadblockOfflinePlayer getOfflinePlayer(UUID uniqueId);
+	public abstract BadblockOfflinePlayer getOfflinePlayer(String name);
 	
 	/**
 	 * Créé un nouveau objective custom

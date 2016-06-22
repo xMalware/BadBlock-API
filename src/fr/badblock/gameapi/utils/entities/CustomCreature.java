@@ -39,6 +39,10 @@ public interface CustomCreature {
 	 */
 	public boolean isFireProof();
 	
+	/**
+	 * Définit si l'entité est invisible
+	 * @param invisible Si elle est invisible
+	 */
 	public void   setInvisible(boolean invisible);
 	
 	/**

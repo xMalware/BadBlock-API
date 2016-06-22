@@ -95,6 +95,32 @@ public class ItemStackUtils {
 	}
 	
 	/**
+	 * Change le lore d'un item
+	 * @param item L'item à modifier
+	 * @param lore Le lore à mettre
+	 */
+	public static ItemStack changeLore(ItemStack item, String... lore){
+		return changeLore(item, Arrays.asList(lore));
+	}
+	
+	/**
+	 * Change le lore d'un item
+	 * @param item L'item à modifier
+	 * @param lore Le lore à mettre
+	 */
+	public static ItemStack changeLore(ItemStack item, List<String> lore){
+		if(isValid(item)){
+			ItemMeta meta = item.getItemMeta();
+		
+			meta.setLore( lore == null ? null : GameAPI.i18n().replaceColors(lore) );
+		
+			item.setItemMeta(meta);
+		}
+		
+		return item;
+	}
+	
+	/**
 	 * Permet de réparer un ou plusieurs ItemStack
 	 * @param items Les items.
 	 */

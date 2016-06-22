@@ -16,6 +16,7 @@ import lombok.Getter;
  */
 public enum CreatureType {
 	BLAZE("blaze", Reaction.HOSTILE, NaturallySpawnReason.SPAWNER),
+	BAT("bat", Reaction.FRIENDLY, NaturallySpawnReason.NATURAL), //TODO create ambient
 	CAVE_SPIDER("cave_spider", Reaction.HOSTILE, NaturallySpawnReason.SPAWNER),
 	CHICKEN("chicken", Reaction.FRIENDLY, NaturallySpawnReason.NATURAL),
 	COW("cow", Reaction.FRIENDLY, NaturallySpawnReason.NATURAL),
