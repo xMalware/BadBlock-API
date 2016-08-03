@@ -81,8 +81,15 @@ public interface LadderSpeaker {
 	public void askForPermissions();
 	
 	/**
-	 * Execute une commande sur Ladder.
+	 * Execute une commande sur Ladder en tant que console.
 	 * @param command La commande
 	 */
 	public void executeCommand(String command);
+	
+	/**
+	 * Execute une commande sur Ladder en tant que joueur.
+	 * @param player Le joueur
+	 * @param command La commande
+	 */
+	public void executeCommand(BadblockPlayer player, String command);
 }
