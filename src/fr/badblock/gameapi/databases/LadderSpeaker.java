@@ -79,4 +79,10 @@ public interface LadderSpeaker {
 	 * Demande les permissions à Ladder.
 	 */
 	public void askForPermissions();
+	
+	/**
+	 * Execute une commande sur Ladder.
+	 * @param command La commande
+	 */
+	public void executeCommand(String command);
 }
