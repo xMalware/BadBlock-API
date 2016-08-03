@@ -24,11 +24,14 @@ public class Disguise {
 	 * Créé un nouveau déguisement
 	 * @param entityType Le type d'entité
 	 * @param customName Le nom de l'entité (null = aucun)
+	 * @param doWithScoreboard Si le nom de l'entité doit être fait avec le scoreboard
+	 * @param canSeeHimself Si le joueur peut voir le déguisement
 	 */
 	public Disguise(EntityType entityType, TranslatableString customName, boolean doWithScoreboard, boolean canSeeHimself){
 		this.entityType 	  = entityType;
 		this.customName 	  = customName;
 		this.doWithScoreboard = doWithScoreboard;
+		this.canSeeHimself    = canSeeHimself;
 	}
 	
 	/**
