@@ -194,14 +194,37 @@ public interface CustomCreature {
 			regenerateAttributes();
 		}
 	}
+	
+	default void addCreatureFlags(CreatureFlag... flags){
+		for(CreatureFlag flag : flags){
+			addCreatureFlag(flag);
+		}
+	}
 
 	default void removeCreatureFlag(CreatureFlag flag){
 		getFlags().remove(flag);
 		regenerateAttributes();
 	}
+	
+	default void removeCreatureFlags(CreatureFlag... flags){
+		for(CreatureFlag flag : flags){
+			getFlags().remove(flag);
+		}
+		
+		regenerateAttributes();
+	}
 
 	default boolean hasCreatureFlag(CreatureFlag flag){
 		return getFlags().contains(flag);
+	}
+	
+	default boolean hasCreatureFlags(CreatureFlag... flags){
+		for(CreatureFlag flag : flags){
+			if(!hasCreatureFlag(flag))
+				return false;
+		}
+		
+		return true;
 	}
 
 	public List<CreatureFlag> getFlags();
