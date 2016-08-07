@@ -25,27 +25,6 @@ public interface SQLDatabase {
 	public PreparedStatement preparedStatement(String request) throws Exception;
 	
 	/**
-	 * Envoi une requête de query
-	 * @param request La requête
-	 * @return La réponse
-	 */
-	public ResultSet query(String request) throws Exception;
-	
-	/**
-	 * Envoi une requête de query
-	 * @param request La requête
-	 * @param callback Le callback pour la réponse
-	 */
-	public void queryAsynchronously(String request, Callback<ResultSet> callback);
-	
-	/**
-	 * Envoi une requête d'update
-	 * @param request La requ$ete
-	 * @param synchronously Si la requête doit être fait de manière synchrone
-	 */
-	public void update(String request, boolean synchronously) throws Exception;
-
-	/**
 	 * Appeler un gestionnaire Multithreading qui va gérer en asynchrone la requête
 	 * La requête peut être donc traitée de sorte qu'elle ne renvoit aucune information
 	 * ou qu'elle renvoit des données, se référer à {@link fr.badblock.gameapi.databases.SQLRequestType}
