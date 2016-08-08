@@ -148,6 +148,18 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract RabbitSpeaker getRabbitSpeaker();
 	
 	/**
+	 * Récupère le bonus évenementiel en badcoins
+	 * @return Le bonus
+	 */
+	public abstract int getServerBadcoinsBonus();
+	
+	/**
+	 * Récupère le bonus évenementiel en xp
+	 * @return Le bonus
+	 */
+	public abstract int getServerXpBonus();
+	
+	/**
 	 * Change la classe protégeant la map
 	 * @param protector La classe
 	 */
