@@ -1,6 +1,7 @@
 package fr.badblock.gameapi.utils.reflection;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
@@ -92,5 +93,26 @@ public class Reflector {
 		}
 
 		throw new NoSuchFieldException(name);
+	}
+	
+	public Method getDeclaredMethod(String name, Class<?>... args) throws Exception {
+		Method method = null;
+
+		for(Class<?> clazz : this.clazz){
+			try {
+				method = clazz.getDeclaredMethod(name, args);
+				
+				if(!method.isAccessible())
+					method.setAccessible(true);
+				
+				return method; // la method semble trouvé ! :)
+			} catch (NoSuchMethodException e) {
+
+			} catch(SecurityException e){
+				throw new SecurityException(e);
+			}
+		}
+
+		throw new NoSuchMethodException(name);
 	}
 }
