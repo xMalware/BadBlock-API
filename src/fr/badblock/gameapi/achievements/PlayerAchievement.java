@@ -25,8 +25,10 @@ public class PlayerAchievement {
 		int coins = coinsReward * data.getCoinsBonus();
 		int xp    = xpReward    * data.getXpBonus();
 		
-		data.addBadcoins(coins);
-		data.addXp(xp);
+		//TODO apply bonus on achievements reward ?
+		
+		data.addBadcoins(coins, true);
+		data.addXp(xp, true);
 		
 		player.sendTranslatedMessage("achievements.unlocked", getDisplayName(), coins, xp);
 	}
