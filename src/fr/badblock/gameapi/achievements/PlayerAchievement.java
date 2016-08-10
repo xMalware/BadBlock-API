@@ -31,7 +31,7 @@ public class PlayerAchievement {
 		data.addXp(xp, true);
 		
 		player.sendTranslatedMessage("achievements.unlocked", getDisplayName(), coins, xp);
-	}
+	} 
 	
 	public TranslatableString getDisplayName(){
 		return new TranslatableString("achievements." + name + ".displayname");
