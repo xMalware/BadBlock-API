@@ -106,7 +106,7 @@ public class CreatureUtils {
 	public static CustomCreature getAsCustom(Entity entity){
 		Object handler = ReflectionUtils.getHandle(entity);
 		
-		System.out.println(handler);
+		//System.out.println(handler);
 		
 		if(handler instanceof CustomCreature)
 			return (CustomCreature) handler;
