@@ -20,9 +20,10 @@ public interface PlayerData {
 	/**
 	 * Ajoute des BadCoins au joueur
 	 * @param badcoins Une valeur POSITIVE
-	 * @return Le nombre de badcoins après application du bonus serveur (et non joueur)
+	 * @param applyBonus Si il faut appliquer les bonus joueur/serveur
+	 * @return Le nombre de badcoins donnés
 	 */
-	public int addBadcoins(int badcoins);
+	public int addBadcoins(int badcoins, boolean applyBonus);
 	
 	/**
 	 * Supprime des BadCoins au joueur
@@ -51,9 +52,10 @@ public interface PlayerData {
 	/**
 	 * Ajoute de l'XP au joueur
 	 * @param xp L'XP à ajouter
-	 * @return Le nombre d'xp après application du bonus serveur (et non joueur)
+	 * @param applyBonus Si il faut appliquer les bonus joueur/serveur
+	 * @return Le nombre d'xp donné
 	 */
-	public long addXp(long xp);
+	public long addXp(long xp, boolean applyBonus);
 	
 	/**
 	 * Récupère le bonus en coins (achetable ou durant un évènement) du joueur.
