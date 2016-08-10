@@ -39,6 +39,7 @@ import fr.badblock.gameapi.players.kits.PlayerKitContentManager;
 import fr.badblock.gameapi.players.scoreboard.BadblockScoreboard;
 import fr.badblock.gameapi.players.scoreboard.CustomObjective;
 import fr.badblock.gameapi.portal.Portal;
+import fr.badblock.gameapi.run.RunType;
 import fr.badblock.gameapi.servers.JoinItems;
 import fr.badblock.gameapi.servers.MapProtector;
 import fr.badblock.gameapi.technologies.RabbitSpeaker;
@@ -127,6 +128,12 @@ public abstract class GameAPI extends JavaPlugin {
 	 * @return Le système de gestion des statuts
 	 */
 	public abstract GameServer getGameServer();
+	
+	/**
+	 * Récupère le type de partie
+	 * @return Le type
+	 */
+	public abstract RunType getRunType();
 	
 	/**
 	 * Récupère la base de donnée SQl
