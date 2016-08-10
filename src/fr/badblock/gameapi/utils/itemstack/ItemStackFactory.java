@@ -116,4 +116,10 @@ public interface ItemStackFactory {
 	 * @param locale La langue utilisée
 	 */
 	public ItemStackFactory doWithI18n(Locale locale);
+	
+	/**
+	 * Retourne une nouvelle factory avec les mêmes paramètres
+	 * @return Une nouvelle factory
+	 */
+	public ItemStackFactory clone();
 }
