@@ -37,6 +37,13 @@ public class Reflector {
 	}
 
 	private void addSuper(Class<?> clazz, List<Class<?>> allClass){
+		for(Class<?> inter : clazz.getInterfaces()){
+			allClass.add(inter);
+			
+			if(inter.getSuperclass() != null)
+				addSuper(inter.getSuperclass(), allClass);
+		}
+		
 		if(!clazz.getSuperclass().equals(Object.class)){
 			allClass.add(clazz.getSuperclass());
 			addSuper(clazz.getSuperclass(), allClass);
