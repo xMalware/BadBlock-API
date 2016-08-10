@@ -85,7 +85,7 @@ public class AchievementList {
 		return inv;
 	}
 	
-	public void openInventory(BadblockPlayer player, String game){
+	public void openInventory(BadblockPlayer player){
 		createInventory(player, 4, 4).openInventory(player);
 	}
 }
