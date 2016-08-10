@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Map;
 
 import fr.badblock.gameapi.players.kits.PlayerKit;
+import fr.badblock.gameapi.run.BadblockGame;
 
 /**
  * Classe permettant de gérer les items donnés au joueur leur du join. A utiliser dans le onEnable() :o
@@ -34,8 +35,9 @@ public interface JoinItems {
 	/**
 	 * Demande à l'API de gérer l'item permettant de voir les achievements
 	 * @param slot Le slot
+	 * @param game Le jeu
 	 */
-	public void registerAchievementsItem(int slot, String game);
+	public void registerAchievementsItem(int slot, BadblockGame game);
 	
 	/**
 	 * Demande à l'API de gérer l'item pour quitter la partie
