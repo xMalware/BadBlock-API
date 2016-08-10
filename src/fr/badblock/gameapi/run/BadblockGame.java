@@ -14,6 +14,8 @@ import lombok.Setter;
 public enum BadblockGame {
 	RUSH("rush", "Rush", GameAPI.getAPI().createItemStackFactory().type(Material.BED));
 	
+	public static BadblockGame current;
+	
 	private final String 		   internalGameName,
 								   displayGameName;
 	private final ItemStackFactory itemStackFactory;
@@ -39,6 +41,8 @@ public enum BadblockGame {
 	}
 	
 	public void use(){
+		current = this;
+		
 		GameAPI.setGameName(displayGameName);
 		GameAPI.setInternalGameName(internalGameName);
 	}
