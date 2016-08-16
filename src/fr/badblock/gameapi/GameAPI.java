@@ -42,6 +42,7 @@ import fr.badblock.gameapi.portal.Portal;
 import fr.badblock.gameapi.run.RunType;
 import fr.badblock.gameapi.servers.JoinItems;
 import fr.badblock.gameapi.servers.MapProtector;
+import fr.badblock.gameapi.signs.SignManager;
 import fr.badblock.gameapi.technologies.RabbitSpeaker;
 import fr.badblock.gameapi.utils.entities.CustomCreature;
 import fr.badblock.gameapi.utils.i18n.I18n;
@@ -122,6 +123,12 @@ public abstract class GameAPI extends JavaPlugin {
 	 * @return Le système
 	 */
 	public abstract I18n getI18n();
+	
+	/**
+	 * Récupère le système de gestion de panneau i18n
+	 * @return Le système
+	 */
+	public abstract SignManager getSignManager();
 	
 	/**
 	 * Récupère le système de gestion des statuts
