@@ -2,7 +2,16 @@ package fr.badblock.gameapi.signs;
 
 import org.bukkit.block.Block;
 
+import fr.badblock.gameapi.utils.i18n.TranslatableString;
+
 public interface SignManager {
+	/**
+	 * Récupère la traduction d'un panneau
+	 * @param block Le panneau
+	 * @return La traduction (ou null si inexistante)
+	 */
+	public TranslatableString getTraduction(Block block);
+	
 	/**
 	 * Rend un panneau traductible
 	 * @param block Le panneau
