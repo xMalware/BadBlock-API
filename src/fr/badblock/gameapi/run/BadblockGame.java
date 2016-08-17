@@ -13,7 +13,11 @@ import lombok.Setter;
 @Getter
 public enum BadblockGame {
 	RUSH("rush", "Rush", GameAPI.getAPI().createItemStackFactory().type(Material.BED)),
-	TOWER("tower", "Tower", GameAPI.getAPI().createItemStackFactory().type(Material.NETHER_FENCE));
+	TOWER("tower", "Tower", GameAPI.getAPI().createItemStackFactory().type(Material.NETHER_FENCE)),
+	SURVIVAL_GAMES("survivalGames", "SurvivalGames", GameAPI.getAPI().createItemStackFactory().type(Material.IRON_SWORD)),
+	UHCSPEED("uhcSpeed", "UHCSpeed", GameAPI.getAPI().createItemStackFactory().type(Material.GOLDEN_APPLE)),
+	SPACE_BALLS("spaceBalls", "SpaceBalls", GameAPI.getAPI().createItemStackFactory().type(Material.QUARTZ_ORE)),
+	PEARLSWAR("pearlsWar", "PearlsWar", GameAPI.getAPI().createItemStackFactory().type(Material.ENDER_PEARL));
 	
 	public static BadblockGame current;
 	
