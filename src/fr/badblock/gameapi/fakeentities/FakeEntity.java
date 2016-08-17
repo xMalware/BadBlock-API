@@ -29,6 +29,18 @@ public interface FakeEntity<T extends WatcherEntity> {
 	public EntityType getType();
 	
 	/**
+	 * Récupère la visibilité de l'entité
+	 * @return La visibilité
+	 */
+	public Visibility getVisibility();
+	
+	/**
+	 * Définit la visibilité de l'entité
+	 * @param visibility La visibilité
+	 */
+	public void setVisibility(Visibility visibility);
+	
+	/**
 	 * Affiche l'entité à un joueur.
 	 * @param player Le joueur
 	 */
@@ -121,4 +133,9 @@ public interface FakeEntity<T extends WatcherEntity> {
 	 * @return Si elle est remove.
 	 */
 	public boolean isRemoved();
+	
+	public enum Visibility {
+		SERVER,
+		PLAYER;
+	}
 }
