@@ -12,7 +12,8 @@ import lombok.Setter;
 
 @Getter
 public enum BadblockGame {
-	RUSH("rush", "Rush", GameAPI.getAPI().createItemStackFactory().type(Material.BED));
+	RUSH("rush", "Rush", GameAPI.getAPI().createItemStackFactory().type(Material.BED)),
+	TOWER("tower", "Tower", GameAPI.getAPI().createItemStackFactory().type(Material.NETHER_FENCE));
 	
 	public static BadblockGame current;
 	
