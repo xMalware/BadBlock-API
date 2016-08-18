@@ -9,6 +9,10 @@ public interface ChestGenerator {
 	
 	public ItemStack[] generateChest(int lines);
 	
+	public boolean isConfigurated();
+	
+	public boolean isWorking();
+	
 	public void beginJob();
 	
 	public void resetChests();
