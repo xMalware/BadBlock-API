@@ -58,16 +58,10 @@ public interface PlayerData {
 	public long addXp(long xp, boolean applyBonus);
 	
 	/**
-	 * Récupère le bonus en coins (achetable ou durant un évènement) du joueur.
-	 * @return Le bonus (à multiplier par le nombre normal)
+	 * Récupère les données du booster du joueur
+	 * @return {@link BoosterData}
 	 */
-	public int getCoinsBonus();
-	
-	/**
-	 * Récupère le bonus en XP (en fonction du niveau) du joueur.
-	 * @return Le bonus (à multiplier par le nombre normal)
-	 */
-	public int getXpBonus();
+	public BoosterData getBoosterData();
 	
 	/**
 	 * Récupère l'avancement du joueur dans un achievement
