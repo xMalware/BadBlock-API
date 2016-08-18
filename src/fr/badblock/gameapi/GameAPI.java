@@ -40,6 +40,7 @@ import fr.badblock.gameapi.players.scoreboard.BadblockScoreboard;
 import fr.badblock.gameapi.players.scoreboard.CustomObjective;
 import fr.badblock.gameapi.portal.Portal;
 import fr.badblock.gameapi.run.RunType;
+import fr.badblock.gameapi.servers.ChestGenerator;
 import fr.badblock.gameapi.servers.JoinItems;
 import fr.badblock.gameapi.servers.MapProtector;
 import fr.badblock.gameapi.signs.SignManager;
@@ -184,6 +185,12 @@ public abstract class GameAPI extends JavaPlugin {
 	 * @return La classe
 	 */
 	public abstract MapProtector getMapProtector();
+	
+	/**
+	 * Récupère l'objet permettant de générer des coffres aléatoires
+	 * @return L'objet
+	 */
+	public abstract ChestGenerator getChestGenerator();
 	
 	/**
 	 * Active l'anti-spawnkill
