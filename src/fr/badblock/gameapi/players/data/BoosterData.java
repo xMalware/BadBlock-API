@@ -42,18 +42,4 @@ public interface BoosterData {
 	 */
 	public boolean isExpired();
 	
-	/**
-	 * Récupère des données joueurs spécialisées.<br>
-	 * Attentin, si la clé à déjà été chargée avec une autre classe, peut provoquer une erreur.
-	 * @param key La clé
-	 * @param clazz La classe
-	 * @return Le PlayerData
-	 */
-	public <T extends GameData> T gameData(String key, Class<T> clazz);
-	
-	/**
-	 * Renvoit les informations modifiées à Ladder pour qu'elles soient sauvegardées.
-	 * @return L'objet
-	 */
-	public JsonObject saveData();
 }
