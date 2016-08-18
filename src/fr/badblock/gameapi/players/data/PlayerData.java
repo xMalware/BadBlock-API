@@ -137,7 +137,7 @@ public interface PlayerData {
 	 * @param stat La statistique
 	 * @param value La valeur à ajouter
 	 */
-	public void augmentStatistic(String gameName, String stat, double value);
+	public void increaseStatistic(String gameName, String stat, double value);
 	
 	/**
 	 * Récupère des données joueurs spécialisées.<br>
