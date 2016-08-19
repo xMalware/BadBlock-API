@@ -2,7 +2,7 @@ package fr.badblock.gameapi.players.data;
 
 /**
  * Répresente les données du booster actif d'un joueur
- * @author LeLanN
+ * @author xMalware
  */
 public interface BoosterData {
 	
@@ -25,13 +25,13 @@ public interface BoosterData {
 	public long getExpireTime();
 
 	/**
-	 * Récupère le fait que le booster est encore valide ou non
+	 * Vérifie si le booster est encore valide ou non
 	 * @return Un booléen
 	 */
 	public boolean isValid();
 	
 	/**
-	 * Récupère le fait que le booster est expiré ou non
+	 * Vérifie si le booster est expiré ou non
 	 * @return Un booléen
 	 */
 	public boolean isExpired();
