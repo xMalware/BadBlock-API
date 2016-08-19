@@ -1,11 +1,5 @@
 package fr.badblock.gameapi.players.data;
 
-import com.google.gson.JsonObject;
-
-import fr.badblock.gameapi.achievements.PlayerAchievement;
-import fr.badblock.gameapi.players.kits.PlayerKit;
-import fr.badblock.gameapi.utils.i18n.Locale;
-
 /**
  * Répresente les données du booster actif d'un joueur
  * @author LeLanN
