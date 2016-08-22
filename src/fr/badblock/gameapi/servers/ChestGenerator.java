@@ -46,6 +46,12 @@ public interface ChestGenerator {
 	public void resetChests();
 	
 	/**
+	 * Définit si le coffre se supprime lorsqu'un joueur le ferme
+	 * @param removeOnOpen Si le coffre se supprime
+	 */
+	public void setRemoveOnOpen(boolean removeOnOpen);
+	
+	/**
 	 * Ajoute un item dans la configuration chargée
 	 * @param item L'item
 	 * @param probability La probabilité d'avoir cet item
