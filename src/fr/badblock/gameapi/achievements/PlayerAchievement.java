@@ -1,7 +1,6 @@
 package fr.badblock.gameapi.achievements;
 
 import fr.badblock.gameapi.players.BadblockPlayer;
-import fr.badblock.gameapi.players.data.BoosterData;
 import fr.badblock.gameapi.players.data.PlayerData;
 import fr.badblock.gameapi.utils.i18n.TranslatableString;
 import lombok.Getter;
@@ -19,26 +18,19 @@ public class PlayerAchievement {
 	public PlayerAchievement(String name, int xpReward, int coinsReward, int neededValue){
 		this(name, xpReward, coinsReward, neededValue, false);
 	}
-	
+	/*
+	 * 
+
+		int coins  = BoosterUtil.getBoosted(player, BoostedValue.COINS, coinsReward);
+		long xp    = BoosterUtil.getBoosted(player, BoostedValue.XP, xpReward);
+	 */
 	public void reward(BadblockPlayer player){
 		PlayerData data = player.getPlayerData();
-
-		int coins = coinsReward;
-		int xp    = xpReward;
 		
-		// Vérification du booster du joueur
-		BoosterData boosterData = data.getBoosterData();
-		if (boosterData != null && boosterData.isValid()) {
-			coins *= boosterData.getCoinsMultiplier();
-			xp *= boosterData.getXPMultiplier();
-		}
+		data.addBadcoins(coinsReward, true);
+		data.addXp(xpReward, true);
 		
-		//TODO apply bonus on achievements reward ?
-		
-		data.addBadcoins(coins, true);
-		data.addXp(xp, true);
-		
-		player.sendTranslatedMessage("achievements.unlocked", getDisplayName(), coins, xp);
+		player.sendTranslatedMessage("achievements.unlocked", getDisplayName(), coinsReward, xpReward);
 	} 
 	
 	public TranslatableString getDisplayName(){
