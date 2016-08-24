@@ -160,6 +160,7 @@ public class ConfigUtils {
 	 * @param defaultValue
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public static <T> T get(Plugin plugin, String key, T defaultValue) {
 		if (!plugin.getConfig().contains(key)) {
 			plugin.getConfig().set(key, defaultValue);
