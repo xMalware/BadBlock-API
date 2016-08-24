@@ -485,4 +485,16 @@ public abstract class GameAPI extends JavaPlugin {
 	 * @param on Si elle est on
 	 */
 	public abstract void setWhitelistStatus(boolean on);
+	
+	/**
+	 * Récupère si le compas sélectionne la cible la plus proche au clique droit
+	 * @return Un boolean
+	 */
+	public abstract boolean isCompassSelectNearestTarget();
+	
+	/**
+	 * Fait en sorte que le compas sélectionne la cible la plus proche au clique droit
+	 * @param selectNearestTarget Un boolean
+	 */
+	public abstract void setCompassSelectNearestTarget(boolean selectNearestTarget);
 }

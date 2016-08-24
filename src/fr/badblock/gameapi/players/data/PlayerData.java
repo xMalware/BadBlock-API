@@ -3,6 +3,7 @@ package fr.badblock.gameapi.players.data;
 import com.google.gson.JsonObject;
 
 import fr.badblock.gameapi.achievements.PlayerAchievement;
+import fr.badblock.gameapi.players.BadblockPlayer;
 import fr.badblock.gameapi.players.kits.PlayerKit;
 import fr.badblock.gameapi.utils.i18n.Locale;
 
@@ -70,6 +71,13 @@ public interface PlayerData {
 	 */
 	public PlayerAchievementState getAchievementState(PlayerAchievement achievement);
 
+	/**
+	 * Augmente toutes les valeurs des achievements donnés de 1
+	 * @param player Le joueur pour tenter de valider les achievements
+	 * @param achievements Les achievements
+	 */
+	public void incrementAchievements(BadblockPlayer player, PlayerAchievement... achievements);
+	
 	/**
 	 * Récupère le niveau que le joueur a pour un kit.
 	 * @param kit Le kit
