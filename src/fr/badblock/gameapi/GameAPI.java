@@ -166,13 +166,13 @@ public abstract class GameAPI extends JavaPlugin {
 	 * Récupère le bonus évenementiel en badcoins
 	 * @return Le bonus
 	 */
-	public abstract int getServerBadcoinsBonus();
+	public abstract double getServerBadcoinsBonus();
 	
 	/**
 	 * Récupère le bonus évenementiel en xp
 	 * @return Le bonus
 	 */
-	public abstract int getServerXpBonus();
+	public abstract double getServerXpBonus();
 	
 	/**
 	 * Change la classe protégeant la map

@@ -1,9 +1,12 @@
 package fr.badblock.gameapi.players.data;
 
+import java.util.Set;
+
 import com.google.gson.JsonObject;
 
 import fr.badblock.gameapi.achievements.PlayerAchievement;
 import fr.badblock.gameapi.players.BadblockPlayer;
+import fr.badblock.gameapi.players.data.boosters.PlayerBooster;
 import fr.badblock.gameapi.players.kits.PlayerKit;
 import fr.badblock.gameapi.utils.i18n.Locale;
 
@@ -59,10 +62,10 @@ public interface PlayerData {
 	public long addXp(long xp, boolean applyBonus);
 	
 	/**
-	 * Récupère les données du booster du joueur
-	 * @return {@link BoosterData}
+	 * Récupère les boosters du joueur
+	 * @return les boosters du joueur dans une
 	 */
-	public BoosterData getBoosterData();
+	public Set<PlayerBooster> getBoosters();
 	
 	/**
 	 * Récupère l'avancement du joueur dans un achievement
