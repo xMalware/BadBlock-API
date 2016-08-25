@@ -1,6 +1,7 @@
 package fr.badblock.gameapi.utils;
 
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 import org.bukkit.Bukkit;
@@ -57,6 +58,14 @@ public class BukkitUtils {
 				player.teleport(location.get(i));
 				i++;
 			} else player.teleport(whenNoTp);
+		}
+	}
+	
+	public static void forEachPlayers(Consumer<BadblockPlayer> action){
+		for(Player p : Bukkit.getOnlinePlayers()){
+			BadblockPlayer player = (BadblockPlayer) p;
+			
+			action.accept(player);
 		}
 	}
 }
