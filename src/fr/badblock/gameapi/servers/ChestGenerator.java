@@ -55,6 +55,7 @@ public interface ChestGenerator {
 	 * Ajoute un item dans la configuration chargée
 	 * @param item L'item
 	 * @param probability La probabilité d'avoir cet item
+	 * @param save Si la configuration doit être sauvegardée avec cet item
 	 */
-	public void addItemInConfiguration(ItemStack item, int probability);
+	public void addItemInConfiguration(ItemStack item, int probability, boolean save);
 }
