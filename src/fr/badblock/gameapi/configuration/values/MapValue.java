@@ -12,4 +12,6 @@ public interface MapValue<T> {
 	 * @return La véritable valeur
 	 */
 	public T getHandle();
+	
+	default void postLoad(){}
 }
