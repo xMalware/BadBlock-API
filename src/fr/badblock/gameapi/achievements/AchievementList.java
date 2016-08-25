@@ -2,11 +2,10 @@ package fr.badblock.gameapi.achievements;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.bukkit.Material;
-
-import com.google.common.collect.Maps;
 
 import fr.badblock.gameapi.GameAPI;
 import fr.badblock.gameapi.players.BadblockPlayer;
@@ -16,7 +15,7 @@ import fr.badblock.gameapi.utils.itemstack.CustomInventory;
 import fr.badblock.gameapi.utils.itemstack.ItemAction;
 
 public class AchievementList {
-	private Map<String, PlayerAchievement> achievements = Maps.newConcurrentMap();
+	private Map<String, PlayerAchievement> achievements = new LinkedHashMap<>();
 
 	private BadblockGame game;
 	
