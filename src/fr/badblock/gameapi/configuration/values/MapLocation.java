@@ -39,7 +39,7 @@ public class MapLocation implements MapValue<Location> {
 	
 	@Override
 	public void postLoad(){
-		round();
+		//round();
 	}
 	
 	protected void round(){
