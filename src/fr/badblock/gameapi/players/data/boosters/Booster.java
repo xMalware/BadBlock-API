@@ -6,6 +6,7 @@ import lombok.Data;
 @Data @AllArgsConstructor
 public class Booster {
 
+	private int	   id;
 	private double coinsMultiplier;
 	private double xpMultiplier;
 	
