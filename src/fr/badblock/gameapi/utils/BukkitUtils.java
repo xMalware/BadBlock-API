@@ -7,6 +7,7 @@ import java.util.function.Predicate;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World.Environment;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
@@ -61,6 +62,10 @@ public class BukkitUtils {
 		}
 	}
 	
+	/**
+	 * Execute une action pour chaque joueur
+	 * @param action L'action
+	 */
 	public static void forEachPlayers(Consumer<BadblockPlayer> action){
 		for(Player p : Bukkit.getOnlinePlayers()){
 			BadblockPlayer player = (BadblockPlayer) p;
@@ -68,4 +73,19 @@ public class BukkitUtils {
 			action.accept(player);
 		}
 	}
+	
+	/**
+	 * Récupère un environement de monde (nether, end, overworld) à partir de son id
+	 * @param id L'id
+	 * @return L'environment (si inexistant, overworld)
+	 */
+	@SuppressWarnings("deprecation")
+	public static Environment getEnvironment(int id){
+		Environment env = Environment.getEnvironment(id);
+
+		if(env == null)
+			return Environment.NORMAL;
+		return env;
+	}
+
 }
