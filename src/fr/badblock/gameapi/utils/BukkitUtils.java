@@ -1,8 +1,10 @@
 package fr.badblock.gameapi.utils;
 
 import java.util.List;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -12,6 +14,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
 import fr.badblock.gameapi.players.BadblockPlayer;
+import fr.badblock.gameapi.players.BadblockPlayer.BadblockMode;
 
 /**
  * Une série de méthode permettant de simplifier certaines utilisations de l'API Bukkit.
@@ -88,4 +91,15 @@ public class BukkitUtils {
 		return env;
 	}
 
+	/**
+	 * Récupère les joueurs étant entrain de joueur (hors spectateurs)
+	 * @return Les joueurs
+	 */
+	public static Set<BadblockPlayer> getPlayers(){
+		return Bukkit.getOnlinePlayers().stream().map(player -> {
+			return (BadblockPlayer) player;
+		}).filter(player -> {
+			return player.getBadblockMode() != BadblockMode.SPECTATOR;
+		}).collect(Collectors.toSet());
+	}
 }
