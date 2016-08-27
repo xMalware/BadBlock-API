@@ -18,7 +18,7 @@ public abstract class ColorConverter
 
 	private static Map<DyeColor, String> dyeHexMap;
 
-	static
+	static 
 	{
 		dyeChatMap = Maps.newHashMap();
 		dyeChatMap.put(DyeColor.BLACK, ChatColor.DARK_GRAY);
