@@ -7,8 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class PlayerBooster {
 
-	private long timeElapsed;
-	private long maxTime;
+	private long expire;
 	private boolean enabled;
 	private Booster booster;
 
@@ -27,7 +26,7 @@ public class PlayerBooster {
 	 * @return Un booléen
 	 */
 	public boolean isValid() {
-		return maxTime > timeElapsed;
+		return System.currentTimeMillis() > expire;
 	}
 
 }
