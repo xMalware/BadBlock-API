@@ -10,6 +10,7 @@ import org.bukkit.block.Block;
 
 import fr.badblock.gameapi.GameAPI;
 import fr.badblock.gameapi.configuration.BadConfiguration;
+import fr.badblock.gameapi.configuration.values.MapList;
 import fr.badblock.gameapi.configuration.values.MapLocation;
 import fr.badblock.gameapi.configuration.values.MapSelection;
 import fr.badblock.gameapi.configuration.values.MapValue;

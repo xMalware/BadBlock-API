@@ -159,7 +159,7 @@ public class Vector3f {
 	 * @return La longueur
 	 */
 	public double length() {
-		return (double) Math.sqrt(x * x + y * y + z * z);
+		return Math.sqrt(x * x + y * y + z * z);
 	}
 
 	/**
@@ -202,6 +202,7 @@ public class Vector3f {
 	 * 
 	 * @return Le nouveau vecteur
 	 */
+	@Override
 	public Vector3f clone() {
 		return new Vector3f(this);
 	}

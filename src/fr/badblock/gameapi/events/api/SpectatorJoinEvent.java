@@ -19,6 +19,7 @@ public class SpectatorJoinEvent extends Event {
 	@Getter
 	private final BadblockPlayer player;
 
+	@Override
 	public HandlerList getHandlers() {
 		return handlers;
 	}

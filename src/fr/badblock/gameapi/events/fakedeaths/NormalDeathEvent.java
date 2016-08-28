@@ -21,6 +21,7 @@ public class NormalDeathEvent extends FakeDeathEvent {
 	@Getter
 	private final DamageCause lastDamageCause;
 
+	@Override
 	public HandlerList getHandlers() {
 		return handlers;
 	}

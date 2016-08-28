@@ -36,6 +36,7 @@ public class PlayerJoinTeamEvent extends Event implements Cancellable {
 	@Setter
 	private TranslatableString cancelReason = null;
 
+	@Override
 	public HandlerList getHandlers() {
 		return handlers;
 	}

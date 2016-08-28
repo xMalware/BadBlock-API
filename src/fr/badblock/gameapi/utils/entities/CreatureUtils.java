@@ -72,7 +72,7 @@ public class CreatureUtils {
 
 		if (dx != 0) {
 			from.setYaw((float) ((dx < 0 ? 1.5 : 0.5) * Math.PI));
-			from.setYaw((float) from.getYaw() - (float) Math.atan(dz / dx));
+			from.setYaw(from.getYaw() - (float) Math.atan(dz / dx));
 		} else if (dz < 0) {
 			from.setYaw((float) Math.PI);
 		}

@@ -53,6 +53,7 @@ public class MapMaterial implements MapValue<Material> {
 		return item.getType() == getHandle() && item.getData() == materialData;
 	}
 
+	@Override
 	public Material getHandle() {
 		return Material.matchMaterial(material);
 	}

@@ -28,6 +28,7 @@ public class PlayerReconnectionPropositionEvent extends Event implements Cancell
 	private final BadblockPlayer player;
 	private boolean isCancelled = false;
 
+	@Override
 	public HandlerList getHandlers() {
 		return handlers;
 	}

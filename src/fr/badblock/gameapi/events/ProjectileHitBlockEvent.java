@@ -23,6 +23,7 @@ public class ProjectileHitBlockEvent extends BlockEvent {
 		this.projectile = projectile;
 	}
 
+	@Override
 	public HandlerList getHandlers() {
 		return handlers;
 	}

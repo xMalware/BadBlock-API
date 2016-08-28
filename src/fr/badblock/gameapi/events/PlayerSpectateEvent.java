@@ -22,6 +22,7 @@ public class PlayerSpectateEvent extends Event implements Cancellable {
 	@Setter
 	private boolean isCancelled = false;
 
+	@Override
 	public HandlerList getHandlers() {
 		return handlers;
 	}

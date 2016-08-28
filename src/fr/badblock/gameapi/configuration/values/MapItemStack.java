@@ -61,6 +61,7 @@ public class MapItemStack implements MapValue<ItemStack> {
 		});
 	}
 
+	@Override
 	public ItemStack getHandle() {
 		if (amount == -1)
 			return null;

@@ -225,6 +225,7 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 * @param subtitle
 	 *            Le subtitle
 	 */
+	@Override
 	public void sendTitle(String title, String subtitle);
 
 	/**

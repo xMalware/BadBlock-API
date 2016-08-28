@@ -30,6 +30,7 @@ public class PlayerFakeEntityInteractEvent extends Event implements Cancellable 
 	@Setter
 	private boolean cancelled;
 
+	@Override
 	public HandlerList getHandlers() {
 		return handlers;
 	}

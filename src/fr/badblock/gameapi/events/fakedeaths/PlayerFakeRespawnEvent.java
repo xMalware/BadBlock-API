@@ -22,6 +22,7 @@ public class PlayerFakeRespawnEvent extends Event {
 	@Getter
 	private final Location location;
 
+	@Override
 	public HandlerList getHandlers() {
 		return handlers;
 	}

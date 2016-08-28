@@ -60,6 +60,7 @@ public class FightingDeathEvent extends FakeDeathEvent {
 		CUSTOM;
 	}
 
+	@Override
 	public HandlerList getHandlers() {
 		return handlers;
 	}

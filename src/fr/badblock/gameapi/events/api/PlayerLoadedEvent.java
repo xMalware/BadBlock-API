@@ -20,6 +20,7 @@ public class PlayerLoadedEvent extends Event {
 	@Getter
 	private BadblockPlayer player;
 
+	@Override
 	public HandlerList getHandlers() {
 		return handlers;
 	}
