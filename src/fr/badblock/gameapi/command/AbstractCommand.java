@@ -9,6 +9,7 @@ import org.bukkit.command.CommandMap;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import fr.badblock.gameapi.GameAPI;
 import fr.badblock.gameapi.players.BadblockPlayer.GamePermission;
 import fr.badblock.gameapi.utils.i18n.TranslatableString;
 import fr.badblock.gameapi.utils.i18n.messages.CommandMessages;
@@ -90,6 +91,10 @@ import net.md_5.bungee.api.ChatColor;
 	 */
 	public abstract boolean executeCommand(CommandSender sender, String[] args);
 
+	protected void sendTranslatedMessage(CommandSender sender, String key, Object... args){
+		GameAPI.i18n().sendMessage(sender, key, args);
+	}
+	
 	private final CommandMap getCommandMap() {
 		try {
 			return (CommandMap) new Reflector(Bukkit.getServer()).getFieldValue("commandMap");
