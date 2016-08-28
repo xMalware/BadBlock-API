@@ -13,18 +13,23 @@ import lombok.Setter;
 
 /**
  * Appelée lorsque un joueur clique sur un fausse entité.
+ * 
  * @author LeLanN
  */
 @AllArgsConstructor
 public class PlayerFakeEntityInteractEvent extends Event implements Cancellable {
-	private static final HandlerList	handlers	= new HandlerList();
+	private static final HandlerList handlers = new HandlerList();
 
-	@Getter private BadblockPlayer  player;
-	@Getter private FakeEntity<?>   entity;
-	@Getter private UseEntityAction action;
-	@Getter@Setter
-			private boolean			cancelled;
-	
+	@Getter
+	private BadblockPlayer player;
+	@Getter
+	private FakeEntity<?> entity;
+	@Getter
+	private UseEntityAction action;
+	@Getter
+	@Setter
+	private boolean cancelled;
+
 	public HandlerList getHandlers() {
 		return handlers;
 	}

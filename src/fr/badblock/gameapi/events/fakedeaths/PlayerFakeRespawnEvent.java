@@ -10,15 +10,18 @@ import lombok.RequiredArgsConstructor;
 
 /**
  * Appelé lorsqu'un joueur vient d'être téléporté après une fausse mort.
+ * 
  * @author LelanN
  */
 @RequiredArgsConstructor
 public class PlayerFakeRespawnEvent extends Event {
-	private static final HandlerList	handlers	= new HandlerList();
+	private static final HandlerList handlers = new HandlerList();
 
-	@Getter private final BadblockPlayer  player;
-	@Getter private final Location		  location;
-	
+	@Getter
+	private final BadblockPlayer player;
+	@Getter
+	private final Location location;
+
 	public HandlerList getHandlers() {
 		return handlers;
 	}

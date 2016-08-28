@@ -1,4 +1,5 @@
 package fr.badblock.gameapi.utils;
+
 import java.util.Map;
 
 import org.bukkit.ChatColor;
@@ -9,17 +10,16 @@ import com.google.common.collect.Maps;
 
 /**
  * Convertir les couleurs
+ * 
  * @author xMalware
  */
-public abstract class ColorConverter
-{
+public abstract class ColorConverter {
 	private static Map<ChatColor, String> chatHexMap;
 	private static Map<DyeColor, ChatColor> dyeChatMap;
 
 	private static Map<DyeColor, String> dyeHexMap;
 
-	static 
-	{
+	static {
 		dyeChatMap = Maps.newHashMap();
 		dyeChatMap.put(DyeColor.BLACK, ChatColor.DARK_GRAY);
 		dyeChatMap.put(DyeColor.BLUE, ChatColor.DARK_BLUE);
@@ -38,8 +38,7 @@ public abstract class ColorConverter
 		dyeChatMap.put(DyeColor.WHITE, ChatColor.WHITE);
 		dyeChatMap.put(DyeColor.YELLOW, ChatColor.YELLOW);
 	}
-	static
-	{
+	static {
 		chatHexMap = Maps.newHashMap();
 		chatHexMap.put(ChatColor.BLACK, "#000");
 		chatHexMap.put(ChatColor.DARK_BLUE, "#00a");
@@ -59,8 +58,7 @@ public abstract class ColorConverter
 		chatHexMap.put(ChatColor.WHITE, "#aaa");
 	}
 
-	static
-	{
+	static {
 		dyeHexMap = Maps.newHashMap();
 		dyeHexMap.put(DyeColor.BLACK, "#181414");
 		dyeHexMap.put(DyeColor.BLUE, "#253193");
@@ -80,68 +78,70 @@ public abstract class ColorConverter
 		dyeHexMap.put(DyeColor.YELLOW, "#c2b51c");
 	}
 
-	public static String chatToHex(ChatColor clr)
-	{
+	public static String chatToHex(ChatColor clr) {
 		if (chatHexMap.containsKey(clr))
 			return chatHexMap.get(clr);
 		return "#000";
 	}
-	public static ChatColor dyeToChat(DyeColor dclr)
-	{
+
+	public static ChatColor dyeToChat(DyeColor dclr) {
 		if (dyeChatMap.containsKey(dclr))
 			return dyeChatMap.get(dclr);
 		return ChatColor.MAGIC;
 	}
 
-	public static String dyeToHex(DyeColor clr)
-	{
+	public static String dyeToHex(DyeColor clr) {
 		if (dyeHexMap.containsKey(clr))
 			return dyeHexMap.get(clr);
 		return "#000";
 	}
 
-	public static String generateColorTable()
-	{
+	public static String generateColorTable() {
 		StringBuilder str = new StringBuilder();
 
 		str.append("<table><tr><td>Chat Color</td><td>Color</td></tr>");
 		for (Map.Entry<ChatColor, String> e : chatHexMap.entrySet())
-			str.append(String.format("<tr><td style='color: %2$s;'>%1$s</td>" +
-				"<td style='color: %2$s;'>Test String</td></tr>", e.getKey().name(), e.getValue()));
+			str.append(String.format(
+					"<tr><td style='color: %2$s;'>%1$s</td>" + "<td style='color: %2$s;'>Test String</td></tr>",
+					e.getKey().name(), e.getValue()));
 		str.append("</table>");
 
 		str.append("<table><tr><td>Dye Color</td><td>Color</td></tr>");
 		for (Map.Entry<DyeColor, String> e : dyeHexMap.entrySet())
-			str.append(String.format("<tr><td style='color: %2$s;'>%1$s</td>" +
-				"<td style='color: %2$s;'>Test String</td></tr>", e.getKey().name(), e.getValue()));
+			str.append(String.format(
+					"<tr><td style='color: %2$s;'>%1$s</td>" + "<td style='color: %2$s;'>Test String</td></tr>",
+					e.getKey().name(), e.getValue()));
 		str.append("</table>");
 
 		return str.toString();
 	}
 
-	public static Color hexToColor(String hex)
-	{
+	public static Color hexToColor(String hex) {
 		// get rid of typical hex color cruft
-		if (hex.startsWith("#")) hex = hex.substring(1);
-		if (hex.indexOf("x") != -1) hex = hex.substring(hex.indexOf("x"));
+		if (hex.startsWith("#"))
+			hex = hex.substring(1);
+		if (hex.indexOf("x") != -1)
+			hex = hex.substring(hex.indexOf("x"));
 
 		// if the length isn't the standard 0xRRGGBB or 0xRGB, just quit
-		if (hex.length() != 6 && hex.length() != 3) return null;
+		if (hex.length() != 6 && hex.length() != 3)
+			return null;
 
 		// construct and return color object
-		int sz = hex.length() / 3, mult = 1 << ((2 - sz)*4), x = 0;
+		int sz = hex.length() / 3, mult = 1 << ((2 - sz) * 4), x = 0;
 		for (int i = 0, z = 0; z < hex.length(); ++i, z += sz)
-			x |= (mult * Integer.parseInt(hex.substring(z, z+sz), 16)) << (i*8);
+			x |= (mult * Integer.parseInt(hex.substring(z, z + sz), 16)) << (i * 8);
 		return Color.fromBGR(x & 0xffffff);
 	}
 
-	public static Color rgbToColor(String rgb)
-	{
+	public static Color rgbToColor(String rgb) {
 		String parts[] = rgb.split("[^0-9]+");
-		if (parts.length < 3) return null;
+		if (parts.length < 3)
+			return null;
 
-		int x = 0, i; for (i = 0; i < 3; ++i)
-			x |= Integer.parseInt(parts[i]) << (i*8);
+		int x = 0, i;
+		for (i = 0; i < 3; ++i)
+			x |= Integer.parseInt(parts[i]) << (i * 8);
 		return Color.fromBGR(x & 0xffffff);
 	}
 }

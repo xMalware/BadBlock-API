@@ -19,7 +19,7 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
  * <li>Bouton 0 : clique gauche + shift</li>
  * <li>Bouton 1 : clique droit + shift</li>
  * </ul>
- * </li> 
+ * </li>
  * <li>Mode 2 : Clique avec une touche (nombre)
  * <ul>
  * <li>Bouton 0 : Touche 1</li>
@@ -56,40 +56,46 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
 public interface PlayInWindowClick extends BadblockInPacket {
 	/**
 	 * L'ID de l'inventaire
+	 * 
 	 * @return L'ID
 	 */
 	public int getWindowId();
-	
+
 	/**
 	 * Le slot cliqué
+	 * 
 	 * @return Le slot
 	 */
 	public int getSlot();
-	
+
 	/**
 	 * Un ID unique pour la transaction, utilisé pour la réponse du serveur
+	 * 
 	 * @return L'ID
 	 */
 	public int getActionNumber();
 
 	/**
 	 * Le bouton utilisé
+	 * 
 	 * @return Le bouton
 	 */
 	public int getButton();
-	
+
 	/**
 	 * Le mode utilisé
+	 * 
 	 * @return Le mode
 	 */
 	public int getMode();
-	
+
 	/**
 	 * Récupère l'item cliqué
+	 * 
 	 * @return L'item
 	 */
 	public ItemStack getItem();
-	
+
 	@Override
 	default BadblockInPackets getType() {
 		return BadblockInPackets.PLAY_WINDOW_CLICK;

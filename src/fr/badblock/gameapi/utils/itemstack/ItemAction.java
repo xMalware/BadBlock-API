@@ -10,10 +10,12 @@ import lombok.Getter;
 
 /**
  * Représente les différentes intéractions possible avec un item
+ * 
  * @author LeLanN
  * @author xMalware
  */
-@Getter public enum ItemAction {
+@Getter
+public enum ItemAction {
 	/**
 	 * Lorsque le joueur clique gauche avec l'item
 	 */
@@ -50,32 +52,34 @@ import lombok.Getter;
 	 * Lorsque le joueur drop l'item dans l'inventaire
 	 */
 	INVENTORY_DROP(InventoryAction.DROP_ONE_SLOT, InventoryAction.DROP_ALL_SLOT, InventoryAction.DROP_ONE_CURSOR, InventoryAction.DROP_ONE_CURSOR);
-	
+
 	private List<InventoryAction> assignedInventoryAction;
-	private Action				  action;
-	
-	ItemAction(){}
-	
+	private Action action;
+
+	ItemAction() {
+	}
+
 	ItemAction(Action action) {
 		this.action = action;
 	}
-	
+
 	ItemAction(InventoryAction... assignedInventoryAction) {
 		this.assignedInventoryAction = Arrays.asList(assignedInventoryAction);
 	}
-	
+
 	public static ItemAction get(InventoryAction inventoryAction) {
-		for(ItemAction itemAction : values())
-			if(itemAction.getAssignedInventoryAction() != null && itemAction.getAssignedInventoryAction().contains(inventoryAction))
+		for (ItemAction itemAction : values())
+			if (itemAction.getAssignedInventoryAction() != null
+					&& itemAction.getAssignedInventoryAction().contains(inventoryAction))
 				return itemAction;
 		return null;
 	}
-	
+
 	public static ItemAction get(Action action) {
-		for(ItemAction itemAction : values())
-			if(itemAction.getAction() == action)
+		for (ItemAction itemAction : values())
+			if (itemAction.getAction() == action)
 				return itemAction;
 		return null;
 	}
-	
+
 }

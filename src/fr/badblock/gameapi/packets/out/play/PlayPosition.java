@@ -7,7 +7,9 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
 
 /**
  * Permet de téléporter le joueur<br>
- * Aucune méthode ajouté car {@link Player#teleport(Location)} et {@link #setCancelled(boolean)} suffisent.
+ * Aucune méthode ajouté car {@link Player#teleport(Location)} et
+ * {@link #setCancelled(boolean)} suffisent.
+ * 
  * @author LeLanN
  */
 public interface PlayPosition extends BadblockOutPacket {

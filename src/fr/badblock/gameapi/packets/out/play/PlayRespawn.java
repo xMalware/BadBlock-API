@@ -8,16 +8,17 @@ import org.bukkit.WorldType;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 
 /**
- * Packet envoyé pour faire changer le joueur de dimension (si le joueur est mort, il respawnera)<br>
+ * Packet envoyé pour faire changer le joueur de dimension (si le joueur est
+ * mort, il respawnera)<br>
  * 
  * @author LeLanN
  */
 public interface PlayRespawn extends BadblockOutPacket {
 	public PlayRespawn setDimension(World.Environment dimension);
-	
+
 	public PlayRespawn setGameMode(GameMode gamemode);
-	
+
 	public PlayRespawn setDifficulty(Difficulty difficulty);
-	
+
 	public PlayRespawn setWorldType(WorldType type);
 }

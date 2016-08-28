@@ -6,52 +6,67 @@ import java.util.Random;
 
 /**
  * Classe contenant plusieurs méthodes utiles pour l'utilisation des nombres
+ * 
  * @author LeLanN
  */
 public class MathsUtils {
 	/**
 	 * Ajoute un certains pourcentage à une valeur de base
-	 * @param base La valeur de base
-	 * @param percent Le pourcentage à ajouter
+	 * 
+	 * @param base
+	 *            La valeur de base
+	 * @param percent
+	 *            Le pourcentage à ajouter
 	 * @return La nouvelle valeur
 	 */
-	public static double addPercentage(double base, double percent){
+	public static double addPercentage(double base, double percent) {
 		return (1d + percent / 100d) * base;
 	}
-	
+
 	/**
-	 * Ajoute un certains pourcentage, un certains nombre de fois, à une valeur de base
-	 * @param base La valeur de base
-	 * @param percent Le pourcentage à ajouter
-	 * @param n Le nombre de fois où il faut ajouter ce pourcentage
+	 * Ajoute un certains pourcentage, un certains nombre de fois, à une valeur
+	 * de base
+	 * 
+	 * @param base
+	 *            La valeur de base
+	 * @param percent
+	 *            Le pourcentage à ajouter
+	 * @param n
+	 *            Le nombre de fois où il faut ajouter ce pourcentage
 	 * @return La nouvelle valeur
 	 */
-	public static double addPercentage(double base, double percent, int n){
+	public static double addPercentage(double base, double percent, int n) {
 		return Math.pow(1d + percent / 100d, n) * base;
 	}
-	
+
 	/**
 	 * Arrondit un nombre à un certains nombre de décimales
-	 * @param number La valeur
-	 * @param dec Le nombre de décimales
+	 * 
+	 * @param number
+	 *            La valeur
+	 * @param dec
+	 *            Le nombre de décimales
 	 * @return La nouvelle valeur
 	 */
-	public static double round(double number, int dec){
-		if(dec < 0) throw new IllegalArgumentException();
-		
+	public static double round(double number, int dec) {
+		if (dec < 0)
+			throw new IllegalArgumentException();
+
 		BigDecimal bd = new BigDecimal(number);
 		bd = bd.setScale(dec, RoundingMode.HALF_UP);
-		
+
 		return bd.doubleValue();
-		//int div = (int) Math.pow(10, dec);
-		//return (double) ((int)(number * div)) / (double) div;
+		// int div = (int) Math.pow(10, dec);
+		// return (double) ((int)(number * div)) / (double) div;
 	}
-	
+
 	/**
 	 * Renvoit un nombre aléatoire
 	 *
-	 * @param max Le maximum
-	 * @param min Le minimum
+	 * @param max
+	 *            Le maximum
+	 * @param min
+	 *            Le minimum
 	 * @return Le nombre
 	 */
 	public static double doubleRandomInclusive(double max, double min) {
@@ -60,19 +75,21 @@ public class MathsUtils {
 			min = max;
 			max = tmp;
 		}
-		
+
 		double r = Math.random();
 		if (r < 0.5) {
 			return ((1 - Math.random()) * (max - min) + min);
 		}
 		return (Math.random() * (max - min) + min);
 	}
-	
+
 	/**
 	 * Renvoit un nombre aléatoire
 	 *
-	 * @param max Le maximum
-	 * @param min Le minimum
+	 * @param max
+	 *            Le maximum
+	 * @param min
+	 *            Le minimum
 	 * @return Le nombre
 	 */
 	public static int integerRandomInclusive(int max, int min) {
@@ -81,7 +98,7 @@ public class MathsUtils {
 			min = max;
 			max = tmp;
 		}
-		
+
 		return new Random().nextInt(max) + min;
 	}
 }

@@ -4,6 +4,7 @@ import lombok.Getter;
 
 /**
  * Représente les différents langages supportés par BadBlock.
+ * 
  * @author LelanN
  */
 public enum Locale {
@@ -15,18 +16,19 @@ public enum Locale {
 	 * Représente la langue anglaise telle qu'elle est parlée aux Etats-Unis
 	 */
 	ENGLISH_US("en_US");
-	
-	@Getter private String localeId;
-	
-	private Locale(String localeId){
+
+	@Getter
+	private String localeId;
+
+	private Locale(String localeId) {
 		this.localeId = localeId;
 	}
-	
-	public static Locale getLocale(String localeId){
-		for(Locale locale : values())
-			if(locale.getLocaleId().equalsIgnoreCase(localeId))
+
+	public static Locale getLocale(String localeId) {
+		for (Locale locale : values())
+			if (locale.getLocaleId().equalsIgnoreCase(localeId))
 				return locale;
-		
+
 		return null;
 	}
 }

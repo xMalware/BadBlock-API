@@ -2,7 +2,8 @@ package fr.badblock.gameapi.packets.watchers;
 
 /**
  * Représente les DataWatchers d'une entité vivante.<br>
- * Tous ceux existants ne sont pas représentes car parfois peu utile dans notre utilisation.
+ * Tous ceux existants ne sont pas représentes car parfois peu utile dans notre
+ * utilisation.
  * 
  * @author LeLanN
  */

@@ -7,77 +7,95 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
 
 /**
  * Packet envoyé lorsque une entité reçoit un effet de potion
+ * 
  * @author LeLanN
  */
 public interface PlayEntityEffect extends BadblockOutPacket {
 	/**
 	 * Récupère l'ID de l'entité
+	 * 
 	 * @return L'ID
 	 */
 	public int getEntityId();
-	
+
 	/**
 	 * Définit l'ID de l'entité
-	 * @param id L'ID
+	 * 
+	 * @param id
+	 *            L'ID
 	 * @return Le packet
 	 */
 	public PlayEntityEffect setEntityId(int id);
-	
+
 	/**
 	 * Load le packet depuis un effet de potion Bukkit
-	 * @param effect L'effet bukkit
+	 * 
+	 * @param effect
+	 *            L'effet bukkit
 	 * @return Le packet
 	 */
 	public PlayEntityEffect load(PotionEffect effect);
-	
+
 	/**
 	 * Récupère le type d'effet
+	 * 
 	 * @return Le type
 	 */
 	public PotionEffectType getPotionEffect();
-	
+
 	/**
 	 * Définit le type d'effet
-	 * @param type Le type
+	 * 
+	 * @param type
+	 *            Le type
 	 * @return Le packet
 	 */
 	public PlayEntityEffect setPotionEffect(PotionEffectType type);
-	
+
 	/**
 	 * Récupère le niveau
+	 * 
 	 * @return Le niveau
 	 */
 	public byte getAmplifier();
-	
+
 	/**
 	 * Définit le niveau
-	 * @param amplifier Le niveau
+	 * 
+	 * @param amplifier
+	 *            Le niveau
 	 * @return Le packet
 	 */
 	public PlayEntityEffect setAmplifier(byte amplifier);
-	
+
 	/**
 	 * Récupère la durée en secondes
+	 * 
 	 * @return La durée
 	 */
 	public int getDurationInSeconds();
-	
+
 	/**
 	 * Définit la duréee en secondes
-	 * @param duration La durée
+	 * 
+	 * @param duration
+	 *            La durée
 	 * @return Le packet
 	 */
 	public PlayEntityEffect setDurationInSeconds(int duration);
-	
+
 	/**
 	 * Récupère si il faut cacher les particules
+	 * 
 	 * @return Si il faut cacher les particules
 	 */
 	public boolean isHideParticles();
-	
+
 	/**
 	 * Définit si il faut cacher les particules
-	 * @param hide Si il faut les cacher
+	 * 
+	 * @param hide
+	 *            Si il faut les cacher
 	 * @return Le packet
 	 */
 	public PlayEntityEffect setHideParticles(boolean hide);

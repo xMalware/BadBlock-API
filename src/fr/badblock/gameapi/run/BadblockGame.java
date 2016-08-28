@@ -12,42 +12,44 @@ import lombok.Setter;
 
 @Getter
 public enum BadblockGame {
-	RUSH("rush", "Rush", GameAPI.getAPI().createItemStackFactory().type(Material.BED)),
-	TOWER("tower", "Tower", GameAPI.getAPI().createItemStackFactory().type(Material.NETHER_FENCE)),
-	SURVIVAL_GAMES("survivalgames", "SurvivalGames", GameAPI.getAPI().createItemStackFactory().type(Material.IRON_SWORD)),
-	UHCSPEED("uhcSpeed", "UHCSpeed", GameAPI.getAPI().createItemStackFactory().type(Material.GOLDEN_APPLE)),
-	SPACE_BALLS("spaceBalls", "SpaceBalls", GameAPI.getAPI().createItemStackFactory().type(Material.QUARTZ_ORE)),
-	PEARLSWAR("pearlsWar", "PearlsWar", GameAPI.getAPI().createItemStackFactory().type(Material.ENDER_PEARL));
-	
+	RUSH("rush", "Rush", GameAPI.getAPI().createItemStackFactory().type(Material.BED)), TOWER("tower", "Tower",
+			GameAPI.getAPI().createItemStackFactory().type(Material.NETHER_FENCE)), SURVIVAL_GAMES("survivalgames",
+					"SurvivalGames", GameAPI.getAPI().createItemStackFactory().type(Material.IRON_SWORD)), UHCSPEED(
+							"uhcSpeed", "UHCSpeed",
+							GameAPI.getAPI().createItemStackFactory().type(Material.GOLDEN_APPLE)), SPACE_BALLS(
+									"spaceBalls", "SpaceBalls",
+									GameAPI.getAPI().createItemStackFactory().type(Material.QUARTZ_ORE)), PEARLSWAR(
+											"pearlsWar", "PearlsWar",
+											GameAPI.getAPI().createItemStackFactory().type(Material.ENDER_PEARL));
+
 	public static BadblockGame current;
-	
-	private final String 		   internalGameName,
-								   displayGameName;
+
+	private final String internalGameName, displayGameName;
 	private final ItemStackFactory itemStackFactory;
-	
+
 	@Setter
 	private BadblockGameData gameData;
-	
-	BadblockGame(String internalGameName, String displayGameName, ItemStackFactory itemStackFactory){
+
+	BadblockGame(String internalGameName, String displayGameName, ItemStackFactory itemStackFactory) {
 		itemStackFactory.displayName("gameitems." + internalGameName + ".displayname");
 		itemStackFactory.lore("gameitems." + internalGameName + ".lore");
-		
+
 		this.internalGameName = internalGameName;
-		this.displayGameName  = displayGameName;
+		this.displayGameName = displayGameName;
 		this.itemStackFactory = itemStackFactory;
 	}
-	
-	public ItemStack createItemStack(Locale locale){
+
+	public ItemStack createItemStack(Locale locale) {
 		return itemStackFactory.clone().doWithI18n(locale).create(1);
 	}
-	
-	public ItemStack createItemStack(BadblockPlayer player){
+
+	public ItemStack createItemStack(BadblockPlayer player) {
 		return createItemStack(player.getPlayerData().getLocale());
 	}
-	
-	public void use(){
+
+	public void use() {
 		current = this;
-		
+
 		GameAPI.setGameName(displayGameName);
 		GameAPI.setInternalGameName(internalGameName);
 	}

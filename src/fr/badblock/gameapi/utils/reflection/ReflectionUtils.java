@@ -8,14 +8,16 @@ import java.lang.reflect.Modifier;
 import org.bukkit.Bukkit;
 
 /**
- * Classe contenant plusieurs méthodes utiles pour l'utilisation de la réflection.
- * Pour la gestion des fields, préférez {@link fr.badblock.gameapi.utils.reflection.Reflector}.
+ * Classe contenant plusieurs méthodes utiles pour l'utilisation de la
+ * réflection. Pour la gestion des fields, préférez
+ * {@link fr.badblock.gameapi.utils.reflection.Reflector}.
  * 
  * @author LeLanN
  */
 public class ReflectionUtils {
 	/**
 	 * Récupère la version Bukkit
+	 * 
 	 * @return La version
 	 */
 	public static String getBukkitVersion() {
@@ -25,7 +27,9 @@ public class ReflectionUtils {
 
 	/**
 	 * Récupère une classe NMS
-	 * @param className Le nom de la classe recherchée
+	 * 
+	 * @param className
+	 *            Le nom de la classe recherchée
 	 * @return La classe trouvée
 	 */
 	public static Class<?> getNMSClass(String className) {
@@ -39,7 +43,9 @@ public class ReflectionUtils {
 
 	/**
 	 * Récupère une classe OBC (org.bukkit.craftbukkit)
-	 * @param className Le nom de la classe à trouver
+	 * 
+	 * @param className
+	 *            Le nom de la classe à trouver
 	 * @return La classe trouvée
 	 */
 	public static Class<?> getOBCClass(String className) {
@@ -53,23 +59,28 @@ public class ReflectionUtils {
 
 	/**
 	 * Récupère une classe appartenant à une autre
-	 * @param clazz La classe "mère"
-	 * @param name Le nom de la sous classe
+	 * 
+	 * @param clazz
+	 *            La classe "mère"
+	 * @param name
+	 *            Le nom de la sous classe
 	 * @return La classe trouvée
 	 */
-	public static Class<?> getSubClass(Class<?> clazz, String name){
-		for(Class<?> c : clazz.getDeclaredClasses()) {
-			if(c.getSimpleName().equals("EnumTitleAction")) {
+	public static Class<?> getSubClass(Class<?> clazz, String name) {
+		for (Class<?> c : clazz.getDeclaredClasses()) {
+			if (c.getSimpleName().equals("EnumTitleAction")) {
 				return c;
 			}
-		}	
-		
+		}
+
 		return null;
 	}
-	
+
 	/**
 	 * Récupère la méthode getHandle présente sur beaucoup d'objets OBC
-	 * @param obj L'object en question
+	 * 
+	 * @param obj
+	 *            L'object en question
 	 * @return Le résultat du getHandle()s
 	 */
 	public static Object getHandle(Object obj) {
@@ -84,8 +95,11 @@ public class ReflectionUtils {
 
 	/**
 	 * Récupère et rend accessible un Field
-	 * @param clazz Classe contenant le field
-	 * @param name Nom du field
+	 * 
+	 * @param clazz
+	 *            Classe contenant le field
+	 * @param name
+	 *            Nom du field
 	 * @return Le Field
 	 */
 	public static Field getField(Class<?> clazz, String name) {
@@ -102,9 +116,13 @@ public class ReflectionUtils {
 
 	/**
 	 * Récupère une méthode
-	 * @param clazz La classe contenenant la méthode
-	 * @param name Le nom de la méthode
-	 * @param args Les arguments de la méthode
+	 * 
+	 * @param clazz
+	 *            La classe contenenant la méthode
+	 * @param name
+	 *            Le nom de la méthode
+	 * @param args
+	 *            Les arguments de la méthode
 	 * @return La méthode
 	 */
 	public static Method getMethod(Class<?> clazz, String name, Class<?>... args) {
@@ -118,8 +136,11 @@ public class ReflectionUtils {
 
 	/**
 	 * Récupère un constructeur
-	 * @param clazz La classe contenenant le constructeur
-	 * @param args Les arguments du constructeur
+	 * 
+	 * @param clazz
+	 *            La classe contenenant le constructeur
+	 * @param args
+	 *            Les arguments du constructeur
 	 * @return Le constructeur
 	 */
 	public static Constructor<?> getConstructor(Class<?> clazz, Class<?>... args) {
@@ -130,13 +151,15 @@ public class ReflectionUtils {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * Enlève le flag 'final' à un Field.
-	 * @param field Le field auquel enlever le flag 'final'.
+	 * 
+	 * @param field
+	 *            Le field auquel enlever le flag 'final'.
 	 */
-	public static void removeFinal(Field field){
-		if(Modifier.isFinal(field.getModifiers())){
+	public static void removeFinal(Field field) {
+		if (Modifier.isFinal(field.getModifiers())) {
 			try {
 				Reflector reflector = new Reflector(field);
 				reflector.setFieldValue("modifiers", field.getModifiers() & 0xffffffef);

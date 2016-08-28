@@ -9,14 +9,15 @@ import lombok.RequiredArgsConstructor;
 
 /**
  * Event appelé lorsque un joueur rentre dans le serveur pendant une partie
+ * 
  * @author LeLanN
  */
 @RequiredArgsConstructor
 public class SpectatorJoinEvent extends Event {
-	private static final HandlerList	handlers	= new HandlerList();
+	private static final HandlerList handlers = new HandlerList();
 
-	@Getter private final BadblockPlayer player;
-
+	@Getter
+	private final BadblockPlayer player;
 
 	public HandlerList getHandlers() {
 		return handlers;
@@ -26,4 +27,3 @@ public class SpectatorJoinEvent extends Event {
 		return handlers;
 	}
 }
-

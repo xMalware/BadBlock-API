@@ -4,25 +4,25 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
 
 public interface PlayTitle extends BadblockOutPacket {
 	public String getContent();
-	
+
 	public PlayTitle setContent(String content);
-	
+
 	public Action getAction();
-	
+
 	public PlayTitle setAction(Action action);
-	
+
 	public long getFadeIn();
-	
+
 	public long getStay();
-	
+
 	public long getFadeOut();
-	
+
 	public PlayTitle setFadeIn(long time);
-	
+
 	public PlayTitle setStay(long time);
-	
+
 	public PlayTitle setFadeOut(long time);
-	
+
 	public enum Action {
 		/**
 		 * Change le message du haut
@@ -37,7 +37,8 @@ public interface PlayTitle extends BadblockOutPacket {
 		 */
 		TIMES(),
 		/**
-		 * Fait disparaître le title de l'écran (utiliser TIMES pour le remettre)
+		 * Fait disparaître le title de l'écran (utiliser TIMES pour le
+		 * remettre)
 		 */
 		CLEAR(),
 		/**

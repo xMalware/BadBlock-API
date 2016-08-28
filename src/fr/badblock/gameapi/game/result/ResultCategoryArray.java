@@ -11,61 +11,73 @@ import lombok.Setter;
 
 /**
  * Représente une catégorie ayant une construction à double entrée
+ * 
  * @author LeLanN
  */
-@Getter@RequiredArgsConstructor
+@Getter
+@RequiredArgsConstructor
 public class ResultCategoryArray implements ResultCategory {
-	private final String 				    categoryName;
-	private final String[]					fields;
-	
-	private final CategoryType 			    type			= CategoryType.ARRAY_DATA;
-	
-	private final List<ResultCategoryEntry> lines 	    	= new ArrayList<>();
-	
+	private final String categoryName;
+	private final String[] fields;
+
+	private final CategoryType type = CategoryType.ARRAY_DATA;
+
+	private final List<ResultCategoryEntry> lines = new ArrayList<>();
+
 	/**
 	 * Récupère une ligne afin de la modifier
-	 * @param at L'ID
+	 * 
+	 * @param at
+	 *            L'ID
 	 * @return L'ID
 	 */
-	public ResultCategoryEntry getLine(int at){
-		if(at < lines.size())
+	public ResultCategoryEntry getLine(int at) {
+		if (at < lines.size())
 			return lines.get(at);
-		else return null;
+		else
+			return null;
 	}
 
 	/**
 	 * Ajoute une ligne à la catégorie
-	 * @param description La description de la ligne
-	 * @param content Le contenu de la ligne
+	 * 
+	 * @param description
+	 *            La description de la ligne
+	 * @param content
+	 *            Le contenu de la ligne
 	 * @return L'ID de la nouvelle ligne
 	 */
-	public int addLine(@NonNull String description, @NonNull String... content){
-		if(content.length != fields.length){
+	public int addLine(@NonNull String description, @NonNull String... content) {
+		if (content.length != fields.length) {
 			throw new IllegalArgumentException("Content must be of the same size than field (" + fields.length + ")");
 		}
-		
+
 		lines.add(new ResultCategoryEntry(description, content));
 		return lines.size() - 1;
 	}
-	
+
 	/**
 	 * Enlève une ligne à la catégorie
-	 * @param id La ligne
+	 * 
+	 * @param id
+	 *            La ligne
 	 */
-	public void removeLine(int id){
-		if(id < lines.size()){
+	public void removeLine(int id) {
+		if (id < lines.size()) {
 			lines.remove(id);
 		}
 	}
-	
+
 	/**
 	 * Représente une ligne pour {@link ResultCategoryLined}
+	 * 
 	 * @author LeLanN
 	 */
-	@Getter@AllArgsConstructor
+	@Getter
+	@AllArgsConstructor
 	public static class ResultCategoryEntry {
 		@Setter
-		private String   description;
+		private String description;
 		private String[] contents;
 	}
 }

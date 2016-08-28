@@ -12,12 +12,16 @@ import lombok.Setter;
 
 @RequiredArgsConstructor
 public class PlayerSpectateEvent extends Event implements Cancellable {
-	private static final HandlerList	handlers	= new HandlerList();
+	private static final HandlerList handlers = new HandlerList();
 
-	@Getter private final BadblockPlayer player;
-	@Getter private final Entity		 entity;
-	@Getter@Setter private boolean       isCancelled = false;
-	
+	@Getter
+	private final BadblockPlayer player;
+	@Getter
+	private final Entity entity;
+	@Getter
+	@Setter
+	private boolean isCancelled = false;
+
 	public HandlerList getHandlers() {
 		return handlers;
 	}

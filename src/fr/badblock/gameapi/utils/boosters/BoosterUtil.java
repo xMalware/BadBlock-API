@@ -7,24 +7,27 @@ import fr.badblock.gameapi.players.data.boosters.PlayerBooster;
 
 /**
  * Classe contenant des utilitaires pour les boosters
+ * 
  * @author xMalware
  */
 public class BoosterUtil {
-	
+
 	public static double getBoosted(PlayerData playerData, BoostedValue boostedValue) {
-		if (playerData.getBoosters() == null || playerData.getBoosters().isEmpty()) return 1;
+		if (playerData.getBoosters() == null || playerData.getBoosters().isEmpty())
+			return 1;
 		double boosted = 1D;
 		for (PlayerBooster playerBooster : playerData.getBoosters()) {
 			Booster booster = playerBooster.getBooster();
-			if (booster == null) continue;
+			if (booster == null)
+				continue;
 			double value = 0D;
 			switch (boostedValue) {
-				case XP:
-					value = booster.getXpMultiplier();
-					break;
-				case COINS:
-					value = booster.getCoinsMultiplier();
-					break;
+			case XP:
+				value = booster.getXpMultiplier();
+				break;
+			case COINS:
+				value = booster.getCoinsMultiplier();
+				break;
 			}
 			boosted = value > boosted ? value : boosted;
 		}
@@ -35,12 +38,12 @@ public class BoosterUtil {
 		double boosted = getBoosted(playerData, boostedValue);
 		return value *= boosted;
 	}
-	
+
 	public static int getBoosted(PlayerData playerData, BoostedValue boostedValue, int value) {
 		double boosted = getBoosted(playerData, boostedValue);
 		return value *= boosted;
 	}
-	
+
 	public static double getBoosted(BadblockPlayer player, BoostedValue boostedValue) {
 		return getBoosted(player.getPlayerData(), boostedValue);
 	}
@@ -48,7 +51,7 @@ public class BoosterUtil {
 	public static long getBoosted(BadblockPlayer player, BoostedValue boostedValue, long value) {
 		return getBoosted(player.getPlayerData(), boostedValue, value);
 	}
-	
+
 	public static int getBoosted(BadblockPlayer player, BoostedValue boostedValue, int value) {
 		return getBoosted(player.getPlayerData(), boostedValue, value);
 	}

@@ -9,9 +9,12 @@ import lombok.NoArgsConstructor;
 
 /**
  * Représente un nombre
+ * 
  * @author LeLanN
  */
-@Data@AllArgsConstructor@NoArgsConstructor
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class MapNumber implements MapValuePrimitive<Number> {
 	private Number handle = 0;
 

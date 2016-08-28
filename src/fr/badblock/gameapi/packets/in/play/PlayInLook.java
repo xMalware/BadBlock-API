@@ -5,17 +5,20 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
 
 /**
  * Packet envoyé pour définir la direction regardée
+ * 
  * @author LeLanN
  */
 public interface PlayInLook extends BadblockInPacket {
 	/**
 	 * Le nouveau yaw
+	 * 
 	 * @return Le yaw
 	 */
 	public float getYaw();
-	
+
 	/**
 	 * Le nouveau pitch
+	 * 
 	 * @return Le pitch
 	 */
 	public float getPitch();

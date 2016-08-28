@@ -7,32 +7,37 @@ import fr.badblock.gameapi.players.BadblockPlayer;
 
 /**
  * Permet d'écouter de manière simple les packets venant du client
+ * 
  * @author LeLanN
  *
- * @param <T> Le type de packet à écouter
+ * @param <T>
+ *            Le type de packet à écouter
  * @see fr.badblock.gameapi.GameAPI#listenAtPacket(InPacketListener)
  */
 public abstract class InPacketListener<T extends BadblockInPacket> extends PacketListener<T> {
-	
+
 	/**
 	 * Appel la classe avant le packet reçu
-	 * @param packet La classe
+	 * 
+	 * @param packet
+	 *            La classe
 	 */
 	public abstract void listen(BadblockPlayer player, T packet);
-	
+
 	/**
 	 * Récupère la classe du packet listen. Utile uniquement en interne.
+	 * 
 	 * @return La classe
 	 */
 	@SuppressWarnings("unchecked")
-	public Class<T> getGenericPacketClass(){
+	public Class<T> getGenericPacketClass() {
 		return (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 	}
-	
+
 	/**
 	 * Permet de register le listener plus simplement
 	 */
-	public void register(){
+	public void register() {
 		GameAPI.getAPI().listenAtPacket(this);
 	}
 }

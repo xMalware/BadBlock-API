@@ -5,47 +5,53 @@ import lombok.Getter;
 
 /**
  * Packet qui fait joueur une 'animation' (mouvement) à une entité.
+ * 
  * @author LeLanN
  */
 public interface PlayAnimation extends BadblockOutPacket {
 	/**
 	 * Récupère l'animation à jouer
+	 * 
 	 * @return L'animation
 	 */
 	public Animation getAnimation();
-	
+
 	/**
 	 * Définit l'animation à jouer
-	 * @param animation L'animation
+	 * 
+	 * @param animation
+	 *            L'animation
 	 * @return Le packet
 	 */
 	public PlayAnimation setAnimation(Animation animation);
-	
+
 	/**
 	 * Récupère l'id de l'entité devant faire le mouuvement
+	 * 
 	 * @return L'id
 	 */
 	public int getEntityId();
-	
+
 	/**
 	 * Définit l'id de l'entité devant faire le mouvement
-	 * @param entityId L'id
+	 * 
+	 * @param entityId
+	 *            L'id
 	 * @return Le packet
 	 */
 	public PlayAnimation setEntityId(int entityId);
-	
+
 	/**
-	 * Représente les différentes animations possibles pour {@link PlayAnimation}
+	 * Représente les différentes animations possibles pour
+	 * {@link PlayAnimation}
+	 * 
 	 * @author LeLanN
 	 */
 	public enum Animation {
-		SWING_ARM(0),
-		LEAVE_BED(2),
-		EAT_FOOD(3),
-		CRITICAL_EFFECT(4),
-		MAGICAL_CRITICAL_EFFECT(5);
+		SWING_ARM(0), LEAVE_BED(2), EAT_FOOD(3), CRITICAL_EFFECT(4), MAGICAL_CRITICAL_EFFECT(5);
 
-		@Getter private final int id;
+		@Getter
+		private final int id;
 
 		Animation(int id) {
 			this.id = id;
@@ -53,7 +59,8 @@ public interface PlayAnimation extends BadblockOutPacket {
 
 		public static Animation getFromId(int id) {
 			for (Animation a : values())
-				if (a.getId() == id) return a;
+				if (a.getId() == id)
+					return a;
 			return null;
 		}
 	}

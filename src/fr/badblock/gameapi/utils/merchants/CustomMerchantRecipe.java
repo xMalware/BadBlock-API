@@ -7,9 +7,11 @@ import lombok.Data;
 
 /**
  * Représente une vente d'un marchand.
+ * 
  * @author LeLanN
  */
-@Data@AllArgsConstructor
+@Data
+@AllArgsConstructor
 public class CustomMerchantRecipe {
 	private ItemStack firstItem, secondItem, result;
 }

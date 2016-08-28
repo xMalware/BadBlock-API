@@ -6,11 +6,13 @@ import fr.badblock.gameapi.utils.selections.Vector3f;
 
 /**
  * Packet envoyé pour définir la position
+ * 
  * @author LeLanN
  */
 public interface PlayInPosition extends BadblockInPacket {
 	/**
 	 * La nouvelle position
+	 * 
 	 * @return La position
 	 */
 	public Vector3f getPosition();

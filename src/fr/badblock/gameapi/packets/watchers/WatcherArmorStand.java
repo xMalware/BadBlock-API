@@ -5,67 +5,85 @@ import lombok.Getter;
 
 /**
  * Représente les watchers d'un armor stand
+ * 
  * @author LeLanN
  */
 public interface WatcherArmorStand extends WatcherLivingEntity {
 	/**
 	 * Ajoute une propriété à l'armor stand
-	 * @param flag La propriété
+	 * 
+	 * @param flag
+	 *            La propriété
 	 * @return Le watcher
 	 */
 	public WatcherArmorStand addFlag(ArmorStandFlag flag);
-	
+
 	/**
 	 * Enlève une propriété à l'armor stand
-	 * @param flag La propriété
+	 * 
+	 * @param flag
+	 *            La propriété
 	 * @return Le watcher
 	 */
 	public WatcherArmorStand removeFlag(ArmorStandFlag flag);
-	
+
 	/**
 	 * Chhange la position de la tête d'une armor stand
-	 * @param position La position de la tête
+	 * 
+	 * @param position
+	 *            La position de la tête
 	 * @return le watcher
 	 */
 	public WatcherArmorStand setHeadRotation(Vector3f position);
-	
+
 	/**
 	 * Chhange la position du corps d'une armor stand
-	 * @param position La position
+	 * 
+	 * @param position
+	 *            La position
 	 * @return le watcher
 	 */
 	public WatcherArmorStand setBodyRotation(Vector3f position);
-	
+
 	/**
 	 * Chhange la position du brase gauche d'une armor stand
-	 * @param position La position
+	 * 
+	 * @param position
+	 *            La position
 	 * @return le watcher
 	 */
 	public WatcherArmorStand setLeftArmRotation(Vector3f position);
-	
+
 	/**
 	 * Chhange la position du bras droit d'une armor stand
-	 * @param position La position
+	 * 
+	 * @param position
+	 *            La position
 	 * @return le watcher
 	 */
 	public WatcherArmorStand setRightArmRotation(Vector3f position);
-	
+
 	/**
 	 * Chhange la position de la jambe gauche d'une armor stand
-	 * @param position La position
+	 * 
+	 * @param position
+	 *            La position
 	 * @return le watcher
 	 */
 	public WatcherArmorStand setLeftLegRotation(Vector3f position);
-	
+
 	/**
 	 * Chhange la position de la jambe droite d'une armor stand
-	 * @param position La position
+	 * 
+	 * @param position
+	 *            La position
 	 * @return le watcher
 	 */
 	public WatcherArmorStand setRightLegRotation(Vector3f position);
-	
+
 	/**
 	 * Représente les différentes propriétés possible pour une armor stand
+	 * 
 	 * @author LeLanN
 	 */
 	public enum ArmorStandFlag {
@@ -91,7 +109,8 @@ public interface WatcherArmorStand extends WatcherLivingEntity {
 		 */
 		MARKER(0x10);
 
-		@Getter private final int value;
+		@Getter
+		private final int value;
 
 		ArmorStandFlag(int value) {
 			this.value = value;

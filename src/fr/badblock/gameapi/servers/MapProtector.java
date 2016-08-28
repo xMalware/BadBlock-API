@@ -11,10 +11,13 @@ import fr.badblock.gameapi.GameAPI;
 import fr.badblock.gameapi.players.BadblockPlayer;
 
 /**
- * Classe permettant de faciliter l'utilisation des events Bukkit. Si une méthode retourne 'true' rien ne sera fait (hormis {@link #destroyArrow()}).
+ * Classe permettant de faciliter l'utilisation des events Bukkit. Si une
+ * méthode retourne 'true' rien ne sera fait (hormis {@link #destroyArrow()}).
  * Si une méthode retourne 'false' un ou des events seront annulés.<br>
  * 
- * Pour utiliser, définir le protecteur avec {@link GameAPI#setMapProtector(MapProtector)}.
+ * Pour utiliser, définir le protecteur avec
+ * {@link GameAPI#setMapProtector(MapProtector)}.
+ * 
  * @author LeLanN
  */
 public interface MapProtector {
@@ -22,81 +25,83 @@ public interface MapProtector {
 	 * Player actions
 	 */
 	public boolean blockPlace(BadblockPlayer player, Block block);
-	
+
 	public boolean blockBreak(BadblockPlayer player, Block block);
-	
+
 	public boolean modifyItemFrame(BadblockPlayer player, Entity itemFrame);
-	
+
 	public boolean canLostFood(BadblockPlayer player);
-	
+
 	public boolean canUseBed(BadblockPlayer player, Block bed);
-	
+
 	public boolean canUsePortal(BadblockPlayer player);
-	
+
 	public boolean canDrop(BadblockPlayer player);
-	
+
 	public boolean canPickup(BadblockPlayer player);
-	
+
 	public boolean canFillBucket(BadblockPlayer player);
-	
+
 	public boolean canEmptyBucket(BadblockPlayer player);
-	
+
 	public boolean canInteract(BadblockPlayer player, Action action, Block block);
-	
+
 	public boolean canInteractEntity(BadblockPlayer player, Entity entity);
-	
+
 	public boolean canInteractArmorStand(BadblockPlayer player, ArmorStand entity);
-	
+
 	public boolean canEnchant(BadblockPlayer player, Block table);
-	
+
 	public boolean canBeingDamaged(BadblockPlayer player);
-	
+
 	public boolean healOnJoin(BadblockPlayer player);
-	
+
 	/*
 	 * Blocks
 	 */
 	public boolean canBlockDamage(Block block);
-	
+
 	public boolean allowFire(Block block);
-	
+
 	public boolean allowMelting(Block block);
-	
+
 	public boolean allowBlockFormChange(Block block);
-	
+
 	public boolean allowPistonMove(Block block);
-	
+
 	public boolean allowBlockPhysics(Block block);
-	
+
 	public boolean allowLeavesDecay(Block block);
-	
+
 	public boolean allowRaining();
-	
+
 	public boolean modifyItemFrame(Entity itemframe);
-	
+
 	public boolean canSoilChange(Block soil);
-	
+
 	/*
 	 * Entities
 	 */
 	public boolean canSpawn(Entity entity);
-	
+
 	public boolean canCreatureSpawn(Entity creature, boolean isPlugin);
-	
+
 	public boolean canItemSpawn(Item item);
-	
+
 	public boolean canItemDespawn(Item item);
-	
+
 	public boolean allowExplosion(Location location);
-	
+
 	public boolean allowInteract(Entity entity);
-	
+
 	public boolean canCombust(Entity entity);
-	
+
 	public boolean canEntityBeingDamaged(Entity entity);
-	
+
 	/**
-	 * Si les flèches sont détruites dès qu'elles touchent le sol (optimisation).
+	 * Si les flèches sont détruites dès qu'elles touchent le sol
+	 * (optimisation).
+	 * 
 	 * @return False si l'on ne veut rien changer
 	 */
 	public boolean destroyArrow();

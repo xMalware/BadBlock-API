@@ -5,5 +5,5 @@ import org.bukkit.scheduler.BukkitTask;
 public class TempScheduler {
 
 	public BukkitTask task;
-	
+
 }

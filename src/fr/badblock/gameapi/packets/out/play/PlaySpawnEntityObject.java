@@ -8,76 +8,96 @@ import lombok.Getter;
 
 /**
  * Packet faisant spawn un object.
+ * 
  * @author LeLanN
  */
 public interface PlaySpawnEntityObject extends BadblockOutPacket {
 	/**
 	 * Récupère l'ID de l'entité
+	 * 
 	 * @return L'ID
 	 */
 	public int getEntityId();
-	
+
 	/**
 	 * Définit l'ID de l'entité
-	 * @param id L'ID
+	 * 
+	 * @param id
+	 *            L'ID
 	 * @return Le packet
 	 */
 	public PlaySpawnEntityObject setEntityId(int id);
-	
+
 	/**
 	 * Récupère le type de l'objet
+	 * 
 	 * @return Le type
 	 */
 	public SpawnableObjects getType();
-	
+
 	/**
 	 * Définit le type de l'objet
-	 * @param type Le type
+	 * 
+	 * @param type
+	 *            Le type
 	 * @return Le packet
 	 */
-	public PlaySpawnEntityObject setType(SpawnableObjects  type);
-	
+	public PlaySpawnEntityObject setType(SpawnableObjects type);
+
 	/**
-	 * Récupère la 'data' de l'entité (voir http://wiki.vg/Object_Data pour plus d'informations)
+	 * Récupère la 'data' de l'entité (voir http://wiki.vg/Object_Data pour plus
+	 * d'informations)
+	 * 
 	 * @return La data
 	 */
 	public int getData();
-	
+
 	/**
-	 * Définit la 'data' de l'entité (voir http://wiki.vg/Object_Data pour plus d'informations)
-	 * @param data La data 
+	 * Définit la 'data' de l'entité (voir http://wiki.vg/Object_Data pour plus
+	 * d'informations)
+	 * 
+	 * @param data
+	 *            La data
 	 * @return Le packet
 	 */
 	public PlaySpawnEntityObject setData(int data);
-	
+
 	/**
 	 * Récupère la position
+	 * 
 	 * @return La position
 	 */
 	public Location getLocation();
-	
+
 	/**
 	 * Définit la position
-	 * @param location La position
+	 * 
+	 * @param location
+	 *            La position
 	 * @return Le packet
 	 */
 	public PlaySpawnEntityObject setLocation(Location location);
-	
+
 	/**
 	 * Récupère la vélocité
+	 * 
 	 * @return La vélocité
 	 */
 	public Vector getVelocity();
-	
+
 	/**
 	 * Définit la vélocité
-	 * @param velocity La vélocité
+	 * 
+	 * @param velocity
+	 *            La vélocité
 	 * @return Le packet
 	 */
 	public PlaySpawnEntityObject setVelocity(Vector velocity);
 
 	/**
-	 * Représente les différents objets pouvant être spawn avec {@link PlaySpawnEntityObject}
+	 * Représente les différents objets pouvant être spawn avec
+	 * {@link PlaySpawnEntityObject}
+	 * 
 	 * @author LeLanN
 	 */
 	public enum SpawnableObjects {
@@ -165,16 +185,17 @@ public interface PlaySpawnEntityObject extends BadblockOutPacket {
 		 * Le flotteur d'une câne à pêche
 		 */
 		FISHING_FLOAT(90);
-		
-		@Getter private byte id;
-		
-		SpawnableObjects(int id){
+
+		@Getter
+		private byte id;
+
+		SpawnableObjects(int id) {
 			this.id = (byte) id;
 		}
-		
-		public static SpawnableObjects getByValue(byte value){
-			for(SpawnableObjects c : values())
-				if(c.getId() == value)
+
+		public static SpawnableObjects getByValue(byte value) {
+			for (SpawnableObjects c : values())
+				if (c.getId() == value)
 					return c;
 			return null;
 		}

@@ -6,31 +6,36 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
 /**
- * Représente une séléction en forme de cercle (la hauteur n'est pas prise en compte)
+ * Représente une séléction en forme de cercle (la hauteur n'est pas prise en
+ * compte)
+ * 
  * @author LeLanN
  *
  */
 public class CircleSelection extends AbstractSelection {
 	private Vector3f center;
-	private double	 radius;
-	
+	private double radius;
+
 	/**
 	 * Crée une nouvelle séléction à partir du nom du monde et deux de points
-	 * @param worldName Le monde
-	 * @param center Le centre
+	 * 
+	 * @param worldName
+	 *            Le monde
+	 * @param center
+	 *            Le centre
 	 */
-	public CircleSelection(String worldName, Vector3f center, double radius){
+	public CircleSelection(String worldName, Vector3f center, double radius) {
 		super(worldName);
 		this.center = center;
 		this.radius = radius;
 	}
-	
+
 	@Override
 	public boolean isInSelection(Vector3f loc) {
 		return Math.sqrt(square(loc.getX() - center.getX()) + square(loc.getZ() - center.getZ())) <= radius;
 	}
-	
-	private double square(double base){
+
+	private double square(double base) {
 		return base * base;
 	}
 

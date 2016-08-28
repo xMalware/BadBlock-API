@@ -5,6 +5,7 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
 
 /**
  * Packet envoyé par le joueur lorsque il bouge les bras. Aucun paramètre.
+ * 
  * @author LeLanN
  */
 public interface PlayInArmAnimation extends BadblockInPacket {

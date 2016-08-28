@@ -7,9 +7,12 @@ import lombok.Setter;
 
 /**
  * InGameData pour gérer le kit choisit par le joueur
+ * 
  * @author LeLanN
  */
 @NoArgsConstructor
 public class InGameKitData implements InGameData {
-	@Getter@Setter private PlayerKit choosedKit;
+	@Getter
+	@Setter
+	private PlayerKit choosedKit;
 }

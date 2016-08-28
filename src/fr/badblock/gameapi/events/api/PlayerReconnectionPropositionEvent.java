@@ -12,18 +12,22 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 /**
- * Si un joueur déconnecte en pleine partie et que le type de gestion de connection est correctement définit [{@link GameServer#whileRunningConnection(WhileRunningConnectionTypes)}
- * cet event sera appelé pour vérifier que le joueur y ai bien autorisé
+ * Si un joueur déconnecte en pleine partie et que le type de gestion de
+ * connection est correctement définit
+ * [{@link GameServer#whileRunningConnection(WhileRunningConnectionTypes)} cet
+ * event sera appelé pour vérifier que le joueur y ai bien autorisé
  * 
  * @author LeLanN
  */
-@Getter@Setter@RequiredArgsConstructor
-public class PlayerReconnectionPropositionEvent extends Event implements Cancellable{
-	private static final HandlerList	handlers	= new HandlerList();
+@Getter
+@Setter
+@RequiredArgsConstructor
+public class PlayerReconnectionPropositionEvent extends Event implements Cancellable {
+	private static final HandlerList handlers = new HandlerList();
 
-	private final BadblockPlayer		player;
-	private boolean 				    isCancelled = false;
-	
+	private final BadblockPlayer player;
+	private boolean isCancelled = false;
+
 	public HandlerList getHandlers() {
 		return handlers;
 	}

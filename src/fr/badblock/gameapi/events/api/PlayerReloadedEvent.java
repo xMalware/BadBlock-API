@@ -9,14 +9,16 @@ import lombok.Getter;
 
 /**
  * Event appelé lorsque les données du joueur sont à nouveau reçues de Ladder.
+ * 
  * @author LeLanN
  */
 @AllArgsConstructor
 public class PlayerReloadedEvent extends Event {
-	private static final HandlerList	handlers	= new HandlerList();
-	
-	@Getter private BadblockPlayer player;
-	
+	private static final HandlerList handlers = new HandlerList();
+
+	@Getter
+	private BadblockPlayer player;
+
 	public HandlerList getHandlers() {
 		return handlers;
 	}

@@ -9,13 +9,14 @@ import lombok.Getter;
 
 /**
  * Appelé lorsque un projectile arrive sur un block.
+ * 
  * @author LeLanN
  */
 public class ProjectileHitBlockEvent extends BlockEvent {
-	private static final HandlerList	handlers	= new HandlerList();
+	private static final HandlerList handlers = new HandlerList();
 
 	@Getter
-	private Projectile					projectile;
+	private Projectile projectile;
 
 	public ProjectileHitBlockEvent(Projectile projectile, Block block) {
 		super(block);

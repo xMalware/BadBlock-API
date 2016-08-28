@@ -1,9 +1,12 @@
 package fr.badblock.gameapi.players.data;
 
 /**
- * Représente les données in game du joueur (qui seront supprimées à la fin de la partie.<br>
- * Récupérez grâce à {@link fr.badblock.gameapi.players.BadblockPlayer#inGameData(Class)}.
+ * Représente les données in game du joueur (qui seront supprimées à la fin de
+ * la partie.<br>
+ * Récupérez grâce à
+ * {@link fr.badblock.gameapi.players.BadblockPlayer#inGameData(Class)}.
  * 
  * @author LeLanN
  */
-public interface InGameData {}
+public interface InGameData {
+}

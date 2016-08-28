@@ -13,23 +13,29 @@ import lombok.Setter;
 
 /**
  * Event appelé lorsque un joueur entre dans une team
+ * 
  * @author LeLanN
  */
 @RequiredArgsConstructor
 public class PlayerJoinTeamEvent extends Event implements Cancellable {
-	private static final HandlerList	handlers	= new HandlerList();
+	private static final HandlerList handlers = new HandlerList();
 
-	@Getter private final BadblockPlayer player;
-	@Getter private final BadblockTeam   previousTeam;
-	@Getter private final BadblockTeam   newTeam;
-	@Getter private final JoinReason	 reason;
-	
-	@Getter@Setter
-	private boolean 		   isCancelled  = false;
-	@Getter@Setter
+	@Getter
+	private final BadblockPlayer player;
+	@Getter
+	private final BadblockTeam previousTeam;
+	@Getter
+	private final BadblockTeam newTeam;
+	@Getter
+	private final JoinReason reason;
+
+	@Getter
+	@Setter
+	private boolean isCancelled = false;
+	@Getter
+	@Setter
 	private TranslatableString cancelReason = null;
-	
-	
+
 	public HandlerList getHandlers() {
 		return handlers;
 	}
@@ -37,9 +43,10 @@ public class PlayerJoinTeamEvent extends Event implements Cancellable {
 	public static HandlerList getHandlerList() {
 		return handlers;
 	}
-	
+
 	/**
 	 * Raison de l'entrée dans la team
+	 * 
 	 * @author LeLanN
 	 */
 	public static enum JoinReason {
@@ -48,7 +55,8 @@ public class PlayerJoinTeamEvent extends Event implements Cancellable {
 		 */
 		WHILE_WAITING,
 		/**
-		 * Changement de la répartition ou assignation forcée de team lors du démarrage
+		 * Changement de la répartition ou assignation forcée de team lors du
+		 * démarrage
 		 */
 		REBALANCING;
 	}

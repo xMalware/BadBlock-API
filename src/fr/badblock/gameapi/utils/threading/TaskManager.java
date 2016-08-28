@@ -14,18 +14,20 @@ import fr.badblock.gameapi.GameAPI;
 
 /**
  * Gestion des tasks
+ * 
  * @author xMalware
  */
 public class TaskManager {
-	
-	public static HashMap<String, Double>	tasksTime 	= new HashMap<>();
-	public static HashMap<String, Integer>	taskList	= new HashMap<>();
-	public static BukkitScheduler			scheduler	= Bukkit.getScheduler();
-	static Plugin							plugin		= GameAPI.getAPI();
-	private static String 					currentThreadName = Thread.currentThread().getName();
-	
+
+	public static HashMap<String, Double> tasksTime = new HashMap<>();
+	public static HashMap<String, Integer> taskList = new HashMap<>();
+	public static BukkitScheduler scheduler = Bukkit.getScheduler();
+	static Plugin plugin = GameAPI.getAPI();
+	private static String currentThreadName = Thread.currentThread().getName();
+
 	/**
 	 * Charger le runnable
+	 * 
 	 * @param name
 	 * @param runnable
 	 * @return
@@ -44,9 +46,10 @@ public class TaskManager {
 			}
 		};
 	}
-	
+
 	/**
 	 * Recupère la task
+	 * 
 	 * @param taskName
 	 * @return
 	 */
@@ -55,14 +58,16 @@ public class TaskManager {
 		int id = getTaskId(taskName);
 		if (id > 0) {
 			for (BukkitTask pendingTask : scheduler.getPendingTasks()) {
-				if (pendingTask.getTaskId() == id) return task;
+				if (pendingTask.getTaskId() == id)
+					return task;
 			}
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Récupérer l'utilisation de la tâche en millisecondes
+	 * 
 	 * @param task
 	 * @return
 	 */
@@ -70,27 +75,32 @@ public class TaskManager {
 		String taskName = getTaskNameById(task.getTaskId());
 		return !tasksTime.containsKey(taskName) ? -1D : tasksTime.get(taskName);
 	}
-	
+
 	/**
 	 * Récupérer l'utilisation de toutes les tâches en millisecondes
+	 * 
 	 * @return
 	 */
 	public static Map<String, Double> getUsageTasks() {
 		return tasksTime;
 	}
-	
+
 	/**
-	 * Tente de récupérer le nom de la task par l'id si elle existe encore et qu'elle a été déclaré dans ce manager
-	 * @param id de la task
+	 * Tente de récupérer le nom de la task par l'id si elle existe encore et
+	 * qu'elle a été déclaré dans ce manager
+	 * 
+	 * @param id
+	 *            de la task
 	 * @return null si non trouvé
 	 */
 	public static String getTaskNameById(int id) {
 		for (Entry<String, Integer> entry : taskList.entrySet()) {
-			if (entry.getValue() == id) return entry.getKey();
+			if (entry.getValue() == id)
+				return entry.getKey();
 		}
 		return null;
 	}
-	
+
 	// La tâche existe ?
 	public static boolean taskExist(String taskName) {
 		if (taskList.containsKey(taskName)) {
@@ -98,7 +108,7 @@ public class TaskManager {
 		}
 		return false;
 	}
-	
+
 	// Récupération de l'id
 	public static int getTaskId(String taskName) {
 		if (taskExist(taskName)) {
@@ -106,14 +116,14 @@ public class TaskManager {
 		}
 		return 0;
 	}
-	
+
 	// Cancel all task
 	public static void cancelAllTask() {
 		for (int taskId : taskList.values()) {
 			scheduler.cancelTask(taskId);
 		}
 	}
-	
+
 	// Cancel de la task by name
 	public static boolean cancelTaskByName(String taskName) {
 		if (taskExist(taskName)) {
@@ -124,48 +134,55 @@ public class TaskManager {
 		}
 		return false;
 	}
-	
+
 	// Annule une tâche par l'ID
 	public static void cancelTaskById(int id) {
 		scheduler.cancelTask(id);
 	}
-	
+
 	public static void removeTaskByName(String taskName) {
 		taskList.remove(taskName);
 	}
-	
+
 	// Run task now
 	public static BukkitTask runTask(Runnable runnable) {
 		return scheduler.runTask(plugin, loadRunnable("runTask_" + (new Random().nextInt(6555555)), runnable));
 	}
-	
+
 	/**
 	 * Run async task
+	 * 
 	 * @param runnable
 	 * @return
 	 */
 	public static BukkitTask runTaskAsync(Runnable runnable) {
-		return scheduler.runTaskAsynchronously(plugin, loadRunnable("runTask_" + (new Random().nextInt(6555555)), runnable));
+		return scheduler.runTaskAsynchronously(plugin,
+				loadRunnable("runTask_" + (new Random().nextInt(6555555)), runnable));
 	}
-	
+
 	// Run async task later
 	public static BukkitTask runAsyncTaskLater(Runnable runnable, int tick) {
-		return scheduler.runTaskLaterAsynchronously(plugin, loadRunnable("laterTask_" + tick + "_" + (new Random().nextInt(655555)), runnable), tick);
+		return scheduler.runTaskLaterAsynchronously(plugin,
+				loadRunnable("laterTask_" + tick + "_" + (new Random().nextInt(655555)), runnable), tick);
 	}
-	
+
 	/**
 	 * Run task later
+	 * 
 	 * @param runnable
 	 * @param tick
 	 * @return
 	 */
 	public static BukkitTask runTaskLater(Runnable runnable, int tick) {
-		return scheduler.runTaskLater(plugin, loadRunnable("laterTask_" + tick + "_" + (new Random().nextInt(655555)), runnable), tick);
+		return scheduler.runTaskLater(plugin,
+				loadRunnable("laterTask_" + tick + "_" + (new Random().nextInt(655555)), runnable), tick);
 	}
-	
+
 	/**
-	 * Créer et enregistre une task, se retire de la liste toute seule à l'expiration, permet de l'annuler dans un
-	 * plugin et éviter les mémory leaks
+	 * Créer et enregistre une task, se retire de la liste toute seule à
+	 * l'expiration, permet de l'annuler dans un plugin et éviter les mémory
+	 * leaks
+	 * 
 	 * @param taskName
 	 * @param task
 	 * @param duration
@@ -177,17 +194,20 @@ public class TaskManager {
 		runTaskLater(new Runnable() {
 			@Override
 			public void run() {
-				// Toujours la même task ID pour éviter la suppression de task renouvelées
-				if (taskList.get(taskName) != null && taskList.get(taskName) == id) taskList.remove(taskName);
+				// Toujours la même task ID pour éviter la suppression de task
+				// renouvelées
+				if (taskList.get(taskName) != null && taskList.get(taskName) == id)
+					taskList.remove(taskName);
 			}
 		}, duration);
 		return bukkitTask;
 	}
-	
+
 	/**
-	 * Créer et enregistre une task, se retire de la liste toute seule à l'expiration, permet de l'annuler dans un
-	 * plugin et éviter les mémory leaks
-	 * Tourne en async
+	 * Créer et enregistre une task, se retire de la liste toute seule à
+	 * l'expiration, permet de l'annuler dans un plugin et éviter les mémory
+	 * leaks Tourne en async
+	 * 
 	 * @param taskName
 	 * @param task
 	 * @param duration
@@ -199,24 +219,29 @@ public class TaskManager {
 		runAsyncTaskLater(new Runnable() {
 			@Override
 			public void run() {
-				// Toujours la même task ID pour éviter la suppression de task renouvelées
-				if (taskList.get(taskName) != null && taskList.get(taskName) == id) taskList.remove(taskName);
+				// Toujours la même task ID pour éviter la suppression de task
+				// renouvelées
+				if (taskList.get(taskName) != null && taskList.get(taskName) == id)
+					taskList.remove(taskName);
 			}
 		}, duration);
 		return bukkitTask;
 	}
-	
+
 	/**
 	 * Rajout une task dans la list
+	 * 
 	 * @param name
 	 * @param id
 	 */
 	public static void addTask(String name, int id) {
 		taskList.put(name, id);
 	}
-	
+
 	/**
-	 * Ajoute une tâche répétitive Annule la précédante du meme nom si existe.
+	 * Ajoute une tâche répétitive Annule la précédante du meme nom si
+	 * existe.
+	 * 
 	 * @param runnable
 	 * @param delay
 	 * @param refresh
@@ -228,9 +253,11 @@ public class TaskManager {
 		taskList.put(taskName, task.getTaskId());
 		return task;
 	}
-	
+
 	/**
-	 * Ajoute une tâche répétitive en async Annule la précédante du meme nom si existe.
+	 * Ajoute une tâche répétitive en async Annule la précédante du meme
+	 * nom si existe.
+	 * 
 	 * @param runnable
 	 * @param delay
 	 * @param refresh
@@ -238,13 +265,15 @@ public class TaskManager {
 	 */
 	public static BukkitTask scheduleAsyncRepeatingTask(String taskName, Runnable runnable, int delay, int refresh) {
 		cancelTaskByName(taskName);
-		BukkitTask task = scheduler.runTaskTimerAsynchronously(plugin, loadRunnable(taskName, runnable), delay, refresh);
+		BukkitTask task = scheduler.runTaskTimerAsynchronously(plugin, loadRunnable(taskName, runnable), delay,
+				refresh);
 		taskList.put(taskName, task.getTaskId());
 		return task;
 	}
-	
+
 	/**
 	 * Créer un nom de tâche unique basé sur un nom de tâche
+	 * 
 	 * @param string
 	 * @return
 	 */
@@ -255,5 +284,5 @@ public class TaskManager {
 		}
 		return taskName;
 	}
-	
+
 }

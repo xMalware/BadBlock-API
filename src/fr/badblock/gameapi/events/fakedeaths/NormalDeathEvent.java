@@ -9,14 +9,17 @@ import lombok.RequiredArgsConstructor;
 
 /**
  * Event appelé lorsque le joueur meurt seul (ni PVP ni PVE).
+ * 
  * @author LeLanN
  */
 @RequiredArgsConstructor
 public class NormalDeathEvent extends FakeDeathEvent {
-	private static final HandlerList	handlers	= new HandlerList();
+	private static final HandlerList handlers = new HandlerList();
 
-	@Getter private final BadblockPlayer  player;
-	@Getter private final DamageCause	  lastDamageCause;
+	@Getter
+	private final BadblockPlayer player;
+	@Getter
+	private final DamageCause lastDamageCause;
 
 	public HandlerList getHandlers() {
 		return handlers;

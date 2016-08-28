@@ -9,23 +9,28 @@ import java.util.List;
 import lombok.Data;
 
 /**
- * Classe permettant d'utiliser facilement la réfléction à l'échelle d'une unique classe (principalement la gestion des Fields°.
+ * Classe permettant d'utiliser facilement la réfléction à l'échelle d'une
+ * unique classe (principalement la gestion des Fields°.
+ * 
  * @author LeLanN
  */
 @Data
 public class Reflector {
-	private final Object     reflected;
+	private final Object reflected;
 	private final Class<?>[] clazz;
 
 	/**
 	 * Crée un nouveau Reflector à partir d'un objet.
-	 * @param object L'objet sur lequel les modifications / lectures aurront lieues.
+	 * 
+	 * @param object
+	 *            L'objet sur lequel les modifications / lectures aurront
+	 *            lieues.
 	 */
-	public Reflector(Object object){
+	public Reflector(Object object) {
 		this(object, object.getClass());
 	}
 
-	public Reflector(Object object, Class<?> clazz){
+	public Reflector(Object object, Class<?> clazz) {
 		this.reflected = object;
 
 		List<Class<?>> allClass = new ArrayList<>();
@@ -36,15 +41,15 @@ public class Reflector {
 		this.clazz = allClass.toArray(new Class<?>[0]);
 	}
 
-	private void addSuper(Class<?> clazz, List<Class<?>> allClass){
-		for(Class<?> inter : clazz.getInterfaces()){
+	private void addSuper(Class<?> clazz, List<Class<?>> allClass) {
+		for (Class<?> inter : clazz.getInterfaces()) {
 			allClass.add(inter);
-			
-			if(inter.getSuperclass() != null)
+
+			if (inter.getSuperclass() != null)
 				addSuper(inter.getSuperclass(), allClass);
 		}
-		
-		if(!clazz.getSuperclass().equals(Object.class)){
+
+		if (!clazz.getSuperclass().equals(Object.class)) {
 			allClass.add(clazz.getSuperclass());
 			addSuper(clazz.getSuperclass(), allClass);
 		}
@@ -53,7 +58,7 @@ public class Reflector {
 	public Object getFieldValue(String name) throws Exception {
 		Field field = getDeclaredField(name);
 
-		if(!field.isAccessible())
+		if (!field.isAccessible())
 			field.setAccessible(true);
 
 		return field.get(reflected);
@@ -62,7 +67,7 @@ public class Reflector {
 	public Object getStaticFieldValue(String name) throws Exception {
 		Field field = getDeclaredField(name);
 
-		if(!field.isAccessible())
+		if (!field.isAccessible())
 			field.setAccessible(true);
 
 		return field.get(null);
@@ -71,7 +76,7 @@ public class Reflector {
 	public void setFieldValue(String name, Object object) throws Exception {
 		Field field = getDeclaredField(name);
 
-		if(!field.isAccessible())
+		if (!field.isAccessible())
 			field.setAccessible(true);
 
 		ReflectionUtils.removeFinal(field);
@@ -88,34 +93,34 @@ public class Reflector {
 	protected Field getDeclaredField(String name) throws Exception {
 		Field field = null;
 
-		for(Class<?> clazz : this.clazz){
+		for (Class<?> clazz : this.clazz) {
 			try {
 				field = clazz.getDeclaredField(name);
 				return field; // le field semble trouvé ! :)
 			} catch (NoSuchFieldException e) {
 
-			} catch(SecurityException e){
+			} catch (SecurityException e) {
 				throw new SecurityException(e);
 			}
 		}
 
 		throw new NoSuchFieldException(name);
 	}
-	
+
 	public Method getDeclaredMethod(String name, Class<?>... args) throws Exception {
 		Method method = null;
 
-		for(Class<?> clazz : this.clazz){
+		for (Class<?> clazz : this.clazz) {
 			try {
 				method = clazz.getDeclaredMethod(name, args);
-				
-				if(!method.isAccessible())
+
+				if (!method.isAccessible())
 					method.setAccessible(true);
-				
+
 				return method; // la method semble trouvé ! :)
 			} catch (NoSuchMethodException e) {
 
-			} catch(SecurityException e){
+			} catch (SecurityException e) {
 				throw new SecurityException(e);
 			}
 		}

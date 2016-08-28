@@ -6,22 +6,27 @@ import fr.badblock.gameapi.packets.BadblockInPacket;
 import fr.badblock.gameapi.packets.BadblockInPackets;
 
 /**
- * Packet envoyé par le client lorsqu'il récupère un item dans son inventaire créatif
+ * Packet envoyé par le client lorsqu'il récupère un item dans son inventaire
+ * créatif
+ * 
  * @author LeLanN
  */
 public interface PlayInSetCreativeSlot extends BadblockInPacket {
 	/**
-	 * Le slot choisit. Si le joueur récupère un item, -1, si il le place, le slot dans l'inventaire.
+	 * Le slot choisit. Si le joueur récupère un item, -1, si il le place, le
+	 * slot dans l'inventaire.
+	 * 
 	 * @return Le slot
 	 */
 	public int getSlot();
-	
+
 	/**
 	 * L'item concerné
+	 * 
 	 * @return L'item
 	 */
 	public ItemStack getItemStack();
-	
+
 	@Override
 	default BadblockInPackets getType() {
 		return BadblockInPackets.PLAY_SET_CREATIVE_SLOT;

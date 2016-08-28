@@ -8,12 +8,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data@AllArgsConstructor@NoArgsConstructor
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class MapNamedLocation implements MapValue<Location> {
 	private MapLocation loc;
-	private String   	name;
+	private String name;
 
-	public MapNamedLocation(Location loc, String name){
+	public MapNamedLocation(Location loc, String name) {
 		this(new MapLocation(loc), name);
 	}
 

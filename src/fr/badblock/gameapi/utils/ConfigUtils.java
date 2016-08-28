@@ -24,7 +24,7 @@ public class ConfigUtils {
 		int z = location.getBlockZ();
 		return world + "," + x + "," + y + "," + z;
 	}
-	
+
 	/**
 	 * Convertir une location en chaine
 	 * 
@@ -42,7 +42,7 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * Location Block à partir d'une chaine
+	 * Location Block ï¿½ partir d'une chaine
 	 * 
 	 * @param string
 	 * @return
@@ -60,7 +60,7 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * Location è partir d'une chaine
+	 * Location ï¿½ partir d'une chaine
 	 * 
 	 * @param string
 	 * @return
@@ -82,7 +82,7 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * Recupérer une location de type Block dans la config
+	 * Recupï¿½rer une location de type Block dans la config
 	 * 
 	 * @param plugin
 	 * @param node
@@ -93,7 +93,9 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * Répérer un entier & le set si il n'y est pas présent dans la configuration
+	 * Rï¿½pï¿½rer un entier & le set si il n'y est pas prï¿½sent dans la
+	 * configuration
+	 * 
 	 * @param plugin
 	 * @param key
 	 * @return
@@ -108,7 +110,9 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * Récupérer un booléen & le set si il n'y est pas présent dans la configuration
+	 * Rï¿½cupï¿½rer un boolï¿½en & le set si il n'y est pas prï¿½sent dans la
+	 * configuration
+	 * 
 	 * @param plugin
 	 * @param key
 	 * @return
@@ -123,7 +127,9 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * Récupérer un matériel & le set si il n'y est pas présent dans la configuration
+	 * Rï¿½cupï¿½rer un matï¿½riel & le set si il n'y est pas prï¿½sent dans la
+	 * configuration
+	 * 
 	 * @param plugin
 	 * @param key
 	 * @return
@@ -138,7 +144,9 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * Récupérer une liste de chaîne de caractères & la créer si elle n'est pas présente dans la configuration
+	 * Rï¿½cupï¿½rer une liste de chaï¿½ne de caractï¿½res & la crï¿½er si elle n'est pas
+	 * prï¿½sente dans la configuration
+	 * 
 	 * @param plugin
 	 * @param key
 	 * @return
@@ -152,9 +160,12 @@ public class ConfigUtils {
 		}
 		return plugin.getConfig().getStringList(key);
 	}
-	
+
 	/**
-	 * Récupérer un objet quelconque à l'aide d'une clé & créer cette clé avec une valeur par défaut si cette clé n'est pas présente dans la configuration
+	 * Rï¿½cupï¿½rer un objet quelconque ï¿½ l'aide d'une clï¿½ & crï¿½er cette clï¿½ avec
+	 * une valeur par dï¿½faut si cette clï¿½ n'est pas prï¿½sente dans la
+	 * configuration
+	 * 
 	 * @param plugin
 	 * @param key
 	 * @param defaultValue
@@ -174,18 +185,17 @@ public class ConfigUtils {
 	 */
 
 	/**
-	 * Recupère le point nommè
+	 * Recupï¿½re le point nommï¿½
 	 * 
 	 * @param plugin
-	 * @return le point nommè ou le spawn de base du world
+	 * @return le point nommï¿½ ou le spawn de base du world
 	 */
 	public static Location getLocation(Plugin plugin, String name) {
-		return getLocationFromFile(plugin, name) != null ? getLocationFromFile(
-				plugin, name) : null;
+		return getLocationFromFile(plugin, name) != null ? getLocationFromFile(plugin, name) : null;
 	}
 
 	/**
-	 * Recupère une location dans la config
+	 * Recupï¿½re une location dans la config
 	 * 
 	 * @param plugin
 	 * @param node
@@ -196,7 +206,7 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * Recupère une liste de locations
+	 * Recupï¿½re une liste de locations
 	 */
 	public static List<Location> getLocationList(Plugin plugin, String name) {
 		List<Location> spawns = new ArrayList<Location>();
@@ -218,14 +228,13 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * Recupèrer le nom de la map
+	 * Recupï¿½rer le nom de la map
 	 * 
 	 * @param plugin
 	 * @return le nom ou "NoName" si la configuration n'en a pas
 	 */
 	public static String getMapName(Plugin plugin) {
-		return (plugin.getConfig().getString("mapName") != null ? plugin
-				.getConfig().getString("mapName") : "NoName");
+		return (plugin.getConfig().getString("mapName") != null ? plugin.getConfig().getString("mapName") : "NoName");
 	}
 
 	/*
@@ -239,8 +248,7 @@ public class ConfigUtils {
 	 * @param node
 	 * @param location
 	 */
-	public static void saveBlockLocation(Plugin plugin, String node,
-			Location location) {
+	public static void saveBlockLocation(Plugin plugin, String node, Location location) {
 		plugin.getConfig().set(node, convertLocationBlockToString(location));
 		plugin.saveConfig();
 	}
@@ -252,8 +260,7 @@ public class ConfigUtils {
 	 * @param node
 	 * @param location
 	 */
-	public static void saveLocation(Plugin plugin, String node,
-			Location location) {
+	public static void saveLocation(Plugin plugin, String node, Location location) {
 		plugin.getConfig().set(node, convertLocationToString(location));
 		plugin.saveConfig();
 	}
@@ -265,8 +272,7 @@ public class ConfigUtils {
 	 * @param locations
 	 * @param name
 	 */
-	public static void saveLocationList(Plugin plugin,
-			List<Location> locations, String name) {
+	public static void saveLocationList(Plugin plugin, List<Location> locations, String name) {
 		List<String> locsToString = new ArrayList<String>();
 		for (Location location : locations) {
 			locsToString.add(ConfigUtils.convertLocationToString(location));
@@ -276,7 +282,7 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * Dèfinit la location nommée
+	 * Dï¿½finit la location nommï¿½e
 	 * 
 	 * @param plugin
 	 * @param location

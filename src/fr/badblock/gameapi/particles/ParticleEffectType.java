@@ -6,6 +6,7 @@ import lombok.Getter;
 
 /**
  * Représente les différents type de particules possible
+ * 
  * @author LeLanN
  */
 @Getter
@@ -14,15 +15,18 @@ public enum ParticleEffectType {
 	 * Une particule affichée lors de l'explosion d'une TNT ou d'un creeper
 	 * <ul>
 	 * <li>Cela ressemble à un "nuage blanc"
-	 * <li>La valeur de la speed value va influer sur la vitesse à laquelle la particule va s'envoler
+	 * <li>La valeur de la speed value va influer sur la vitesse à laquelle la
+	 * particule va s'envoler
 	 * </ul>
 	 */
 	EXPLOSION_NORMAL("explode", 0),
 	/**
-	 * Une particule affichée lors de l'explosion d'une fireball (ghast) ou d'un crâne de wither:
+	 * Une particule affichée lors de l'explosion d'une fireball (ghast) ou d'un
+	 * crâne de wither:
 	 * <ul>
 	 * <li>Ressemble à une balle grise qui disparaît
-	 * <li>La valeur de la speed value influe légèrement sur la taille de la particule
+	 * <li>La valeur de la speed value influe légèrement sur la taille de la
+	 * particule
 	 * </ul>
 	 */
 	EXPLOSION_LARGE("largeexplode", 1),
@@ -38,15 +42,18 @@ public enum ParticleEffectType {
 	 * Une particule affichée lors de l'utilisation d'un firework
 	 * <ul>
 	 * <li>Ressemble à une étoile blanche
-	 * <li>La speed value va influer sur la vitesse à laquelle la particule va s'envoler
+	 * <li>La speed value va influer sur la vitesse à laquelle la particule va
+	 * s'envoler
 	 * </ul>
 	 */
 	FIREWORKS_SPARK("fireworksSpark", 3),
 	/**
-	 * Une particule affichée lorsque une entité nage dans l'eau ou lorsque une flèche y entre
+	 * Une particule affichée lorsque une entité nage dans l'eau ou lorsque une
+	 * flèche y entre
 	 * <ul>
 	 * <li>Ressemble à une bulle
-	 * <li>La speed value va influer sur la vitesse à laquelle la particule va s'envoler
+	 * <li>La speed value va influer sur la vitesse à laquelle la particule va
+	 * s'envoler
 	 * </ul>
 	 */
 	WATER_BUBBLE("bubble", 4, null, true),
@@ -62,7 +69,8 @@ public enum ParticleEffectType {
 	 * Une particule affichée lorsque l'on pêche
 	 * <ul>
 	 * <li>Ressemble à une goutelette bleu
-	 * <li>La speed value va influer sur la vitesse à laquelle la particule va s'envoler
+	 * <li>La speed value va influer sur la vitesse à laquelle la particule va
+	 * s'envoler
 	 * </ul>
 	 */
 	WATER_WAKE("wake", 6),
@@ -83,10 +91,12 @@ public enum ParticleEffectType {
 	 */
 	SUSPENDED_DEPTH("depthSuspend", 8),
 	/**
-	 * Une particule affichée lors d'un coup critique ou lorsque l'on reçoit une flèche
+	 * Une particule affichée lors d'un coup critique ou lorsque l'on reçoit une
+	 * flèche
 	 * <ul>
 	 * <li>Ressemble à une croix marron
-	 * <li>La speed value va influer sur la vitesse à laquelle la particule va s'envoler
+	 * <li>La speed value va influer sur la vitesse à laquelle la particule va
+	 * s'envoler
 	 * </ul>
 	 */
 	CRIT("crit", 9),
@@ -94,16 +104,19 @@ public enum ParticleEffectType {
 	 * Une particule affichée lors d'un coup avec une arme enchantée
 	 * <ul>
 	 * <li>Ressemble à une étoile cyan
-	 * <li>La speed value va influer sur la vitesse à laquelle la particule va s'envoler
+	 * <li>La speed value va influer sur la vitesse à laquelle la particule va
+	 * s'envoler
 	 * </ul>
 	 */
 	CRIT_MAGIC("magicCrit", 10),
 	/**
-	 * Une particule affichée par les tnt allumées, les torches, les droppers, les dispensers, les portails de l'end et les brewing stands
-	 * et les spawners
+	 * Une particule affichée par les tnt allumées, les torches, les droppers,
+	 * les dispensers, les portails de l'end et les brewing stands et les
+	 * spawners
 	 * <ul>
 	 * <li>Ressemble à un petit nuage gris
-	 * <li>La speed value va influer sur la vitesse à laquelle la particule va s'envoler
+	 * <li>La speed value va influer sur la vitesse à laquelle la particule va
+	 * s'envoler
 	 * </ul>
 	 */
 	SMOKE_NORMAL("smoke", 11),
@@ -111,7 +124,8 @@ public enum ParticleEffectType {
 	 * Une particule affichée par le feu, les fours sur minecart et les blazes
 	 * <ul>
 	 * <li>Ressemble à un gros nuage gris
-	 * <li>La speed value va influer sur la vitesse à laquelle la particule va s'envoler
+	 * <li>La speed value va influer sur la vitesse à laquelle la particule va
+	 * s'envoler
 	 * </ul>
 	 */
 	SMOKE_LARGE("largesmoke", 12),
@@ -135,15 +149,18 @@ public enum ParticleEffectType {
 	 * Une particule affichée lorsque qu'un effet de potion est actif
 	 * <ul>
 	 * <li>Ressemble à un petit tourbillon coloré
-	 * <li>La speed value influe sur la luminosité de la particule (0 = noir, 1 = brillant)
+	 * <li>La speed value influe sur la luminosité de la particule (0 = noir, 1
+	 * = brillant)
 	 * </ul>
 	 */
 	SPELL_MOB("mobSpell", 15),
 	/**
-	 * Une particule affichée lorsque qu'un effet de potion est actif via un beacon
+	 * Une particule affichée lorsque qu'un effet de potion est actif via un
+	 * beacon
 	 * <ul>
 	 * <li>Ressemble à un petit toubillon transparent coloré
-	 * <li>La speed value influe sur la luminosité de la particule (0 = noir, 1 = brillant)
+	 * <li>La speed value influe sur la luminosité de la particule (0 = noir, 1
+	 * = brillant)
 	 * </ul>
 	 */
 	SPELL_MOB_AMBIENT("mobSpellAmbient", 16),
@@ -172,7 +189,8 @@ public enum ParticleEffectType {
 	 */
 	DRIP_LAVA("dripLava", 19),
 	/**
-	 * A particle effect which is displayed when attacking a villager in a village:
+	 * A particle effect which is displayed when attacking a villager in a
+	 * village:
 	 * <ul>
 	 * <li>It looks like a cracked gray heart
 	 * <li>The speed value has no influence on this particle effect
@@ -180,7 +198,8 @@ public enum ParticleEffectType {
 	 */
 	VILLAGER_ANGRY("angryVillager", 20),
 	/**
-	 * A particle effect which is displayed when using bone meal and trading with a villager in a village:
+	 * A particle effect which is displayed when using bone meal and trading
+	 * with a villager in a village:
 	 * <ul>
 	 * <li>It looks like a green star
 	 * <li>The speed value has no influence on this particle effect
@@ -204,8 +223,8 @@ public enum ParticleEffectType {
 	 */
 	NOTE("note", 23),
 	/**
-	 * A particle effect which is displayed by nether portals, endermen, ender pearls, eyes of ender, ender chests and
-	 * dragon eggs:
+	 * A particle effect which is displayed by nether portals, endermen, ender
+	 * pearls, eyes of ender, ender chests and dragon eggs:
 	 * <ul>
 	 * <li>It looks like a purple cloud
 	 * <li>The speed value influences the spread of this particle effect
@@ -213,7 +232,8 @@ public enum ParticleEffectType {
 	 */
 	PORTAL("portal", 24),
 	/**
-	 * A particle effect which is displayed by enchantment tables which are nearby bookshelves:
+	 * A particle effect which is displayed by enchantment tables which are
+	 * nearby bookshelves:
 	 * <ul>
 	 * <li>It looks like a cryptic white letter
 	 * <li>The speed value influences the spread of this particle effect
@@ -221,10 +241,12 @@ public enum ParticleEffectType {
 	 */
 	ENCHANTMENT_TABLE("enchantmenttable", 25),
 	/**
-	 * A particle effect which is displayed by torches, active furnaces, magma cubes and monster spawners:
+	 * A particle effect which is displayed by torches, active furnaces, magma
+	 * cubes and monster spawners:
 	 * <ul>
 	 * <li>It looks like a tiny flame
-	 * <li>The speed value influences the velocity at which the particle flies off
+	 * <li>The speed value influences the velocity at which the particle flies
+	 * off
 	 * </ul>
 	 */
 	FLAME("flame", 26),
@@ -248,12 +270,14 @@ public enum ParticleEffectType {
 	 * A particle effect which is displayed when a mob dies:
 	 * <ul>
 	 * <li>It looks like a large white cloud
-	 * <li>The speed value influences the velocity at which the particle flies off
+	 * <li>The speed value influences the velocity at which the particle flies
+	 * off
 	 * </ul>
 	 */
 	CLOUD("cloud", 29),
 	/**
-	 * A particle effect which is displayed by redstone ore, powered redstone, redstone torches and redstone repeaters:
+	 * A particle effect which is displayed by redstone ore, powered redstone,
+	 * redstone torches and redstone repeaters:
 	 * <ul>
 	 * <li>It looks like a tiny colored cloud
 	 * <li>The speed value causes the particle to be colored red when set to 0
@@ -272,7 +296,8 @@ public enum ParticleEffectType {
 	 * A particle effect which is currently unused:
 	 * <ul>
 	 * <li>It looks like a tiny white cloud
-	 * <li>The speed value influences the velocity at which the particle flies off
+	 * <li>The speed value influences the velocity at which the particle flies
+	 * off
 	 * </ul>
 	 */
 	SNOW_SHOVEL("snowshovel", 32),
@@ -301,7 +326,8 @@ public enum ParticleEffectType {
 	 */
 	BARRIER("barrier", 35),
 	/**
-	 * A particle effect which is displayed when breaking a tool or eggs hit a block:
+	 * A particle effect which is displayed when breaking a tool or eggs hit a
+	 * block:
 	 * <ul>
 	 * <li>It looks like a little piece with an item texture
 	 * </ul>
@@ -345,20 +371,20 @@ public enum ParticleEffectType {
 	 * </ul>
 	 */
 	MOB_APPEARANCE("mobappearance", 41);
-	
-	private String 						  name;
-	private int	   						  id;
+
+	private String name;
+	private int id;
 	private Class<? extends ParticleData> data;
-	private boolean						  needWater;
-	
-	ParticleEffectType(String name, int id, Class<? extends ParticleData> data, boolean needWater){
-		this.name      = name;
-		this.id	  	   = id;
-		this.data 	   = data;
+	private boolean needWater;
+
+	ParticleEffectType(String name, int id, Class<? extends ParticleData> data, boolean needWater) {
+		this.name = name;
+		this.id = id;
+		this.data = data;
 		this.needWater = needWater;
 	}
-	
-	ParticleEffectType(String name, int id){
+
+	ParticleEffectType(String name, int id) {
 		this(name, id, null, false);
 	}
 }

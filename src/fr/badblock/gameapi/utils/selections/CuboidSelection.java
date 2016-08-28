@@ -8,38 +8,41 @@ import org.bukkit.Location;
 import lombok.Getter;
 
 /**
- * Représente une séléction en forme de cube, définie par deux vecteurs et un monde
+ * Représente une séléction en forme de cube, définie par deux vecteurs et un
+ * monde
+ * 
  * @author LeLanN
  */
 public class CuboidSelection extends AbstractSelection {
-	@Getter private Vector3f firstBound, secondBound;
-	
+	@Getter
+	private Vector3f firstBound, secondBound;
+
 	/**
 	 * Crée une nouvelle séléction à partir du nom du monde et deux de points
-	 * @param worldName Le monde
-	 * @param firstBound Le premier vecteur
-	 * @param secondBound Le seconde vecteur
+	 * 
+	 * @param worldName
+	 *            Le monde
+	 * @param firstBound
+	 *            Le premier vecteur
+	 * @param secondBound
+	 *            Le seconde vecteur
 	 */
-	public CuboidSelection(String worldName, Vector3f firstBound, Vector3f secondBound){
+	public CuboidSelection(String worldName, Vector3f firstBound, Vector3f secondBound) {
 		super(worldName);
 		this.firstBound = firstBound;
 		this.secondBound = secondBound;
 	}
-	
-	public CuboidSelection(Location firstBound, Location secondBound){
+
+	public CuboidSelection(Location firstBound, Location secondBound) {
 		super(firstBound.getWorld().getName());
-		this.firstBound  = new Vector3f(firstBound);
+		this.firstBound = new Vector3f(firstBound);
 		this.secondBound = new Vector3f(secondBound);
 	}
-	
+
 	@Override
 	public boolean isInSelection(Vector3f loc) {
-		return loc.getX() >= getMinX()
-				&& loc.getX() <= getMaxX()
-				&& loc.getY() >= getMinY()
-				&& loc.getY() <= getMaxY()
-				&& loc.getZ() >= getMinZ()
-				&& loc.getZ() <= getMaxZ();
+		return loc.getX() >= getMinX() && loc.getX() <= getMaxX() && loc.getY() >= getMinY() && loc.getY() <= getMaxY()
+				&& loc.getZ() >= getMinZ() && loc.getZ() <= getMaxZ();
 	}
 
 	@Override
@@ -59,28 +62,28 @@ public class CuboidSelection extends AbstractSelection {
 
 		return new Location(Bukkit.getWorld(getWorldName()), x, y, z);
 	}
-	
-	protected double getMaxZ(){
+
+	protected double getMaxZ() {
 		return Math.max(firstBound.getZ(), secondBound.getZ());
 	}
-	
-	protected double getMinZ(){
+
+	protected double getMinZ() {
 		return Math.min(firstBound.getZ(), secondBound.getZ());
 	}
-	
-	protected double getMaxX(){
+
+	protected double getMaxX() {
 		return Math.max(firstBound.getX(), secondBound.getX());
 	}
-	
-	protected double getMinX(){
+
+	protected double getMinX() {
 		return Math.min(firstBound.getX(), secondBound.getX());
 	}
-	
-	protected double getMaxY(){
+
+	protected double getMaxY() {
 		return Math.max(firstBound.getY(), secondBound.getY());
 	}
-	
-	protected double getMinY(){
+
+	protected double getMinY() {
 		return Math.min(firstBound.getY(), secondBound.getY());
 	}
 }
