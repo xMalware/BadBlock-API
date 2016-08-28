@@ -127,7 +127,7 @@ public class ItemStackUtils {
 	public static void repair(ItemStack... items){
 		for(ItemStack item : items){
 			if(!item.getType().isBlock() && item.getType().getMaxDurability() >= 1 && item.getDurability() != 0){
-				item.setDurability((short)0);
+				item.setDurability((short) 0);
 			}
 		}
 	}
