@@ -50,6 +50,18 @@ import lombok.Data;
 	
 	/**
 	 * Récupère la première ligne du message
+	 * @param player Le joueur (pour la langue)
+	 * @return La ligne
+	 */
+	public String getAsLine(CommandSender sender){
+		if(sender instanceof BadblockPlayer)
+			return getAsLine((BadblockPlayer) sender);
+		
+		return getAsLine(Locale.ENGLISH_US);
+	}
+	
+	/**
+	 * Récupère la première ligne du message
 	 * @param locale La langue
 	 * @return La ligne
 	 */

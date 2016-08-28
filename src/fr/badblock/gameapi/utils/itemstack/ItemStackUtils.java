@@ -148,6 +148,19 @@ public class ItemStackUtils {
 	}
 	
 	/**
+	 * Maximise le nombre d'items dans le stack
+	 * @param item L'item
+	 */
+	public static void maxStack(ItemStack item){
+		int max = item.getType().getMaxStackSize();
+		
+		if(item.getAmount() >= max)
+			return;
+		
+		item.setAmount(max);
+	}
+	
+	/**
 	 * Véririfie si l'item est valide et si il a un nom d'affichage
 	 * @param item
 	 * @return
