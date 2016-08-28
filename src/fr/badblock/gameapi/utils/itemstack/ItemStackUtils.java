@@ -123,19 +123,25 @@ public class ItemStackUtils {
 	/**
 	 * Permet de réparer un ou plusieurs ItemStack
 	 * @param items Les items.
+	 * @return Le nombre d'item réparés
 	 */
-	public static void repair(ItemStack... items){
+	public static int repair(ItemStack... items){
+		int result = 0;
+		
 		for(ItemStack item : items){
 			if(!item.getType().isBlock() && item.getType().getMaxDurability() >= 1 && item.getDurability() != 0){
 				item.setDurability((short) 0);
+				result++;
 			}
 		}
+		
+		return result;
 	}
 	
 	/**
 	 * Vérifie si l'item est valide, c'est à dire si il n'est pas null ou vide.
 	 * @param item L'item
-	 * @return
+	 * @return Un boolean
 	 */
 	public static boolean isValid(ItemStack item){
 		return item != null && item.getType() != Material.AIR && item.getItemMeta() != null;
