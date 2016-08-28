@@ -49,7 +49,7 @@ public interface I18n {
 	 * @return Le message formatté et traduit
 	 */
 	public String getWord(String key, boolean plural, WordDeterminant determinant);
-	
+
 	/**
 	 * 
 	 * Récupère un message via une langue choisie.
@@ -73,6 +73,18 @@ public interface I18n {
 	 * @return Le message formatté et traduit
 	 */
 	public String getWord(Locale locale, String key, boolean plural, WordDeterminant determinant);
+	
+	/**
+	 * 
+	 * Récupère un message via la langue du CommandSender.
+	 * 
+	 * @param sender Le CommandSender (Bukkit)
+	 * @param key La clé du message dans le fichier configuration
+	 * @param args Les arguments à remplacer dans le message (%0 le premier, %1 le deuxième, ..., %n le énième)
+	 * 
+	 * @return Le message formatté et traduit
+	 */
+	public String[] get(CommandSender sender, String key, Object... args);
 	
 	/**
 	 * Envoit un message à un CommandSender.
