@@ -4,6 +4,10 @@ import java.util.Collection;
 import java.util.Map;
 
 public class StringUtils {
+	public static String getUpperFirstLetter(String string) {
+		return string.substring(0, 1).toUpperCase() + string.substring(1, string.length());
+	}
+
 	public static <T> String join(Collection<T> toJoin, String joiner) {
 		boolean first = true;
 		;
@@ -60,9 +64,5 @@ public class StringUtils {
 		}
 
 		return result;
-	}
-
-	public static String getUpperFirstLetter(String string) {
-		return string.substring(0, 1).toUpperCase() + string.substring(1, string.length());
 	}
 }

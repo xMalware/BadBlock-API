@@ -11,34 +11,6 @@ import lombok.Getter;
  */
 public interface PlayInEntityAction extends BadblockInPacket {
 	/**
-	 * Récupère l'ID de l'entité (en réalité, celle du joueur)
-	 * 
-	 * @return L'ID
-	 */
-	public int getEntityId();
-
-	/**
-	 * Récupère l'action faite par le joueur
-	 * 
-	 * @return L'action
-	 */
-	public EntityActions getAction();
-
-	/**
-	 * La valeur de l'action. Actuellement, utilisé uniquement par
-	 * {@link EntityActions#RIDING_JUMP} (représente la force du saut, de 0 à
-	 * 100).
-	 * 
-	 * @return La valeur de l'action
-	 */
-	public int getActionParameter();
-
-	@Override
-	default BadblockInPackets getType() {
-		return BadblockInPackets.PLAY_ENTITY_ACTION;
-	}
-
-	/**
 	 * Représente les différentes actions possibles pour
 	 * {@link PlayInEntityAction}
 	 * 
@@ -59,18 +31,46 @@ public interface PlayInEntityAction extends BadblockInPacket {
 		 */
 		OPEN_INVENTORY(6);
 
-		@Getter
-		private int id;
-
-		EntityActions(int id) {
-			this.id = id;
-		}
-
 		public static EntityActions getById(int id) {
 			for (EntityActions state : values())
 				if (state.getId() == id)
 					return state;
 			return null;
 		}
+
+		@Getter
+		private int id;
+
+		EntityActions(int id) {
+			this.id = id;
+		}
+	}
+
+	/**
+	 * Récupère l'action faite par le joueur
+	 * 
+	 * @return L'action
+	 */
+	public EntityActions getAction();
+
+	/**
+	 * La valeur de l'action. Actuellement, utilisé uniquement par
+	 * {@link EntityActions#RIDING_JUMP} (représente la force du saut, de 0 à
+	 * 100).
+	 * 
+	 * @return La valeur de l'action
+	 */
+	public int getActionParameter();
+
+	/**
+	 * Récupère l'ID de l'entité (en réalité, celle du joueur)
+	 * 
+	 * @return L'ID
+	 */
+	public int getEntityId();
+
+	@Override
+	default BadblockInPackets getType() {
+		return BadblockInPackets.PLAY_ENTITY_ACTION;
 	}
 }

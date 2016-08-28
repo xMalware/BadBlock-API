@@ -21,15 +21,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class Portal {
+	public static enum PortalType {
+		BUNGEE_PORTAL, NORMAL_PORTAL;
+	}
 	private CuboidSelection portal;
 	private String permission;
 	private int cooldown;
 	private String server;
+
 	private MapLocation place;
 
 	private PortalType type;
-
 	private transient final Map<UUID, Long> cooldowns = Maps.newConcurrentMap();
+
 	private transient File file;
 
 	public Portal(CuboidSelection selection) {
@@ -75,9 +79,5 @@ public class Portal {
 		} else if (type == PortalType.NORMAL_PORTAL) {
 			player.teleport(place.getHandle());
 		}
-	}
-
-	public static enum PortalType {
-		BUNGEE_PORTAL, NORMAL_PORTAL;
 	}
 }

@@ -19,12 +19,36 @@ import fr.badblock.gameapi.players.BadblockPlayer;
  *            Le watcher correspondant au type de l'entité gérée.
  */
 public interface FakeEntity<T extends WatcherEntity> {
+	public enum Visibility {
+		SERVER, PLAYER;
+	}
+
+	/**
+	 * Supprime l'entité si ce n'est pas fait et la supprime du cache (ne pourra
+	 * plus être réutilisée).
+	 */
+	public void destroy();
+
+	/**
+	 * Récupère la rotation de la tête de l'entité
+	 * 
+	 * @return La position de la tête
+	 */
+	public float getHeadYaw();
+
 	/**
 	 * L'entité de l'ID
 	 * 
 	 * @return L'ID
 	 */
 	public int getId();
+
+	/**
+	 * Récupère la position du joueur
+	 * 
+	 * @return La position
+	 */
+	public Location getLocation();
 
 	/**
 	 * Récupère le type de l'entité
@@ -39,6 +63,82 @@ public interface FakeEntity<T extends WatcherEntity> {
 	 * @return La visibilité
 	 */
 	public Visibility getVisibility();
+
+	/**
+	 * Récupère les watchers de l'entité
+	 * 
+	 * @return Les watchers
+	 */
+	public T getWatchers();
+
+	/**
+	 * Vérifie si l'entité est remove.
+	 * 
+	 * @return Si elle est remove.
+	 */
+	public boolean isRemoved();
+
+	/**
+	 * Tue (naturellement) l'entité. Autrement, même effet que remove().
+	 */
+	public void kill();
+
+	/**
+	 * Déplace (en essayant de le faire naturellement) l'entité
+	 * 
+	 * @param location
+	 *            La nouvelle position
+	 */
+	public void move(Location location);
+
+	/**
+	 * Donne un statut à l'entité
+	 * 
+	 * @param status
+	 *            Le statut
+	 */
+	public void playStatus(EntityStatus status);
+
+	/**
+	 * Supprime l'entité. L'entité pour être respawn. Pour la supprimer de la
+	 * mémoire utiliser {@link destroy}.
+	 */
+	public void remove();
+
+	/**
+	 * Supprime l'entité pour un seul joueur.
+	 * 
+	 * @param player
+	 *            Le joueur
+	 */
+	public void remove(BadblockPlayer player);
+
+	/**
+	 * Si le joueur voit l'entité
+	 * 
+	 * @param player
+	 *            Le joueur
+	 * @return Si il la voit
+	 */
+	public boolean see(BadblockPlayer player);
+
+	/**
+	 * Change une partie de l'équimement de l'entité
+	 * 
+	 * @param equipmentSlot
+	 *            Le slot
+	 * @param itemstack
+	 *            L'item
+	 */
+	public void setEquipment(EquipmentSlot equipmentSlot, ItemStack itemstack);
+
+	/**
+	 * Modifie la rotation de la tête de l'entité
+	 * 
+	 * @param yaw
+	 *            La position de la tête
+	 */
+	public void setHeadYaw(float yaw);
 
 	/**
 	 * Définit la visibilité de l'entité
@@ -57,30 +157,6 @@ public interface FakeEntity<T extends WatcherEntity> {
 	public void show(BadblockPlayer player);
 
 	/**
-	 * Si le joueur voit l'entité
-	 * 
-	 * @param player
-	 *            Le joueur
-	 * @return Si il la voit
-	 */
-	public boolean see(BadblockPlayer player);
-
-	/**
-	 * Récupère la position du joueur
-	 * 
-	 * @return La position
-	 */
-	public Location getLocation();
-
-	/**
-	 * Déplace (en essayant de le faire naturellement) l'entité
-	 * 
-	 * @param location
-	 *            La nouvelle position
-	 */
-	public void move(Location location);
-
-	/**
 	 * Téléporte l'entité
 	 * 
 	 * @param location
@@ -89,83 +165,7 @@ public interface FakeEntity<T extends WatcherEntity> {
 	public void teleport(Location location);
 
 	/**
-	 * Récupère la rotation de la tête de l'entité
-	 * 
-	 * @return La position de la tête
-	 */
-	public float getHeadYaw();
-
-	/**
-	 * Modifie la rotation de la tête de l'entité
-	 * 
-	 * @param yaw
-	 *            La position de la tête
-	 */
-	public void setHeadYaw(float yaw);
-
-	/**
-	 * Récupère les watchers de l'entité
-	 * 
-	 * @return Les watchers
-	 */
-	public T getWatchers();
-
-	/**
 	 * Update les watchers de l'entité (après qu'ils aient été modifiée)
 	 */
 	public void updateWatchers();
-
-	/**
-	 * Change une partie de l'équimement de l'entité
-	 * 
-	 * @param equipmentSlot
-	 *            Le slot
-	 * @param itemstack
-	 *            L'item
-	 */
-	public void setEquipment(EquipmentSlot equipmentSlot, ItemStack itemstack);
-
-	/**
-	 * Donne un statut à l'entité
-	 * 
-	 * @param status
-	 *            Le statut
-	 */
-	public void playStatus(EntityStatus status);
-
-	/**
-	 * Tue (naturellement) l'entité. Autrement, même effet que remove().
-	 */
-	public void kill();
-
-	/**
-	 * Supprime l'entité. L'entité pour être respawn. Pour la supprimer de la
-	 * mémoire utiliser {@link destroy}.
-	 */
-	public void remove();
-
-	/**
-	 * Supprime l'entité pour un seul joueur.
-	 * 
-	 * @param player
-	 *            Le joueur
-	 */
-	public void remove(BadblockPlayer player);
-
-	/**
-	 * Supprime l'entité si ce n'est pas fait et la supprime du cache (ne pourra
-	 * plus être réutilisée).
-	 */
-	public void destroy();
-
-	/**
-	 * Vérifie si l'entité est remove.
-	 * 
-	 * @return Si elle est remove.
-	 */
-	public boolean isRemoved();
-
-	public enum Visibility {
-		SERVER, PLAYER;
-	}
 }

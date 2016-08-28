@@ -4,31 +4,8 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
 import lombok.Getter;
 
 public interface PlayScoreboardObjective extends BadblockOutPacket {
-	public String getObjectiveName();
-
-	public PlayScoreboardObjective setObjectiveName(String objectiveName);
-
-	public ObjectiveMode getMode();
-
-	public PlayScoreboardObjective setMode(ObjectiveMode mode);
-
-	public String getDisplayName();
-
-	public PlayScoreboardObjective setDisplayName(String displayName);
-
-	public ObjectiveType getObjectiveType();
-
-	public PlayScoreboardObjective setObjectiveType(ObjectiveType type);
-
 	public enum ObjectiveMode {
 		CREATE((byte) 0), REMOVE((byte) 1), UPDATE((byte) 2);
-
-		@Getter
-		private byte data;
-
-		ObjectiveMode(byte data) {
-			this.data = data;
-		}
 
 		public static ObjectiveMode getByValue(byte value) {
 			for (ObjectiveMode c : values())
@@ -36,9 +13,32 @@ public interface PlayScoreboardObjective extends BadblockOutPacket {
 					return c;
 			return null;
 		}
+
+		@Getter
+		private byte data;
+
+		ObjectiveMode(byte data) {
+			this.data = data;
+		}
 	}
 
 	public enum ObjectiveType {
 		INTEGER, HEARTS;
 	}
+
+	public String getDisplayName();
+
+	public ObjectiveMode getMode();
+
+	public String getObjectiveName();
+
+	public ObjectiveType getObjectiveType();
+
+	public PlayScoreboardObjective setDisplayName(String displayName);
+
+	public PlayScoreboardObjective setMode(ObjectiveMode mode);
+
+	public PlayScoreboardObjective setObjectiveName(String objectiveName);
+
+	public PlayScoreboardObjective setObjectiveType(ObjectiveType type);
 }

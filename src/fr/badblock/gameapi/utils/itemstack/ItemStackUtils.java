@@ -18,29 +18,6 @@ import fr.badblock.gameapi.GameAPI;
  */
 public class ItemStackUtils {
 	/**
-	 * Compare plusieurs items et vérifie si ils ont le même type/data
-	 * 
-	 * @param items
-	 *            Les différents items à comparés
-	 * @return Si les items ont le même type/id
-	 */
-	public static boolean areSimilar(ItemStack... items) {
-		Material material = null;
-		short data = -1;
-
-		for (ItemStack item : items) {
-			if (material == null) {
-				material = item.getType();
-				data = item.getDurability();
-			} else if (material != item.getType() || data != item.getDurability()) {
-				return false;
-			}
-		}
-
-		return true;
-	}
-
-	/**
 	 * Compare plusieurs items et vérifie si ils sont exactement pareils
 	 * (type/data/enchantements/lore/displayname).<br>
 	 * Attention ! Deux livres avec un texte différent ne seront pas
@@ -90,6 +67,29 @@ public class ItemStackUtils {
 	}
 
 	/**
+	 * Compare plusieurs items et vérifie si ils ont le même type/data
+	 * 
+	 * @param items
+	 *            Les différents items à comparés
+	 * @return Si les items ont le même type/id
+	 */
+	public static boolean areSimilar(ItemStack... items) {
+		Material material = null;
+		short data = -1;
+
+		for (ItemStack item : items) {
+			if (material == null) {
+				material = item.getType();
+				data = item.getDurability();
+			} else if (material != item.getType() || data != item.getDurability()) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	/**
 	 * Change le nom d'affichage et le lore d'un item
 	 * 
 	 * @param item
@@ -120,18 +120,6 @@ public class ItemStackUtils {
 	 * @param lore
 	 *            Le lore à mettre
 	 */
-	public static ItemStack changeLore(ItemStack item, String... lore) {
-		return changeLore(item, Arrays.asList(lore));
-	}
-
-	/**
-	 * Change le lore d'un item
-	 * 
-	 * @param item
-	 *            L'item à modifier
-	 * @param lore
-	 *            Le lore à mettre
-	 */
 	public static ItemStack changeLore(ItemStack item, List<String> lore) {
 		if (isValid(item)) {
 			ItemMeta meta = item.getItemMeta();
@@ -145,24 +133,25 @@ public class ItemStackUtils {
 	}
 
 	/**
-	 * Permet de réparer un ou plusieurs ItemStack
+	 * Change le lore d'un item
 	 * 
-	 * @param items
-	 *            Les items.
-	 * @return Le nombre d'item réparés
+	 * @param item
+	 *            L'item à modifier
+	 * @param lore
+	 *            Le lore à mettre
 	 */
-	public static int repair(ItemStack... items) {
-		int result = 0;
+	public static ItemStack changeLore(ItemStack item, String... lore) {
+		return changeLore(item, Arrays.asList(lore));
+	}
 
-		for (ItemStack item : items) {
-			if (isValid(item) && !item.getType().isBlock() && item.getType().getMaxDurability() >= 1
-					&& item.getDurability() != 0) {
-				item.setDurability((short) 0);
-				result++;
-			}
-		}
-
-		return result;
+	/**
+	 * Véririfie si l'item est valide et si il a un nom d'affichage
+	 * 
+	 * @param item
+	 * @return
+	 */
+	public static boolean hasDisplayname(ItemStack item) {
+		return isValid(item) && item.getItemMeta().getDisplayName() != null;
 	}
 
 	/**
@@ -192,12 +181,23 @@ public class ItemStackUtils {
 	}
 
 	/**
-	 * Véririfie si l'item est valide et si il a un nom d'affichage
+	 * Permet de réparer un ou plusieurs ItemStack
 	 * 
-	 * @param item
-	 * @return
+	 * @param items
+	 *            Les items.
+	 * @return Le nombre d'item réparés
 	 */
-	public static boolean hasDisplayname(ItemStack item) {
-		return isValid(item) && item.getItemMeta().getDisplayName() != null;
+	public static int repair(ItemStack... items) {
+		int result = 0;
+
+		for (ItemStack item : items) {
+			if (isValid(item) && !item.getType().isBlock() && item.getType().getMaxDurability() >= 1
+					&& item.getDurability() != 0) {
+				item.setDurability((short) 0);
+				result++;
+			}
+		}
+
+		return result;
 	}
 }

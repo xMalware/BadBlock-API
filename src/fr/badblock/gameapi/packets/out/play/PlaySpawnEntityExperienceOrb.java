@@ -11,13 +11,13 @@ import fr.badblock.gameapi.utils.selections.Vector3f;
 public interface PlaySpawnEntityExperienceOrb extends BadblockOutPacket {
 	public int getEntityId();
 
-	public PlaySpawnEntityExperienceOrb setEntityId(int entityId);
+	public short getOrbCount();
 
 	public Vector3f getPosition();
 
-	public PlaySpawnEntityExperienceOrb setPosition(Vector3f vector);
-
-	public short getOrbCount();
+	public PlaySpawnEntityExperienceOrb setEntityId(int entityId);
 
 	public PlaySpawnEntityExperienceOrb setOrbCount(short orbCount);
+
+	public PlaySpawnEntityExperienceOrb setPosition(Vector3f vector);
 }

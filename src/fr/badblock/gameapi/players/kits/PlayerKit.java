@@ -11,13 +11,14 @@ import fr.badblock.gameapi.utils.itemstack.ItemStackExtra;
  */
 public interface PlayerKit {
 	/**
-	 * Récupère le nom 'interne' (qui ne sera jamais affiché) du kit. Par
-	 * exemple rush.archer<br>
-	 * Pour obtenir la version affichage, passer par le système d'i18n.
+	 * Récupère le nombre de BadCoins nécessaires pour obtenir le kit au niveau
+	 * donné
 	 * 
-	 * @return Le nom 'interne'
+	 * @param level
+	 *            Le niveau du Kit
+	 * @return
 	 */
-	public String getKitName();
+	public int getBadcoinsCost(int level);
 
 	/**
 	 * Retourne l'itemstack devant représenter l'item dans un inventaire avec
@@ -30,6 +31,22 @@ public interface PlayerKit {
 	public ItemStackExtra getKitItem(BadblockPlayer player);
 
 	/**
+	 * Récupère le nom 'interne' (qui ne sera jamais affiché) du kit. Par
+	 * exemple rush.archer<br>
+	 * Pour obtenir la version affichage, passer par le système d'i18n.
+	 * 
+	 * @return Le nom 'interne'
+	 */
+	public String getKitName();
+
+	/**
+	 * Récupère le niveau maximal du Kit
+	 * 
+	 * @return
+	 */
+	public int getMaxLevel();
+
+	/**
 	 * Récupère les achievements que doit avoir terminé le joueur pour obtenir
 	 * le Kit au niveau donné
 	 * 
@@ -40,21 +57,13 @@ public interface PlayerKit {
 	public PlayerAchievement[] getNeededAchievements(int level);
 
 	/**
-	 * Récupère le nombre de BadCoins nécessaires pour obtenir le kit au niveau
-	 * donné
+	 * Donne le Kit à un joueur (le niveau auquel le joueur à le droit sera
+	 * recherché automatiquement).
 	 * 
-	 * @param level
-	 *            Le niveau du Kit
-	 * @return
+	 * @param player
+	 *            Le joueur
 	 */
-	public int getBadcoinsCost(int level);
-
-	/**
-	 * Récupère le niveau maximal du Kit
-	 * 
-	 * @return
-	 */
-	public int getMaxLevel();
+	public void giveKit(BadblockPlayer player);
 
 	/**
 	 * Vérifie si le Kit est VIP. Si oui, aucun achievements / badcoins n'est
@@ -63,13 +72,4 @@ public interface PlayerKit {
 	 * @return
 	 */
 	public boolean isVIP();
-
-	/**
-	 * Donne le Kit à un joueur (le niveau auquel le joueur à le droit sera
-	 * recherché automatiquement).
-	 * 
-	 * @param player
-	 *            Le joueur
-	 */
-	public void giveKit(BadblockPlayer player);
 }

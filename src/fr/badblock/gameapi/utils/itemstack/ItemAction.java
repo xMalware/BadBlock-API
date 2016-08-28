@@ -53,7 +53,22 @@ public enum ItemAction {
 	 */
 	INVENTORY_DROP(InventoryAction.DROP_ONE_SLOT, InventoryAction.DROP_ALL_SLOT, InventoryAction.DROP_ONE_CURSOR, InventoryAction.DROP_ONE_CURSOR);
 
+	public static ItemAction get(Action action) {
+		for (ItemAction itemAction : values())
+			if (itemAction.getAction() == action)
+				return itemAction;
+		return null;
+	}
+	public static ItemAction get(InventoryAction inventoryAction) {
+		for (ItemAction itemAction : values())
+			if (itemAction.getAssignedInventoryAction() != null
+					&& itemAction.getAssignedInventoryAction().contains(inventoryAction))
+				return itemAction;
+		return null;
+	}
+
 	private List<InventoryAction> assignedInventoryAction;
+
 	private Action action;
 
 	ItemAction() {
@@ -65,21 +80,6 @@ public enum ItemAction {
 
 	ItemAction(InventoryAction... assignedInventoryAction) {
 		this.assignedInventoryAction = Arrays.asList(assignedInventoryAction);
-	}
-
-	public static ItemAction get(InventoryAction inventoryAction) {
-		for (ItemAction itemAction : values())
-			if (itemAction.getAssignedInventoryAction() != null
-					&& itemAction.getAssignedInventoryAction().contains(inventoryAction))
-				return itemAction;
-		return null;
-	}
-
-	public static ItemAction get(Action action) {
-		for (ItemAction itemAction : values())
-			if (itemAction.getAction() == action)
-				return itemAction;
-		return null;
 	}
 
 }

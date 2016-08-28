@@ -11,6 +11,44 @@ import lombok.Getter;
  */
 public interface Handshake extends BadblockInPacket {
 	/**
+	 * Représente les différents protocoles pouvant être demandé par le joueur
+	 * lors de l'handhsake
+	 * 
+	 * @author LeLanN
+	 */
+	public enum NextState {
+		/**
+		 * Le client veut ping le serveur
+		 */
+		STATUS(1),
+		/**
+		 * Le client veut jouer
+		 */
+		LOGIN(2);
+
+		public static NextState getById(int id) {
+			for (NextState state : values())
+				if (state.getId() == id)
+					return state;
+			return null;
+		}
+
+		@Getter
+		private int id;
+
+		NextState(int id) {
+			this.id = id;
+		}
+	}
+
+	/**
+	 * Récupère le protocol que le joueur souhaite pour la prochaine étape
+	 * 
+	 * @return La prochaine étape
+	 */
+	public NextState getNextState();
+
+	/**
 	 * Récupère la version du protocol souhaité par le joueur
 	 * 
 	 * @return La version du protocol
@@ -32,46 +70,8 @@ public interface Handshake extends BadblockInPacket {
 	 */
 	public int getServerPort();
 
-	/**
-	 * Récupère le protocol que le joueur souhaite pour la prochaine étape
-	 * 
-	 * @return La prochaine étape
-	 */
-	public NextState getNextState();
-
 	@Override
 	default BadblockInPackets getType() {
 		return BadblockInPackets.HANDSHAKE;
-	}
-
-	/**
-	 * Représente les différents protocoles pouvant être demandé par le joueur
-	 * lors de l'handhsake
-	 * 
-	 * @author LeLanN
-	 */
-	public enum NextState {
-		/**
-		 * Le client veut ping le serveur
-		 */
-		STATUS(1),
-		/**
-		 * Le client veut jouer
-		 */
-		LOGIN(2);
-
-		@Getter
-		private int id;
-
-		NextState(int id) {
-			this.id = id;
-		}
-
-		public static NextState getById(int id) {
-			for (NextState state : values())
-				if (state.getId() == id)
-					return state;
-			return null;
-		}
 	}
 }

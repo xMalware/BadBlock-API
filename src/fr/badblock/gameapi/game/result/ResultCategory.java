@@ -7,20 +7,6 @@ package fr.badblock.gameapi.game.result;
  */
 public interface ResultCategory {
 	/**
-	 * Récupère le nom d'affichage de la catégorie
-	 * 
-	 * @return Le nom d'affichage
-	 */
-	public String getCategoryName();
-
-	/**
-	 * Récupère le type de catégorie
-	 * 
-	 * @return Le type de catégorie
-	 */
-	public CategoryType getType();
-
-	/**
 	 * Représente les différents types de catégories
 	 * 
 	 * @author LeLanN
@@ -35,4 +21,18 @@ public interface ResultCategory {
 		 */
 		ARRAY_DATA;
 	}
+
+	/**
+	 * Récupère le nom d'affichage de la catégorie
+	 * 
+	 * @return Le nom d'affichage
+	 */
+	public String getCategoryName();
+
+	/**
+	 * Récupère le type de catégorie
+	 * 
+	 * @return Le type de catégorie
+	 */
+	public CategoryType getType();
 }

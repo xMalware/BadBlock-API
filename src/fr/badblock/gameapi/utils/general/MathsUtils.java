@@ -40,27 +40,6 @@ public class MathsUtils {
 	}
 
 	/**
-	 * Arrondit un nombre à un certains nombre de décimales
-	 * 
-	 * @param number
-	 *            La valeur
-	 * @param dec
-	 *            Le nombre de décimales
-	 * @return La nouvelle valeur
-	 */
-	public static double round(double number, int dec) {
-		if (dec < 0)
-			throw new IllegalArgumentException();
-
-		BigDecimal bd = new BigDecimal(number);
-		bd = bd.setScale(dec, RoundingMode.HALF_UP);
-
-		return bd.doubleValue();
-		// int div = (int) Math.pow(10, dec);
-		// return (double) ((int)(number * div)) / (double) div;
-	}
-
-	/**
 	 * Renvoit un nombre aléatoire
 	 *
 	 * @param max
@@ -100,5 +79,26 @@ public class MathsUtils {
 		}
 
 		return new Random().nextInt(max) + min;
+	}
+
+	/**
+	 * Arrondit un nombre à un certains nombre de décimales
+	 * 
+	 * @param number
+	 *            La valeur
+	 * @param dec
+	 *            Le nombre de décimales
+	 * @return La nouvelle valeur
+	 */
+	public static double round(double number, int dec) {
+		if (dec < 0)
+			throw new IllegalArgumentException();
+
+		BigDecimal bd = new BigDecimal(number);
+		bd = bd.setScale(dec, RoundingMode.HALF_UP);
+
+		return bd.doubleValue();
+		// int div = (int) Math.pow(10, dec);
+		// return (double) ((int)(number * div)) / (double) div;
 	}
 }

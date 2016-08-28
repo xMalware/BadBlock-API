@@ -16,17 +16,17 @@ import lombok.RequiredArgsConstructor;
 public class NormalDeathEvent extends FakeDeathEvent {
 	private static final HandlerList handlers = new HandlerList();
 
+	public static HandlerList getHandlerList() {
+		return handlers;
+	}
 	@Getter
 	private final BadblockPlayer player;
+
 	@Getter
 	private final DamageCause lastDamageCause;
 
 	@Override
 	public HandlerList getHandlers() {
-		return handlers;
-	}
-
-	public static HandlerList getHandlerList() {
 		return handlers;
 	}
 }

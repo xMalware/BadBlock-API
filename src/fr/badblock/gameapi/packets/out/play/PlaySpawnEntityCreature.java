@@ -16,101 +16,6 @@ import lombok.Getter;
  */
 public interface PlaySpawnEntityCreature extends BadblockOutPacket {
 	/**
-	 * Récupère l'ID de l'entité
-	 * 
-	 * @return L'ID
-	 */
-	public int getEntityId();
-
-	/**
-	 * Définit l'ID de l'entité
-	 * 
-	 * @param id
-	 *            L'ID
-	 * @return Le packet
-	 */
-	public PlaySpawnEntityCreature setEntityId(int id);
-
-	/**
-	 * Récupère le type de l'objet
-	 * 
-	 * @return Le type
-	 */
-	public EntityType getType();
-
-	/**
-	 * Définit le type de l'objet
-	 * 
-	 * @param type
-	 *            Le type
-	 * @return Le packet
-	 */
-	public PlaySpawnEntityCreature setType(EntityType type);
-
-	/**
-	 * Récupère la position
-	 * 
-	 * @return La position
-	 */
-	public Location getLocation();
-
-	/**
-	 * Définit la position
-	 * 
-	 * @param location
-	 *            La position
-	 * @return Le packet
-	 */
-	public PlaySpawnEntityCreature setLocation(Location location);
-
-	/**
-	 * Récupère la rotation de la tête (angle)
-	 * 
-	 * @return La rotation
-	 */
-	public float getHeadRotation();
-
-	/**
-	 * Définit la rotation de la tête (angle)
-	 * 
-	 * @param rotation
-	 * @return Le packet
-	 */
-	public PlaySpawnEntityCreature setHeadRotation(float rotation);
-
-	/**
-	 * Récupère la vélocité
-	 * 
-	 * @return La vélocité
-	 */
-	public Vector getVelocity();
-
-	/**
-	 * Définit la vélocité
-	 * 
-	 * @param velocity
-	 *            La vélocité
-	 * @return Le packet
-	 */
-	public PlaySpawnEntityCreature setVelocity(Vector velocity);
-
-	/**
-	 * Récupère les watchers de l'entité
-	 * 
-	 * @return Les watchers
-	 */
-	public WatcherEntity getWatchers();
-
-	/**
-	 * Définit les watchers de l'entité
-	 * 
-	 * @param watcher
-	 *            Les watchers
-	 * @return Le packet
-	 */
-	public PlaySpawnEntityCreature setWatchers(WatcherEntity watcher);
-
-	/**
 	 * Représente les différents mobs spawnables avec
 	 * {@link PlaySpawnEntityCreature}
 	 * 
@@ -246,18 +151,113 @@ public interface PlaySpawnEntityCreature extends BadblockOutPacket {
 		 */
 		VILLAGER(120);
 
-		@Getter
-		private byte data;
-
-		SpawnableCreatures(int data) {
-			this.data = (byte) data;
-		}
-
 		public static SpawnableCreatures getByValue(byte value) {
 			for (SpawnableCreatures c : values())
 				if (c.getData() == value)
 					return c;
 			return null;
 		}
+
+		@Getter
+		private byte data;
+
+		SpawnableCreatures(int data) {
+			this.data = (byte) data;
+		}
 	}
+
+	/**
+	 * Récupère l'ID de l'entité
+	 * 
+	 * @return L'ID
+	 */
+	public int getEntityId();
+
+	/**
+	 * Récupère la rotation de la tête (angle)
+	 * 
+	 * @return La rotation
+	 */
+	public float getHeadRotation();
+
+	/**
+	 * Récupère la position
+	 * 
+	 * @return La position
+	 */
+	public Location getLocation();
+
+	/**
+	 * Récupère le type de l'objet
+	 * 
+	 * @return Le type
+	 */
+	public EntityType getType();
+
+	/**
+	 * Récupère la vélocité
+	 * 
+	 * @return La vélocité
+	 */
+	public Vector getVelocity();
+
+	/**
+	 * Récupère les watchers de l'entité
+	 * 
+	 * @return Les watchers
+	 */
+	public WatcherEntity getWatchers();
+
+	/**
+	 * Définit l'ID de l'entité
+	 * 
+	 * @param id
+	 *            L'ID
+	 * @return Le packet
+	 */
+	public PlaySpawnEntityCreature setEntityId(int id);
+
+	/**
+	 * Définit la rotation de la tête (angle)
+	 * 
+	 * @param rotation
+	 * @return Le packet
+	 */
+	public PlaySpawnEntityCreature setHeadRotation(float rotation);
+
+	/**
+	 * Définit la position
+	 * 
+	 * @param location
+	 *            La position
+	 * @return Le packet
+	 */
+	public PlaySpawnEntityCreature setLocation(Location location);
+
+	/**
+	 * Définit le type de l'objet
+	 * 
+	 * @param type
+	 *            Le type
+	 * @return Le packet
+	 */
+	public PlaySpawnEntityCreature setType(EntityType type);
+
+	/**
+	 * Définit la vélocité
+	 * 
+	 * @param velocity
+	 *            La vélocité
+	 * @return Le packet
+	 */
+	public PlaySpawnEntityCreature setVelocity(Vector velocity);
+
+	/**
+	 * Définit les watchers de l'entité
+	 * 
+	 * @param watcher
+	 *            Les watchers
+	 * @return Le packet
+	 */
+	public PlaySpawnEntityCreature setWatchers(WatcherEntity watcher);
 }

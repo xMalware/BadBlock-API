@@ -11,11 +11,23 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
  */
 public interface PlayInAbilities extends BadblockInPacket {
 	/**
-	 * Si le joueur est en godmode
+	 * Récupère la vitesse de vole du joueur
 	 * 
-	 * @return Un boolean
+	 * @return La vitesse
 	 */
-	public boolean isGodmoded();
+	public float getFlyingSpeed();
+
+	@Override
+	default BadblockInPackets getType() {
+		return BadblockInPackets.PLAY_ABILITIES;
+	}
+
+	/**
+	 * Récupère la vitesse de marche du joueur
+	 * 
+	 * @return La vitesse
+	 */
+	public float getWalkingSpeed();
 
 	/**
 	 * Si le joueur est autorisé à voler
@@ -25,13 +37,6 @@ public interface PlayInAbilities extends BadblockInPacket {
 	public boolean isAllowedToFly();
 
 	/**
-	 * Si le joueur vole (seul paramètre utilisé)
-	 * 
-	 * @return Un boolean
-	 */
-	public boolean isFlying();
-
-	/**
 	 * Si le joueur est en créatif
 	 * 
 	 * @return Un boolean
@@ -39,21 +44,16 @@ public interface PlayInAbilities extends BadblockInPacket {
 	public boolean isCreative();
 
 	/**
-	 * Récupère la vitesse de vole du joueur
+	 * Si le joueur vole (seul paramètre utilisé)
 	 * 
-	 * @return La vitesse
+	 * @return Un boolean
 	 */
-	public float getFlyingSpeed();
+	public boolean isFlying();
 
 	/**
-	 * Récupère la vitesse de marche du joueur
+	 * Si le joueur est en godmode
 	 * 
-	 * @return La vitesse
+	 * @return Un boolean
 	 */
-	public float getWalkingSpeed();
-
-	@Override
-	default BadblockInPackets getType() {
-		return BadblockInPackets.PLAY_ABILITIES;
-	}
+	public boolean isGodmoded();
 }

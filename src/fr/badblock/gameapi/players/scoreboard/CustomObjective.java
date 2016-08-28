@@ -11,30 +11,6 @@ import fr.badblock.gameapi.players.BadblockPlayer;
  */
 public interface CustomObjective {
 	/**
-	 * Récupère le joueur regardant cet objective
-	 * 
-	 * @return Le BadblockPlayer (si il n'a pas encore été assigné ou que le
-	 *         joueur n'est plus là, null)
-	 */
-	public BadblockPlayer getAssignedPlayer();
-
-	/**
-	 * Affiche l'objectif à un joueur (un seul par CustomObjective !).
-	 * 
-	 * @param player
-	 *            Le joueur
-	 */
-	public void showObjective(BadblockPlayer player);
-
-	/**
-	 * Change le nom de l'objective
-	 * 
-	 * @param displayName
-	 *            Le nom (maximum 32 caractères).
-	 */
-	public void setDisplayName(String displayName);
-
-	/**
 	 * Permet de changer une ligne du scoreboard.<br>
 	 * Attention, la ligne 1 correspond à la ligne du bas du scoreboard et le
 	 * scoreboard ne peut en afficher que 15.<br>
@@ -46,6 +22,19 @@ public interface CustomObjective {
 	 *            caractères)
 	 */
 	public void changeLine(int line, String text);
+
+	/**
+	 * Actuallise le scoreboard
+	 */
+	public void generate();
+
+	/**
+	 * Récupère le joueur regardant cet objective
+	 * 
+	 * @return Le BadblockPlayer (si il n'a pas encore été assigné ou que le
+	 *         joueur n'est plus là, null)
+	 */
+	public BadblockPlayer getAssignedPlayer();
 
 	/**
 	 * Supprime une ligne du scoreboard.
@@ -61,6 +50,14 @@ public interface CustomObjective {
 	public void reset();
 
 	/**
+	 * Change le nom de l'objective
+	 * 
+	 * @param displayName
+	 *            Le nom (maximum 32 caractères).
+	 */
+	public void setDisplayName(String displayName);
+
+	/**
 	 * Définit le générateur
 	 * 
 	 * @param generator
@@ -69,7 +66,10 @@ public interface CustomObjective {
 	public void setGenerator(BadblockScoreboardGenerator generator);
 
 	/**
-	 * Actuallise le scoreboard
+	 * Affiche l'objectif à un joueur (un seul par CustomObjective !).
+	 * 
+	 * @param player
+	 *            Le joueur
 	 */
-	public void generate();
+	public void showObjective(BadblockPlayer player);
 }

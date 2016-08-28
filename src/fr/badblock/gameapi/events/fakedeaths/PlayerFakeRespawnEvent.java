@@ -17,17 +17,17 @@ import lombok.RequiredArgsConstructor;
 public class PlayerFakeRespawnEvent extends Event {
 	private static final HandlerList handlers = new HandlerList();
 
+	public static HandlerList getHandlerList() {
+		return handlers;
+	}
 	@Getter
 	private final BadblockPlayer player;
+
 	@Getter
 	private final Location location;
 
 	@Override
 	public HandlerList getHandlers() {
-		return handlers;
-	}
-
-	public static HandlerList getHandlerList() {
 		return handlers;
 	}
 }

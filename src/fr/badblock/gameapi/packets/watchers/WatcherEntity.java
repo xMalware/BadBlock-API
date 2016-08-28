@@ -5,15 +5,15 @@ import org.bukkit.entity.Entity;
 import fr.badblock.gameapi.utils.i18n.TranslatableString;
 
 public interface WatcherEntity {
-	public WatcherEntity setOnFire(boolean onFire);
-
-	public WatcherEntity setInvisibile(boolean invisible);
-
-	public WatcherEntity setCustomName(TranslatableString name);
+	public void applyToEntity(Entity entity);
 
 	public WatcherEntity setCustomName(String name);
 
+	public WatcherEntity setCustomName(TranslatableString name);
+
 	public WatcherEntity setCustomNameVisible(boolean customNameVisible);
 
-	public void applyToEntity(Entity entity);
+	public WatcherEntity setInvisibile(boolean invisible);
+
+	public WatcherEntity setOnFire(boolean onFire);
 }

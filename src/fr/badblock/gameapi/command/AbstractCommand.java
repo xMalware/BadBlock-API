@@ -25,12 +25,49 @@ import net.md_5.bungee.api.ChatColor;
  */
 @Getter
 public abstract class AbstractCommand implements CommandExecutor {
+	private final class ReflectCommand extends Command {
+		private AbstractCommand exe = null;
+
+		protected ReflectCommand(String command) {
+			super(command);
+		}
+
+		@Override
+		public boolean execute(CommandSender sender, String commandLabel, String[] args) {
+			if (exe != null) {
+				return exe.onCommand(sender, this, commandLabel, args);
+			}
+			return false;
+		}
+
+		public void setExecutor(AbstractCommand exe) {
+			this.exe = exe;
+		}
+	}
 	private String command;
 	private TranslatableString usage;
 	private String permission;
+
 	private String[] aliases;
 
 	private boolean allowConsole = true;
+
+	/**
+	 * Crée une nouvelle commande
+	 * 
+	 * @param command
+	 *            Le nom de la commande
+	 * @param usage
+	 *            Le message d'erreur si la commande est mal utilisée
+	 * @param permission
+	 *            La permission nécessaire (pas de permission est
+	 *            {@link GamePermission#PLAYER})
+	 * @param aliases
+	 *            Les aliases éventuels de la commande
+	 */
+	public AbstractCommand(String command, TranslatableString usage, GamePermission permission, String... aliases) {
+		this(command, usage, permission.getPermission(), aliases);
+	}
 
 	/**
 	 * Crée une nouvelle commande
@@ -59,23 +96,6 @@ public abstract class AbstractCommand implements CommandExecutor {
 	}
 
 	/**
-	 * Crée une nouvelle commande
-	 * 
-	 * @param command
-	 *            Le nom de la commande
-	 * @param usage
-	 *            Le message d'erreur si la commande est mal utilisée
-	 * @param permission
-	 *            La permission nécessaire (pas de permission est
-	 *            {@link GamePermission#PLAYER})
-	 * @param aliases
-	 *            Les aliases éventuels de la commande
-	 */
-	public AbstractCommand(String command, TranslatableString usage, GamePermission permission, String... aliases) {
-		this(command, usage, permission.getPermission(), aliases);
-	}
-
-	/**
 	 * Permet de dire si la console peut utiliser la commande. Par défaut à
 	 * false.
 	 * 
@@ -84,6 +104,26 @@ public abstract class AbstractCommand implements CommandExecutor {
 	 */
 	public void allowConsole(boolean console) {
 		this.allowConsole = console;
+	}
+
+	/**
+	 * Permet d'exécuter la commande
+	 * 
+	 * @param sender
+	 *            Le sender
+	 * @param args
+	 *            Les arguments
+	 * @return Si la commande est bien utilisée
+	 */
+	public abstract boolean executeCommand(CommandSender sender, String[] args);
+
+	private final CommandMap getCommandMap() {
+		try {
+			return (CommandMap) new Reflector(Bukkit.getServer()).getFieldValue("commandMap");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
@@ -99,47 +139,7 @@ public abstract class AbstractCommand implements CommandExecutor {
 		return true;
 	}
 
-	/**
-	 * Permet d'exécuter la commande
-	 * 
-	 * @param sender
-	 *            Le sender
-	 * @param args
-	 *            Les arguments
-	 * @return Si la commande est bien utilisée
-	 */
-	public abstract boolean executeCommand(CommandSender sender, String[] args);
-
 	protected void sendTranslatedMessage(CommandSender sender, String key, Object... args) {
 		GameAPI.i18n().sendMessage(sender, key, args);
-	}
-
-	private final CommandMap getCommandMap() {
-		try {
-			return (CommandMap) new Reflector(Bukkit.getServer()).getFieldValue("commandMap");
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
-	private final class ReflectCommand extends Command {
-		private AbstractCommand exe = null;
-
-		protected ReflectCommand(String command) {
-			super(command);
-		}
-
-		public void setExecutor(AbstractCommand exe) {
-			this.exe = exe;
-		}
-
-		@Override
-		public boolean execute(CommandSender sender, String commandLabel, String[] args) {
-			if (exe != null) {
-				return exe.onCommand(sender, this, commandLabel, args);
-			}
-			return false;
-		}
 	}
 }

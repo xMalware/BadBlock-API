@@ -1,6 +1,5 @@
 package fr.badblock.gameapi.utils.general;
 
-import fr.badblock.gameapi.utils.general.MathsUtils;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -14,6 +14,27 @@ import fr.badblock.gameapi.run.BadblockGame;
  */
 public interface JoinItems {
 	/**
+	 * Clear l'inventaire du joueur à la connection (par défaut activé)
+	 */
+	public void doClearInventory(boolean clear);
+
+	/**
+	 * A appeler lorsqu'il faut arrêter les actions demandées (par exemple,
+	 * lorsque la partie commence)
+	 */
+	public void end();
+
+	/**
+	 * Demande à l'API de gérer l'item permettant de voir les achievements
+	 * 
+	 * @param slot
+	 *            Le slot
+	 * @param game
+	 *            Le jeu
+	 */
+	public void registerAchievementsItem(int slot, BadblockGame game);
+
+	/**
 	 * Demande à l'API de gérer l'item de kit
 	 * 
 	 * @param slot
@@ -25,6 +46,16 @@ public interface JoinItems {
 	 *            l'inventaire
 	 */
 	public void registerKitItem(int slot, Map<String, PlayerKit> kits, File kitListConfig);
+
+	/**
+	 * Demande à l'API de gérer l'item pour quitter la partie
+	 * 
+	 * @param slot
+	 *            Le slot
+	 * @param fallbackServer
+	 *            Le serveur sur lequel téléporter le joueur
+	 */
+	public void registerLeaveItem(int slot, String fallbackServer);
 
 	/**
 	 * Demande à l'API de gérer l'item de team (à appeler après avoir charger
@@ -45,35 +76,4 @@ public interface JoinItems {
 	 *            Le slot
 	 */
 	public void registerVoteItem(int slot);
-
-	/**
-	 * Demande à l'API de gérer l'item permettant de voir les achievements
-	 * 
-	 * @param slot
-	 *            Le slot
-	 * @param game
-	 *            Le jeu
-	 */
-	public void registerAchievementsItem(int slot, BadblockGame game);
-
-	/**
-	 * Demande à l'API de gérer l'item pour quitter la partie
-	 * 
-	 * @param slot
-	 *            Le slot
-	 * @param fallbackServer
-	 *            Le serveur sur lequel téléporter le joueur
-	 */
-	public void registerLeaveItem(int slot, String fallbackServer);
-
-	/**
-	 * Clear l'inventaire du joueur à la connection (par défaut activé)
-	 */
-	public void doClearInventory(boolean clear);
-
-	/**
-	 * A appeler lorsqu'il faut arrêter les actions demandées (par exemple,
-	 * lorsque la partie commence)
-	 */
-	public void end();
 }

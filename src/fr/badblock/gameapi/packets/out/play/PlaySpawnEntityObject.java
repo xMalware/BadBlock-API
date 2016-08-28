@@ -13,88 +13,6 @@ import lombok.Getter;
  */
 public interface PlaySpawnEntityObject extends BadblockOutPacket {
 	/**
-	 * Récupère l'ID de l'entité
-	 * 
-	 * @return L'ID
-	 */
-	public int getEntityId();
-
-	/**
-	 * Définit l'ID de l'entité
-	 * 
-	 * @param id
-	 *            L'ID
-	 * @return Le packet
-	 */
-	public PlaySpawnEntityObject setEntityId(int id);
-
-	/**
-	 * Récupère le type de l'objet
-	 * 
-	 * @return Le type
-	 */
-	public SpawnableObjects getType();
-
-	/**
-	 * Définit le type de l'objet
-	 * 
-	 * @param type
-	 *            Le type
-	 * @return Le packet
-	 */
-	public PlaySpawnEntityObject setType(SpawnableObjects type);
-
-	/**
-	 * Récupère la 'data' de l'entité (voir http://wiki.vg/Object_Data pour plus
-	 * d'informations)
-	 * 
-	 * @return La data
-	 */
-	public int getData();
-
-	/**
-	 * Définit la 'data' de l'entité (voir http://wiki.vg/Object_Data pour plus
-	 * d'informations)
-	 * 
-	 * @param data
-	 *            La data
-	 * @return Le packet
-	 */
-	public PlaySpawnEntityObject setData(int data);
-
-	/**
-	 * Récupère la position
-	 * 
-	 * @return La position
-	 */
-	public Location getLocation();
-
-	/**
-	 * Définit la position
-	 * 
-	 * @param location
-	 *            La position
-	 * @return Le packet
-	 */
-	public PlaySpawnEntityObject setLocation(Location location);
-
-	/**
-	 * Récupère la vélocité
-	 * 
-	 * @return La vélocité
-	 */
-	public Vector getVelocity();
-
-	/**
-	 * Définit la vélocité
-	 * 
-	 * @param velocity
-	 *            La vélocité
-	 * @return Le packet
-	 */
-	public PlaySpawnEntityObject setVelocity(Vector velocity);
-
-	/**
 	 * Représente les différents objets pouvant être spawn avec
 	 * {@link PlaySpawnEntityObject}
 	 * 
@@ -186,18 +104,100 @@ public interface PlaySpawnEntityObject extends BadblockOutPacket {
 		 */
 		FISHING_FLOAT(90);
 
-		@Getter
-		private byte id;
-
-		SpawnableObjects(int id) {
-			this.id = (byte) id;
-		}
-
 		public static SpawnableObjects getByValue(byte value) {
 			for (SpawnableObjects c : values())
 				if (c.getId() == value)
 					return c;
 			return null;
 		}
+
+		@Getter
+		private byte id;
+
+		SpawnableObjects(int id) {
+			this.id = (byte) id;
+		}
 	}
+
+	/**
+	 * Récupère la 'data' de l'entité (voir http://wiki.vg/Object_Data pour plus
+	 * d'informations)
+	 * 
+	 * @return La data
+	 */
+	public int getData();
+
+	/**
+	 * Récupère l'ID de l'entité
+	 * 
+	 * @return L'ID
+	 */
+	public int getEntityId();
+
+	/**
+	 * Récupère la position
+	 * 
+	 * @return La position
+	 */
+	public Location getLocation();
+
+	/**
+	 * Récupère le type de l'objet
+	 * 
+	 * @return Le type
+	 */
+	public SpawnableObjects getType();
+
+	/**
+	 * Récupère la vélocité
+	 * 
+	 * @return La vélocité
+	 */
+	public Vector getVelocity();
+
+	/**
+	 * Définit la 'data' de l'entité (voir http://wiki.vg/Object_Data pour plus
+	 * d'informations)
+	 * 
+	 * @param data
+	 *            La data
+	 * @return Le packet
+	 */
+	public PlaySpawnEntityObject setData(int data);
+
+	/**
+	 * Définit l'ID de l'entité
+	 * 
+	 * @param id
+	 *            L'ID
+	 * @return Le packet
+	 */
+	public PlaySpawnEntityObject setEntityId(int id);
+
+	/**
+	 * Définit la position
+	 * 
+	 * @param location
+	 *            La position
+	 * @return Le packet
+	 */
+	public PlaySpawnEntityObject setLocation(Location location);
+
+	/**
+	 * Définit le type de l'objet
+	 * 
+	 * @param type
+	 *            Le type
+	 * @return Le packet
+	 */
+	public PlaySpawnEntityObject setType(SpawnableObjects type);
+
+	/**
+	 * Définit la vélocité
+	 * 
+	 * @param velocity
+	 *            La vélocité
+	 * @return Le packet
+	 */
+	public PlaySpawnEntityObject setVelocity(Vector velocity);
 }

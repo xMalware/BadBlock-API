@@ -21,6 +21,29 @@ import com.google.gson.JsonSyntaxException;
 import fr.badblock.gameapi.GameAPI;
 
 public class JsonUtils {
+	public static <T> T convert(JsonElement element, Class<T> clazz) {
+		return GameAPI.getGson().fromJson(element, clazz);
+	}
+
+	private static InputStreamReader getInputStream(File file)
+			throws UnsupportedEncodingException, FileNotFoundException {
+		return new InputStreamReader(new FileInputStream(file), Charsets.UTF_8.name());
+	}
+
+	public static <T> T load(File file, Class<T> clazz) {
+		try {
+			if (!file.exists())
+				save(file, "{}");
+
+			return GameAPI.getGson().fromJson(getInputStream(file), clazz);
+		} catch (JsonSyntaxException | JsonIOException | UnsupportedEncodingException e) {
+			e.printStackTrace();
+			return null;
+		} catch (FileNotFoundException unused) {
+			return null;
+		}
+	}
+
 	public static JsonArray loadArray(File file) {
 		if (!file.exists() || file.length() == 0) {
 			save(file, "[]");
@@ -38,11 +61,6 @@ public class JsonUtils {
 		}
 
 		return new JsonArray();
-	}
-
-	private static InputStreamReader getInputStream(File file)
-			throws UnsupportedEncodingException, FileNotFoundException {
-		return new InputStreamReader(new FileInputStream(file), Charsets.UTF_8.name());
 	}
 
 	public static JsonObject loadObject(File file) {
@@ -63,33 +81,15 @@ public class JsonUtils {
 		return new JsonObject();
 	}
 
-	public static <T> T load(File file, Class<T> clazz) {
-		try {
-			if (!file.exists())
-				save(file, "{}");
-
-			return GameAPI.getGson().fromJson(getInputStream(file), clazz);
-		} catch (JsonSyntaxException | JsonIOException | UnsupportedEncodingException e) {
-			e.printStackTrace();
-			return null;
-		} catch (FileNotFoundException unused) {
-			return null;
-		}
-	}
-
-	public static <T> T convert(JsonElement element, Class<T> clazz) {
-		return GameAPI.getGson().fromJson(element, clazz);
+	public static void save(File file, JsonElement element, boolean indented) {
+		String toSave = !indented ? GameAPI.getGson().toJson(element) : GameAPI.getPrettyGson().toJson(element);
+		;
+		save(file, toSave);
 	}
 
 	public static void save(File file, Object object, boolean indented) {
 		JsonElement element = GameAPI.getGson().toJsonTree(object);
 		save(file, element, indented);
-	}
-
-	public static void save(File file, JsonElement element, boolean indented) {
-		String toSave = !indented ? GameAPI.getGson().toJson(element) : GameAPI.getPrettyGson().toJson(element);
-		;
-		save(file, toSave);
 	}
 
 	public static void save(File file, String toSave) {

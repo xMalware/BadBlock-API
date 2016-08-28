@@ -86,66 +86,33 @@ public enum CreatureType {
 																																																							Reaction.HOSTILE,
 																																																							NaturallySpawnReason.NATURAL);
 
-	@Getter
-	private String name;
-	@Getter
-	private Reaction reaction;
-	@Getter
-	private NaturallySpawnReason spawnReason;
-
-	public String getKey() {
-		return "entities." + name;
-	}
-
-	public TranslatableWord getWord(boolean plural, WordDeterminant determinant) {
-		return new TranslatableWord(getKey(), plural, determinant);
-	}
-
 	/**
-	 * Vérifie si la créature est amicale
+	 * Représente les raisons de spawn d'une créature
 	 * 
-	 * @return Un boolean
+	 * @author LeLanN
 	 */
-	public boolean isFriendly() {
-		return reaction == Reaction.FRIENDLY;
+	public static enum NaturallySpawnReason {
+		BLOCK, ENDERPEARL, GENERATION, NATURAL, ONLY_PLUGIN, SPAWNER;
 	}
-
 	/**
-	 * Vérifie si la créature est hostile
+	 * Représente une réaction de créature
 	 * 
-	 * @return Un boolean
+	 * @author LeLanN
 	 */
-	public boolean isHostile() {
-		return !isFriendly();
+	public static enum Reaction {
+		/**
+		 * Ne va jamais attaquer le joueur
+		 */
+		FRIENDLY,
+		/**
+		 * Essayera toujours de tuer le joueur
+		 */
+		HOSTILE,
+		/**
+		 * Attaquera le joueur seulement si il a été agressé
+		 */
+		ANGRY;
 	}
-
-	/**
-	 * Récupère l'EntityType équivalent
-	 * 
-	 * @return L'EntityType
-	 */
-	public EntityType bukkit() {
-		return EntityType.valueOf(name());
-	}
-
-	/**
-	 * Fait spawn une nouvelle entité du type du CreatureType à une certaine
-	 * position
-	 * 
-	 * @param l
-	 *            La location
-	 * @return La nouvelle entité
-	 */
-	public Entity spawn(Location l) {
-		return l.getWorld().spawnEntity(l, bukkit());
-	}
-
-	private CreatureType(String name, Reaction reaction, NaturallySpawnReason spawnReason) {
-		this.name = name;
-		this.reaction = reaction;
-		this.spawnReason = spawnReason;
-	}
-
 	/**
 	 * Récupère une CreatureType via une EntityType Bukkit
 	 * 
@@ -185,32 +152,65 @@ public enum CreatureType {
 		return null;
 	}
 
-	/**
-	 * Représente une réaction de créature
-	 * 
-	 * @author LeLanN
-	 */
-	public static enum Reaction {
-		/**
-		 * Ne va jamais attaquer le joueur
-		 */
-		FRIENDLY,
-		/**
-		 * Essayera toujours de tuer le joueur
-		 */
-		HOSTILE,
-		/**
-		 * Attaquera le joueur seulement si il a été agressé
-		 */
-		ANGRY;
+	@Getter
+	private String name;
+
+	@Getter
+	private Reaction reaction;
+
+	@Getter
+	private NaturallySpawnReason spawnReason;
+
+	private CreatureType(String name, Reaction reaction, NaturallySpawnReason spawnReason) {
+		this.name = name;
+		this.reaction = reaction;
+		this.spawnReason = spawnReason;
 	}
 
 	/**
-	 * Représente les raisons de spawn d'une créature
+	 * Récupère l'EntityType équivalent
 	 * 
-	 * @author LeLanN
+	 * @return L'EntityType
 	 */
-	public static enum NaturallySpawnReason {
-		BLOCK, ENDERPEARL, GENERATION, NATURAL, ONLY_PLUGIN, SPAWNER;
+	public EntityType bukkit() {
+		return EntityType.valueOf(name());
+	}
+
+	public String getKey() {
+		return "entities." + name;
+	}
+
+	public TranslatableWord getWord(boolean plural, WordDeterminant determinant) {
+		return new TranslatableWord(getKey(), plural, determinant);
+	}
+
+	/**
+	 * Vérifie si la créature est amicale
+	 * 
+	 * @return Un boolean
+	 */
+	public boolean isFriendly() {
+		return reaction == Reaction.FRIENDLY;
+	}
+
+	/**
+	 * Vérifie si la créature est hostile
+	 * 
+	 * @return Un boolean
+	 */
+	public boolean isHostile() {
+		return !isFriendly();
+	}
+
+	/**
+	 * Fait spawn une nouvelle entité du type du CreatureType à une certaine
+	 * position
+	 * 
+	 * @param l
+	 *            La location
+	 * @return La nouvelle entité
+	 */
+	public Entity spawn(Location l) {
+		return l.getWorld().spawnEntity(l, bukkit());
 	}
 }

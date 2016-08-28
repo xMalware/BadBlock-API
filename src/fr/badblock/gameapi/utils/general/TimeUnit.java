@@ -48,57 +48,6 @@ public enum TimeUnit {
 		return values;
 	}
 
-	public String toFrench(long time, TimeUnit min, TimeUnit max) {
-		long[] values = getValues(time, min, max);
-
-		String result = "";
-		boolean first = true;
-
-		for (int i = values.length - 1; i >= 0; i--) {
-			if (values[i] != 0) {
-				if (!first)
-					result += " ";
-				else
-					first = false;
-				result += values[i] + " " + inOrder[i].getFrench()
-						+ (values[i] == 1 || inOrder[i].getFrench().endsWith("s") ? "" : "s");
-			}
-		}
-
-		if (result.isEmpty())
-			result = 1 + " " + min.getFrench();
-		return result;
-	}
-
-	public String toFrench(long time) {
-		return toFrench(time, inOrder[0], inOrder[inOrder.length - 1]);
-	}
-
-	public String toShort(long time, TimeUnit min, TimeUnit max) {
-		long[] values = getValues(time, min, max);
-
-		String result = "";
-		boolean first = true;
-
-		for (int i = values.length - 1; i >= 0; i--) {
-			if (values[i] != 0) {
-				if (!first)
-					result += " ";
-				else
-					first = false;
-				result += values[i] + inOrder[i].getRecognizer();
-			}
-		}
-
-		if (result.isEmpty())
-			result = 0 + " " + min.getRecognizer();
-		return result;
-	}
-
-	public String toShort(long time) {
-		return toShort(time, inOrder[0], inOrder[inOrder.length - 1]);
-	}
-
 	public long matchTime(String time) {
 		String valueNumber = "";
 		String valueType = "";
@@ -135,5 +84,56 @@ public enum TimeUnit {
 		value /= getNano();
 
 		return value;
+	}
+
+	public String toFrench(long time) {
+		return toFrench(time, inOrder[0], inOrder[inOrder.length - 1]);
+	}
+
+	public String toFrench(long time, TimeUnit min, TimeUnit max) {
+		long[] values = getValues(time, min, max);
+
+		String result = "";
+		boolean first = true;
+
+		for (int i = values.length - 1; i >= 0; i--) {
+			if (values[i] != 0) {
+				if (!first)
+					result += " ";
+				else
+					first = false;
+				result += values[i] + " " + inOrder[i].getFrench()
+						+ (values[i] == 1 || inOrder[i].getFrench().endsWith("s") ? "" : "s");
+			}
+		}
+
+		if (result.isEmpty())
+			result = 1 + " " + min.getFrench();
+		return result;
+	}
+
+	public String toShort(long time) {
+		return toShort(time, inOrder[0], inOrder[inOrder.length - 1]);
+	}
+
+	public String toShort(long time, TimeUnit min, TimeUnit max) {
+		long[] values = getValues(time, min, max);
+
+		String result = "";
+		boolean first = true;
+
+		for (int i = values.length - 1; i >= 0; i--) {
+			if (values[i] != 0) {
+				if (!first)
+					result += " ";
+				else
+					first = false;
+				result += values[i] + inOrder[i].getRecognizer();
+			}
+		}
+
+		if (result.isEmpty())
+			result = 0 + " " + min.getRecognizer();
+		return result;
 	}
 }

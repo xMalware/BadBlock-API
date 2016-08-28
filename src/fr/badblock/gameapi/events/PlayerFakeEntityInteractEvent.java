@@ -20,22 +20,22 @@ import lombok.Setter;
 public class PlayerFakeEntityInteractEvent extends Event implements Cancellable {
 	private static final HandlerList handlers = new HandlerList();
 
+	public static HandlerList getHandlerList() {
+		return handlers;
+	}
 	@Getter
 	private BadblockPlayer player;
 	@Getter
 	private FakeEntity<?> entity;
 	@Getter
 	private UseEntityAction action;
+
 	@Getter
 	@Setter
 	private boolean cancelled;
 
 	@Override
 	public HandlerList getHandlers() {
-		return handlers;
-	}
-
-	public static HandlerList getHandlerList() {
 		return handlers;
 	}
 }

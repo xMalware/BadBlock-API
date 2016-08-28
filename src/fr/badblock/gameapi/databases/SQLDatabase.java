@@ -14,20 +14,17 @@ import fr.badblock.gameapi.utils.general.Callback;
 public interface SQLDatabase {
 
 	/**
-	 * Récupère un statement pour une gestion plus personnalisée du SQL. Ne pas
-	 * oublier de le close :0
+	 * Appeler un gestionnaire Multithreading qui va gérer en asynchrone la
+	 * requête La requête peut être donc traitée de sorte qu'elle ne renvoit
+	 * aucune information ou qu'elle renvoit des données, se référer à
+	 * {@link fr.badblock.gameapi.databases.SQLRequestType}
 	 * 
-	 * @return Le statement
+	 * @param request
+	 *            > Requête
+	 * @param sqlRequestType
+	 *            > Type de la requête, DATA OR QUERY
 	 */
-	public Statement createStatement() throws Exception;
-
-	/**
-	 * Récupère un statement permettant de faire des requêtes préparées. Ne pas
-	 * oublier de le close :0
-	 * 
-	 * @return Le statement
-	 */
-	public PreparedStatement preparedStatement(String request) throws Exception;
+	public void call(String request, SQLRequestType sqlRequestType);
 
 	/**
 	 * Appeler un gestionnaire Multithreading qui va gérer en asynchrone la
@@ -45,16 +42,19 @@ public interface SQLDatabase {
 	public void call(String request, SQLRequestType sqlRequestType, Callback<ResultSet> callback);
 
 	/**
-	 * Appeler un gestionnaire Multithreading qui va gérer en asynchrone la
-	 * requête La requête peut être donc traitée de sorte qu'elle ne renvoit
-	 * aucune information ou qu'elle renvoit des données, se référer à
-	 * {@link fr.badblock.gameapi.databases.SQLRequestType}
+	 * Récupère un statement pour une gestion plus personnalisée du SQL. Ne pas
+	 * oublier de le close :0
 	 * 
-	 * @param request
-	 *            > Requête
-	 * @param sqlRequestType
-	 *            > Type de la requête, DATA OR QUERY
+	 * @return Le statement
 	 */
-	public void call(String request, SQLRequestType sqlRequestType);
+	public Statement createStatement() throws Exception;
+
+	/**
+	 * Récupère un statement permettant de faire des requêtes préparées. Ne pas
+	 * oublier de le close :0
+	 * 
+	 * @return Le statement
+	 */
+	public PreparedStatement preparedStatement(String request) throws Exception;
 
 }

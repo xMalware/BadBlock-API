@@ -11,18 +11,27 @@ import lombok.Getter;
  */
 public interface PlayInSettings extends BadblockInPacket {
 	/**
-	 * La langue du joueur, sous la forme langue_PAYS (par exemple : fr_FR)
+	 * Représente les différents modes de chats possibles
 	 * 
-	 * @return La langue
+	 * @author LeLanN
 	 */
-	public String getLocale();
+	public enum ChatMode {
+		ENABLED(0), COMMANDS_ONLY(1), HIDDEN(2);
 
-	/**
-	 * Récupère la view distance du joueur en chunk
-	 * 
-	 * @return La view distance
-	 */
-	public int getViewDistance();
+		public static ChatMode getById(int id) {
+			for (ChatMode state : values())
+				if (state.getId() == id)
+					return state;
+			return null;
+		}
+
+		@Getter
+		private int id;
+
+		ChatMode(int id) {
+			this.id = id;
+		}
+	}
 
 	/**
 	 * Récupère m'activation du chat du joueur
@@ -30,13 +39,6 @@ public interface PlayInSettings extends BadblockInPacket {
 	 * @return L'activation
 	 */
 	public ChatMode getChatMode();
-
-	/**
-	 * Si la couleur est activée dans le chat du joueur
-	 * 
-	 * @return Si la couleur est activée
-	 */
-	public boolean isColorEnabled();
 
 	/**
 	 * Les parties du skin que le joueur affiche :
@@ -54,31 +56,29 @@ public interface PlayInSettings extends BadblockInPacket {
 	 */
 	public int getDisplayedSkinParts();
 
+	/**
+	 * La langue du joueur, sous la forme langue_PAYS (par exemple : fr_FR)
+	 * 
+	 * @return La langue
+	 */
+	public String getLocale();
+
 	@Override
 	default BadblockInPackets getType() {
 		return BadblockInPackets.PLAY_SETTINGS;
 	}
 
 	/**
-	 * Représente les différents modes de chats possibles
+	 * Récupère la view distance du joueur en chunk
 	 * 
-	 * @author LeLanN
+	 * @return La view distance
 	 */
-	public enum ChatMode {
-		ENABLED(0), COMMANDS_ONLY(1), HIDDEN(2);
+	public int getViewDistance();
 
-		@Getter
-		private int id;
-
-		ChatMode(int id) {
-			this.id = id;
-		}
-
-		public static ChatMode getById(int id) {
-			for (ChatMode state : values())
-				if (state.getId() == id)
-					return state;
-			return null;
-		}
-	}
+	/**
+	 * Si la couleur est activée dans le chat du joueur
+	 * 
+	 * @return Si la couleur est activée
+	 */
+	public boolean isColorEnabled();
 }

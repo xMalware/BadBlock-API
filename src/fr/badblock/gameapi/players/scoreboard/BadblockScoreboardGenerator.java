@@ -15,11 +15,6 @@ public abstract class BadblockScoreboardGenerator {
 	private CustomObjective objective;
 
 	/**
-	 * Génère le scoreboard
-	 */
-	public abstract void generate();
-
-	/**
 	 * Permet de générer une dernière ligne animée
 	 * 
 	 * @param objective
@@ -47,4 +42,9 @@ public abstract class BadblockScoreboardGenerator {
 			current = -10;
 		}
 	}
+
+	/**
+	 * Génère le scoreboard
+	 */
+	public abstract void generate();
 }

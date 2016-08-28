@@ -9,10 +9,10 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
  * @author LeLanN
  */
 public interface LoginStart extends BadblockInPacket {
-	public String getUserName();
-
 	@Override
 	default BadblockInPackets getType() {
 		return BadblockInPackets.LOGIN_START;
 	}
+
+	public String getUserName();
 }

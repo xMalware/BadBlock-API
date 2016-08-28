@@ -10,17 +10,6 @@ package fr.badblock.gameapi.utils.i18n;
  */
 public interface Word {
 	/**
-	 * Récupère le mot
-	 * 
-	 * @param plural
-	 *            Si le mot est au pluriel
-	 * @param determinant
-	 *            Le déterminant du mot
-	 * @return Le mot
-	 */
-	public String get(boolean plural, WordDeterminant determinant);
-
-	/**
 	 * Représente les différents déterminants possible
 	 * 
 	 * @author LeLanN
@@ -39,4 +28,15 @@ public interface Word {
 		 */
 		SIMPLE;
 	}
+
+	/**
+	 * Récupère le mot
+	 * 
+	 * @param plural
+	 *            Si le mot est au pluriel
+	 * @param determinant
+	 *            Le déterminant du mot
+	 * @return Le mot
+	 */
+	public String get(boolean plural, WordDeterminant determinant);
 }

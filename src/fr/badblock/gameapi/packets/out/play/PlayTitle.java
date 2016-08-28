@@ -3,26 +3,6 @@ package fr.badblock.gameapi.packets.out.play;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 
 public interface PlayTitle extends BadblockOutPacket {
-	public String getContent();
-
-	public PlayTitle setContent(String content);
-
-	public Action getAction();
-
-	public PlayTitle setAction(Action action);
-
-	public long getFadeIn();
-
-	public long getStay();
-
-	public long getFadeOut();
-
-	public PlayTitle setFadeIn(long time);
-
-	public PlayTitle setStay(long time);
-
-	public PlayTitle setFadeOut(long time);
-
 	public enum Action {
 		/**
 		 * Change le message du haut
@@ -46,4 +26,24 @@ public interface PlayTitle extends BadblockOutPacket {
 		 */
 		RESET();
 	}
+
+	public Action getAction();
+
+	public String getContent();
+
+	public long getFadeIn();
+
+	public long getFadeOut();
+
+	public long getStay();
+
+	public PlayTitle setAction(Action action);
+
+	public PlayTitle setContent(String content);
+
+	public PlayTitle setFadeIn(long time);
+
+	public PlayTitle setFadeOut(long time);
+
+	public PlayTitle setStay(long time);
 }

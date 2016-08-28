@@ -21,6 +21,31 @@ import fr.badblock.gameapi.utils.reflection.Reflector;
 public enum GameRules {
 	doFireTick, mobGriefing, keepInventory, doMobSpawning, doMobLoot, doTileDrops, doEntityDrops, commandBlockOutput, naturalRegeneration, doDaylightCycle, logAdminCommands, showDeathMessages, randomTickSpeed, sendCommandFeedback, reducedDebugInfo, spectatorsGenerateChunks;
 
+	private void dispatch(String command) {
+
+		new Thread() {
+			@Override
+			public void run() {
+				try {
+					CommandMap map = (CommandMap) new Reflector(Bukkit.getServer()).getFieldValue("commandMap");
+
+					while (map.getCommand("gamerule") == null) {
+						try {
+							Thread.sleep(20L);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
+			}
+		}.start();
+
+	}
+
 	/**
 	 * Définit une GameRule. Marche pour toute sauf randomTickSpeed qui
 	 * nécessite une valeur numérique.
@@ -49,30 +74,5 @@ public enum GameRules {
 
 		String command = "gamerule " + this.name() + " " + value;
 		dispatch(command);
-	}
-
-	private void dispatch(String command) {
-
-		new Thread() {
-			@Override
-			public void run() {
-				try {
-					CommandMap map = (CommandMap) new Reflector(Bukkit.getServer()).getFieldValue("commandMap");
-
-					while (map.getCommand("gamerule") == null) {
-						try {
-							Thread.sleep(20L);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-
-				Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
-			}
-		}.start();
-
 	}
 }

@@ -11,11 +11,23 @@ import fr.badblock.gameapi.utils.selections.Vector3f;
  */
 public interface PlayInPositionLook extends BadblockInPacket {
 	/**
+	 * Le nouveau pitch
+	 * 
+	 * @return Le pitch
+	 */
+	public float getPitch();
+
+	/**
 	 * La nouvelle position
 	 * 
 	 * @return La position
 	 */
 	public Vector3f getPosition();
+
+	@Override
+	default BadblockInPackets getType() {
+		return BadblockInPackets.PLAY_POSITION_LOOK;
+	}
 
 	/**
 	 * Le nouveau yaw
@@ -23,16 +35,4 @@ public interface PlayInPositionLook extends BadblockInPacket {
 	 * @return Le yaw
 	 */
 	public float getYaw();
-
-	/**
-	 * Le nouveau pitch
-	 * 
-	 * @return Le pitch
-	 */
-	public float getPitch();
-
-	@Override
-	default BadblockInPackets getType() {
-		return BadblockInPackets.PLAY_POSITION_LOOK;
-	}
 }

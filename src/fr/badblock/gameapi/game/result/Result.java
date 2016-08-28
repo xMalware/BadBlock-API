@@ -33,6 +33,17 @@ public class Result {
 	private final Map<String, ResultCategory> categories = Maps.newHashMap();
 
 	/**
+	 * Récupère une catégorie
+	 * 
+	 * @param name
+	 *            Le nom (interne) de la catégorie
+	 * @return La catégorie trouvée
+	 */
+	public ResultCategory getCategory(String name) {
+		return categories.get(name.toLowerCase());
+	}
+
+	/**
 	 * Register une nouvelle catégorie au résultat
 	 * 
 	 * @param name
@@ -46,17 +57,6 @@ public class Result {
 		categories.put(name, category);
 
 		return category;
-	}
-
-	/**
-	 * Récupère une catégorie
-	 * 
-	 * @param name
-	 *            Le nom (interne) de la catégorie
-	 * @return La catégorie trouvée
-	 */
-	public ResultCategory getCategory(String name) {
-		return categories.get(name.toLowerCase());
 	}
 
 	/**

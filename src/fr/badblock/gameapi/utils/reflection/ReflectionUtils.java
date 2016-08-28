@@ -26,6 +26,82 @@ public class ReflectionUtils {
 	}
 
 	/**
+	 * Récupère un constructeur
+	 * 
+	 * @param clazz
+	 *            La classe contenenant le constructeur
+	 * @param args
+	 *            Les arguments du constructeur
+	 * @return Le constructeur
+	 */
+	public static Constructor<?> getConstructor(Class<?> clazz, Class<?>... args) {
+		try {
+			return clazz.getConstructor(args);
+		} catch (NoSuchMethodException | SecurityException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	/**
+	 * Récupère et rend accessible un Field
+	 * 
+	 * @param clazz
+	 *            Classe contenant le field
+	 * @param name
+	 *            Nom du field
+	 * @return Le Field
+	 */
+	public static Field getField(Class<?> clazz, String name) {
+		try {
+			Field field = clazz.getDeclaredField(name);
+			field.setAccessible(true);
+			return field;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+	/**
+	 * Récupère la méthode getHandle présente sur beaucoup d'objets OBC
+	 * 
+	 * @param obj
+	 *            L'object en question
+	 * @return Le résultat du getHandle()s
+	 */
+	public static Object getHandle(Object obj) {
+		try {
+			return getMethod(obj.getClass(), "getHandle", new Class[0]).invoke(obj, new Object[0]);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+	/**
+	 * Récupère une méthode
+	 * 
+	 * @param clazz
+	 *            La classe contenenant la méthode
+	 * @param name
+	 *            Le nom de la méthode
+	 * @param args
+	 *            Les arguments de la méthode
+	 * @return La méthode
+	 */
+	public static Method getMethod(Class<?> clazz, String name, Class<?>... args) {
+		try {
+			return clazz.getMethod(name, args);
+		} catch (NoSuchMethodException | SecurityException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	/**
 	 * Récupère une classe NMS
 	 * 
 	 * @param className
@@ -74,82 +150,6 @@ public class ReflectionUtils {
 		}
 
 		return null;
-	}
-
-	/**
-	 * Récupère la méthode getHandle présente sur beaucoup d'objets OBC
-	 * 
-	 * @param obj
-	 *            L'object en question
-	 * @return Le résultat du getHandle()s
-	 */
-	public static Object getHandle(Object obj) {
-		try {
-			return getMethod(obj.getClass(), "getHandle", new Class[0]).invoke(obj, new Object[0]);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return null;
-	}
-
-	/**
-	 * Récupère et rend accessible un Field
-	 * 
-	 * @param clazz
-	 *            Classe contenant le field
-	 * @param name
-	 *            Nom du field
-	 * @return Le Field
-	 */
-	public static Field getField(Class<?> clazz, String name) {
-		try {
-			Field field = clazz.getDeclaredField(name);
-			field.setAccessible(true);
-			return field;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return null;
-	}
-
-	/**
-	 * Récupère une méthode
-	 * 
-	 * @param clazz
-	 *            La classe contenenant la méthode
-	 * @param name
-	 *            Le nom de la méthode
-	 * @param args
-	 *            Les arguments de la méthode
-	 * @return La méthode
-	 */
-	public static Method getMethod(Class<?> clazz, String name, Class<?>... args) {
-		try {
-			return clazz.getMethod(name, args);
-		} catch (NoSuchMethodException | SecurityException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
-	/**
-	 * Récupère un constructeur
-	 * 
-	 * @param clazz
-	 *            La classe contenenant le constructeur
-	 * @param args
-	 *            Les arguments du constructeur
-	 * @return Le constructeur
-	 */
-	public static Constructor<?> getConstructor(Class<?> clazz, Class<?>... args) {
-		try {
-			return clazz.getConstructor(args);
-		} catch (NoSuchMethodException | SecurityException e) {
-			e.printStackTrace();
-			return null;
-		}
 	}
 
 	/**

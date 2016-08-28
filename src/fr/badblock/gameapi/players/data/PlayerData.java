@@ -18,13 +18,6 @@ import fr.badblock.gameapi.utils.i18n.Locale;
  */
 public interface PlayerData {
 	/**
-	 * Récupère le nombre de BadCoins du joueur
-	 * 
-	 * @return Le nombre de BadCoins
-	 */
-	public int getBadcoins();
-
-	/**
 	 * Ajoute des BadCoins au joueur
 	 * 
 	 * @param badcoins
@@ -34,37 +27,6 @@ public interface PlayerData {
 	 * @return Le nombre de badcoins donnés
 	 */
 	public int addBadcoins(int badcoins, boolean applyBonus);
-
-	/**
-	 * Supprime des BadCoins au joueur
-	 * 
-	 * @param badcoins
-	 *            Une valeur POSITIVE
-	 */
-	public void removeBadcoins(int badcoins);
-
-	/**
-	 * Récupère le niveau du joueur
-	 * 
-	 * @return Le niveau du joueur
-	 */
-	public int getLevel();
-
-	/**
-	 * Récupère l'XP obtenue dans le niveau en cours (autrement dit,
-	 * réinitialisée à chaque niveau)
-	 * 
-	 * @return L'XP
-	 */
-	public long getXp();
-
-	/**
-	 * Récupère l'XP obtenue pour passer au niveau suivant (réinitialisée à
-	 * chaque niveau)
-	 * 
-	 * @return L'Xp nécessaire
-	 */
-	public long getXpUntilNextLevel();
 
 	/**
 	 * Ajoute de l'XP au joueur
@@ -78,11 +40,27 @@ public interface PlayerData {
 	public long addXp(long xp, boolean applyBonus);
 
 	/**
-	 * Récupère les boosters du joueur
+	 * Vérifie si le joueur peut obtenir le niveau suivant du kit (achievements
+	 * et badcoins)
 	 * 
-	 * @return les boosters du joueur dans une
+	 * @param kit
+	 *            Le kit
+	 * @return Si il peut l'obtenir (si il est au niveau maximal, false)
 	 */
-	public Set<PlayerBooster> getBoosters();
+	public boolean canUnlockNextLevel(PlayerKit kit);
+
+	/**
+	 * Récupère des données joueurs spécialisées.<br>
+	 * Attentin, si la clé à déjà été chargée avec une autre classe, peut
+	 * provoquer une erreur.
+	 * 
+	 * @param key
+	 *            La clé
+	 * @param clazz
+	 *            La classe
+	 * @return Le PlayerData
+	 */
+	public <T extends GameData> T gameData(String key, Class<T> clazz);
 
 	/**
 	 * Récupère l'avancement du joueur dans un achievement
@@ -95,42 +73,18 @@ public interface PlayerData {
 	public PlayerAchievementState getAchievementState(PlayerAchievement achievement);
 
 	/**
-	 * Augmente toutes les valeurs des achievements donnés de 1
+	 * Récupère le nombre de BadCoins du joueur
 	 * 
-	 * @param player
-	 *            Le joueur pour tenter de valider les achievements
-	 * @param achievements
-	 *            Les achievements
+	 * @return Le nombre de BadCoins
 	 */
-	public void incrementAchievements(BadblockPlayer player, PlayerAchievement... achievements);
+	public int getBadcoins();
 
 	/**
-	 * Récupère le niveau que le joueur a pour un kit.
+	 * Récupère les boosters du joueur
 	 * 
-	 * @param kit
-	 *            Le kit
-	 * @return Le niveau (0 = pas le Kit)
+	 * @return les boosters du joueur dans une
 	 */
-	public int getUnlockedKitLevel(PlayerKit kit);
-
-	/**
-	 * Vérifie si le joueur peut obtenir le niveau suivant du kit (achievements
-	 * et badcoins)
-	 * 
-	 * @param kit
-	 *            Le kit
-	 * @return Si il peut l'obtenir (si il est au niveau maximal, false)
-	 */
-	public boolean canUnlockNextLevel(PlayerKit kit);
-
-	/**
-	 * Débloque le niveau suivant du kit. Ne fonctionne pas si
-	 * {@link #canUnlockNextLevel(PlayerKit)} retourne false.
-	 * 
-	 * @param kit
-	 *            Le kit
-	 */
-	public void unlockNextLevel(PlayerKit kit);
+	public Set<PlayerBooster> getBoosters();
 
 	/**
 	 * Récupère le nom interne du dernier kit utilisé dans un jeu
@@ -142,14 +96,11 @@ public interface PlayerData {
 	public String getLastUsedKit(String game);
 
 	/**
-	 * Définit le nom interne du dernier kit utilisé dans un jeu
+	 * Récupère le niveau du joueur
 	 * 
-	 * @param game
-	 *            Le nom (interne) du jeu
-	 * @param kit
-	 *            Le nom (interne) du kit
+	 * @return Le niveau du joueur
 	 */
-	public void setLastUsedKit(String game, String kit);
+	public int getLevel();
 
 	/**
 	 * Récupère le langage choisit par le joueur.
@@ -170,14 +121,29 @@ public interface PlayerData {
 	public double getStatistics(String gameName, String stat);
 
 	/**
-	 * Incrémente (1) la statistique du joueur
+	 * Récupère le niveau que le joueur a pour un kit.
 	 * 
-	 * @param gameName
-	 *            Le jeu
-	 * @param stat
-	 *            La statistique
+	 * @param kit
+	 *            Le kit
+	 * @return Le niveau (0 = pas le Kit)
 	 */
-	public void incrementStatistic(String gameName, String stat);
+	public int getUnlockedKitLevel(PlayerKit kit);
+
+	/**
+	 * Récupère l'XP obtenue dans le niveau en cours (autrement dit,
+	 * réinitialisée à chaque niveau)
+	 * 
+	 * @return L'XP
+	 */
+	public long getXp();
+
+	/**
+	 * Récupère l'XP obtenue pour passer au niveau suivant (réinitialisée à
+	 * chaque niveau)
+	 * 
+	 * @return L'Xp nécessaire
+	 */
+	public long getXpUntilNextLevel();
 
 	/**
 	 * Augment la statistique du joueur
@@ -192,17 +158,32 @@ public interface PlayerData {
 	public void increaseStatistic(String gameName, String stat, double value);
 
 	/**
-	 * Récupère des données joueurs spécialisées.<br>
-	 * Attentin, si la clé à déjà été chargée avec une autre classe, peut
-	 * provoquer une erreur.
+	 * Augmente toutes les valeurs des achievements donnés de 1
 	 * 
-	 * @param key
-	 *            La clé
-	 * @param clazz
-	 *            La classe
-	 * @return Le PlayerData
+	 * @param player
+	 *            Le joueur pour tenter de valider les achievements
+	 * @param achievements
+	 *            Les achievements
 	 */
-	public <T extends GameData> T gameData(String key, Class<T> clazz);
+	public void incrementAchievements(BadblockPlayer player, PlayerAchievement... achievements);
+
+	/**
+	 * Incrémente (1) la statistique du joueur
+	 * 
+	 * @param gameName
+	 *            Le jeu
+	 * @param stat
+	 *            La statistique
+	 */
+	public void incrementStatistic(String gameName, String stat);
+
+	/**
+	 * Supprime des BadCoins au joueur
+	 * 
+	 * @param badcoins
+	 *            Une valeur POSITIVE
+	 */
+	public void removeBadcoins(int badcoins);
 
 	/**
 	 * Renvoit les informations modifiées à Ladder pour qu'elles soient
@@ -211,4 +192,23 @@ public interface PlayerData {
 	 * @return L'objet
 	 */
 	public JsonObject saveData();
+
+	/**
+	 * Définit le nom interne du dernier kit utilisé dans un jeu
+	 * 
+	 * @param game
+	 *            Le nom (interne) du jeu
+	 * @param kit
+	 *            Le nom (interne) du kit
+	 */
+	public void setLastUsedKit(String game, String kit);
+
+	/**
+	 * Débloque le niveau suivant du kit. Ne fonctionne pas si
+	 * {@link #canUnlockNextLevel(PlayerKit)} retourne false.
+	 * 
+	 * @param kit
+	 *            Le kit
+	 */
+	public void unlockNextLevel(PlayerKit kit);
 }

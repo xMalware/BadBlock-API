@@ -12,20 +12,11 @@ import fr.badblock.gameapi.utils.i18n.TranslatableString;
  */
 public interface PlayUpdateSign extends BadblockOutPacket {
 	/**
-	 * Récupère les lignes du tableau en i18n
+	 * Récupère le block concerné
 	 * 
-	 * @return Les lignes
+	 * @return Le block
 	 */
-	public TranslatableString getLinesI18n();
-
-	/**
-	 * Définit les lignes du tableau en i18n
-	 * 
-	 * @param string
-	 *            Les lignes
-	 * @return Le packet
-	 */
-	public PlayUpdateSign setLinesI18n(TranslatableString string);
+	public Block getBlock();
 
 	/**
 	 * Récupère les lignes du tableau
@@ -33,6 +24,22 @@ public interface PlayUpdateSign extends BadblockOutPacket {
 	 * @return Les lignes
 	 */
 	public String[] getLines();
+
+	/**
+	 * Récupère les lignes du tableau en i18n
+	 * 
+	 * @return Les lignes
+	 */
+	public TranslatableString getLinesI18n();
+
+	/**
+	 * Définit le block concerné
+	 * 
+	 * @param block
+	 *            Le block
+	 * @return Le packet
+	 */
+	public PlayUpdateSign setBlock(Block block);
 
 	/**
 	 * Définit les lignes du tableau
@@ -44,18 +51,11 @@ public interface PlayUpdateSign extends BadblockOutPacket {
 	public PlayUpdateSign setLines(String[] lines);
 
 	/**
-	 * Récupère le block concerné
+	 * Définit les lignes du tableau en i18n
 	 * 
-	 * @return Le block
-	 */
-	public Block getBlock();
-
-	/**
-	 * Définit le block concerné
-	 * 
-	 * @param block
-	 *            Le block
+	 * @param string
+	 *            Les lignes
 	 * @return Le packet
 	 */
-	public PlayUpdateSign setBlock(Block block);
+	public PlayUpdateSign setLinesI18n(TranslatableString string);
 }

@@ -17,24 +17,22 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public class ResultCategoryLined implements ResultCategory {
+	/**
+	 * Représente une ligne pour {@link ResultCategoryLined}
+	 * 
+	 * @author LeLanN
+	 */
+	@Data
+	@AllArgsConstructor
+	public static class ResultCategoryLine {
+		private String lineDescription;
+		private String lineContent;
+	}
 	private final String categoryName;
+
 	private final CategoryType type = CategoryType.LINED_DATA;
 
 	private final List<ResultCategoryLine> lines = new ArrayList<>();
-
-	/**
-	 * Récupère une ligne afin de la modifier
-	 * 
-	 * @param at
-	 *            L'ID
-	 * @return L'ID
-	 */
-	public ResultCategoryLine getLine(int at) {
-		if (at < lines.size())
-			return lines.get(at);
-		else
-			return null;
-	}
 
 	/**
 	 * Ajoute une ligne à la catégorie
@@ -51,6 +49,20 @@ public class ResultCategoryLined implements ResultCategory {
 	}
 
 	/**
+	 * Récupère une ligne afin de la modifier
+	 * 
+	 * @param at
+	 *            L'ID
+	 * @return L'ID
+	 */
+	public ResultCategoryLine getLine(int at) {
+		if (at < lines.size())
+			return lines.get(at);
+		else
+			return null;
+	}
+
+	/**
 	 * Enlève une ligne à la catégorie
 	 * 
 	 * @param id
@@ -60,17 +72,5 @@ public class ResultCategoryLined implements ResultCategory {
 		if (id < lines.size()) {
 			lines.remove(id);
 		}
-	}
-
-	/**
-	 * Représente une ligne pour {@link ResultCategoryLined}
-	 * 
-	 * @author LeLanN
-	 */
-	@Data
-	@AllArgsConstructor
-	public static class ResultCategoryLine {
-		private String lineDescription;
-		private String lineContent;
 	}
 }

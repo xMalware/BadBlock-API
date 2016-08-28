@@ -30,15 +30,9 @@ public class MapMaterial implements MapValue<Material> {
 		this.materialData = data;
 	}
 
-	/**
-	 * Vérifie si l'item correspond au Material
-	 * 
-	 * @param item
-	 *            L'item
-	 * @return Si il correspond
-	 */
-	public boolean match(ItemStack item) {
-		return item.getType() == getHandle() && item.getDurability() == materialData;
+	@Override
+	public Material getHandle() {
+		return Material.matchMaterial(material);
 	}
 
 	/**
@@ -53,8 +47,14 @@ public class MapMaterial implements MapValue<Material> {
 		return item.getType() == getHandle() && item.getData() == materialData;
 	}
 
-	@Override
-	public Material getHandle() {
-		return Material.matchMaterial(material);
+	/**
+	 * Vérifie si l'item correspond au Material
+	 * 
+	 * @param item
+	 *            L'item
+	 * @return Si il correspond
+	 */
+	public boolean match(ItemStack item) {
+		return item.getType() == getHandle() && item.getDurability() == materialData;
 	}
 }

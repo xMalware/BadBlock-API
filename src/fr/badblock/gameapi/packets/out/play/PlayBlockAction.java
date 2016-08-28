@@ -27,6 +27,29 @@ public interface PlayBlockAction extends BadblockOutPacket {
 	public Vector3f getBlockPosition();
 
 	/**
+	 * Récupère le type de block
+	 * 
+	 * @return Le type de block
+	 */
+	public Material getBlockType();
+
+	/**
+	 * Récupère la première donnée.
+	 * 
+	 * @see "http://wiki.vg/Block_Actions"
+	 * @return La première donnée
+	 */
+	public byte getByte1();
+
+	/**
+	 * Récupère la deuxième donnée.
+	 * 
+	 * @see "http://wiki.vg/Block_Actions"
+	 * @return La deuxième donnée
+	 */
+	public byte getByte2();
+
+	/**
 	 * Définit les coordonnées du bloc
 	 * 
 	 * @param position
@@ -36,12 +59,13 @@ public interface PlayBlockAction extends BadblockOutPacket {
 	public PlayBlockAction setBlockPosition(Vector3f position);
 
 	/**
-	 * Récupère la première donnée.
+	 * Définit le type de block
 	 * 
-	 * @see "http://wiki.vg/Block_Actions"
-	 * @return La première donnée
+	 * @param type
+	 *            Le type de block
+	 * @return Le packet
 	 */
-	public byte getByte1();
+	public PlayBlockAction setBlockType(Material type);
 
 	/**
 	 * Définit la première donnée.
@@ -54,14 +78,6 @@ public interface PlayBlockAction extends BadblockOutPacket {
 	public PlayBlockAction setByte1(byte value);
 
 	/**
-	 * Récupère la deuxième donnée.
-	 * 
-	 * @see "http://wiki.vg/Block_Actions"
-	 * @return La deuxième donnée
-	 */
-	public byte getByte2();
-
-	/**
 	 * Définit la deuxième donnée.
 	 * 
 	 * @see "http://wiki.vg/Block_Actions"
@@ -70,20 +86,4 @@ public interface PlayBlockAction extends BadblockOutPacket {
 	 * @return Le packet
 	 */
 	public PlayBlockAction setByte2(byte value);
-
-	/**
-	 * Récupère le type de block
-	 * 
-	 * @return Le type de block
-	 */
-	public Material getBlockType();
-
-	/**
-	 * Définit le type de block
-	 * 
-	 * @param type
-	 *            Le type de block
-	 * @return Le packet
-	 */
-	public PlayBlockAction setBlockType(Material type);
 }

@@ -16,17 +16,17 @@ import fr.badblock.gameapi.players.scoreboard.CustomObjective;
  */
 public interface BadblockOfflinePlayer extends BadblockPlayerData {
 	/**
+	 * Récupère le CustomObjective vu par le joueur avant la déconnection
+	 * 
+	 * @return Le CustomObjective (null si non définit)
+	 */
+	public CustomObjective getCustomObjective();
+
+	/**
 	 * Récupère la fausse dimension dans laquelle le joueur était (afin de lui
 	 * recharger au retour :o)
 	 * 
 	 * @return La fausse dimension
 	 */
 	public World.Environment getFalseDimension();
-
-	/**
-	 * Récupère le CustomObjective vu par le joueur avant la déconnection
-	 * 
-	 * @return Le CustomObjective (null si non définit)
-	 */
-	public CustomObjective getCustomObjective();
 }

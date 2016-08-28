@@ -17,6 +17,12 @@ public class CuboidSelection extends AbstractSelection {
 	@Getter
 	private Vector3f firstBound, secondBound;
 
+	public CuboidSelection(Location firstBound, Location secondBound) {
+		super(firstBound.getWorld().getName());
+		this.firstBound = new Vector3f(firstBound);
+		this.secondBound = new Vector3f(secondBound);
+	}
+
 	/**
 	 * Crée une nouvelle séléction à partir du nom du monde et deux de points
 	 * 
@@ -33,18 +39,6 @@ public class CuboidSelection extends AbstractSelection {
 		this.secondBound = secondBound;
 	}
 
-	public CuboidSelection(Location firstBound, Location secondBound) {
-		super(firstBound.getWorld().getName());
-		this.firstBound = new Vector3f(firstBound);
-		this.secondBound = new Vector3f(secondBound);
-	}
-
-	@Override
-	public boolean isInSelection(Vector3f loc) {
-		return loc.getX() >= getMinX() && loc.getX() <= getMaxX() && loc.getY() >= getMinY() && loc.getY() <= getMaxY()
-				&& loc.getZ() >= getMinZ() && loc.getZ() <= getMaxZ();
-	}
-
 	@Override
 	public Location getCenter() {
 		double x = Math.abs(firstBound.getX() - secondBound.getX()) / 2 + getMinX();
@@ -52,6 +46,30 @@ public class CuboidSelection extends AbstractSelection {
 		double z = Math.abs(firstBound.getZ() - secondBound.getZ()) / 2 + getMinZ();
 
 		return new Location(Bukkit.getWorld(getWorldName()), x, y, z);
+	}
+
+	protected double getMaxX() {
+		return Math.max(firstBound.getX(), secondBound.getX());
+	}
+
+	protected double getMaxY() {
+		return Math.max(firstBound.getY(), secondBound.getY());
+	}
+
+	protected double getMaxZ() {
+		return Math.max(firstBound.getZ(), secondBound.getZ());
+	}
+
+	protected double getMinX() {
+		return Math.min(firstBound.getX(), secondBound.getX());
+	}
+
+	protected double getMinY() {
+		return Math.min(firstBound.getY(), secondBound.getY());
+	}
+
+	protected double getMinZ() {
+		return Math.min(firstBound.getZ(), secondBound.getZ());
 	}
 
 	@Override
@@ -63,27 +81,9 @@ public class CuboidSelection extends AbstractSelection {
 		return new Location(Bukkit.getWorld(getWorldName()), x, y, z);
 	}
 
-	protected double getMaxZ() {
-		return Math.max(firstBound.getZ(), secondBound.getZ());
-	}
-
-	protected double getMinZ() {
-		return Math.min(firstBound.getZ(), secondBound.getZ());
-	}
-
-	protected double getMaxX() {
-		return Math.max(firstBound.getX(), secondBound.getX());
-	}
-
-	protected double getMinX() {
-		return Math.min(firstBound.getX(), secondBound.getX());
-	}
-
-	protected double getMaxY() {
-		return Math.max(firstBound.getY(), secondBound.getY());
-	}
-
-	protected double getMinY() {
-		return Math.min(firstBound.getY(), secondBound.getY());
+	@Override
+	public boolean isInSelection(Vector3f loc) {
+		return loc.getX() >= getMinX() && loc.getX() <= getMaxX() && loc.getY() >= getMinY() && loc.getY() <= getMaxY()
+				&& loc.getZ() >= getMinZ() && loc.getZ() <= getMaxZ();
 	}
 }

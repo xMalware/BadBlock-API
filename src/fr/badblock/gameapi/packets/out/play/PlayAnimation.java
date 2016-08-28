@@ -10,11 +10,42 @@ import lombok.Getter;
  */
 public interface PlayAnimation extends BadblockOutPacket {
 	/**
+	 * Représente les différentes animations possibles pour
+	 * {@link PlayAnimation}
+	 * 
+	 * @author LeLanN
+	 */
+	public enum Animation {
+		SWING_ARM(0), LEAVE_BED(2), EAT_FOOD(3), CRITICAL_EFFECT(4), MAGICAL_CRITICAL_EFFECT(5);
+
+		public static Animation getFromId(int id) {
+			for (Animation a : values())
+				if (a.getId() == id)
+					return a;
+			return null;
+		}
+
+		@Getter
+		private final int id;
+
+		Animation(int id) {
+			this.id = id;
+		}
+	}
+
+	/**
 	 * Récupère l'animation à jouer
 	 * 
 	 * @return L'animation
 	 */
 	public Animation getAnimation();
+
+	/**
+	 * Récupère l'id de l'entité devant faire le mouuvement
+	 * 
+	 * @return L'id
+	 */
+	public int getEntityId();
 
 	/**
 	 * Définit l'animation à jouer
@@ -26,13 +57,6 @@ public interface PlayAnimation extends BadblockOutPacket {
 	public PlayAnimation setAnimation(Animation animation);
 
 	/**
-	 * Récupère l'id de l'entité devant faire le mouuvement
-	 * 
-	 * @return L'id
-	 */
-	public int getEntityId();
-
-	/**
 	 * Définit l'id de l'entité devant faire le mouvement
 	 * 
 	 * @param entityId
@@ -40,28 +64,4 @@ public interface PlayAnimation extends BadblockOutPacket {
 	 * @return Le packet
 	 */
 	public PlayAnimation setEntityId(int entityId);
-
-	/**
-	 * Représente les différentes animations possibles pour
-	 * {@link PlayAnimation}
-	 * 
-	 * @author LeLanN
-	 */
-	public enum Animation {
-		SWING_ARM(0), LEAVE_BED(2), EAT_FOOD(3), CRITICAL_EFFECT(4), MAGICAL_CRITICAL_EFFECT(5);
-
-		@Getter
-		private final int id;
-
-		Animation(int id) {
-			this.id = id;
-		}
-
-		public static Animation getFromId(int id) {
-			for (Animation a : values())
-				if (a.getId() == id)
-					return a;
-			return null;
-		}
-	}
 }

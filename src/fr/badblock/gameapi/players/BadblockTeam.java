@@ -22,21 +22,20 @@ import fr.badblock.gameapi.utils.itemstack.ItemStackExtra;
  */
 public interface BadblockTeam {
 	/**
-	 * Récupère le nom interne de la team
+	 * Créé l'item de join pour la team
 	 * 
-	 * @return Le nom interne.
+	 * @param locale
+	 *            La langue
+	 * @return L'item
 	 */
-	public String getKey();
+	public ItemStackExtra createJoinItem(Locale locale);
 
 	/**
-	 * Retourne la string (i18n) du préfixe dans la tabulation de la Team
+	 * Récupère la couleur (autre) de l'équipe.
 	 * 
-	 * @param color
-	 *            La couleur (verte ou rouge) pour savoir si la team est alliée
-	 *            ou non
-	 * @return La string
+	 * @return La couleur.
 	 */
-	public TranslatableString getTabPrefix(ChatColor color);
+	public Color geNormalColor();
 
 	/**
 	 * Récupère la string (i18n) du nom dans le chat (pour le mettrre dans une
@@ -69,11 +68,11 @@ public interface BadblockTeam {
 	public DyeColor getDyeColor();
 
 	/**
-	 * Récupère la couleur (autre) de l'équipe.
+	 * Récupère le nom interne de la team
 	 * 
-	 * @return La couleur.
+	 * @return Le nom interne.
 	 */
-	public Color geNormalColor();
+	public String getKey();
 
 	/**
 	 * Récupère le nombre maximum de joueurs dans la team.
@@ -81,21 +80,6 @@ public interface BadblockTeam {
 	 * @return Le nombre maximum.
 	 */
 	public int getMaxPlayers();
-
-	/**
-	 * Définit le nombre maximum de joueurs dans la team.
-	 * 
-	 * @param maxPlayers
-	 *            Le nombre maximum.
-	 */
-	public void setMaxPlayers(int maxPlayers);
-
-	/**
-	 * Récupère le nombre de joueurs dans la team connectés sur le serveur.
-	 * 
-	 * @return Le nombre de joueurs.
-	 */
-	public int playersCurrentlyOnline();
 
 	/**
 	 * Récupère les joueurs de la team étant connectés
@@ -126,6 +110,16 @@ public interface BadblockTeam {
 	public Collection<String> getPlayersNameAtStart();
 
 	/**
+	 * Retourne la string (i18n) du préfixe dans la tabulation de la Team
+	 * 
+	 * @param color
+	 *            La couleur (verte ou rouge) pour savoir si la team est alliée
+	 *            ou non
+	 * @return La string
+	 */
+	public TranslatableString getTabPrefix(ChatColor color);
+
+	/**
 	 * Permet à un BadblockPlayer de rejoindre la team.
 	 * 
 	 * @param player
@@ -145,6 +139,21 @@ public interface BadblockTeam {
 	public void leaveTeam(BadblockPlayer player);
 
 	/**
+	 * Récupère le nombre de joueurs dans la team connectés sur le serveur.
+	 * 
+	 * @return Le nombre de joueurs.
+	 */
+	public int playersCurrentlyOnline();
+
+	/**
+	 * Définit le nombre maximum de joueurs dans la team.
+	 * 
+	 * @param maxPlayers
+	 *            Le nombre maximum.
+	 */
+	public void setMaxPlayers(int maxPlayers);
+
+	/**
 	 * Récupère les données ingame de la team. Attention, la classe fournie doit
 	 * être celle donnée dans le onEnable grâçe à
 	 * {@link fr.badblock.gameapi.GameAPI#registerTeams(int, Class, org.bukkit.configuration.ConfigurationSection)}
@@ -155,13 +164,4 @@ public interface BadblockTeam {
 	 *         correcte)
 	 */
 	public <T extends TeamData> T teamData(Class<T> clazz);
-
-	/**
-	 * Créé l'item de join pour la team
-	 * 
-	 * @param locale
-	 *            La langue
-	 * @return L'item
-	 */
-	public ItemStackExtra createJoinItem(Locale locale);
 }

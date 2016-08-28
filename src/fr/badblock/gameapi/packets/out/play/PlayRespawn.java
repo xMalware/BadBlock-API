@@ -14,11 +14,11 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
  * @author LeLanN
  */
 public interface PlayRespawn extends BadblockOutPacket {
+	public PlayRespawn setDifficulty(Difficulty difficulty);
+
 	public PlayRespawn setDimension(World.Environment dimension);
 
 	public PlayRespawn setGameMode(GameMode gamemode);
-
-	public PlayRespawn setDifficulty(Difficulty difficulty);
 
 	public PlayRespawn setWorldType(WorldType type);
 }

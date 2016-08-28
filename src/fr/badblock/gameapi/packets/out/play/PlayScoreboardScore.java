@@ -4,22 +4,6 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
 import lombok.Getter;
 
 public interface PlayScoreboardScore extends BadblockOutPacket {
-	public String getScoreName();
-
-	public PlayScoreboardScore setScoreName(String scoreName);
-
-	public ScoreMode getMode();
-
-	public PlayScoreboardScore setMode(ScoreMode mode);
-
-	public String getObjectiveName();
-
-	public PlayScoreboardScore setObjectiveName(String objectiveName);
-
-	public int getScore();
-
-	public PlayScoreboardScore setScore(int score);
-
 	public enum ScoreMode {
 		CHANGE((byte) 0), REMOVE((byte) 1);
 
@@ -30,4 +14,20 @@ public interface PlayScoreboardScore extends BadblockOutPacket {
 			this.data = data;
 		}
 	}
+
+	public ScoreMode getMode();
+
+	public String getObjectiveName();
+
+	public int getScore();
+
+	public String getScoreName();
+
+	public PlayScoreboardScore setMode(ScoreMode mode);
+
+	public PlayScoreboardScore setObjectiveName(String objectiveName);
+
+	public PlayScoreboardScore setScore(int score);
+
+	public PlayScoreboardScore setScoreName(String scoreName);
 }

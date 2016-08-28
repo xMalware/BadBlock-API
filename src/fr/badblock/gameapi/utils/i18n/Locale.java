@@ -17,18 +17,18 @@ public enum Locale {
 	 */
 	ENGLISH_US("en_US");
 
-	@Getter
-	private String localeId;
-
-	private Locale(String localeId) {
-		this.localeId = localeId;
-	}
-
 	public static Locale getLocale(String localeId) {
 		for (Locale locale : values())
 			if (locale.getLocaleId().equalsIgnoreCase(localeId))
 				return locale;
 
 		return null;
+	}
+
+	@Getter
+	private String localeId;
+
+	private Locale(String localeId) {
+		this.localeId = localeId;
 	}
 }
