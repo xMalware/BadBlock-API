@@ -497,4 +497,11 @@ public abstract class GameAPI extends JavaPlugin {
 	 * @param selectNearestTarget Un boolean
 	 */
 	public abstract void setCompassSelectNearestTarget(boolean selectNearestTarget);
+	
+	/**
+	 * Retourne une position ou le joueur peut être téléporté sans crainte.
+	 * @param location La position initiale
+	 * @return La position modifiée (ou null en cas de problème)
+	 */
+	public abstract Location getSafeLocation(Location location);
 }
