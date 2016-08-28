@@ -129,7 +129,7 @@ public class ItemStackUtils {
 		int result = 0;
 		
 		for(ItemStack item : items){
-			if(!item.getType().isBlock() && item.getType().getMaxDurability() >= 1 && item.getDurability() != 0){
+			if(isValid(item) && !item.getType().isBlock() && item.getType().getMaxDurability() >= 1 && item.getDurability() != 0){
 				item.setDurability((short) 0);
 				result++;
 			}
