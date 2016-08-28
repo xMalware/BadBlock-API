@@ -34,10 +34,26 @@ public class PlayerAchievement {
 	} 
 	
 	public TranslatableString getDisplayName(){
+		String base = name.split("_")[0];
+		
+		String name = this.name;
+		
+		if(!base.equals(name)){
+			name = base + "." + name;
+		}
+		
 		return new TranslatableString("achievements." + name + ".displayname");
 	}
 	
 	public TranslatableString getDescription(int progress){
+		String base = name.split("_")[0];
+		
+		String name = this.name;
+		
+		if(!base.equals(name)){
+			name = base + "." + name;
+		}
+
 		return new TranslatableString("achievements." + name + ".description", neededValue, progress, xpReward, coinsReward);
 	}
 }
