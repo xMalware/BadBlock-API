@@ -4,6 +4,8 @@ import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 
+import fr.badblock.gameapi.utils.i18n.TranslatableWord;
+import fr.badblock.gameapi.utils.i18n.Word.WordDeterminant;
 import lombok.Getter;
 
 /**
@@ -53,6 +55,10 @@ public enum CreatureType {
 	
 	public String getKey(){
 		return "entities." + name;
+	}
+
+	public TranslatableWord getWord(boolean plural, WordDeterminant determinant){
+		return new TranslatableWord(getKey(), plural, determinant);
 	}
 	
 	/**
