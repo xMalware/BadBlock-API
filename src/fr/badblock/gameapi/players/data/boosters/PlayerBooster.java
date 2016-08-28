@@ -7,7 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class PlayerBooster {
 
-	private long expire;
+	private long	expire;
 	private boolean enabled;
 	private Booster booster;
 
