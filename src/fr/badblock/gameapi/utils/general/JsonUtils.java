@@ -31,6 +31,12 @@ public class JsonUtils {
 	}
 
 	public static <T> T load(File file, Class<T> clazz) {
+		if (!file.exists())
+			try {
+				file.createNewFile();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		try {
 			if (!file.exists())
 				save(file, "{}");
