@@ -34,8 +34,16 @@ public class JsonUtils {
 		try {
 			if (!file.exists())
 				save(file, "{}");
-
-			return GameAPI.getGson().fromJson(getInputStream(file), clazz);
+			T t = GameAPI.getGson().fromJson(getInputStream(file), clazz);
+			if (t == null) {
+				try {
+					t = clazz.newInstance();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				JsonUtils.save(file, t, true);
+			}
+			return t;
 		} catch (JsonSyntaxException | JsonIOException | UnsupportedEncodingException e) {
 			e.printStackTrace();
 			return null;
