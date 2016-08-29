@@ -53,7 +53,8 @@ public abstract class AbstractCommand implements TabExecutor {
 	 *            Les aliases éventuels de la commande
 	 */
 	public AbstractCommand(String command, TranslatableString usage, GamePermission permission, String... aliases) {
-		this(command, usage, permission.getPermission(), aliases);
+		this(command, usage, 
+				permission.getPermission(), aliases);
 	}
 
 	/**
@@ -79,7 +80,7 @@ public abstract class AbstractCommand implements TabExecutor {
 		result.setAliases(Arrays.asList(aliases));
 		result.setExecutor(this);
 
-		getCommandMap().register("", result);
+		getCommandMap().register("gameapi", result);
 	}
 
 	/**
@@ -130,32 +131,6 @@ public abstract class AbstractCommand implements TabExecutor {
 		}
 	}
 
-	private final class ReflectCommand extends Command {
-		private AbstractCommand exe = null;
-
-		protected ReflectCommand(String command) {
-			super(command);
-		}
-
-		public void setExecutor(AbstractCommand exe) {
-			this.exe = exe;
-		}
-
-		@Override
-		public boolean execute(CommandSender sender, String commandLabel, String[] args) {
-			if (exe != null) {
-				return exe.onCommand(sender, this, commandLabel, args);
-			}
-			return false;
-		}
-		
-		@Override
-		public List<String> tabComplete(CommandSender sender, String alias, String[] args){
-			return exe.onTabComplete(sender, this, alias, args);
-		}
-	}
-	
-	
 	/**
 	 * Retourne une liste d'arguments qui seront triés ensuite
 	 * @param sender Le sender
@@ -185,5 +160,30 @@ public abstract class AbstractCommand implements TabExecutor {
 			}).limit(MAX_TAB_RETURN).collect(Collectors.toList());
 		}
 		return new ArrayList<>();
+	}
+	
+	private final class ReflectCommand extends Command {
+		private AbstractCommand exe = null;
+
+		protected ReflectCommand(String command) {
+			super(command);
+		}
+
+		public void setExecutor(AbstractCommand exe) {
+			this.exe = exe;
+		}
+
+		@Override
+		public boolean execute(CommandSender sender, String commandLabel, String[] args) {
+			if (exe != null) {
+				return exe.onCommand(sender, this, commandLabel, args);
+			}
+			return false;
+		}
+		
+		@Override
+		public List<String> tabComplete(CommandSender sender, String alias, String[] args){
+			return exe.onTabComplete(sender, this, alias, args);
+		}
 	}
 }
