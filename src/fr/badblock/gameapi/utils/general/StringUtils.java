@@ -9,15 +9,27 @@ public class StringUtils {
 	}
 
 	public static <T> String join(Collection<T> toJoin, String joiner) {
-		boolean first = true;
-		;
-		String result = "";
-
+		return join(toJoin, new String[]{joiner});
+	}
+	
+	public static <T> String join(Collection<T> toJoin, String... joiners) {
+		if(joiners.length == 0)
+			throw new IllegalArgumentException("No joiners provided");
+		
+		boolean first  = true;
+		int     joiner = 0;
+		String  result = "";
+		
 		for (T o : toJoin) {
 			if (o == null)
 				continue;
-			if (!first)
-				result += joiner;
+			if (!first){
+				result += joiners[joiner];
+				joiner++;
+				
+				if(joiner >= joiners.length)
+					joiner = 0;
+			}
 			else
 				first = false;
 

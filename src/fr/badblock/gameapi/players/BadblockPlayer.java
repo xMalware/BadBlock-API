@@ -55,8 +55,11 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 * @author LeLanN
 	 */
 	public static enum GamePermission {
-		PLAYER(null), VIP("badblock.vip"), MODERATOR("badblock.modo"), BMODERATOR("badblock.modo+"), ADMIN(
-				"badblock.admin");
+		PLAYER(null), 
+		VIP("badblock.vip"),
+		MODERATOR("badblock.modo"),
+		BMODERATOR("badblock.modo+"),
+		ADMIN("badblock.admin");
 
 		@Getter
 		private final String permission;
@@ -374,7 +377,6 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 * @param subtitle
 	 *            Le subtitle
 	 */
-	@Override
 	public void sendTitle(String title, String subtitle);
 
 	/**
