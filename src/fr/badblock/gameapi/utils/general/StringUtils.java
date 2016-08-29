@@ -2,12 +2,18 @@ package fr.badblock.gameapi.utils.general;
 
 import java.util.Collection;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StringUtils {
 	public static String getUpperFirstLetter(String string) {
 		return string.substring(0, 1).toUpperCase() + string.substring(1, string.length());
 	}
 
+	public static <T> String join(Stream<T> toJoin, String joiner) {
+		return join(toJoin.collect(Collectors.toSet()), new String[]{joiner});
+	}
+	
 	public static <T> String join(Collection<T> toJoin, String joiner) {
 		return join(toJoin, new String[]{joiner});
 	}
