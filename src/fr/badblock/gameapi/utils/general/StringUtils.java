@@ -9,7 +9,7 @@ public class StringUtils {
 	}
 
 	public static <T> String join(Collection<T> toJoin, String joiner) {
-		return join(toJoin, joiner);
+		return join(toJoin, new String[]{joiner});
 	}
 	
 	public static <T> String join(Collection<T> toJoin, String... joiners) {
