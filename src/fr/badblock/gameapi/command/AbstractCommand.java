@@ -1,12 +1,16 @@
 package fr.badblock.gameapi.command;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandMap;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 
 import fr.badblock.gameapi.GameAPI;
@@ -24,7 +28,9 @@ import net.md_5.bungee.api.ChatColor;
  * @author LeLanN
  */
 @Getter
-public abstract class AbstractCommand implements CommandExecutor {
+public abstract class AbstractCommand implements TabExecutor {
+	private static final int MAX_TAB_RETURN = 20;
+	
 	private String command;
 	private TranslatableString usage;
 	private String permission;
@@ -141,5 +147,42 @@ public abstract class AbstractCommand implements CommandExecutor {
 			}
 			return false;
 		}
+		
+		@Override
+		public List<String> tabComplete(CommandSender sender, String alias, String[] args){
+			return exe.onTabComplete(sender, this, alias, args);
+		}
+	}
+	
+	
+	/**
+	 * Retourne une liste d'arguments qui seront triés ensuite
+	 * @param sender Le sender
+	 * @param args Les arguments
+	 * @return La liste
+	 */
+	public Collection<String> doTab(CommandSender sender, String[] args){
+		return Bukkit.getOnlinePlayers().stream().map(player -> { return player.getName(); }).collect(Collectors.toList());
+	}
+	
+	public String[] changeArgs(CommandSender sender, String[] args){
+		return args;
+	}
+	
+	@Override
+	public final List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
+		if (permission != null && !permission.isEmpty() && !sender.hasPermission(permission)) {
+			CommandMessages.noPermission().send(sender);
+		} else if (!allowConsole && !(sender instanceof Player)) {
+			sender.sendMessage(ChatColor.RED + "This command is only for players.");
+		} else {
+			args = changeArgs(sender, args);
+			String searched = (args.length == 0 ? "" : args[args.length - 1]).toLowerCase();
+
+			return doTab(sender, args).stream().filter(arg -> {
+				return searched.isEmpty() || arg.regionMatches(true, 0, searched, 0, searched.length());
+			}).limit(MAX_TAB_RETURN).collect(Collectors.toList());
+		}
+		return new ArrayList<>();
 	}
 }
