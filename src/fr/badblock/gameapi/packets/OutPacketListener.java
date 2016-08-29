@@ -19,15 +19,6 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public abstract class OutPacketListener<T extends BadblockOutPacket> extends PacketListener<T> {
-	// TODO la classe BadBlockOutPackets
-	/**
-	 * Appel la classe avant le packet reçu
-	 * 
-	 * @param packet
-	 *            La classe
-	 */
-	public abstract void listen(BadblockPlayer player, T packet);
-
 	/**
 	 * Récupère la classe du packet listen. Utile uniquement en interne.
 	 * 
@@ -37,6 +28,15 @@ public abstract class OutPacketListener<T extends BadblockOutPacket> extends Pac
 	public Class<T> getGenericPacketClass() {
 		return (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 	}
+
+	// TODO la classe BadBlockOutPackets
+	/**
+	 * Appel la classe avant le packet reçu
+	 * 
+	 * @param packet
+	 *            La classe
+	 */
+	public abstract void listen(BadblockPlayer player, T packet);
 
 	/**
 	 * Permet de register le listener plus simplement

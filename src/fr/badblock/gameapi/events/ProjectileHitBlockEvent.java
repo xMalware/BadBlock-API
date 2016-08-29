@@ -15,6 +15,10 @@ import lombok.Getter;
 public class ProjectileHitBlockEvent extends BlockEvent {
 	private static final HandlerList handlers = new HandlerList();
 
+	public static HandlerList getHandlerList() {
+		return handlers;
+	}
+
 	@Getter
 	private Projectile projectile;
 
@@ -23,11 +27,8 @@ public class ProjectileHitBlockEvent extends BlockEvent {
 		this.projectile = projectile;
 	}
 
+	@Override
 	public HandlerList getHandlers() {
-		return handlers;
-	}
-
-	public static HandlerList getHandlerList() {
 		return handlers;
 	}
 }

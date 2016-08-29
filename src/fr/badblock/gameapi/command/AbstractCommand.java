@@ -30,13 +30,31 @@ import net.md_5.bungee.api.ChatColor;
 @Getter
 public abstract class AbstractCommand implements TabExecutor {
 	private static final int MAX_TAB_RETURN = 20;
-	
+
 	private String command;
 	private TranslatableString usage;
 	private String permission;
+
 	private String[] aliases;
 
 	private boolean allowConsole = true;
+
+	/**
+	 * Crée une nouvelle commande
+	 * 
+	 * @param command
+	 *            Le nom de la commande
+	 * @param usage
+	 *            Le message d'erreur si la commande est mal utilisée
+	 * @param permission
+	 *            La permission nécessaire (pas de permission est
+	 *            {@link GamePermission#PLAYER})
+	 * @param aliases
+	 *            Les aliases éventuels de la commande
+	 */
+	public AbstractCommand(String command, TranslatableString usage, GamePermission permission, String... aliases) {
+		this(command, usage, permission.getPermission(), aliases);
+	}
 
 	/**
 	 * Crée une nouvelle commande
@@ -65,23 +83,6 @@ public abstract class AbstractCommand implements TabExecutor {
 	}
 
 	/**
-	 * Crée une nouvelle commande
-	 * 
-	 * @param command
-	 *            Le nom de la commande
-	 * @param usage
-	 *            Le message d'erreur si la commande est mal utilisée
-	 * @param permission
-	 *            La permission nécessaire (pas de permission est
-	 *            {@link GamePermission#PLAYER})
-	 * @param aliases
-	 *            Les aliases éventuels de la commande
-	 */
-	public AbstractCommand(String command, TranslatableString usage, GamePermission permission, String... aliases) {
-		this(command, usage, permission.getPermission(), aliases);
-	}
-
-	/**
 	 * Permet de dire si la console peut utiliser la commande. Par défaut à
 	 * false.
 	 * 
@@ -91,6 +92,17 @@ public abstract class AbstractCommand implements TabExecutor {
 	public void allowConsole(boolean console) {
 		this.allowConsole = console;
 	}
+
+	/**
+	 * Permet d'exécuter la commande
+	 * 
+	 * @param sender
+	 *            Le sender
+	 * @param args
+	 *            Les arguments
+	 * @return Si la commande est bien utilisée
+	 */
+	public abstract boolean executeCommand(CommandSender sender, String[] args);
 
 	@Override
 	public final boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -104,17 +116,6 @@ public abstract class AbstractCommand implements TabExecutor {
 
 		return true;
 	}
-
-	/**
-	 * Permet d'exécuter la commande
-	 * 
-	 * @param sender
-	 *            Le sender
-	 * @param args
-	 *            Les arguments
-	 * @return Si la commande est bien utilisée
-	 */
-	public abstract boolean executeCommand(CommandSender sender, String[] args);
 
 	protected void sendTranslatedMessage(CommandSender sender, String key, Object... args) {
 		GameAPI.i18n().sendMessage(sender, key, args);

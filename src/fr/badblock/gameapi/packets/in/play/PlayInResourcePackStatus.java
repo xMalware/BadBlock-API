@@ -12,6 +12,29 @@ import lombok.Getter;
  */
 public interface PlayInResourcePackStatus extends BadblockInPacket {
 	/**
+	 * Représente les différents statuts possible pour le ressource pack
+	 * 
+	 * @author LeLanN
+	 */
+	public enum ResourcePackStatus {
+		SUCCESSFULLY_LOADED(0), DECLINED(1), FAILED_DOWNLOAD(2), ACCEPTED(3);
+
+		public static ResourcePackStatus getById(int id) {
+			for (ResourcePackStatus state : values())
+				if (state.getId() == id)
+					return state;
+			return null;
+		}
+
+		@Getter
+		private int id;
+
+		ResourcePackStatus(int id) {
+			this.id = id;
+		}
+	}
+
+	/**
 	 * Une clé envoyé par le packet pour envoyé le resource pack
 	 * 
 	 * @return La clé
@@ -28,29 +51,6 @@ public interface PlayInResourcePackStatus extends BadblockInPacket {
 	@Override
 	default BadblockInPackets getType() {
 		return BadblockInPackets.PLAY_RESOURCEPACK_STATUS;
-	}
-
-	/**
-	 * Représente les différents statuts possible pour le ressource pack
-	 * 
-	 * @author LeLanN
-	 */
-	public enum ResourcePackStatus {
-		SUCCESSFULLY_LOADED(0), DECLINED(1), FAILED_DOWNLOAD(2), ACCEPTED(3);
-
-		@Getter
-		private int id;
-
-		ResourcePackStatus(int id) {
-			this.id = id;
-		}
-
-		public static ResourcePackStatus getById(int id) {
-			for (ResourcePackStatus state : values())
-				if (state.getId() == id)
-					return state;
-			return null;
-		}
 	}
 
 }

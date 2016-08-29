@@ -95,6 +95,16 @@ public abstract class GameAPI extends JavaPlugin {
 			.disableHtmlEscaping().setPrettyPrinting().create();
 
 	/**
+	 * Récupère le système d'internationalisation (pour éviter de récupérer
+	 * l'instance).
+	 * 
+	 * @return Le système d'i18n
+	 */
+	public static I18n i18n() {
+		return API.getI18n();
+	}
+
+	/**
 	 * Log un message 'normal' (plus rapide que de récupérrer le logger)
 	 * 
 	 * @param message
@@ -102,26 +112,6 @@ public abstract class GameAPI extends JavaPlugin {
 	 */
 	public static void log(String message) {
 		Bukkit.getLogger().log(Level.INFO, message);
-	}
-
-	/**
-	 * Log un message d'alerte (plus rapide que de récupérrer le logger)
-	 * 
-	 * @param message
-	 *            Le message
-	 */
-	public static void logWarning(String message) {
-		Bukkit.getLogger().log(Level.WARNING, message);
-	}
-
-	/**
-	 * Log un message d'erreur (plus rapide que de récupérrer le logger)
-	 * 
-	 * @param message
-	 *            Le message
-	 */
-	public static void logError(String message) {
-		Bukkit.getLogger().log(Level.SEVERE, message);
 	}
 
 	/**
@@ -136,106 +126,62 @@ public abstract class GameAPI extends JavaPlugin {
 	}
 
 	/**
-	 * Récupère le système d'internationalisation (pour éviter de récupérer
-	 * l'instance).
+	 * Log un message d'erreur (plus rapide que de récupérrer le logger)
 	 * 
-	 * @return Le système d'i18n
+	 * @param message
+	 *            Le message
 	 */
-	public static I18n i18n() {
-		return API.getI18n();
+	public static void logError(String message) {
+		Bukkit.getLogger().log(Level.SEVERE, message);
 	}
 
 	/**
-	 * Récupère le système de messaging et internationalisation
+	 * Log un message d'alerte (plus rapide que de récupérrer le logger)
 	 * 
-	 * @return Le système
+	 * @param message
+	 *            Le message
 	 */
-	public abstract I18n getI18n();
+	public static void logWarning(String message) {
+		Bukkit.getLogger().log(Level.WARNING, message);
+	}
 
 	/**
-	 * Récupère le système de gestion de panneau i18n
+	 * Permet d'équilibrer les teams
 	 * 
-	 * @return Le système
+	 * @param sameSize
+	 *            Si il faut que toutes les teams ai le même nombre de joueurs
 	 */
-	public abstract SignManager getSignManager();
+	public abstract void balanceTeams(boolean sameSize);
 
 	/**
-	 * Récupère le système de gestion des statuts
+	 * Créé un nouveau objective custom
 	 * 
-	 * @return Le système de gestion des statuts
+	 * @param name
+	 *            Le nom (interne) de l'objective
+	 * @return Le CustomObjective créé.
 	 */
-	public abstract GameServer getGameServer();
+	public abstract CustomObjective buildCustomObjective(String name);
 
 	/**
-	 * Récupère le type de partie
+	 * Créé un nouvel inventaire custom
 	 * 
-	 * @return Le type
+	 * @param line
+	 *            Le nombre de ligne (et non pas de cases !)
+	 * @param displayName
+	 *            Le nom d'affichage de l'inventaire custom
+	 * @return Le nouvel inventaire
 	 */
-	public abstract RunType getRunType();
+	public abstract CustomInventory createCustomInventory(int line, String displayName);
 
 	/**
-	 * Récupère la base de donnée SQl
+	 * Crée un nouveau extra pour un item
 	 * 
-	 * @return La base de donnée
+	 * @param itemStack
+	 *            L'item stack auquel ajouté l'extra
+	 * @return Un nouvel extra ou celui existant si déjà register pour la
+	 *         l'item.
 	 */
-	public abstract SQLDatabase getSqlDatabase();
-
-	/**
-	 * Récupère la classe permettant de communiquer avec Ladder
-	 * 
-	 * @return La classe permettant de communiquer avec Ladder
-	 */
-	public abstract LadderSpeaker getLadderDatabase();
-
-	/**
-	 * Récupère la classe permettant de communiquer avec RabbitMQ
-	 * 
-	 * @return La classe permettant de communiquer avec RabbitMQ
-	 * @author xMalware
-	 */
-	public abstract RabbitSpeaker getRabbitSpeaker();
-
-	/**
-	 * Récupère le bonus évenementiel en badcoins
-	 * 
-	 * @return Le bonus
-	 */
-	public abstract double getServerBadcoinsBonus();
-
-	/**
-	 * Récupère le bonus évenementiel en xp
-	 * 
-	 * @return Le bonus
-	 */
-	public abstract double getServerXpBonus();
-
-	/**
-	 * Change la classe protégeant la map
-	 * 
-	 * @param protector
-	 *            La classe
-	 */
-	public abstract void setMapProtector(MapProtector protector);
-
-	/**
-	 * Récupère la classe protégeant la map. Par défaut une protection très
-	 * permissive (ne change rien :p).
-	 * 
-	 * @return La classe
-	 */
-	public abstract MapProtector getMapProtector();
-
-	/**
-	 * Récupère l'objet permettant de générer des coffres aléatoires
-	 * 
-	 * @return L'objet
-	 */
-	public abstract ChestGenerator getChestGenerator();
-
-	/**
-	 * Active l'anti-spawnkill
-	 */
-	public abstract void enableAntiSpawnKill();
+	public abstract ItemStackExtra createItemStackExtra(ItemStack itemStack);
 
 	/**
 	 * Crée une nouvelle factory d'items
@@ -255,68 +201,37 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract ItemStackFactory createItemStackFactory(ItemStack item);
 
 	/**
-	 * Crée un nouveau extra pour un item
+	 * Crée un packet à partir de l'interface le représentant.
 	 * 
-	 * @param itemStack
-	 *            L'item stack auquel ajouté l'extra
-	 * @return Un nouvel extra ou celui existant si déjà register pour la
-	 *         l'item.
+	 * @param clazz
+	 *            La classe de l'interface du packet.
+	 * @return Une nouvelle instance du packet.
 	 */
-	public abstract ItemStackExtra createItemStackExtra(ItemStack itemStack);
+	public abstract <T extends BadblockOutPacket> T createPacket(Class<T> clazz);
 
 	/**
-	 * Créé un nouvel inventaire custom
+	 * Créé une particule. Envoyable grâce à
+	 * {@link BadblockPlayer#sendParticle(Location, ParticleEffect)}
 	 * 
-	 * @param line
-	 *            Le nombre de ligne (et non pas de cases !)
-	 * @param displayName
-	 *            Le nom d'affichage de l'inventaire custom
-	 * @return Le nouvel inventaire
+	 * @param type
+	 *            Le type de la particule
+	 * @return La particule
 	 */
-	public abstract CustomInventory createCustomInventory(int line, String displayName);
+	public abstract ParticleEffect createParticleEffect(ParticleEffectType type);
 
 	/**
-	 * Récupère le manager de contenu (récupération / give des items) des kits,
-	 * pour le jeu charger. Par défaut, charge simplement un inventaire
+	 * Crée un datawatcher à partir de l'interface le représentant.
 	 * 
-	 * @return Le manager
+	 * @param clazz
+	 *            La classe de l'interface du DataWatcher.
+	 * @return Une nouvelle instance du packet.
 	 */
-	public abstract PlayerKitContentManager getKitContentManager();
+	public abstract <T extends WatcherEntity> T createWatcher(Class<T> clazz);
 
 	/**
-	 * Définit le manager de contenu (récupération / give des items) des kits,
-	 * pour le jeu charger. Par défaut, charge simplement un inventaire
-	 * 
-	 * @param manager
-	 *            Le manager
+	 * Active l'anti-spawnkill
 	 */
-	public abstract void setKitContentManager(PlayerKitContentManager manager);
-
-	/**
-	 * Redéfinit le manager de kit par défaut, où changer la paramètre allowDrop
-	 * (de base à true)
-	 * 
-	 * @param allowDrop
-	 *            Si les items du kit peuvent être drop par le joueur ou à la
-	 *            mort
-	 */
-	public abstract void setDefaultKitContentManager(boolean allowDrop);
-
-	/**
-	 * Récupère une liste de kit via un nom de jeu
-	 * 
-	 * @param game
-	 *            Le nom du jeu
-	 * @return Les kits, en fonction de leur nom interne
-	 */
-	public abstract Map<String, PlayerKit> loadKits(String game);
-
-	/**
-	 * Récupère l'instance de la configuration des items de join
-	 * 
-	 * @return L'instance
-	 */
-	public abstract JoinItems getJoinItems();
+	public abstract void enableAntiSpawnKill();
 
 	/**
 	 * Active le formattage du chat par l'API
@@ -343,17 +258,165 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract void formatChat(boolean format, boolean doTeamChat, String custom);
 
 	/**
-	 * Register les teams (ne peut être appelé qu'une fois !) à partir d'une
-	 * configuration.
-	 * 
-	 * @param maxPlayers
-	 *            Le nombre maximum de joueurs par teams.
-	 * @param clazz
-	 *            La classe représentant les données in-game d'une team.
-	 * @param configuration
-	 *            La configuration des teams.
+	 * Récupère le BadblockScoreboard commun à tous les joueurs permettant
+	 * d'afficher la vie, les noms de teams, les votes, ...
 	 */
-	public abstract void registerTeams(int maxPlayers, ConfigurationSection configuration);
+	public abstract BadblockScoreboard getBadblockScoreboard();
+
+	/**
+	 * Récupère l'objet permettant de générer des coffres aléatoires
+	 * 
+	 * @return L'objet
+	 */
+	public abstract ChestGenerator getChestGenerator();
+
+	/**
+	 * Créé un inventaire de marchant custom
+	 * 
+	 * @return Le marchant
+	 */
+	public abstract CustomMerchantInventory getCustomMerchantInventory();
+
+	/**
+	 * Récupère le système de gestion des statuts
+	 * 
+	 * @return Le système de gestion des statuts
+	 */
+	public abstract GameServer getGameServer();
+
+	/**
+	 * Récupère le système de messaging et internationalisation
+	 * 
+	 * @return Le système
+	 */
+	public abstract I18n getI18n();
+
+	/**
+	 * Récupère l'instance de la configuration des items de join
+	 * 
+	 * @return L'instance
+	 */
+	public abstract JoinItems getJoinItems();
+
+	/**
+	 * Récupère le manager de contenu (récupération / give des items) des kits,
+	 * pour le jeu charger. Par défaut, charge simplement un inventaire
+	 * 
+	 * @return Le manager
+	 */
+	public abstract PlayerKitContentManager getKitContentManager();
+
+	/**
+	 * Récupère la classe permettant de communiquer avec Ladder
+	 * 
+	 * @return La classe permettant de communiquer avec Ladder
+	 */
+	public abstract LadderSpeaker getLadderDatabase();
+
+	/**
+	 * Récupère la liste des portails chargés
+	 * 
+	 * @return La liste des portails
+	 */
+	public abstract Collection<Portal> getLoadedPortals();
+
+	/**
+	 * Récupère la classe protégeant la map. Par défaut une protection très
+	 * permissive (ne change rien :p).
+	 * 
+	 * @return La classe
+	 */
+	public abstract MapProtector getMapProtector();
+
+	/**
+	 * Récupère les données d'un joueur ayant déconnecter après le début de la
+	 * partie, si le jeu a demandé la sauvegarde
+	 * 
+	 * @param name
+	 *            Le joueur
+	 * @return Les données joueurs (ou null)
+	 */
+	public abstract BadblockOfflinePlayer getOfflinePlayer(String name);
+
+	/**
+	 * Récupère un portail par une location
+	 * 
+	 * @param location
+	 *            La location
+	 * @return Le portail
+	 */
+	public abstract Portal getPortal(Location location);
+
+	/**
+	 * Récupère un portail par son nom
+	 * 
+	 * @param name
+	 *            Le nom
+	 * @return Le portail
+	 */
+	public abstract Portal getPortal(String name);
+
+	/**
+	 * Récupère la classe permettant de communiquer avec RabbitMQ
+	 * 
+	 * @return La classe permettant de communiquer avec RabbitMQ
+	 * @author xMalware
+	 */
+	public abstract RabbitSpeaker getRabbitSpeaker();
+
+	/**
+	 * Récupère le type de partie
+	 * 
+	 * @return Le type
+	 */
+	public abstract RunType getRunType();
+
+	/**
+	 * Retourne une position ou le joueur peut être téléporté sans crainte.
+	 * 
+	 * @param location
+	 *            La position initiale
+	 * @return La position modifiée (ou null en cas de problème)
+	 */
+	public abstract Location getSafeLocation(Location location);
+
+	/**
+	 * Récupère le bonus évenementiel en badcoins
+	 * 
+	 * @return Le bonus
+	 */
+	public abstract double getServerBadcoinsBonus();
+
+	/**
+	 * Récupère le bonus évenementiel en xp
+	 * 
+	 * @return Le bonus
+	 */
+	public abstract double getServerXpBonus();
+
+	/**
+	 * Récupère le système de gestion de panneau i18n
+	 * 
+	 * @return Le système
+	 */
+	public abstract SignManager getSignManager();
+
+	/**
+	 * Récupère la base de donnée SQl
+	 * 
+	 * @return La base de donnée
+	 */
+	public abstract SQLDatabase getSqlDatabase();
+
+	/**
+	 * Récupère une team à partir de son nom interne (voir
+	 * {@link #getTeamsKey()}}.
+	 * 
+	 * @param key
+	 *            Le nom interne
+	 * @return La team (ou null si elle n'existe pas).
+	 */
+	public abstract BadblockTeam getTeam(String key);
 
 	/**
 	 * Récupère les teams registers grâce à
@@ -372,64 +435,34 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract Collection<String> getTeamsKey();
 
 	/**
-	 * Récupère une team à partir de son nom interne (voir
-	 * {@link #getTeamsKey()}}.
+	 * Récupère les joueurs dans la whitelist
 	 * 
-	 * @param key
-	 *            Le nom interne
-	 * @return La team (ou null si elle n'existe pas).
+	 * @return Les joueurs
 	 */
-	public abstract BadblockTeam getTeam(String key);
+	public abstract Collection<String> getWhitelistedPlayers();
 
 	/**
-	 * Supprime une Team ayant perdue
+	 * Récupère si la whitelist est on ou non
 	 * 
-	 * @param team
-	 *            La Team à supprimer.
+	 * @return Le statut
 	 */
-	public abstract void unregisterTeam(BadblockTeam team);
+	public abstract boolean getWhitelistStatus();
 
 	/**
-	 * Permet d'équilibrer les teams
+	 * Récupère si le compas sélectionne la cible la plus proche au clique droit
 	 * 
-	 * @param sameSize
-	 *            Si il faut que toutes les teams ai le même nombre de joueurs
+	 * @return Un boolean
 	 */
-	public abstract void balanceTeams(boolean sameSize);
+	public abstract boolean isCompassSelectNearestTarget();
 
 	/**
-	 * Récupère les données d'un joueur ayant déconnecter après le début de la
-	 * partie, si le jeu a demandé la sauvegarde
+	 * Vérifie si le joueur est whitelisté
 	 * 
-	 * @param name
+	 * @param player
 	 *            Le joueur
-	 * @return Les données joueurs (ou null)
+	 * @return Si il est whitelisté
 	 */
-	public abstract BadblockOfflinePlayer getOfflinePlayer(String name);
-
-	/**
-	 * Créé un nouveau objective custom
-	 * 
-	 * @param name
-	 *            Le nom (interne) de l'objective
-	 * @return Le CustomObjective créé.
-	 */
-	public abstract CustomObjective buildCustomObjective(String name);
-
-	/**
-	 * Récupère le BadblockScoreboard commun à tous les joueurs permettant
-	 * d'afficher la vie, les noms de teams, les votes, ...
-	 */
-	public abstract BadblockScoreboard getBadblockScoreboard();
-
-	/**
-	 * Crée un packet à partir de l'interface le représentant.
-	 * 
-	 * @param clazz
-	 *            La classe de l'interface du packet.
-	 * @return Une nouvelle instance du packet.
-	 */
-	public abstract <T extends BadblockOutPacket> T createPacket(Class<T> clazz);
+	public abstract boolean isWhitelisted(String player);
 
 	/**
 	 * Ecoute sur un packet entrant avec un listener
@@ -446,61 +479,6 @@ public abstract class GameAPI extends JavaPlugin {
 	 *            Le listener
 	 */
 	public abstract <T extends BadblockOutPacket> void listenAtPacket(OutPacketListener<T> listener);
-
-	/**
-	 * Crée un datawatcher à partir de l'interface le représentant.
-	 * 
-	 * @param clazz
-	 *            La classe de l'interface du DataWatcher.
-	 * @return Une nouvelle instance du packet.
-	 */
-	public abstract <T extends WatcherEntity> T createWatcher(Class<T> clazz);
-
-	/**
-	 * Crée une nouvelle fausse entité.
-	 * 
-	 * @param location
-	 *            Sa position
-	 * @param type
-	 *            Le type de l'entité
-	 * @param clazz
-	 *            La classe de ses DataWatchers
-	 * @return La fausse entité
-	 */
-	public abstract <T extends WatcherEntity> FakeEntity<T> spawnFakeLivingEntity(Location location, EntityType type,
-			Class<T> clazz);
-
-	/**
-	 * Spawn un faux falling block
-	 * 
-	 * @param location
-	 *            La position
-	 * @param type
-	 *            Le type de falling block
-	 * @param data
-	 *            Le 'data'
-	 * @return L'entité
-	 */
-	public abstract FakeEntity<WatcherEntity> spawnFakeFallingBlock(Location location, Material type, byte data);
-
-	/**
-	 * Fait spawn une fausse armor stand
-	 * 
-	 * @param location
-	 *            Sa position
-	 * @return
-	 */
-	public abstract FakeEntity<WatcherArmorStand> spawnFakeArmorStand(Location location);
-
-	/**
-	 * Créé une particule. Envoyable grâce à
-	 * {@link BadblockPlayer#sendParticle(Location, ParticleEffect)}
-	 * 
-	 * @param type
-	 *            Le type de la particule
-	 * @return La particule
-	 */
-	public abstract ParticleEffect createParticleEffect(ParticleEffectType type);
 
 	/**
 	 * Charge une configuration JSON depuis un fichier
@@ -521,12 +499,13 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract BadConfiguration loadConfiguration(JsonObject content);
 
 	/**
-	 * Manage les shops, en les chargeants / sauvegardants avec le dossier donné
+	 * Récupère une liste de kit via un nom de jeu
 	 * 
-	 * @param folder
-	 *            Le dossier
+	 * @param game
+	 *            Le nom du jeu
+	 * @return Les kits, en fonction de leur nom interne
 	 */
-	public abstract void manageShops(File folder);
+	public abstract Map<String, PlayerKit> loadKits(String game);
 
 	/**
 	 * Manage les portails, en les chargeants / sauvegardants avec le dossier
@@ -538,29 +517,69 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract void managePortals(File folder);
 
 	/**
-	 * Récupère la liste des portails chargés
+	 * Manage les shops, en les chargeants / sauvegardants avec le dossier donné
 	 * 
-	 * @return La liste des portails
+	 * @param folder
+	 *            Le dossier
 	 */
-	public abstract Collection<Portal> getLoadedPortals();
+	public abstract void manageShops(File folder);
 
 	/**
-	 * Récupère un portail par son nom
+	 * Register les teams (ne peut être appelé qu'une fois !) à partir d'une
+	 * configuration.
 	 * 
-	 * @param name
-	 *            Le nom
-	 * @return Le portail
+	 * @param maxPlayers
+	 *            Le nombre maximum de joueurs par teams.
+	 * @param clazz
+	 *            La classe représentant les données in-game d'une team.
+	 * @param configuration
+	 *            La configuration des teams.
 	 */
-	public abstract Portal getPortal(String name);
+	public abstract void registerTeams(int maxPlayers, ConfigurationSection configuration);
 
 	/**
-	 * Récupère un portail par une location
+	 * Fait en sorte que le compas sélectionne la cible la plus proche au clique
+	 * droit
 	 * 
-	 * @param location
-	 *            La location
-	 * @return Le portail
+	 * @param selectNearestTarget
+	 *            Un boolean
 	 */
-	public abstract Portal getPortal(Location location);
+	public abstract void setCompassSelectNearestTarget(boolean selectNearestTarget);
+
+	/**
+	 * Redéfinit le manager de kit par défaut, où changer la paramètre allowDrop
+	 * (de base à true)
+	 * 
+	 * @param allowDrop
+	 *            Si les items du kit peuvent être drop par le joueur ou à la
+	 *            mort
+	 */
+	public abstract void setDefaultKitContentManager(boolean allowDrop);
+
+	/**
+	 * Définit le manager de contenu (récupération / give des items) des kits,
+	 * pour le jeu charger. Par défaut, charge simplement un inventaire
+	 * 
+	 * @param manager
+	 *            Le manager
+	 */
+	public abstract void setKitContentManager(PlayerKitContentManager manager);
+
+	/**
+	 * Change la classe protégeant la map
+	 * 
+	 * @param protector
+	 *            La classe
+	 */
+	public abstract void setMapProtector(MapProtector protector);
+
+	/**
+	 * Définit si la whitelist est on ou non
+	 * 
+	 * @param on
+	 *            Si elle est on
+	 */
+	public abstract void setWhitelistStatus(boolean on);
 
 	/**
 	 * Fait spawn une entité custom
@@ -574,26 +593,48 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract CustomCreature spawnCustomEntity(Location location, EntityType type);
 
 	/**
-	 * Créé un inventaire de marchant custom
+	 * Fait spawn une fausse armor stand
 	 * 
-	 * @return Le marchant
+	 * @param location
+	 *            Sa position
+	 * @return
 	 */
-	public abstract CustomMerchantInventory getCustomMerchantInventory();
+	public abstract FakeEntity<WatcherArmorStand> spawnFakeArmorStand(Location location);
 
 	/**
-	 * Récupère les joueurs dans la whitelist
+	 * Spawn un faux falling block
 	 * 
-	 * @return Les joueurs
+	 * @param location
+	 *            La position
+	 * @param type
+	 *            Le type de falling block
+	 * @param data
+	 *            Le 'data'
+	 * @return L'entité
 	 */
-	public abstract Collection<String> getWhitelistedPlayers();
+	public abstract FakeEntity<WatcherEntity> spawnFakeFallingBlock(Location location, Material type, byte data);
 
 	/**
-	 * Met temporairement (jusqu'au redémarrage) un joueur dans la whitelist
+	 * Crée une nouvelle fausse entité.
 	 * 
-	 * @param player
-	 *            Le joueur
+	 * @param location
+	 *            Sa position
+	 * @param type
+	 *            Le type de l'entité
+	 * @param clazz
+	 *            La classe de ses DataWatchers
+	 * @return La fausse entité
 	 */
-	public abstract void whitelistPlayer(String player);
+	public abstract <T extends WatcherEntity> FakeEntity<T> spawnFakeLivingEntity(Location location, EntityType type,
+			Class<T> clazz);
+
+	/**
+	 * Supprime une Team ayant perdue
+	 * 
+	 * @param team
+	 *            La Team à supprimer.
+	 */
+	public abstract void unregisterTeam(BadblockTeam team);
 
 	/**
 	 * Enlève un joueur temporairement (jusqu'au redémarrage) de la whitelist
@@ -604,51 +645,10 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract void unwhitelistPlayer(String player);
 
 	/**
-	 * Vérifie si le joueur est whitelisté
+	 * Met temporairement (jusqu'au redémarrage) un joueur dans la whitelist
 	 * 
 	 * @param player
 	 *            Le joueur
-	 * @return Si il est whitelisté
 	 */
-	public abstract boolean isWhitelisted(String player);
-
-	/**
-	 * Récupère si la whitelist est on ou non
-	 * 
-	 * @return Le statut
-	 */
-	public abstract boolean getWhitelistStatus();
-
-	/**
-	 * Définit si la whitelist est on ou non
-	 * 
-	 * @param on
-	 *            Si elle est on
-	 */
-	public abstract void setWhitelistStatus(boolean on);
-
-	/**
-	 * Récupère si le compas sélectionne la cible la plus proche au clique droit
-	 * 
-	 * @return Un boolean
-	 */
-	public abstract boolean isCompassSelectNearestTarget();
-
-	/**
-	 * Fait en sorte que le compas sélectionne la cible la plus proche au clique
-	 * droit
-	 * 
-	 * @param selectNearestTarget
-	 *            Un boolean
-	 */
-	public abstract void setCompassSelectNearestTarget(boolean selectNearestTarget);
-
-	/**
-	 * Retourne une position ou le joueur peut être téléporté sans crainte.
-	 * 
-	 * @param location
-	 *            La position initiale
-	 * @return La position modifiée (ou null en cas de problème)
-	 */
-	public abstract Location getSafeLocation(Location location);
+	public abstract void whitelistPlayer(String player);
 }

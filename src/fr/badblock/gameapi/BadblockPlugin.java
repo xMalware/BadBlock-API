@@ -15,10 +15,10 @@ public abstract class BadblockPlugin extends JavaPlugin {
 		return GameAPI.getAPI();
 	}
 
-	public abstract void onEnable(RunType runType);
-
 	@Override
 	public final void onEnable() {
 		onEnable(getAPI().getRunType());
 	}
+
+	public abstract void onEnable(RunType runType);
 }

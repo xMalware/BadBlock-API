@@ -10,18 +10,23 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
  */
 public interface PlayInSteerVehicle extends BadblockInPacket {
 	/**
+	 * Récupère la valeur du mouvement haut/bas demandé (positif = vers l'avant)
+	 * 
+	 * @return La valeur
+	 */
+	public float getForward();
+
+	/**
 	 * Récupère la valeur du mouvement latéral demandé (positif = gauche)
 	 * 
 	 * @return La valeur
 	 */
 	public float getSideways();
 
-	/**
-	 * Récupère la valeur du mouvement haut/bas demandé (positif = vers l'avant)
-	 * 
-	 * @return La valeur
-	 */
-	public float getForward();
+	@Override
+	default BadblockInPackets getType() {
+		return BadblockInPackets.PLAY_STEER_VEHICLE;
+	}
 
 	/**
 	 * Si le joueur veut que le véhicule saute
@@ -36,9 +41,4 @@ public interface PlayInSteerVehicle extends BadblockInPacket {
 	 * @return Un boolean
 	 */
 	public boolean isUnmount();
-
-	@Override
-	default BadblockInPackets getType() {
-		return BadblockInPackets.PLAY_STEER_VEHICLE;
-	}
 }

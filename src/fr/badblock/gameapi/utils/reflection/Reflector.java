@@ -55,41 +55,6 @@ public class Reflector {
 		}
 	}
 
-	public Object getFieldValue(String name) throws Exception {
-		Field field = getDeclaredField(name);
-
-		if (!field.isAccessible())
-			field.setAccessible(true);
-
-		return field.get(reflected);
-	}
-
-	public Object getStaticFieldValue(String name) throws Exception {
-		Field field = getDeclaredField(name);
-
-		if (!field.isAccessible())
-			field.setAccessible(true);
-
-		return field.get(null);
-	}
-
-	public void setFieldValue(String name, Object object) throws Exception {
-		Field field = getDeclaredField(name);
-
-		if (!field.isAccessible())
-			field.setAccessible(true);
-
-		ReflectionUtils.removeFinal(field);
-		field.set(reflected, object);
-	}
-
-	public void setStaticFieldValue(String name, Object object) throws Exception {
-		Field field = getDeclaredField(name);
-		new Reflector(field).setFieldValue("modifiers", Modifier.STATIC | Modifier.PUBLIC);
-
-		field.set(null, object);
-	}
-
 	protected Field getDeclaredField(String name) throws Exception {
 		Field field = null;
 
@@ -126,5 +91,40 @@ public class Reflector {
 		}
 
 		throw new NoSuchMethodException(name);
+	}
+
+	public Object getFieldValue(String name) throws Exception {
+		Field field = getDeclaredField(name);
+
+		if (!field.isAccessible())
+			field.setAccessible(true);
+
+		return field.get(reflected);
+	}
+
+	public Object getStaticFieldValue(String name) throws Exception {
+		Field field = getDeclaredField(name);
+
+		if (!field.isAccessible())
+			field.setAccessible(true);
+
+		return field.get(null);
+	}
+
+	public void setFieldValue(String name, Object object) throws Exception {
+		Field field = getDeclaredField(name);
+
+		if (!field.isAccessible())
+			field.setAccessible(true);
+
+		ReflectionUtils.removeFinal(field);
+		field.set(reflected, object);
+	}
+
+	public void setStaticFieldValue(String name, Object object) throws Exception {
+		Field field = getDeclaredField(name);
+		new Reflector(field).setFieldValue("modifiers", Modifier.STATIC | Modifier.PUBLIC);
+
+		field.set(null, object);
 	}
 }

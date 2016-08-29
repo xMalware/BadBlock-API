@@ -31,20 +31,32 @@ public class TranslatableString {
 	}
 
 	/**
-	 * Envoit le message à un command sender
-	 * 
-	 * @param sender
-	 *            Le sender
-	 */
-	public void send(CommandSender sender) {
-		GameAPI.i18n().sendMessage(sender, key, objects);
-	}
-
-	/**
 	 * Envoit le message à tous les joueurs
 	 */
 	public void broadcast() {
 		GameAPI.i18n().broadcast(key, objects);
+	}
+
+	/**
+	 * Récupère le message sur plusieurs lignes
+	 * 
+	 * @param player
+	 *            Le joueur (pour avoir la langue)
+	 * @return Le message
+	 */
+	public String[] get(BadblockPlayer player) {
+		return get(player.getPlayerData().getLocale());
+	}
+
+	/**
+	 * Récupère le message sur plusieurs lignes
+	 * 
+	 * @param locale
+	 *            La langue
+	 * @return Le message
+	 */
+	public String[] get(Locale locale) {
+		return GameAPI.i18n().get(locale, key, objects);
 	}
 
 	/**
@@ -84,24 +96,12 @@ public class TranslatableString {
 	}
 
 	/**
-	 * Récupère le message sur plusieurs lignes
+	 * Envoit le message à un command sender
 	 * 
-	 * @param player
-	 *            Le joueur (pour avoir la langue)
-	 * @return Le message
+	 * @param sender
+	 *            Le sender
 	 */
-	public String[] get(BadblockPlayer player) {
-		return get(player.getPlayerData().getLocale());
-	}
-
-	/**
-	 * Récupère le message sur plusieurs lignes
-	 * 
-	 * @param locale
-	 *            La langue
-	 * @return Le message
-	 */
-	public String[] get(Locale locale) {
-		return GameAPI.i18n().get(locale, key, objects);
+	public void send(CommandSender sender) {
+		GameAPI.i18n().sendMessage(sender, key, objects);
 	}
 }

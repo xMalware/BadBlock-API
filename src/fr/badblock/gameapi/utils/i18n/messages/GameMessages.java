@@ -19,6 +19,22 @@ import fr.badblock.gameapi.utils.i18n.Word.WordDeterminant;
  * @author LeLanN
  */
 public class GameMessages {
+	public static TranslatableString deathEventMessage(FightingDeathEvent e) {
+		if (e.getKiller().getType() == EntityType.PLAYER) {
+			return new TranslatableString("deathmessages.pvp." + e.getLastDamageCause().name().toLowerCase(),
+					e.getPlayer().getName(), e.getKiller().getName());
+		} else {
+			return new TranslatableString("deathmessages.pve." + e.getLastDamageCause().name().toLowerCase(),
+					new TranslatableWord("entities." + e.getKiller().getType().name().toLowerCase(), false,
+							WordDeterminant.UNDEFINED));
+		}
+	}
+
+	public static TranslatableString deathEventMessage(NormalDeathEvent e) {
+		return new TranslatableString("deathmessages.normal." + e.getLastDamageCause().name().toLowerCase(),
+				e.getPlayer().getName());
+	}
+
 	/**
 	 * Lorsqu'un spectateur s'éloigne, le message qui lui est affiché. Utile
 	 * uniquement pour l'API.
@@ -46,32 +62,12 @@ public class GameMessages {
 		return new TranslatableString("game.join", name, player, current, max);
 	}
 
-	public static TranslatableString startIn(int time, ChatColor color) {
-		return new TranslatableString("game.startin.title", time, color.getChar());
-	}
-
-	public static TranslatableString startInActionBar(int time, ChatColor color) {
-		return new TranslatableString("game.startin.actionbar", time, color.getChar());
+	public static TranslatableWord material(Material material, boolean plural, WordDeterminant determinant) {
+		return new TranslatableWord("materials." + material.name().toLowerCase(), plural, determinant);
 	}
 
 	public static TranslatableString missingPlayersActionBar(int players) {
 		return new TranslatableString("game.missingplayers", players);
-	}
-
-	public static TranslatableString deathEventMessage(NormalDeathEvent e) {
-		return new TranslatableString("deathmessages.normal." + e.getLastDamageCause().name().toLowerCase(),
-				e.getPlayer().getName());
-	}
-
-	public static TranslatableString deathEventMessage(FightingDeathEvent e) {
-		if (e.getKiller().getType() == EntityType.PLAYER) {
-			return new TranslatableString("deathmessages.pvp." + e.getLastDamageCause().name().toLowerCase(),
-					e.getPlayer().getName(), e.getKiller().getName());
-		} else {
-			return new TranslatableString("deathmessages.pve." + e.getLastDamageCause().name().toLowerCase(),
-					new TranslatableWord("entities." + e.getKiller().getType().name().toLowerCase(), false,
-							WordDeterminant.UNDEFINED));
-		}
 	}
 
 	/**
@@ -83,7 +79,11 @@ public class GameMessages {
 		return "game.respawnIn-title";
 	}
 
-	public static TranslatableWord material(Material material, boolean plural, WordDeterminant determinant) {
-		return new TranslatableWord("materials." + material.name().toLowerCase(), plural, determinant);
+	public static TranslatableString startIn(int time, ChatColor color) {
+		return new TranslatableString("game.startin.title", time, color.getChar());
+	}
+
+	public static TranslatableString startInActionBar(int time, ChatColor color) {
+		return new TranslatableString("game.startin.actionbar", time, color.getChar());
 	}
 }

@@ -13,5 +13,6 @@ public interface WatcherBlaze extends WatcherLivingEntity {
 	 *            Si il est en feu
 	 * @return Le watcher
 	 */
+	@Override
 	public WatcherBlaze setOnFire(boolean onFire);
 }

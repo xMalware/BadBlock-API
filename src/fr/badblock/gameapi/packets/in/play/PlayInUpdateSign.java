@@ -12,13 +12,6 @@ import net.md_5.bungee.api.chat.BaseComponent;
  */
 public interface PlayInUpdateSign extends BadblockInPacket {
 	/**
-	 * Récupère la position du panneau
-	 * 
-	 * @return La position
-	 */
-	public Vector3f getPosition();
-
-	/**
 	 * Récupère le contenu de la ligne 1
 	 * 
 	 * @return Le contenu
@@ -45,6 +38,13 @@ public interface PlayInUpdateSign extends BadblockInPacket {
 	 * @return Le contenu
 	 */
 	public BaseComponent[] getLine4();
+
+	/**
+	 * Récupère la position du panneau
+	 * 
+	 * @return La position
+	 */
+	public Vector3f getPosition();
 
 	@Override
 	default BadblockInPackets getType() {

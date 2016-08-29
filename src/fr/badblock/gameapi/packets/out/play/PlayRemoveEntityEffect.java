@@ -11,27 +11,18 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
  */
 public interface PlayRemoveEntityEffect extends BadblockOutPacket {
 	/**
-	 * Récupère l'entité (id)
-	 * 
-	 * @return L'id
-	 */
-	public int getEntityId();
-
-	/**
-	 * Définit l'entité (id)
-	 * 
-	 * @param entityId
-	 *            L'id
-	 * @return Le packet
-	 */
-	public PlayRemoveEntityEffect setEntityId(int entityId);
-
-	/**
 	 * Récupère l'effect à enlever
 	 * 
 	 * @return L'effect
 	 */
 	public PotionEffectType getEffect();
+
+	/**
+	 * Récupère l'entité (id)
+	 * 
+	 * @return L'id
+	 */
+	public int getEntityId();
 
 	/**
 	 * Définit l'effect à enlever
@@ -41,4 +32,13 @@ public interface PlayRemoveEntityEffect extends BadblockOutPacket {
 	 * @return Le packet
 	 */
 	public PlayRemoveEntityEffect setEffect(PotionEffectType effect);
+
+	/**
+	 * Définit l'entité (id)
+	 * 
+	 * @param entityId
+	 *            L'id
+	 * @return Le packet
+	 */
+	public PlayRemoveEntityEffect setEntityId(int entityId);
 }

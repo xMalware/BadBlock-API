@@ -7,13 +7,13 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
 public interface PlayEntityRelativeMove extends BadblockOutPacket {
 	public int getEntityId();
 
-	public PlayEntityRelativeMove setEntityId(int entityId);
-
 	public Vector getMove();
 
-	public PlayEntityRelativeMove setMove(Vector location);
-
 	public boolean isOnGround();
+
+	public PlayEntityRelativeMove setEntityId(int entityId);
+
+	public PlayEntityRelativeMove setMove(Vector location);
 
 	public PlayEntityRelativeMove setOnGround(boolean onGround);
 }

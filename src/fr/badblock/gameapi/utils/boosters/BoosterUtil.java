@@ -12,6 +12,18 @@ import fr.badblock.gameapi.players.data.boosters.PlayerBooster;
  */
 public class BoosterUtil {
 
+	public static double getBoosted(BadblockPlayer player, BoostedValue boostedValue) {
+		return getBoosted(player.getPlayerData(), boostedValue);
+	}
+
+	public static int getBoosted(BadblockPlayer player, BoostedValue boostedValue, int value) {
+		return getBoosted(player.getPlayerData(), boostedValue, value);
+	}
+
+	public static long getBoosted(BadblockPlayer player, BoostedValue boostedValue, long value) {
+		return getBoosted(player.getPlayerData(), boostedValue, value);
+	}
+
 	public static double getBoosted(PlayerData playerData, BoostedValue boostedValue) {
 		if (playerData.getBoosters() == null || playerData.getBoosters().isEmpty())
 			return 1;
@@ -34,26 +46,14 @@ public class BoosterUtil {
 		return boosted;
 	}
 
-	public static long getBoosted(PlayerData playerData, BoostedValue boostedValue, long value) {
-		double boosted = getBoosted(playerData, boostedValue);
-		return value *= boosted;
-	}
-
 	public static int getBoosted(PlayerData playerData, BoostedValue boostedValue, int value) {
 		double boosted = getBoosted(playerData, boostedValue);
 		return value *= boosted;
 	}
 
-	public static double getBoosted(BadblockPlayer player, BoostedValue boostedValue) {
-		return getBoosted(player.getPlayerData(), boostedValue);
-	}
-
-	public static long getBoosted(BadblockPlayer player, BoostedValue boostedValue, long value) {
-		return getBoosted(player.getPlayerData(), boostedValue, value);
-	}
-
-	public static int getBoosted(BadblockPlayer player, BoostedValue boostedValue, int value) {
-		return getBoosted(player.getPlayerData(), boostedValue, value);
+	public static long getBoosted(PlayerData playerData, BoostedValue boostedValue, long value) {
+		double boosted = getBoosted(playerData, boostedValue);
+		return value *= boosted;
 	}
 
 }

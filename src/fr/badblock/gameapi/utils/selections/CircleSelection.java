@@ -31,15 +31,6 @@ public class CircleSelection extends AbstractSelection {
 	}
 
 	@Override
-	public boolean isInSelection(Vector3f loc) {
-		return Math.sqrt(square(loc.getX() - center.getX()) + square(loc.getZ() - center.getZ())) <= radius;
-	}
-
-	private double square(double base) {
-		return base * base;
-	}
-
-	@Override
 	public Location getCenter() {
 		return center.bukkit(Bukkit.getWorld(getWorldName()));
 	}
@@ -50,5 +41,14 @@ public class CircleSelection extends AbstractSelection {
 		clone.add(clone.getDirection().multiply(new Random().nextDouble() * radius));
 
 		return clone;
+	}
+
+	@Override
+	public boolean isInSelection(Vector3f loc) {
+		return Math.sqrt(square(loc.getX() - center.getX()) + square(loc.getZ() - center.getZ())) <= radius;
+	}
+
+	private double square(double base) {
+		return base * base;
 	}
 }

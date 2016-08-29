@@ -16,14 +16,15 @@ import lombok.RequiredArgsConstructor;
 public class SpectatorJoinEvent extends Event {
 	private static final HandlerList handlers = new HandlerList();
 
-	@Getter
-	private final BadblockPlayer player;
-
-	public HandlerList getHandlers() {
+	public static HandlerList getHandlerList() {
 		return handlers;
 	}
 
-	public static HandlerList getHandlerList() {
+	@Getter
+	private final BadblockPlayer player;
+
+	@Override
+	public HandlerList getHandlers() {
 		return handlers;
 	}
 }

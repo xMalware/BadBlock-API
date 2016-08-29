@@ -25,14 +25,15 @@ import lombok.Setter;
 public class PlayerReconnectionPropositionEvent extends Event implements Cancellable {
 	private static final HandlerList handlers = new HandlerList();
 
-	private final BadblockPlayer player;
-	private boolean isCancelled = false;
-
-	public HandlerList getHandlers() {
+	public static HandlerList getHandlerList() {
 		return handlers;
 	}
+	private final BadblockPlayer player;
 
-	public static HandlerList getHandlerList() {
+	private boolean isCancelled = false;
+
+	@Override
+	public HandlerList getHandlers() {
 		return handlers;
 	}
 }

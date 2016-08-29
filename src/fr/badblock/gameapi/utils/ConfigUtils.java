@@ -82,6 +82,25 @@ public class ConfigUtils {
 	}
 
 	/**
+	 * R�cup�rer un objet quelconque � l'aide d'une cl� & cr�er cette cl� avec
+	 * une valeur par d�faut si cette cl� n'est pas pr�sente dans la
+	 * configuration
+	 * 
+	 * @param plugin
+	 * @param key
+	 * @param defaultValue
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T> T get(Plugin plugin, String key, T defaultValue) {
+		if (!plugin.getConfig().contains(key)) {
+			plugin.getConfig().set(key, defaultValue);
+			plugin.saveConfig();
+		}
+		return (T) plugin.getConfig().get(key);
+	}
+
+	/**
 	 * Recup�rer une location de type Block dans la config
 	 * 
 	 * @param plugin
@@ -90,6 +109,23 @@ public class ConfigUtils {
 	 */
 	public static Location getBlockLocationFromFile(Plugin plugin, String node) {
 		return convertStringToBlockLocation(plugin.getConfig().getString(node));
+	}
+
+	/**
+	 * R�cup�rer un bool�en & le set si il n'y est pas pr�sent dans la
+	 * configuration
+	 * 
+	 * @param plugin
+	 * @param key
+	 * @return
+	 */
+	public static boolean getBoolean(Plugin plugin, String key) {
+		if (!plugin.getConfig().contains(key)) {
+			plugin.getConfig().set(key, false);
+			plugin.saveConfig();
+			return false;
+		}
+		return plugin.getConfig().getBoolean(key, false);
 	}
 
 	/**
@@ -110,20 +146,60 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * R�cup�rer un bool�en & le set si il n'y est pas pr�sent dans la
-	 * configuration
+	 * Recup�re le point nomm�
 	 * 
 	 * @param plugin
-	 * @param key
+	 * @return le point nomm� ou le spawn de base du world
+	 */
+	public static Location getLocation(Plugin plugin, String name) {
+		return getLocationFromFile(plugin, name) != null ? getLocationFromFile(plugin, name) : null;
+	}
+
+	/**
+	 * Recup�re une location dans la config
+	 * 
+	 * @param plugin
+	 * @param node
 	 * @return
 	 */
-	public static boolean getBoolean(Plugin plugin, String key) {
-		if (!plugin.getConfig().contains(key)) {
-			plugin.getConfig().set(key, false);
-			plugin.saveConfig();
-			return false;
+	public static Location getLocationFromFile(Plugin plugin, String node) {
+		return convertStringToLocation(plugin.getConfig().getString(node));
+	}
+
+	/*
+	 * Location file convertion
+	 */
+
+	/**
+	 * Recup�re une liste de locations
+	 */
+	public static List<Location> getLocationList(Plugin plugin, String name) {
+		List<Location> spawns = new ArrayList<Location>();
+		List<String> configSpawns = plugin.getConfig().getStringList(name);
+		for (String loc : configSpawns) {
+			String[] wxyz = loc.split(",");
+			World w = Bukkit.getWorld(wxyz[0]);
+			double x = Double.parseDouble(wxyz[1]);
+			double y = Double.parseDouble(wxyz[2]);
+			double z = Double.parseDouble(wxyz[3]);
+			int pitch = Integer.parseInt(wxyz[4]);
+			int yaw = Integer.parseInt(wxyz[5]);
+			Location location = new Location(w, x, y, z);
+			location.setPitch(pitch);
+			location.setYaw(yaw);
+			spawns.add(location);
 		}
-		return plugin.getConfig().getBoolean(key, false);
+		return spawns;
+	}
+
+	/**
+	 * Recup�rer le nom de la map
+	 * 
+	 * @param plugin
+	 * @return le nom ou "NoName" si la configuration n'en a pas
+	 */
+	public static String getMapName(Plugin plugin) {
+		return (plugin.getConfig().getString("mapName") != null ? plugin.getConfig().getString("mapName") : "NoName");
 	}
 
 	/**
@@ -159,82 +235,6 @@ public class ConfigUtils {
 			return list;
 		}
 		return plugin.getConfig().getStringList(key);
-	}
-
-	/**
-	 * R�cup�rer un objet quelconque � l'aide d'une cl� & cr�er cette cl� avec
-	 * une valeur par d�faut si cette cl� n'est pas pr�sente dans la
-	 * configuration
-	 * 
-	 * @param plugin
-	 * @param key
-	 * @param defaultValue
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	public static <T> T get(Plugin plugin, String key, T defaultValue) {
-		if (!plugin.getConfig().contains(key)) {
-			plugin.getConfig().set(key, defaultValue);
-			plugin.saveConfig();
-		}
-		return (T) plugin.getConfig().get(key);
-	}
-
-	/*
-	 * Location file convertion
-	 */
-
-	/**
-	 * Recup�re le point nomm�
-	 * 
-	 * @param plugin
-	 * @return le point nomm� ou le spawn de base du world
-	 */
-	public static Location getLocation(Plugin plugin, String name) {
-		return getLocationFromFile(plugin, name) != null ? getLocationFromFile(plugin, name) : null;
-	}
-
-	/**
-	 * Recup�re une location dans la config
-	 * 
-	 * @param plugin
-	 * @param node
-	 * @return
-	 */
-	public static Location getLocationFromFile(Plugin plugin, String node) {
-		return convertStringToLocation(plugin.getConfig().getString(node));
-	}
-
-	/**
-	 * Recup�re une liste de locations
-	 */
-	public static List<Location> getLocationList(Plugin plugin, String name) {
-		List<Location> spawns = new ArrayList<Location>();
-		List<String> configSpawns = plugin.getConfig().getStringList(name);
-		for (String loc : configSpawns) {
-			String[] wxyz = loc.split(",");
-			World w = Bukkit.getWorld(wxyz[0]);
-			double x = Double.parseDouble(wxyz[1]);
-			double y = Double.parseDouble(wxyz[2]);
-			double z = Double.parseDouble(wxyz[3]);
-			int pitch = Integer.parseInt(wxyz[4]);
-			int yaw = Integer.parseInt(wxyz[5]);
-			Location location = new Location(w, x, y, z);
-			location.setPitch(pitch);
-			location.setYaw(yaw);
-			spawns.add(location);
-		}
-		return spawns;
-	}
-
-	/**
-	 * Recup�rer le nom de la map
-	 * 
-	 * @param plugin
-	 * @return le nom ou "NoName" si la configuration n'en a pas
-	 */
-	public static String getMapName(Plugin plugin) {
-		return (plugin.getConfig().getString("mapName") != null ? plugin.getConfig().getString("mapName") : "NoName");
 	}
 
 	/*

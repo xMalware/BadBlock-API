@@ -10,11 +10,19 @@ import fr.badblock.gameapi.utils.i18n.Word.WordDeterminant;
  */
 public interface Language {
 	/**
-	 * Renvoit la langue gérée par la classe.
 	 * 
-	 * @return La langue.
+	 * Formatte le message envoyé dans cette langue (pour ce qui est du
+	 * header/footer, la langue dépend de celle du Message).
+	 * 
+	 * @param message
+	 *            Le message à formatter.
+	 * @param args
+	 *            Les arguments à remplacer dans le message (%0 le premier, %1
+	 *            le deuxième, ..., %n le énième)
+	 * 
+	 * @return Le message formatté et traduit.
 	 */
-	public Locale getLocale();
+	public String[] formatMessage(Message message, Object... args);
 
 	/**
 	 * 
@@ -31,18 +39,28 @@ public interface Language {
 	public String[] get(String key, Object... args);
 
 	/**
-	 * Récupère un message d'une seule ligne dans cette langue
+	 * Le footer (c'est à dire partie de message succédant la principale). Il
+	 * s'agit ici d'une ligne. Utilisé lors du formattage du message.
 	 * 
-	 * @param key
-	 *            La clé du message dans le fichier configuration
-	 * @param plural
-	 *            Si le mot doit être au pluriel
-	 * @param determinant
-	 *            Le type de déterminant avant le mot
-	 * 
-	 * @return Le message formatté et traduit
+	 * @return Le footer trouvé, n'est pas censé être null.
 	 */
-	public String getWord(String key, boolean plural, WordDeterminant determinant);
+	public String getFooter();
+
+	/**
+	 * La version longue du header (c'est à dire partie de message précédent la
+	 * principale). Dans le cas du header long, il s'agit d'une ligne. Utilisé
+	 * lors du formattage du message.
+	 * 
+	 * @return Le header trouvé, n'est pas censé être null.
+	 */
+	public String[] getHeader();
+
+	/**
+	 * Renvoit la langue gérée par la classe.
+	 * 
+	 * @return La langue.
+	 */
+	public Locale getLocale();
 
 	/**
 	 * Récupère le message de manière non formatté, tel qu'il a été récupéré
@@ -55,54 +73,12 @@ public interface Language {
 	public Message getMessage(String key);
 
 	/**
-	 * Récupère le mot de manière non formatté, tel qu'il a été récupéré dans la
-	 * configuration.
-	 * 
-	 * @param key
-	 *            La clé du mot dans le fichier configuration
-	 * @return Le mot non formatté. Si il n'existe pas, retourne null.
-	 */
-	public Word getWord(String key);
-
-	/**
-	 * 
-	 * Formatte le message envoyé dans cette langue (pour ce qui est du
-	 * header/footer, la langue dépend de celle du Message).
-	 * 
-	 * @param message
-	 *            Le message à formatter.
-	 * @param args
-	 *            Les arguments à remplacer dans le message (%0 le premier, %1
-	 *            le deuxième, ..., %n le énième)
-	 * 
-	 * @return Le message formatté et traduit.
-	 */
-	public String[] formatMessage(Message message, Object... args);
-
-	/**
 	 * Récupère le message par défaut (message d'erreur) lorsque le message
 	 * recherché est inconnu.
 	 * 
 	 * @return Le message
 	 */
 	public String getMessageWhenUnknow();
-
-	/**
-	 * La version longue du header (c'est à dire partie de message précédent la
-	 * principale). Dans le cas du header long, il s'agit d'une ligne. Utilisé
-	 * lors du formattage du message.
-	 * 
-	 * @return Le header trouvé, n'est pas censé être null.
-	 */
-	public String[] getHeader();
-
-	/**
-	 * Le footer (c'est à dire partie de message succédant la principale). Il
-	 * s'agit ici d'une ligne. Utilisé lors du formattage du message.
-	 * 
-	 * @return Le footer trouvé, n'est pas censé être null.
-	 */
-	public String getFooter();
 
 	/**
 	 * La version courte du header (c'est à dire partie de message précédent la
@@ -114,4 +90,28 @@ public interface Language {
 	 * @return Le header trouvé, n'est pas censé être null.
 	 */
 	public String getShortHeader();
+
+	/**
+	 * Récupère le mot de manière non formatté, tel qu'il a été récupéré dans la
+	 * configuration.
+	 * 
+	 * @param key
+	 *            La clé du mot dans le fichier configuration
+	 * @return Le mot non formatté. Si il n'existe pas, retourne null.
+	 */
+	public Word getWord(String key);
+
+	/**
+	 * Récupère un message d'une seule ligne dans cette langue
+	 * 
+	 * @param key
+	 *            La clé du message dans le fichier configuration
+	 * @param plural
+	 *            Si le mot doit être au pluriel
+	 * @param determinant
+	 *            Le type de déterminant avant le mot
+	 * 
+	 * @return Le message formatté et traduit
+	 */
+	public String getWord(String key, boolean plural, WordDeterminant determinant);
 }

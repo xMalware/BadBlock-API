@@ -11,8 +11,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MapRecipe implements MapValue<CustomMerchantRecipe> {
+	public static MapList<MapRecipe, CustomMerchantRecipe> toMapList(List<CustomMerchantRecipe> objs) {
+		MapList<MapRecipe, CustomMerchantRecipe> result = new MapList<>();
+
+		for (CustomMerchantRecipe is : objs) {
+			result.add(new MapRecipe(is));
+		}
+
+		return result;
+	}
 	private MapItemStack item1;
 	private MapItemStack item2;
+
 	private MapItemStack result;
 
 	public MapRecipe(CustomMerchantRecipe recipe) {
@@ -23,15 +33,5 @@ public class MapRecipe implements MapValue<CustomMerchantRecipe> {
 	@Override
 	public CustomMerchantRecipe getHandle() {
 		return new CustomMerchantRecipe(item1.getHandle(), item2.getHandle(), result.getHandle());
-	}
-
-	public static MapList<MapRecipe, CustomMerchantRecipe> toMapList(List<CustomMerchantRecipe> objs) {
-		MapList<MapRecipe, CustomMerchantRecipe> result = new MapList<>();
-
-		for (CustomMerchantRecipe is : objs) {
-			result.add(new MapRecipe(is));
-		}
-
-		return result;
 	}
 }

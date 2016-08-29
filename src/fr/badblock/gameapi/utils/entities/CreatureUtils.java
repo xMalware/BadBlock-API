@@ -19,15 +19,39 @@ import fr.badblock.gameapi.utils.reflection.ReflectionUtils;
  */
 public class CreatureUtils {
 	/**
-	 * Fait spawn une entité.
+	 * Recherche la version modifiée (par l'API) d'une créature. Si l'API n'a
+	 * pas sa classe de register ou que l'entité n'est pas gérée, retourne null.
 	 * 
-	 * @param location
-	 *            La position du spawn
-	 * @param clazz
-	 *            Le type d'entité à faire spawn
+	 * @param entity
+	 *            L'entité.
+	 * @return La version modifiée de la créature. Attention, peut être null !
 	 */
-	public static void spawn(Location location, Class<? extends Entity> clazz) {
-		location.getWorld().spawn(location, clazz);
+	public static CustomCreature getAsCustom(Entity entity) {
+		Object handler = ReflectionUtils.getHandle(entity);
+
+		// System.out.println(handler);
+
+		if (handler instanceof CustomCreature)
+			return (CustomCreature) handler;
+		return null;
+	}
+
+	/**
+	 * Permet de récupérer une entité par son UUID.
+	 * 
+	 * @param world
+	 *            Le monde où se trouve l'entité
+	 * @param entityId
+	 *            L'UUID de l'entité.
+	 * @return L'entité si elle est trouvée (autrement, null).
+	 */
+	public static Entity getEntityByUUID(World world, UUID entityId) {
+		for (Entity entity : world.getEntities()) {
+			if (entity.getUniqueId().equals(entityId))
+				return entity;
+		}
+
+		return null;
 	}
 
 	/**
@@ -72,7 +96,7 @@ public class CreatureUtils {
 
 		if (dx != 0) {
 			from.setYaw((float) ((dx < 0 ? 1.5 : 0.5) * Math.PI));
-			from.setYaw((float) from.getYaw() - (float) Math.atan(dz / dx));
+			from.setYaw(from.getYaw() - (float) Math.atan(dz / dx));
 		} else if (dz < 0) {
 			from.setYaw((float) Math.PI);
 		}
@@ -96,38 +120,14 @@ public class CreatureUtils {
 	}
 
 	/**
-	 * Permet de récupérer une entité par son UUID.
+	 * Fait spawn une entité.
 	 * 
-	 * @param world
-	 *            Le monde où se trouve l'entité
-	 * @param entityId
-	 *            L'UUID de l'entité.
-	 * @return L'entité si elle est trouvée (autrement, null).
+	 * @param location
+	 *            La position du spawn
+	 * @param clazz
+	 *            Le type d'entité à faire spawn
 	 */
-	public static Entity getEntityByUUID(World world, UUID entityId) {
-		for (Entity entity : world.getEntities()) {
-			if (entity.getUniqueId().equals(entityId))
-				return entity;
-		}
-
-		return null;
-	}
-
-	/**
-	 * Recherche la version modifiée (par l'API) d'une créature. Si l'API n'a
-	 * pas sa classe de register ou que l'entité n'est pas gérée, retourne null.
-	 * 
-	 * @param entity
-	 *            L'entité.
-	 * @return La version modifiée de la créature. Attention, peut être null !
-	 */
-	public static CustomCreature getAsCustom(Entity entity) {
-		Object handler = ReflectionUtils.getHandle(entity);
-
-		// System.out.println(handler);
-
-		if (handler instanceof CustomCreature)
-			return (CustomCreature) handler;
-		return null;
+	public static void spawn(Location location, Class<? extends Entity> clazz) {
+		location.getWorld().spawn(location, clazz);
 	}
 }

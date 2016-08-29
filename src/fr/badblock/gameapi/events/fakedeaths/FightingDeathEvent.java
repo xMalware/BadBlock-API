@@ -25,17 +25,6 @@ import lombok.RequiredArgsConstructor;
  */
 @RequiredArgsConstructor
 public class FightingDeathEvent extends FakeDeathEvent {
-	private static final HandlerList handlers = new HandlerList();
-
-	@Getter
-	private final BadblockPlayer player;
-	@Getter
-	private final Entity killer;
-	@Getter
-	private final FightingDeaths fightType;
-	@Getter
-	private final DamageCause lastDamageCause;
-
 	/**
 	 * Les différents modes de PvP pour savoir comment est mort le joueur.
 	 * 
@@ -60,11 +49,23 @@ public class FightingDeathEvent extends FakeDeathEvent {
 		CUSTOM;
 	}
 
-	public HandlerList getHandlers() {
+	private static final HandlerList handlers = new HandlerList();
+	public static HandlerList getHandlerList() {
 		return handlers;
 	}
+	@Getter
+	private final BadblockPlayer player;
+	@Getter
+	private final Entity killer;
 
-	public static HandlerList getHandlerList() {
+	@Getter
+	private final FightingDeaths fightType;
+
+	@Getter
+	private final DamageCause lastDamageCause;
+
+	@Override
+	public HandlerList getHandlers() {
 		return handlers;
 	}
 }

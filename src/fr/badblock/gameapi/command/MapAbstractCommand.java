@@ -31,51 +31,6 @@ public abstract class MapAbstractCommand extends AbstractCommand {
 			mapFolder.mkdirs();
 	}
 
-	public void setSelection(boolean addToList, String map, String sub, String key, BadblockPlayer player) {
-
-		if (player.getSelection() == null) {
-			player.sendTranslatedMessage("commands.noselection");
-		} else {
-			changeValue(addToList, map, sub, key, new MapSelection(player.getSelection()));
-		}
-
-	}
-
-	public void setLocation(boolean addToList, String map, String sub, String key, BadblockPlayer player) {
-		changeValue(addToList, map, sub, key, new MapLocation(player.getLocation()));
-	}
-
-	public void setLookedBlock(boolean addToList, String map, String sub, String key, BadblockPlayer player,
-			Material... allowedMaterials) {
-		Block blockTarget = null;
-		for (Block b : player.getLineOfSight((HashSet<Material>) null, 200)) {
-			if (!b.getType().equals(Material.AIR)) {
-				blockTarget = b;
-				break;
-			}
-		}
-
-		if (blockTarget == null) {
-			player.sendTranslatedMessage("commands.nolookedblock");
-		} else {
-			boolean good = false;
-
-			for (Material allowedMaterial : allowedMaterials) {
-				if (allowedMaterial == blockTarget.getType()) {
-					good = true;
-				}
-			}
-
-			if (!good) {
-				player.sendTranslatedMessage("commands.wronglookedblock",
-						GameMessages.material(allowedMaterials[0], false, WordDeterminant.UNDEFINED));
-			} else {
-				changeValue(addToList, map, sub, key, new MapLocation(blockTarget.getLocation()));
-			}
-
-		}
-	}
-
 	@SuppressWarnings("unchecked")
 	public void changeValue(boolean addToList, String map, String sub, String key, MapValue<?> value) {
 		File file = new File(mapFolder, map.toLowerCase() + ".json");
@@ -116,6 +71,51 @@ public abstract class MapAbstractCommand extends AbstractCommand {
 
 		modify.setValueList(key, value);
 		config.save(file);
+	}
+
+	public void setLocation(boolean addToList, String map, String sub, String key, BadblockPlayer player) {
+		changeValue(addToList, map, sub, key, new MapLocation(player.getLocation()));
+	}
+
+	public void setLookedBlock(boolean addToList, String map, String sub, String key, BadblockPlayer player,
+			Material... allowedMaterials) {
+		Block blockTarget = null;
+		for (Block b : player.getLineOfSight((HashSet<Material>) null, 200)) {
+			if (!b.getType().equals(Material.AIR)) {
+				blockTarget = b;
+				break;
+			}
+		}
+
+		if (blockTarget == null) {
+			player.sendTranslatedMessage("commands.nolookedblock");
+		} else {
+			boolean good = false;
+
+			for (Material allowedMaterial : allowedMaterials) {
+				if (allowedMaterial == blockTarget.getType()) {
+					good = true;
+				}
+			}
+
+			if (!good) {
+				player.sendTranslatedMessage("commands.wronglookedblock",
+						GameMessages.material(allowedMaterials[0], false, WordDeterminant.UNDEFINED));
+			} else {
+				changeValue(addToList, map, sub, key, new MapLocation(blockTarget.getLocation()));
+			}
+
+		}
+	}
+
+	public void setSelection(boolean addToList, String map, String sub, String key, BadblockPlayer player) {
+
+		if (player.getSelection() == null) {
+			player.sendTranslatedMessage("commands.noselection");
+		} else {
+			changeValue(addToList, map, sub, key, new MapSelection(player.getSelection()));
+		}
+
 	}
 
 }

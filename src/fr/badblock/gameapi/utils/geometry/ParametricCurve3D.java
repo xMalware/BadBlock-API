@@ -20,6 +20,23 @@ import fr.badblock.gameapi.utils.selections.Vector3f;
  * @author LeLanN
  */
 public abstract class ParametricCurve3D {
+	public final List<Vector3f> getPoints(double tMinValue, double tMaxValue, int pointsCount) {
+		List<Vector3f> result = new ArrayList<>();
+		double add = (tMaxValue - tMinValue) / pointsCount;
+
+		for (double t = tMinValue; t <= tMaxValue; t += add) {
+			try {
+				result.add(new Vector3f(x(t), y(t), z(t)));
+			} catch (Exception e) {
+				/*
+				 * Si t est une valeur interdite d'une des fonctions ... bobo ;)
+				 */
+			}
+		}
+
+		return result;
+	}
+
 	/**
 	 * Renvoit la coordonnée x en fonction de t
 	 * 
@@ -49,21 +66,4 @@ public abstract class ParametricCurve3D {
 	 * @return La coordonnée
 	 */
 	public abstract double z(double t);
-
-	public final List<Vector3f> getPoints(double tMinValue, double tMaxValue, int pointsCount) {
-		List<Vector3f> result = new ArrayList<>();
-		double add = (tMaxValue - tMinValue) / pointsCount;
-
-		for (double t = tMinValue; t <= tMaxValue; t += add) {
-			try {
-				result.add(new Vector3f(x(t), y(t), z(t)));
-			} catch (Exception e) {
-				/*
-				 * Si t est une valeur interdite d'une des fonctions ... bobo ;)
-				 */
-			}
-		}
-
-		return result;
-	}
 }

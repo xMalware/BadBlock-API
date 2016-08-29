@@ -24,19 +24,47 @@ import fr.badblock.gameapi.players.BadblockPlayer.BadblockMode;
  */
 public class BukkitUtils {
 	/**
-	 * Permet de changer un block de manière temporaire
+	 * Execute une action pour chaque joueur
 	 * 
-	 * @param block
-	 *            Le block
-	 * @param newType
-	 *            Le type à mettre temporairement
-	 * @param newData
-	 *            La data à mettre temporairement
-	 * @param ticks
-	 *            Le nombre de ticks pendant lesquels le block va rester
+	 * @param action
+	 *            L'action
 	 */
-	public static void temporaryChangeBlock(Block block, Material newType, byte newData, int ticks) {
+	public static void forEachPlayers(Consumer<BadblockPlayer> action) {
+		for (Player p : Bukkit.getOnlinePlayers()) {
+			BadblockPlayer player = (BadblockPlayer) p;
 
+			action.accept(player);
+		}
+	}
+
+	/**
+	 * Récupère un environement de monde (nether, end, overworld) à partir de
+	 * son id
+	 * 
+	 * @param id
+	 *            L'id
+	 * @return L'environment (si inexistant, overworld)
+	 */
+	@SuppressWarnings("deprecation")
+	public static Environment getEnvironment(int id) {
+		Environment env = Environment.getEnvironment(id);
+
+		if (env == null)
+			return Environment.NORMAL;
+		return env;
+	}
+
+	/**
+	 * Récupère les joueurs étant entrain de joueur (hors spectateurs)
+	 * 
+	 * @return Les joueurs
+	 */
+	public static Set<BadblockPlayer> getPlayers() {
+		return Bukkit.getOnlinePlayers().stream().map(player -> {
+			return (BadblockPlayer) player;
+		}).filter(player -> {
+			return player.getBadblockMode() != BadblockMode.SPECTATOR;
+		}).collect(Collectors.toSet());
 	}
 
 	/**
@@ -81,46 +109,18 @@ public class BukkitUtils {
 	}
 
 	/**
-	 * Execute une action pour chaque joueur
+	 * Permet de changer un block de manière temporaire
 	 * 
-	 * @param action
-	 *            L'action
+	 * @param block
+	 *            Le block
+	 * @param newType
+	 *            Le type à mettre temporairement
+	 * @param newData
+	 *            La data à mettre temporairement
+	 * @param ticks
+	 *            Le nombre de ticks pendant lesquels le block va rester
 	 */
-	public static void forEachPlayers(Consumer<BadblockPlayer> action) {
-		for (Player p : Bukkit.getOnlinePlayers()) {
-			BadblockPlayer player = (BadblockPlayer) p;
+	public static void temporaryChangeBlock(Block block, Material newType, byte newData, int ticks) {
 
-			action.accept(player);
-		}
-	}
-
-	/**
-	 * Récupère un environement de monde (nether, end, overworld) à partir de
-	 * son id
-	 * 
-	 * @param id
-	 *            L'id
-	 * @return L'environment (si inexistant, overworld)
-	 */
-	@SuppressWarnings("deprecation")
-	public static Environment getEnvironment(int id) {
-		Environment env = Environment.getEnvironment(id);
-
-		if (env == null)
-			return Environment.NORMAL;
-		return env;
-	}
-
-	/**
-	 * Récupère les joueurs étant entrain de joueur (hors spectateurs)
-	 * 
-	 * @return Les joueurs
-	 */
-	public static Set<BadblockPlayer> getPlayers() {
-		return Bukkit.getOnlinePlayers().stream().map(player -> {
-			return (BadblockPlayer) player;
-		}).filter(player -> {
-			return player.getBadblockMode() != BadblockMode.SPECTATOR;
-		}).collect(Collectors.toSet());
 	}
 }

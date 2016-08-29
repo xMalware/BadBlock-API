@@ -377,14 +377,14 @@ public enum ParticleEffectType {
 	private Class<? extends ParticleData> data;
 	private boolean needWater;
 
+	ParticleEffectType(String name, int id) {
+		this(name, id, null, false);
+	}
+
 	ParticleEffectType(String name, int id, Class<? extends ParticleData> data, boolean needWater) {
 		this.name = name;
 		this.id = id;
 		this.data = data;
 		this.needWater = needWater;
-	}
-
-	ParticleEffectType(String name, int id) {
-		this(name, id, null, false);
 	}
 }

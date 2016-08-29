@@ -9,19 +9,19 @@ import fr.badblock.gameapi.utils.selections.Vector3f;
  * @author LeLanN
  */
 public interface PlayNamedSoundEffect extends BadblockOutPacket {
-	public String getSoundName();
-
-	public PlayNamedSoundEffect setSoundName(String name);
+	public byte getPitch();
 
 	public Vector3f getPosition();
 
-	public PlayNamedSoundEffect setPosition(Vector3f position);
+	public String getSoundName();
 
 	public float getVolume();
 
-	public PlayNamedSoundEffect setVolume(float volume);
-
-	public byte getPitch();
-
 	public PlayNamedSoundEffect setPitch(byte volume);
+
+	public PlayNamedSoundEffect setPosition(Vector3f position);
+
+	public PlayNamedSoundEffect setSoundName(String name);
+
+	public PlayNamedSoundEffect setVolume(float volume);
 }

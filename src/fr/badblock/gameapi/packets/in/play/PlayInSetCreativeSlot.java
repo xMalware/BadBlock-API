@@ -13,19 +13,19 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
  */
 public interface PlayInSetCreativeSlot extends BadblockInPacket {
 	/**
+	 * L'item concerné
+	 * 
+	 * @return L'item
+	 */
+	public ItemStack getItemStack();
+
+	/**
 	 * Le slot choisit. Si le joueur récupère un item, -1, si il le place, le
 	 * slot dans l'inventaire.
 	 * 
 	 * @return Le slot
 	 */
 	public int getSlot();
-
-	/**
-	 * L'item concerné
-	 * 
-	 * @return L'item
-	 */
-	public ItemStack getItemStack();
 
 	@Override
 	default BadblockInPackets getType() {

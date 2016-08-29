@@ -39,12 +39,12 @@ public enum BadblockGame {
 		this.itemStackFactory = itemStackFactory;
 	}
 
-	public ItemStack createItemStack(Locale locale) {
-		return itemStackFactory.clone().doWithI18n(locale).create(1);
-	}
-
 	public ItemStack createItemStack(BadblockPlayer player) {
 		return createItemStack(player.getPlayerData().getLocale());
+	}
+
+	public ItemStack createItemStack(Locale locale) {
+		return itemStackFactory.clone().doWithI18n(locale).create(1);
 	}
 
 	public void use() {

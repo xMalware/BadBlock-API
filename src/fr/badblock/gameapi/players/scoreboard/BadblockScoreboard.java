@@ -18,17 +18,24 @@ import lombok.Data;
  */
 public interface BadblockScoreboard {
 	/**
-	 * Récupère le Scoreboard Bukkit
+	 * Représente un élément du vote
 	 * 
-	 * @return Le scoreboard
+	 * @author LeLanN
 	 */
-	public Scoreboard getHandler();
+	@Data
+	@AllArgsConstructor
+	public static class VoteElement {
+		private String internalName;
+		private String displayName;
+	}
 
 	/**
-	 * Si la méthode est appelée, l'API va register un objectif (scoreboard)
-	 * pour gérer l'affichage de la vie dans la tablist.
+	 * Commence un vote à partir d'une liste de valeur
+	 * 
+	 * @param maps
+	 *            Un array JSON avec toutes les maps sous forme de VoteElement.
 	 */
-	public void doTabListHealth();
+	public void beginVote(JsonArray maps);
 
 	/**
 	 * Si la méthode est appelée, l'API va register un objectif (scoreboard)
@@ -44,6 +51,12 @@ public interface BadblockScoreboard {
 	public void doGroupsPrefix();
 
 	/**
+	 * Si la méthode est appelée, l'API va register un objectif (scoreboard)
+	 * pour gérer l'affichage de la vie dans la tablist.
+	 */
+	public void doTabListHealth();
+
+	/**
 	 * Si la méthode est appelée, l'API va register des teams (scoreboard) pour
 	 * gérer l'affichage des teams des joueurs dans la tablist et au dessus des
 	 * noms du joueur<br>
@@ -54,40 +67,16 @@ public interface BadblockScoreboard {
 	public void doTeamsPrefix();
 
 	/**
-	 * Commence un vote à partir d'une liste de valeur
-	 * 
-	 * @param maps
-	 *            Un array JSON avec toutes les maps sous forme de VoteElement.
-	 */
-	public void beginVote(JsonArray maps);
-
-	/**
 	 * Le vote s'arrête (les joueurs ne peuvent plus voter).
 	 */
 	public void endVote();
 
 	/**
-	 * Ouvre l'inventaire de vote à un joueur
+	 * Récupère le Scoreboard Bukkit
 	 * 
-	 * @param player
-	 *            Le joueur
-	 * @return L'inventaire custom
+	 * @return Le scoreboard
 	 */
-	public void openVoteInventory(BadblockPlayer locale);
-
-	/**
-	 * Récupère la map gagnante
-	 * 
-	 * @return La map gagnante
-	 */
-	public VoteElement getWinner();
-
-	/**
-	 * Récupère le nombre de votes pour le gagnant
-	 * 
-	 * @return Le nombre de votes
-	 */
-	public int getVotesForWinner();
+	public Scoreboard getHandler();
 
 	/**
 	 * Récupère le nom d'affichage utilisé pour le joueur
@@ -99,14 +88,25 @@ public interface BadblockScoreboard {
 	public TranslatableString getUsedName(BadblockPlayer player);
 
 	/**
-	 * Représente un élément du vote
+	 * Récupère le nombre de votes pour le gagnant
 	 * 
-	 * @author LeLanN
+	 * @return Le nombre de votes
 	 */
-	@Data
-	@AllArgsConstructor
-	public static class VoteElement {
-		private String internalName;
-		private String displayName;
-	}
+	public int getVotesForWinner();
+
+	/**
+	 * Récupère la map gagnante
+	 * 
+	 * @return La map gagnante
+	 */
+	public VoteElement getWinner();
+
+	/**
+	 * Ouvre l'inventaire de vote à un joueur
+	 * 
+	 * @param player
+	 *            Le joueur
+	 * @return L'inventaire custom
+	 */
+	public void openVoteInventory(BadblockPlayer locale);
 }

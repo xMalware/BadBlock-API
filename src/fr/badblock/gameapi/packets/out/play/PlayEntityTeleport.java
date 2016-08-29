@@ -7,13 +7,13 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
 public interface PlayEntityTeleport extends BadblockOutPacket {
 	public int getEntityId();
 
-	public PlayEntityTeleport setEntityId(int entityId);
-
 	public Location getTo();
-
-	public PlayEntityTeleport setTo(Location location);
 
 	public boolean isOnGround();
 
+	public PlayEntityTeleport setEntityId(int entityId);
+
 	public PlayEntityTeleport setOnGround(boolean onGround);
+
+	public PlayEntityTeleport setTo(Location location);
 }

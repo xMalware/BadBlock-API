@@ -10,24 +10,6 @@ import lombok.Getter;
  */
 public interface PlayScoreboardDisplayObjective extends BadblockOutPacket {
 	/**
-	 * Définit la position de l'objectif
-	 * 
-	 * @param objectivePosition
-	 *            La position
-	 * @return Le packet
-	 */
-	public PlayScoreboardDisplayObjective setObjectivePosition(ObjectivePosition objectivePosition);
-
-	/**
-	 * Définit le nom (interne) de l'objectif en question
-	 * 
-	 * @param objectiveName
-	 *            Le nom
-	 * @return Le packet
-	 */
-	public PlayScoreboardDisplayObjective setObjectiveName(String objectiveName);
-
-	/**
 	 * Représente les différentes positions possibles du scoreboard
 	 * 
 	 * @author LeLanN
@@ -47,18 +29,36 @@ public interface PlayScoreboardDisplayObjective extends BadblockOutPacket {
 		 */
 		BELOW_NAME((byte) 2);
 
-		@Getter
-		private byte data;
-
-		ObjectivePosition(byte data) {
-			this.data = data;
-		}
-
 		public static ObjectivePosition getByValue(byte value) {
 			for (ObjectivePosition c : values())
 				if (c.getData() == value)
 					return c;
 			return null;
 		}
+
+		@Getter
+		private byte data;
+
+		ObjectivePosition(byte data) {
+			this.data = data;
+		}
 	}
+
+	/**
+	 * Définit le nom (interne) de l'objectif en question
+	 * 
+	 * @param objectiveName
+	 *            Le nom
+	 * @return Le packet
+	 */
+	public PlayScoreboardDisplayObjective setObjectiveName(String objectiveName);
+
+	/**
+	 * Définit la position de l'objectif
+	 * 
+	 * @param objectivePosition
+	 *            La position
+	 * @return Le packet
+	 */
+	public PlayScoreboardDisplayObjective setObjectivePosition(ObjectivePosition objectivePosition);
 }

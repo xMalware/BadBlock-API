@@ -17,14 +17,6 @@ import fr.badblock.gameapi.players.BadblockPlayer;
 public abstract class InPacketListener<T extends BadblockInPacket> extends PacketListener<T> {
 
 	/**
-	 * Appel la classe avant le packet reçu
-	 * 
-	 * @param packet
-	 *            La classe
-	 */
-	public abstract void listen(BadblockPlayer player, T packet);
-
-	/**
 	 * Récupère la classe du packet listen. Utile uniquement en interne.
 	 * 
 	 * @return La classe
@@ -33,6 +25,14 @@ public abstract class InPacketListener<T extends BadblockInPacket> extends Packe
 	public Class<T> getGenericPacketClass() {
 		return (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 	}
+
+	/**
+	 * Appel la classe avant le packet reçu
+	 * 
+	 * @param packet
+	 *            La classe
+	 */
+	public abstract void listen(BadblockPlayer player, T packet);
 
 	/**
 	 * Permet de register le listener plus simplement

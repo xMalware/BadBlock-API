@@ -55,20 +55,6 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
  */
 public interface PlayInWindowClick extends BadblockInPacket {
 	/**
-	 * L'ID de l'inventaire
-	 * 
-	 * @return L'ID
-	 */
-	public int getWindowId();
-
-	/**
-	 * Le slot cliqué
-	 * 
-	 * @return Le slot
-	 */
-	public int getSlot();
-
-	/**
 	 * Un ID unique pour la transaction, utilisé pour la réponse du serveur
 	 * 
 	 * @return L'ID
@@ -83,6 +69,13 @@ public interface PlayInWindowClick extends BadblockInPacket {
 	public int getButton();
 
 	/**
+	 * Récupère l'item cliqué
+	 * 
+	 * @return L'item
+	 */
+	public ItemStack getItem();
+
+	/**
 	 * Le mode utilisé
 	 * 
 	 * @return Le mode
@@ -90,14 +83,21 @@ public interface PlayInWindowClick extends BadblockInPacket {
 	public int getMode();
 
 	/**
-	 * Récupère l'item cliqué
+	 * Le slot cliqué
 	 * 
-	 * @return L'item
+	 * @return Le slot
 	 */
-	public ItemStack getItem();
+	public int getSlot();
 
 	@Override
 	default BadblockInPackets getType() {
 		return BadblockInPackets.PLAY_WINDOW_CLICK;
 	}
+
+	/**
+	 * L'ID de l'inventaire
+	 * 
+	 * @return L'ID
+	 */
+	public int getWindowId();
 }

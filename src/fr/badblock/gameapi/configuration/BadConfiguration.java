@@ -16,6 +16,15 @@ import fr.badblock.gameapi.configuration.values.MapValue;
  */
 public interface BadConfiguration {
 	/**
+	 * Récupère une sous-section à la configuration
+	 * 
+	 * @param key
+	 *            La clé de la sous-section
+	 * @return La sous-section
+	 */
+	public BadConfiguration getSection(String key);
+
+	/**
 	 * Récupère une valeur
 	 * 
 	 * @param key
@@ -68,6 +77,21 @@ public interface BadConfiguration {
 	public <T extends MapValue<K>, K> MapList<T, K> getValueList(String key, Class<T> clazzValue, List<T> def);
 
 	/**
+	 * Sauvegarde la configuration sous forme de JsonObject
+	 * 
+	 * @return Le JsonObject
+	 */
+	public JsonObject save();
+
+	/**
+	 * Sauvegarde la ocnfiguration dans un fichhier
+	 * 
+	 * @param file
+	 *            Le fichier
+	 */
+	public void save(File file);
+
+	/**
 	 * Définit une valeur
 	 * 
 	 * @param key
@@ -86,28 +110,4 @@ public interface BadConfiguration {
 	 *            La liste de valeurs
 	 */
 	public <T extends MapValue<?>> void setValueList(String key, Collection<T> value);
-
-	/**
-	 * Récupère une sous-section à la configuration
-	 * 
-	 * @param key
-	 *            La clé de la sous-section
-	 * @return La sous-section
-	 */
-	public BadConfiguration getSection(String key);
-
-	/**
-	 * Sauvegarde la ocnfiguration dans un fichhier
-	 * 
-	 * @param file
-	 *            Le fichier
-	 */
-	public void save(File file);
-
-	/**
-	 * Sauvegarde la configuration sous forme de JsonObject
-	 * 
-	 * @return Le JsonObject
-	 */
-	public JsonObject save();
 }

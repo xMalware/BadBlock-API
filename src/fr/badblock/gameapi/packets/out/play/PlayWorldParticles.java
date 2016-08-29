@@ -12,27 +12,18 @@ import fr.badblock.gameapi.particles.ParticleEffect;
  */
 public interface PlayWorldParticles extends BadblockOutPacket {
 	/**
-	 * Récupère la particule
-	 * 
-	 * @return La particule
-	 */
-	public ParticleEffect getParticle();
-
-	/**
-	 * Définit la particule
-	 * 
-	 * @param particle
-	 *            La particule
-	 * @return Le packet
-	 */
-	public PlayWorldParticles setParticle(ParticleEffect particle);
-
-	/**
 	 * Récupère la position de la particule
 	 * 
 	 * @return La position
 	 */
 	public Location getLocation();
+
+	/**
+	 * Récupère la particule
+	 * 
+	 * @return La particule
+	 */
+	public ParticleEffect getParticle();
 
 	/**
 	 * Définit la position de la particule
@@ -42,4 +33,13 @@ public interface PlayWorldParticles extends BadblockOutPacket {
 	 * @return Le packet
 	 */
 	public PlayWorldParticles setLocation(Location location);
+
+	/**
+	 * Définit la particule
+	 * 
+	 * @param particle
+	 *            La particule
+	 * @return Le packet
+	 */
+	public PlayWorldParticles setParticle(ParticleEffect particle);
 }

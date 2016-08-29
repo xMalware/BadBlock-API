@@ -3,10 +3,6 @@ package fr.badblock.gameapi.packets.watchers;
 import lombok.Getter;
 
 public interface WatcherCreeper extends WatcherLivingEntity {
-	public WatcherCreeper setState(CreeperState state);
-
-	public WatcherCreeper setPowered(boolean powered);
-
 	public enum CreeperState {
 		IDLE((byte) -1), FUSE((byte) 1),;
 
@@ -17,4 +13,8 @@ public interface WatcherCreeper extends WatcherLivingEntity {
 			this.value = value;
 		}
 	}
+
+	public WatcherCreeper setPowered(boolean powered);
+
+	public WatcherCreeper setState(CreeperState state);
 }

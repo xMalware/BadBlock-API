@@ -12,11 +12,27 @@ import lombok.Getter;
  */
 public interface PlayInUseEntity extends BadblockInPacket {
 	/**
-	 * Récupère l'ID de l'entité visée
+	 * Représente les différentes actions pour {@link PlayInUseEntity}.
 	 * 
-	 * @return L'ID
+	 * @author LeLanN
 	 */
-	public int getEntityId();
+	public enum UseEntityAction {
+		INTERACT(0), ATTACK(1), INTERACT_AT(2);
+
+		public static UseEntityAction getById(int id) {
+			for (UseEntityAction state : values())
+				if (state.getId() == id)
+					return state;
+			return null;
+		}
+
+		@Getter
+		private int id;
+
+		UseEntityAction(int id) {
+			this.id = id;
+		}
+	}
 
 	/**
 	 * Récupère l'action effectuée par le joueur
@@ -24,6 +40,13 @@ public interface PlayInUseEntity extends BadblockInPacket {
 	 * @return L'action
 	 */
 	public UseEntityAction getAction();
+
+	/**
+	 * Récupère l'ID de l'entité visée
+	 * 
+	 * @return L'ID
+	 */
+	public int getEntityId();
 
 	/**
 	 * Récupère la position du target (uniquement pour
@@ -36,28 +59,5 @@ public interface PlayInUseEntity extends BadblockInPacket {
 	@Override
 	default BadblockInPackets getType() {
 		return BadblockInPackets.PLAY_USE_ENTITY;
-	}
-
-	/**
-	 * Représente les différentes actions pour {@link PlayInUseEntity}.
-	 * 
-	 * @author LeLanN
-	 */
-	public enum UseEntityAction {
-		INTERACT(0), ATTACK(1), INTERACT_AT(2);
-
-		@Getter
-		private int id;
-
-		UseEntityAction(int id) {
-			this.id = id;
-		}
-
-		public static UseEntityAction getById(int id) {
-			for (UseEntityAction state : values())
-				if (state.getId() == id)
-					return state;
-			return null;
-		}
 	}
 }

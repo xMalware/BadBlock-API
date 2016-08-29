@@ -7,13 +7,13 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
 public interface PlayEntityEquipment extends BadblockOutPacket {
 	public int getEntityId();
 
-	public PlayEntityEquipment setEntityId(int entityId);
+	public ItemStack getItemStack();
 
 	public int getSlot();
 
-	public PlayEntityEquipment setSlot(int slot);
-
-	public ItemStack getItemStack();
+	public PlayEntityEquipment setEntityId(int entityId);
 
 	public PlayEntityEquipment setItemStack(ItemStack item);
+
+	public PlayEntityEquipment setSlot(int slot);
 }

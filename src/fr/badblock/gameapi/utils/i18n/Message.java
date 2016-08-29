@@ -10,28 +10,12 @@ package fr.badblock.gameapi.utils.i18n;
  */
 public interface Message {
 	/**
-	 * Vérifie si le message utilise le header "long" (voir
-	 * {@link fr.badblock.gameapi.utils.i18n.Language})
+	 * Renvoit tous les versions possibles du messages. Si le Message n'est pas
+	 * alétoire, un seul sera renvoyé.
+	 * 
+	 * @return La totalité des messages.
 	 */
-	public boolean useHeader();
-
-	/**
-	 * Vérifie si le message utilise le header "court" (voir
-	 * {@link fr.badblock.gameapi.utils.i18n.Language})
-	 */
-	public boolean useShortHeader();
-
-	/**
-	 * Vérifie si le message utilise le footer (voir
-	 * {@link fr.badblock.gameapi.utils.i18n.Language})
-	 */
-	public boolean useFooter();
-
-	/**
-	 * Vérifie si le message est aléatoire, autrement dit si plusieurs messages
-	 * ont été configurés et que un sera choisit au hasard.
-	 */
-	public boolean isRandomMessage();
+	public String[][] getAllMessages();
 
 	/**
 	 * Renvoit le message 'brute', sans remplacement des paramètres ou des
@@ -43,10 +27,26 @@ public interface Message {
 	public String[] getUnformattedMessage();
 
 	/**
-	 * Renvoit tous les versions possibles du messages. Si le Message n'est pas
-	 * alétoire, un seul sera renvoyé.
-	 * 
-	 * @return La totalité des messages.
+	 * Vérifie si le message est aléatoire, autrement dit si plusieurs messages
+	 * ont été configurés et que un sera choisit au hasard.
 	 */
-	public String[][] getAllMessages();
+	public boolean isRandomMessage();
+
+	/**
+	 * Vérifie si le message utilise le footer (voir
+	 * {@link fr.badblock.gameapi.utils.i18n.Language})
+	 */
+	public boolean useFooter();
+
+	/**
+	 * Vérifie si le message utilise le header "long" (voir
+	 * {@link fr.badblock.gameapi.utils.i18n.Language})
+	 */
+	public boolean useHeader();
+
+	/**
+	 * Vérifie si le message utilise le header "court" (voir
+	 * {@link fr.badblock.gameapi.utils.i18n.Language})
+	 */
+	public boolean useShortHeader();
 }

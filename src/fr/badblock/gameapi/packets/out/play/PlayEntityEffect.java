@@ -12,6 +12,20 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
  */
 public interface PlayEntityEffect extends BadblockOutPacket {
 	/**
+	 * Récupère le niveau
+	 * 
+	 * @return Le niveau
+	 */
+	public byte getAmplifier();
+
+	/**
+	 * Récupère la durée en secondes
+	 * 
+	 * @return La durée
+	 */
+	public int getDurationInSeconds();
+
+	/**
 	 * Récupère l'ID de l'entité
 	 * 
 	 * @return L'ID
@@ -19,13 +33,18 @@ public interface PlayEntityEffect extends BadblockOutPacket {
 	public int getEntityId();
 
 	/**
-	 * Définit l'ID de l'entité
+	 * Récupère le type d'effet
 	 * 
-	 * @param id
-	 *            L'ID
-	 * @return Le packet
+	 * @return Le type
 	 */
-	public PlayEntityEffect setEntityId(int id);
+	public PotionEffectType getPotionEffect();
+
+	/**
+	 * Récupère si il faut cacher les particules
+	 * 
+	 * @return Si il faut cacher les particules
+	 */
+	public boolean isHideParticles();
 
 	/**
 	 * Load le packet depuis un effet de potion Bukkit
@@ -37,29 +56,6 @@ public interface PlayEntityEffect extends BadblockOutPacket {
 	public PlayEntityEffect load(PotionEffect effect);
 
 	/**
-	 * Récupère le type d'effet
-	 * 
-	 * @return Le type
-	 */
-	public PotionEffectType getPotionEffect();
-
-	/**
-	 * Définit le type d'effet
-	 * 
-	 * @param type
-	 *            Le type
-	 * @return Le packet
-	 */
-	public PlayEntityEffect setPotionEffect(PotionEffectType type);
-
-	/**
-	 * Récupère le niveau
-	 * 
-	 * @return Le niveau
-	 */
-	public byte getAmplifier();
-
-	/**
 	 * Définit le niveau
 	 * 
 	 * @param amplifier
@@ -67,13 +63,6 @@ public interface PlayEntityEffect extends BadblockOutPacket {
 	 * @return Le packet
 	 */
 	public PlayEntityEffect setAmplifier(byte amplifier);
-
-	/**
-	 * Récupère la durée en secondes
-	 * 
-	 * @return La durée
-	 */
-	public int getDurationInSeconds();
 
 	/**
 	 * Définit la duréee en secondes
@@ -85,11 +74,13 @@ public interface PlayEntityEffect extends BadblockOutPacket {
 	public PlayEntityEffect setDurationInSeconds(int duration);
 
 	/**
-	 * Récupère si il faut cacher les particules
+	 * Définit l'ID de l'entité
 	 * 
-	 * @return Si il faut cacher les particules
+	 * @param id
+	 *            L'ID
+	 * @return Le packet
 	 */
-	public boolean isHideParticles();
+	public PlayEntityEffect setEntityId(int id);
 
 	/**
 	 * Définit si il faut cacher les particules
@@ -99,4 +90,13 @@ public interface PlayEntityEffect extends BadblockOutPacket {
 	 * @return Le packet
 	 */
 	public PlayEntityEffect setHideParticles(boolean hide);
+
+	/**
+	 * Définit le type d'effet
+	 * 
+	 * @param type
+	 *            Le type
+	 * @return Le packet
+	 */
+	public PlayEntityEffect setPotionEffect(PotionEffectType type);
 }

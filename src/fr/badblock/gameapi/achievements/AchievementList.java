@@ -29,14 +29,6 @@ public class AchievementList {
 		return achievement;
 	}
 
-	public Collection<PlayerAchievement> getAllAchievements() {
-		return Collections.unmodifiableCollection(achievements.values());
-	}
-
-	public PlayerAchievement getGameAchievement(String achievement) {
-		return achievements.get(achievement);
-	}
-
 	public CustomInventory createInventory(BadblockPlayer player, int canUseSize, int size) {
 		CustomInventory inv = GameAPI.getAPI().createCustomInventory(size,
 				player.getTranslatedMessage("achievements.inventory." + game.getInternalGameName())[0]);
@@ -87,6 +79,14 @@ public class AchievementList {
 		}
 
 		return inv;
+	}
+
+	public Collection<PlayerAchievement> getAllAchievements() {
+		return Collections.unmodifiableCollection(achievements.values());
+	}
+
+	public PlayerAchievement getGameAchievement(String achievement) {
+		return achievements.get(achievement);
 	}
 
 	public void openInventory(BadblockPlayer player) {

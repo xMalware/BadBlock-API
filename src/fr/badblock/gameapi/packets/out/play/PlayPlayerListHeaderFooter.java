@@ -10,27 +10,18 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
  */
 public interface PlayPlayerListHeaderFooter extends BadblockOutPacket {
 	/**
-	 * Récupère les message du header
-	 * 
-	 * @return Le messages
-	 */
-	public String getHeader();
-
-	/**
-	 * Définit le message du header
-	 * 
-	 * @param header
-	 *            Le message
-	 * @return Le packet
-	 */
-	public PlayPlayerListHeaderFooter setHeader(String header);
-
-	/**
 	 * Récupère les message du footer
 	 * 
 	 * @return Le message
 	 */
 	public String getFooter();
+
+	/**
+	 * Récupère les message du header
+	 * 
+	 * @return Le messages
+	 */
+	public String getHeader();
 
 	/**
 	 * Définit le message du footer
@@ -40,4 +31,13 @@ public interface PlayPlayerListHeaderFooter extends BadblockOutPacket {
 	 * @return Le packet
 	 */
 	public PlayPlayerListHeaderFooter setFooter(String footer);
+
+	/**
+	 * Définit le message du header
+	 * 
+	 * @param header
+	 *            Le message
+	 * @return Le packet
+	 */
+	public PlayPlayerListHeaderFooter setHeader(String header);
 }

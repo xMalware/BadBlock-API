@@ -14,13 +14,6 @@ import fr.badblock.gameapi.utils.selections.Vector3f;
  */
 public interface PlayInBlockPlace extends BadblockInPacket {
 	/**
-	 * Récupère la position du block
-	 * 
-	 * @return La position
-	 */
-	public Vector3f getBlockPosition();
-
-	/**
 	 * Récupère la face du block cliqué
 	 * 
 	 * @return La face
@@ -28,11 +21,11 @@ public interface PlayInBlockPlace extends BadblockInPacket {
 	public BlockFace getBlockFace();
 
 	/**
-	 * Récupère l'item
+	 * Récupère la position du block
 	 * 
-	 * @return L'item
+	 * @return La position
 	 */
-	public ItemStack getItemStack();
+	public Vector3f getBlockPosition();
 
 	/**
 	 * Récupère la position du block cliqué
@@ -40,6 +33,13 @@ public interface PlayInBlockPlace extends BadblockInPacket {
 	 * @return La position du curseur
 	 */
 	public Vector3f getCursorPosition();
+
+	/**
+	 * Récupère l'item
+	 * 
+	 * @return L'item
+	 */
+	public ItemStack getItemStack();
 
 	@Override
 	default BadblockInPackets getType() {

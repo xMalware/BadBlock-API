@@ -14,6 +14,15 @@ import fr.badblock.gameapi.players.BadblockPlayer;
  */
 public interface PlayerKitContentManager {
 	/**
+	 * Permet de récupère des données depuis l'inventaire d'un joueur
+	 * 
+	 * @param player
+	 *            Le joueur
+	 * @return Les données créées
+	 */
+	public JsonObject createFromInventory(BadblockPlayer player);
+
+	/**
 	 * Permet de donner à un joueur un kit
 	 * 
 	 * @param content
@@ -22,13 +31,4 @@ public interface PlayerKitContentManager {
 	 *            Le joueur
 	 */
 	public void give(JsonObject content, BadblockPlayer player);
-
-	/**
-	 * Permet de récupère des données depuis l'inventaire d'un joueur
-	 * 
-	 * @param player
-	 *            Le joueur
-	 * @return Les données créées
-	 */
-	public JsonObject createFromInventory(BadblockPlayer player);
 }

@@ -10,13 +10,6 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
  */
 public interface PlayInLook extends BadblockInPacket {
 	/**
-	 * Le nouveau yaw
-	 * 
-	 * @return Le yaw
-	 */
-	public float getYaw();
-
-	/**
 	 * Le nouveau pitch
 	 * 
 	 * @return Le pitch
@@ -27,4 +20,11 @@ public interface PlayInLook extends BadblockInPacket {
 	default BadblockInPackets getType() {
 		return BadblockInPackets.PLAY_LOOK;
 	}
+
+	/**
+	 * Le nouveau yaw
+	 * 
+	 * @return Le yaw
+	 */
+	public float getYaw();
 }

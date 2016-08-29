@@ -17,14 +17,15 @@ import lombok.Getter;
 public class PlayerLoadedEvent extends Event {
 	private static final HandlerList handlers = new HandlerList();
 
-	@Getter
-	private BadblockPlayer player;
-
-	public HandlerList getHandlers() {
+	public static HandlerList getHandlerList() {
 		return handlers;
 	}
 
-	public static HandlerList getHandlerList() {
+	@Getter
+	private BadblockPlayer player;
+
+	@Override
+	public HandlerList getHandlers() {
 		return handlers;
 	}
 }

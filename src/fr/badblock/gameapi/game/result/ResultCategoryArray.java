@@ -17,26 +17,25 @@ import lombok.Setter;
 @Getter
 @RequiredArgsConstructor
 public class ResultCategoryArray implements ResultCategory {
+	/**
+	 * Représente une ligne pour {@link ResultCategoryLined}
+	 * 
+	 * @author LeLanN
+	 */
+	@Getter
+	@AllArgsConstructor
+	public static class ResultCategoryEntry {
+		@Setter
+		private String description;
+		private String[] contents;
+	}
 	private final String categoryName;
+
 	private final String[] fields;
 
 	private final CategoryType type = CategoryType.ARRAY_DATA;
 
 	private final List<ResultCategoryEntry> lines = new ArrayList<>();
-
-	/**
-	 * Récupère une ligne afin de la modifier
-	 * 
-	 * @param at
-	 *            L'ID
-	 * @return L'ID
-	 */
-	public ResultCategoryEntry getLine(int at) {
-		if (at < lines.size())
-			return lines.get(at);
-		else
-			return null;
-	}
 
 	/**
 	 * Ajoute une ligne à la catégorie
@@ -57,6 +56,20 @@ public class ResultCategoryArray implements ResultCategory {
 	}
 
 	/**
+	 * Récupère une ligne afin de la modifier
+	 * 
+	 * @param at
+	 *            L'ID
+	 * @return L'ID
+	 */
+	public ResultCategoryEntry getLine(int at) {
+		if (at < lines.size())
+			return lines.get(at);
+		else
+			return null;
+	}
+
+	/**
 	 * Enlève une ligne à la catégorie
 	 * 
 	 * @param id
@@ -66,18 +79,5 @@ public class ResultCategoryArray implements ResultCategory {
 		if (id < lines.size()) {
 			lines.remove(id);
 		}
-	}
-
-	/**
-	 * Représente une ligne pour {@link ResultCategoryLined}
-	 * 
-	 * @author LeLanN
-	 */
-	@Getter
-	@AllArgsConstructor
-	public static class ResultCategoryEntry {
-		@Setter
-		private String description;
-		private String[] contents;
 	}
 }

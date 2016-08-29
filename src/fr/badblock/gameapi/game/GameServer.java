@@ -13,50 +13,22 @@ import fr.badblock.gameapi.players.BadblockTeam;
  */
 public interface GameServer {
 	/**
-	 * Définir le statut de la partie
+	 * Représente les différents types de reconnection
 	 * 
-	 * @param gameState
-	 *            Le statut
+	 * @author LeLanN
 	 */
-	public void setGameState(GameState gameState);
-
-	/**
-	 * Récupérer le statut de la partie
-	 * 
-	 * @return gameState Le statut
-	 */
-	public GameState getGameState();
-
-	/**
-	 * Récupère la date/heure de début du jeu (GameState = RUNNING)
-	 * 
-	 * @return La date/heure
-	 */
-	public String getGameBegin();
-
-	/**
-	 * Définit le nombre max de joueurs
-	 * 
-	 * @param maxPlayers
-	 *            Le nombre max de joueurs
-	 */
-	public void setMaxPlayers(int maxPlayers);
-
-	/**
-	 * Récupére le nombre max de joueurs
-	 * 
-	 * @return Le nombre max de joueurs
-	 */
-	public int getMaxPlayers();
-
-	/**
-	 * Définit le traitement des joueurs si il se reconnecte après le début de
-	 * la partie
-	 * 
-	 * @param type
-	 *            Le type de traitement
-	 */
-	public void whileRunningConnection(WhileRunningConnectionTypes type);
+	public static enum WhileRunningConnectionTypes {
+		/**
+		 * Met le joueur en spectateur
+		 */
+		SPECTATOR,
+		/**
+		 * Récupère les données joueurs stockées si le joueur avait déco<br>
+		 * Si cette politique n'est pas utilisable à chaque fois, vous pouvez
+		 * cancel l'event {@link PlayerReconnectionPropositionEvent}
+		 */
+		BACKUP;
+	}
 
 	/**
 	 * Si la phase du jeu change (entrée en Deathmatch par exemple), utiliser
@@ -75,18 +47,25 @@ public interface GameServer {
 	public void cancelReconnectionInvitations(BadblockTeam team);
 
 	/**
-	 * Sauvegarde les teams/joueurs pour pouvoir les récupérer pour le résultat
-	 * final
+	 * Récupère la date/heure de début du jeu (GameState = RUNNING)
+	 * 
+	 * @return La date/heure
 	 */
-	public void saveTeamsAndPlayersForResult();
+	public String getGameBegin();
 
 	/**
-	 * Récupère les teams sauvegardés avec
-	 * {@link #saveTeamsAndPlayersForResult()}
+	 * Récupérer le statut de la partie
 	 * 
-	 * @return Une liste des toutes les teams
+	 * @return gameState Le statut
 	 */
-	public Collection<BadblockTeam> getSavedTeams();
+	public GameState getGameState();
+
+	/**
+	 * Récupére le nombre max de joueurs
+	 * 
+	 * @return Le nombre max de joueurs
+	 */
+	public int getMaxPlayers();
 
 	/**
 	 * Récupère les joueurs sauvegardés avec
@@ -97,20 +76,41 @@ public interface GameServer {
 	public Collection<BadblockPlayerData> getSavedPlayers();
 
 	/**
-	 * Représente les différents types de reconnection
+	 * Récupère les teams sauvegardés avec
+	 * {@link #saveTeamsAndPlayersForResult()}
 	 * 
-	 * @author LeLanN
+	 * @return Une liste des toutes les teams
 	 */
-	public static enum WhileRunningConnectionTypes {
-		/**
-		 * Met le joueur en spectateur
-		 */
-		SPECTATOR,
-		/**
-		 * Récupère les données joueurs stockées si le joueur avait déco<br>
-		 * Si cette politique n'est pas utilisable à chaque fois, vous pouvez
-		 * cancel l'event {@link PlayerReconnectionPropositionEvent}
-		 */
-		BACKUP;
-	}
+	public Collection<BadblockTeam> getSavedTeams();
+
+	/**
+	 * Sauvegarde les teams/joueurs pour pouvoir les récupérer pour le résultat
+	 * final
+	 */
+	public void saveTeamsAndPlayersForResult();
+
+	/**
+	 * Définir le statut de la partie
+	 * 
+	 * @param gameState
+	 *            Le statut
+	 */
+	public void setGameState(GameState gameState);
+
+	/**
+	 * Définit le nombre max de joueurs
+	 * 
+	 * @param maxPlayers
+	 *            Le nombre max de joueurs
+	 */
+	public void setMaxPlayers(int maxPlayers);
+
+	/**
+	 * Définit le traitement des joueurs si il se reconnecte après le début de
+	 * la partie
+	 * 
+	 * @param type
+	 *            Le type de traitement
+	 */
+	public void whileRunningConnection(WhileRunningConnectionTypes type);
 }

@@ -41,14 +41,6 @@ public interface CustomInventory {
 	public CustomInventory addClickableItem(int slot, ItemStackExtra item);
 
 	/**
-	 * Permet de supprimer un item de l'inventaire.
-	 * 
-	 * @param slot
-	 *            Le slot à utilisé (commence à 0 !)
-	 */
-	public CustomInventory removeItem(int slot);
-
-	/**
 	 * Ajouter un item décoratif (aucune action lorsque l'on clique)
 	 * 
 	 * @param slot
@@ -59,6 +51,13 @@ public interface CustomInventory {
 	public CustomInventory addDecorationItem(int slot, ItemStack item);
 
 	/**
+	 * Récupère le nombre de lignes de l'inventaire
+	 * 
+	 * @return Le nombre de lignes
+	 */
+	public int getLineCount();
+
+	/**
 	 * Permet d'afficher l'inventaire au joueur.
 	 * 
 	 * @param player
@@ -67,11 +66,12 @@ public interface CustomInventory {
 	public void openInventory(BadblockPlayer player);
 
 	/**
-	 * Récupère le nombre de lignes de l'inventaire
+	 * Permet de supprimer un item de l'inventaire.
 	 * 
-	 * @return Le nombre de lignes
+	 * @param slot
+	 *            Le slot à utilisé (commence à 0 !)
 	 */
-	public int getLineCount();
+	public CustomInventory removeItem(int slot);
 
 	/**
 	 * Récupère la taille de l'inventaire

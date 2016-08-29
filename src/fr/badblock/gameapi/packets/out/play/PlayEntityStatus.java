@@ -4,14 +4,6 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
 import lombok.Getter;
 
 public interface PlayEntityStatus extends BadblockOutPacket {
-	public int getEntityId();
-
-	public PlayEntityStatus setEntityId(int entityId);
-
-	public EntityStatus getStatus();
-
-	public PlayEntityStatus setStatus(EntityStatus status);
-
 	public enum EntityStatus {
 		UNUSED((byte) 1), ENTITY_HURT((byte) 2), ENTITY_DEAD((byte) 3), GOLEM_THROW_UP_ARMS((byte) 4), MOB_HEART(
 				(byte) 5), MOB_SMOKE((byte) 6), WOLF_SHAKING((byte) 7), EATING_ACCEPTED((byte) 8), SHEEP_EATING_GRASS(
@@ -25,18 +17,26 @@ public interface PlayEntityStatus extends BadblockOutPacket {
 																				(byte) 22), REDUCED_DEBUG_DISABLE(
 																						(byte) 23);
 
-		@Getter
-		private final byte value;
-
-		EntityStatus(byte value) {
-			this.value = value;
-		}
-
 		public static EntityStatus getByValue(byte value) {
 			for (EntityStatus c : values())
 				if (c.getValue() == value)
 					return c;
 			return null;
 		}
+
+		@Getter
+		private final byte value;
+
+		EntityStatus(byte value) {
+			this.value = value;
+		}
 	}
+
+	public int getEntityId();
+
+	public EntityStatus getStatus();
+
+	public PlayEntityStatus setEntityId(int entityId);
+
+	public PlayEntityStatus setStatus(EntityStatus status);
 }

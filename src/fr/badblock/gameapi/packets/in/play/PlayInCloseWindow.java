@@ -9,15 +9,15 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
  * @author LeLanN
  */
 public interface PlayInCloseWindow extends BadblockInPacket {
+	@Override
+	default BadblockInPackets getType() {
+		return BadblockInPackets.PLAY_CLOSE_WINDOW;
+	}
+
 	/**
 	 * Récupère l'ID de l'inventaire (0 = inventaire du joueur)
 	 * 
 	 * @return L'ID
 	 */
 	public int getWindowId();
-
-	@Override
-	default BadblockInPackets getType() {
-		return BadblockInPackets.PLAY_CLOSE_WINDOW;
-	}
 }

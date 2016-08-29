@@ -18,20 +18,26 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public abstract class ParticleData {
-	private final Material material;
-	private final byte data;
-	private final int[] packetData;
+	/**
+	 * Utilisé pour {@link ParticleEffectType#BLOCK_DUST} et
+	 * {@link ParticleEffectType#BLOCK_CRACK}
+	 * 
+	 * @author LeLanN
+	 */
+	public static final class BlockData extends ParticleData {
+		public BlockData(int[] data) {
+			super(data);
+		}
 
-	public String getPacketDataString() {
-		return "_" + packetData[0] + "_" + packetData[1];
+		@SuppressWarnings("deprecation")
+		public BlockData(Material material, byte data) throws IllegalArgumentException {
+			super(material, data, new int[] { material.getId() + (data << 12) });
+
+			if (!material.isBlock()) {
+				throw new IllegalArgumentException("The material is not a block");
+			}
+		}
 	}
-
-	protected ParticleData(int[] data) {
-		this.material = Material.GRASS;
-		this.data = 0;
-		this.packetData = data;
-	}
-
 	/**
 	 * Utilisé pour {@link ParticleEffectType#ITEM_CRACK}
 	 * 
@@ -43,28 +49,6 @@ public abstract class ParticleData {
 			super(material, data, new int[] { material.getId(), data });
 		}
 	}
-
-	/**
-	 * Utilisé pour {@link ParticleEffectType#BLOCK_DUST} et
-	 * {@link ParticleEffectType#BLOCK_CRACK}
-	 * 
-	 * @author LeLanN
-	 */
-	public static final class BlockData extends ParticleData {
-		@SuppressWarnings("deprecation")
-		public BlockData(Material material, byte data) throws IllegalArgumentException {
-			super(material, data, new int[] { material.getId() + (data << 12) });
-
-			if (!material.isBlock()) {
-				throw new IllegalArgumentException("The material is not a block");
-			}
-		}
-
-		public BlockData(int[] data) {
-			super(data);
-		}
-	}
-
 	@SuppressWarnings("deprecation")
 	public static ParticleData load(int[] data) {
 		if (data == null || data.length == 0)
@@ -76,5 +60,21 @@ public abstract class ParticleData {
 			return new BlockData(data);
 		} else
 			return null;
+	}
+
+	private final Material material;
+
+	private final byte data;
+
+	private final int[] packetData;
+
+	protected ParticleData(int[] data) {
+		this.material = Material.GRASS;
+		this.data = 0;
+		this.packetData = data;
+	}
+
+	public String getPacketDataString() {
+		return "_" + packetData[0] + "_" + packetData[1];
 	}
 }

@@ -10,38 +10,6 @@ import lombok.Getter;
  */
 public interface PlayChat extends BadblockOutPacket {
 	/**
-	 * Récupère le type de message
-	 * 
-	 * @return Le type
-	 */
-	public ChatType getType();
-
-	/**
-	 * Définit le type de message
-	 * 
-	 * @param type
-	 *            Le type
-	 * @return Le packet
-	 */
-	public PlayChat setType(ChatType type);
-
-	/**
-	 * Récupère le message à envoyer
-	 * 
-	 * @return Les messages
-	 */
-	public String getContent();
-
-	/**
-	 * Définit le message à envoyer
-	 * 
-	 * @param content
-	 *            Le messages
-	 * @return Le packet
-	 */
-	public PlayChat setContent(String content);
-
-	/**
 	 * Représente les différents types de messages envoyables grâce à
 	 * {@link PlayChat}
 	 * 
@@ -61,18 +29,50 @@ public interface PlayChat extends BadblockOutPacket {
 		 */
 		ACTION(2);
 
-		@Getter
-		private byte value;
-
-		ChatType(int value) {
-			this.value = (byte) value;
-		}
-
 		public static ChatType getByValue(byte value) {
 			for (ChatType c : values())
 				if (c.getValue() == value)
 					return c;
 			return null;
 		}
+
+		@Getter
+		private byte value;
+
+		ChatType(int value) {
+			this.value = (byte) value;
+		}
 	}
+
+	/**
+	 * Récupère le message à envoyer
+	 * 
+	 * @return Les messages
+	 */
+	public String getContent();
+
+	/**
+	 * Récupère le type de message
+	 * 
+	 * @return Le type
+	 */
+	public ChatType getType();
+
+	/**
+	 * Définit le message à envoyer
+	 * 
+	 * @param content
+	 *            Le messages
+	 * @return Le packet
+	 */
+	public PlayChat setContent(String content);
+
+	/**
+	 * Définit le type de message
+	 * 
+	 * @param type
+	 *            Le type
+	 * @return Le packet
+	 */
+	public PlayChat setType(ChatType type);
 }

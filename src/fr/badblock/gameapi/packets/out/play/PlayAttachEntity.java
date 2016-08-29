@@ -17,29 +17,11 @@ public interface PlayAttachEntity extends BadblockOutPacket {
 	public int getEntityId();
 
 	/**
-	 * Définit l'ID de l'entité attachée
-	 * 
-	 * @param entityId
-	 *            L'ID
-	 * @return Le packet
-	 */
-	public PlayAttachEntity setEntityId(int entityId);
-
-	/**
 	 * Récupère l'ID du véhicule (si -1, l'entité descendra du véhicle)
 	 * 
 	 * @return L'ID
 	 */
 	public int getVehicleId();
-
-	/**
-	 * Définit l'ID du véhicule (si -1, l'entité descendra du véhicule)
-	 * 
-	 * @param vehicleId
-	 *            L'ID
-	 * @return Le packet
-	 */
-	public PlayAttachEntity setVehicleId(int vehicleId);
 
 	/**
 	 * Si il s'agit d'une laisse
@@ -49,6 +31,15 @@ public interface PlayAttachEntity extends BadblockOutPacket {
 	public boolean isLeashes();
 
 	/**
+	 * Définit l'ID de l'entité attachée
+	 * 
+	 * @param entityId
+	 *            L'ID
+	 * @return Le packet
+	 */
+	public PlayAttachEntity setEntityId(int entityId);
+
+	/**
 	 * Si il s'agit d'une laisse
 	 * 
 	 * @param leashes
@@ -56,4 +47,13 @@ public interface PlayAttachEntity extends BadblockOutPacket {
 	 * @return Le packet
 	 */
 	public PlayAttachEntity setLeashes(boolean leashes);
+
+	/**
+	 * Définit l'ID du véhicule (si -1, l'entité descendra du véhicule)
+	 * 
+	 * @param vehicleId
+	 *            L'ID
+	 * @return Le packet
+	 */
+	public PlayAttachEntity setVehicleId(int vehicleId);
 }

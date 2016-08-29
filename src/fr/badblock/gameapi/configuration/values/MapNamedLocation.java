@@ -2,8 +2,6 @@ package fr.badblock.gameapi.configuration.values;
 
 import org.bukkit.Location;
 
-import fr.badblock.gameapi.configuration.values.MapLocation;
-import fr.badblock.gameapi.configuration.values.MapValue;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

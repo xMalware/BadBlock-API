@@ -13,24 +13,30 @@ import java.util.Set;
  * @author LeLanN
  */
 public class ArraysUtils {
-	@SuppressWarnings("unchecked")
 	/**
-	 * Permet de concacténé un tableau avec d'autres
+	 * Permet de filtrer une liste de chaîne de caractère en fonction du début
 	 * 
-	 * @param base
-	 *            Le tableau de base
-	 * @param others
-	 *            Les autres
-	 * @return Le nouveau tableau
+	 * @param list
+	 *            La liste à filtrer
+	 * @param prefix
+	 *            Le préfixe
+	 * @return La nouvelle liste
 	 */
-	public static <T> T[] join(T[] base, T[]... others) {
-		List<T> result = new ArrayList<T>();
-		join(result, base);
+	public static List<String> filter(Collection<String> list, String prefix) {
+		Set<String> filtered = new LinkedHashSet<>();
+		if (list != null) {
+			String lowerPrefix = prefix.toLowerCase();
+			for (String test : list) {
+				if (test.toLowerCase().startsWith(lowerPrefix)) {
+					filtered.add(test);
+				}
+			}
+		}
 
-		for (T[] other : others)
-			join(result, other);
-
-		return (T[]) result.toArray();
+		if (filtered.size() > 20) {
+			return new ArrayList<>(filtered).subList(0, 20);
+		}
+		return new ArrayList<>(filtered);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -60,30 +66,24 @@ public class ArraysUtils {
 			base.add(obj);
 	}
 
+	@SuppressWarnings("unchecked")
 	/**
-	 * Permet de filtrer une liste de chaîne de caractère en fonction du début
+	 * Permet de concacténé un tableau avec d'autres
 	 * 
-	 * @param list
-	 *            La liste à filtrer
-	 * @param prefix
-	 *            Le préfixe
-	 * @return La nouvelle liste
+	 * @param base
+	 *            Le tableau de base
+	 * @param others
+	 *            Les autres
+	 * @return Le nouveau tableau
 	 */
-	public static List<String> filter(Collection<String> list, String prefix) {
-		Set<String> filtered = new LinkedHashSet<>();
-		if (list != null) {
-			String lowerPrefix = prefix.toLowerCase();
-			for (String test : list) {
-				if (test.toLowerCase().startsWith(lowerPrefix)) {
-					filtered.add(test);
-				}
-			}
-		}
+	public static <T> T[] join(T[] base, T[]... others) {
+		List<T> result = new ArrayList<T>();
+		join(result, base);
 
-		if (filtered.size() > 20) {
-			return new ArrayList<>(filtered).subList(0, 20);
-		}
-		return new ArrayList<>(filtered);
+		for (T[] other : others)
+			join(result, other);
+
+		return (T[]) result.toArray();
 	}
 
 	/**

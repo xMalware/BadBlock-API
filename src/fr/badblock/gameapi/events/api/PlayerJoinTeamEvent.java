@@ -18,32 +18,6 @@ import lombok.Setter;
  */
 @RequiredArgsConstructor
 public class PlayerJoinTeamEvent extends Event implements Cancellable {
-	private static final HandlerList handlers = new HandlerList();
-
-	@Getter
-	private final BadblockPlayer player;
-	@Getter
-	private final BadblockTeam previousTeam;
-	@Getter
-	private final BadblockTeam newTeam;
-	@Getter
-	private final JoinReason reason;
-
-	@Getter
-	@Setter
-	private boolean isCancelled = false;
-	@Getter
-	@Setter
-	private TranslatableString cancelReason = null;
-
-	public HandlerList getHandlers() {
-		return handlers;
-	}
-
-	public static HandlerList getHandlerList() {
-		return handlers;
-	}
-
 	/**
 	 * Raison de l'entrée dans la team
 	 * 
@@ -59,5 +33,32 @@ public class PlayerJoinTeamEvent extends Event implements Cancellable {
 		 * démarrage
 		 */
 		REBALANCING;
+	}
+
+	private static final HandlerList handlers = new HandlerList();
+	public static HandlerList getHandlerList() {
+		return handlers;
+	}
+	@Getter
+	private final BadblockPlayer player;
+	@Getter
+	private final BadblockTeam previousTeam;
+
+	@Getter
+	private final BadblockTeam newTeam;
+	@Getter
+	private final JoinReason reason;
+
+	@Getter
+	@Setter
+	private boolean isCancelled = false;
+
+	@Getter
+	@Setter
+	private TranslatableString cancelReason = null;
+
+	@Override
+	public HandlerList getHandlers() {
+		return handlers;
 	}
 }

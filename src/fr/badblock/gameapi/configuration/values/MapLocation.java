@@ -18,11 +18,21 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MapLocation implements MapValue<Location> {
+	public static MapList<MapLocation, Location> toMapList(List<Location> objs) {
+		MapList<MapLocation, Location> result = new MapList<>();
+
+		for (Location is : objs) {
+			result.add(new MapLocation(is));
+		}
+
+		return result;
+	}
 	private String world = "world";
 	private double x = 0.0d;
 	private double y = 0.0d;
 	private double z = 0.0d;
 	private float yaw = 0.0f;
+
 	private float pitch = 0.0f;
 
 	/**
@@ -41,6 +51,11 @@ public class MapLocation implements MapValue<Location> {
 	@Override
 	public Location getHandle() {
 		return new Location(Bukkit.getWorld(world), x, y, z, yaw, pitch);
+	}
+
+	private void pitch(int i) {
+		if (Math.abs(pitch - i * 90) < 5.0)
+			pitch = i * 90;
 	}
 
 	@Override
@@ -73,20 +88,5 @@ public class MapLocation implements MapValue<Location> {
 	private void yaw(int i) {
 		if (Math.abs(yaw - i * 90) < 5.0)
 			yaw = i * 90;
-	}
-
-	private void pitch(int i) {
-		if (Math.abs(pitch - i * 90) < 5.0)
-			pitch = i * 90;
-	}
-
-	public static MapList<MapLocation, Location> toMapList(List<Location> objs) {
-		MapList<MapLocation, Location> result = new MapList<>();
-
-		for (Location is : objs) {
-			result.add(new MapLocation(is));
-		}
-
-		return result;
 	}
 }

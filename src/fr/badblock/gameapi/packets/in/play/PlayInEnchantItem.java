@@ -10,13 +10,6 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
  */
 public interface PlayInEnchantItem extends BadblockInPacket {
 	/**
-	 * Récupère l'inventaire de la table d'enchantement
-	 * 
-	 * @return L'inventaire
-	 */
-	public int getWindowId();
-
-	/**
 	 * Récupère l'enchantement choisit (0 = celui du haut)
 	 * 
 	 * @return L'enchantement
@@ -27,4 +20,11 @@ public interface PlayInEnchantItem extends BadblockInPacket {
 	default BadblockInPackets getType() {
 		return BadblockInPackets.PLAY_ENCHANT_ITEM;
 	}
+
+	/**
+	 * Récupère l'inventaire de la table d'enchantement
+	 * 
+	 * @return L'inventaire
+	 */
+	public int getWindowId();
 }

@@ -12,6 +12,13 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
  */
 public interface PlayBlockBreakAnimation extends BadblockOutPacket {
 	/**
+	 * Récupère le block sur lequel jouer l'animation
+	 * 
+	 * @return Le block
+	 */
+	public Block getBlock();
+
+	/**
 	 * Récupère l'id de l'entité
 	 * 
 	 * @return L'id
@@ -19,20 +26,11 @@ public interface PlayBlockBreakAnimation extends BadblockOutPacket {
 	public int getEntityId();
 
 	/**
-	 * Définit l'id de l'entité
+	 * Récupère la taille de la 'fissure'
 	 * 
-	 * @param entityId
-	 *            L'id
-	 * @return Le packet
+	 * @return La taille (voir {@link #setState(int)})
 	 */
-	public PlayBlockBreakAnimation setEntityId(int entityId);
-
-	/**
-	 * Récupère le block sur lequel jouer l'animation
-	 * 
-	 * @return Le block
-	 */
-	public Block getBlock();
+	public int getState();
 
 	/**
 	 * Définit le block sur lequel jouer l'animation
@@ -44,11 +42,13 @@ public interface PlayBlockBreakAnimation extends BadblockOutPacket {
 	public PlayBlockBreakAnimation setBlock(Block block);
 
 	/**
-	 * Récupère la taille de la 'fissure'
+	 * Définit l'id de l'entité
 	 * 
-	 * @return La taille (voir {@link #setState(int)})
+	 * @param entityId
+	 *            L'id
+	 * @return Le packet
 	 */
-	public int getState();
+	public PlayBlockBreakAnimation setEntityId(int entityId);
 
 	/**
 	 * Définit la taille de la 'fissure'

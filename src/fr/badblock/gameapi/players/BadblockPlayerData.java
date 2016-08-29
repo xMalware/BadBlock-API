@@ -13,11 +13,12 @@ import fr.badblock.gameapi.utils.i18n.TranslatableString;
  */
 public interface BadblockPlayerData {
 	/**
-	 * Récupère l'UUID du joueur
+	 * Récupère le préfixe (par exemple [Admin]) pour afficher le nom du group
+	 * du joueur
 	 * 
-	 * @return L'UUID
+	 * @return Le préfixe
 	 */
-	public UUID getUniqueId();
+	public TranslatableString getGroupPrefix();
 
 	/**
 	 * Récupère le pseudo du joueur
@@ -36,19 +37,25 @@ public interface BadblockPlayerData {
 
 	/**
 	 * Récupère le préfixe (par exemple [Admin]) pour afficher le nom du group
-	 * du joueur
-	 * 
-	 * @return Le préfixe
-	 */
-	public TranslatableString getGroupPrefix();
-
-	/**
-	 * Récupère le préfixe (par exemple [Admin]) pour afficher le nom du group
 	 * du joueur en tablist
 	 * 
 	 * @return Le préfixe
 	 */
 	public TranslatableString getTabGroupPrefix();
+
+	/**
+	 * Récupère la team du joueur avant sa déconnection
+	 * 
+	 * @return La team
+	 */
+	public BadblockTeam getTeam();
+
+	/**
+	 * Récupère l'UUID du joueur
+	 * 
+	 * @return L'UUID
+	 */
+	public UUID getUniqueId();
 
 	/**
 	 * Récupère les données ingame du joueur, avant sa déconnection. Attention,
@@ -60,13 +67,6 @@ public interface BadblockPlayerData {
 	 *         correcte)
 	 */
 	public <T extends InGameData> T inGameData(Class<T> clazz);
-
-	/**
-	 * Récupère la team du joueur avant sa déconnection
-	 * 
-	 * @return La team
-	 */
-	public BadblockTeam getTeam();
 
 	/**
 	 * Définit la team du joueur. A ne pas utiliser pour la changer réellement,

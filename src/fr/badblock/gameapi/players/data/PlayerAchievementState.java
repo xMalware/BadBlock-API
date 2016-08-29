@@ -29,6 +29,17 @@ public class PlayerAchievementState {
 	}
 
 	/**
+	 * Change la progression du joueur dans son achievement
+	 * 
+	 * @param progression
+	 *            Les 'points' de progression a ajouter.
+	 */
+	public void progress(double progression) {
+		if (!succeeds)
+			this.progress += progression;
+	}
+
+	/**
 	 * Change l'achievement en 'réussi'. Sauvegarde la date de réussite et
 	 * réinitialisera l'avancée.
 	 */
@@ -41,17 +52,6 @@ public class PlayerAchievementState {
 		this.succeeds = true;
 		this.succeedsDate = dateFormat.format(new Date());
 		this.progress = 0d;
-	}
-
-	/**
-	 * Change la progression du joueur dans son achievement
-	 * 
-	 * @param progression
-	 *            Les 'points' de progression a ajouter.
-	 */
-	public void progress(double progression) {
-		if (!succeeds)
-			this.progress += progression;
 	}
 
 	/**

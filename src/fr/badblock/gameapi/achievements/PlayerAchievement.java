@@ -20,20 +20,17 @@ public class PlayerAchievement {
 		this(name, xpReward, coinsReward, neededValue, false);
 	}
 
-	/*
-	 * 
-	 * 
-	 * int coins = BoosterUtil.getBoosted(player, BoostedValue.COINS,
-	 * coinsReward); long xp = BoosterUtil.getBoosted(player, BoostedValue.XP,
-	 * xpReward);
-	 */
-	public void reward(BadblockPlayer player) {
-		PlayerData data = player.getPlayerData();
+	public TranslatableString getDescription(int progress) {
+		String base = name.split("_")[0];
 
-		data.addBadcoins(coinsReward, true);
-		data.addXp(xpReward, true);
+		String name = this.name;
 
-		player.sendTranslatedMessage("achievements.unlocked", getDisplayName(), coinsReward, xpReward);
+		if (!base.equals(name)) {
+			name = base + "." + name;
+		}
+
+		return new TranslatableString("achievements." + name + ".description", neededValue, progress, xpReward,
+				coinsReward);
 	}
 
 	public TranslatableString getDisplayName() {
@@ -48,16 +45,19 @@ public class PlayerAchievement {
 		return new TranslatableString("achievements." + name + ".displayname");
 	}
 
-	public TranslatableString getDescription(int progress) {
-		String base = name.split("_")[0];
+	/*
+	 * 
+	 * 
+	 * int coins = BoosterUtil.getBoosted(player, BoostedValue.COINS,
+	 * coinsReward); long xp = BoosterUtil.getBoosted(player, BoostedValue.XP,
+	 * xpReward);
+	 */
+	public void reward(BadblockPlayer player) {
+		PlayerData data = player.getPlayerData();
 
-		String name = this.name;
+		data.addBadcoins(coinsReward, true);
+		data.addXp(xpReward, true);
 
-		if (!base.equals(name)) {
-			name = base + "." + name;
-		}
-
-		return new TranslatableString("achievements." + name + ".description", neededValue, progress, xpReward,
-				coinsReward);
+		player.sendTranslatedMessage("achievements.unlocked", getDisplayName(), coinsReward, xpReward);
 	}
 }
