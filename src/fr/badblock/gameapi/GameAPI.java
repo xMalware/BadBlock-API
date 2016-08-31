@@ -45,6 +45,7 @@ import fr.badblock.gameapi.servers.JoinItems;
 import fr.badblock.gameapi.servers.MapProtector;
 import fr.badblock.gameapi.signs.SignManager;
 import fr.badblock.gameapi.technologies.RabbitSpeaker;
+import fr.badblock.gameapi.utils.ServerProperties;
 import fr.badblock.gameapi.utils.entities.CustomCreature;
 import fr.badblock.gameapi.utils.i18n.I18n;
 import fr.badblock.gameapi.utils.itemstack.CustomInventory;
@@ -77,8 +78,26 @@ import lombok.Setter;
  * @author LeLanN
  */
 public abstract class GameAPI extends JavaPlugin {
-	public static final boolean TEST_MODE = Boolean.parseBoolean(System.getProperty("badblock.testmode", "false"));
+	public static final boolean TEST_MODE;
 
+	static {
+		String testMode = System.getProperty("badblock.testmode");
+		
+		if(testMode == null){
+			testMode = ServerProperties.getProperties().getProperty("badblock.testmode", "false");
+		}
+		
+		boolean isTestMode = false;
+		
+		try {
+			isTestMode = Boolean.parseBoolean(testMode);
+		} catch(Exception e){
+			isTestMode = false;
+		} finally {
+			TEST_MODE = isTestMode;
+		}
+	}
+	
 	@Getter
 	protected static GameAPI API;
 	@Getter
