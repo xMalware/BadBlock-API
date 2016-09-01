@@ -3,6 +3,7 @@ package fr.badblock.gameapi;
 import java.io.File;
 import java.lang.reflect.Modifier;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 
@@ -122,7 +123,7 @@ public abstract class GameAPI extends JavaPlugin {
 	public static I18n i18n() {
 		return API.getI18n();
 	}
-
+	
 	/**
 	 * Log un message 'normal' (plus rapide que de récupérrer le logger)
 	 * 
@@ -163,7 +164,19 @@ public abstract class GameAPI extends JavaPlugin {
 	public static void logWarning(String message) {
 		Bukkit.getLogger().log(Level.WARNING, message);
 	}
+	
+	/**
+	 * Récupère l'ensemble des joueurs en ligne
+	 * @return Une liste non modifiable
+	 */
+	public abstract List<BadblockPlayer> getOnlinePlayers();
 
+	/**
+	 * Récupère l'ensemble des joueurs en ligne n'étant pas en mode spectateur
+	 * @return Une liste non modifiable
+	 */
+	public abstract List<BadblockPlayer> getRealOnlinePlayers();
+	
 	/**
 	 * Permet d'équilibrer les teams
 	 * 
