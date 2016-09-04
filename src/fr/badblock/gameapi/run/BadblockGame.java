@@ -1,5 +1,6 @@
 package fr.badblock.gameapi.run;
 
+import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -11,16 +12,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
+@SuppressWarnings("deprecation")
 public enum BadblockGame {
-	RUSH("rush", "Rush", GameAPI.getAPI().createItemStackFactory().type(Material.BED)), TOWER("tower", "Tower",
-			GameAPI.getAPI().createItemStackFactory().type(Material.NETHER_FENCE)), SURVIVAL_GAMES("survivalgames",
-					"SurvivalGames", GameAPI.getAPI().createItemStackFactory().type(Material.IRON_SWORD)), UHCSPEED(
-							"uhcSpeed", "UHCSpeed",
-							GameAPI.getAPI().createItemStackFactory().type(Material.GOLDEN_APPLE)), SPACE_BALLS(
-									"spaceBalls", "SpaceBalls",
-									GameAPI.getAPI().createItemStackFactory().type(Material.QUARTZ_ORE)), PEARLSWAR(
-											"pearlsWar", "PearlsWar",
-											GameAPI.getAPI().createItemStackFactory().type(Material.ENDER_PEARL));
+	RUSH("rush", "Rush", GameAPI.getAPI().createItemStackFactory().type(Material.BED)),
+	TOWER("tower", "Tower", GameAPI.getAPI().createItemStackFactory().type(Material.NETHER_FENCE)),
+	SURVIVAL_GAMES("survivalgames", "SurvivalGames", GameAPI.getAPI().createItemStackFactory().type(Material.IRON_SWORD)),
+	UHCSPEED("uhcSpeed", "UHCSpeed", GameAPI.getAPI().createItemStackFactory().type(Material.GOLDEN_APPLE)), 
+	SPACE_BALLS("spaceBalls", "SpaceBalls", GameAPI.getAPI().createItemStackFactory().type(Material.QUARTZ_ORE)), 
+	PEARLSWAR("pearlsWar", "PearlsWar", GameAPI.getAPI().createItemStackFactory().type(Material.ENDER_PEARL)),
+	CTS("cts", "CaptureTheSheep", GameAPI.getAPI().createItemStackFactory().type(Material.WOOL).durability(DyeColor.GRAY.getWoolData()));
 
 	public static BadblockGame current;
 
