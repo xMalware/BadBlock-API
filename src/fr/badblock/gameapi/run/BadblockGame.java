@@ -14,28 +14,32 @@ import lombok.Setter;
 @Getter
 @SuppressWarnings("deprecation")
 public enum BadblockGame {
-	RUSH("rush", "Rush", GameAPI.getAPI().createItemStackFactory().type(Material.BED)),
-	TOWER("tower", "Tower", GameAPI.getAPI().createItemStackFactory().type(Material.NETHER_FENCE)),
-	SURVIVAL_GAMES("survivalgames", "SurvivalGames", GameAPI.getAPI().createItemStackFactory().type(Material.IRON_SWORD)),
-	UHCSPEED("uhcSpeed", "UHCSpeed", GameAPI.getAPI().createItemStackFactory().type(Material.GOLDEN_APPLE)), 
-	SPACE_BALLS("spaceBalls", "SpaceBalls", GameAPI.getAPI().createItemStackFactory().type(Material.QUARTZ_ORE)), 
-	PEARLSWAR("pearlsWar", "PearlsWar", GameAPI.getAPI().createItemStackFactory().type(Material.ENDER_PEARL)),
-	CTS("cts", "CaptureTheSheep", GameAPI.getAPI().createItemStackFactory().type(Material.WOOL).durability(DyeColor.GRAY.getWoolData()));
+
+	
+	RUSH("rush", "Rush", "LeLanN", createItemStackFactory(Material.BED)),
+	TOWER("tower", "Tower", "LeLanN", createItemStackFactory(Material.NETHER_FENCE)),
+	SURVIVAL_GAMES("survivalgames", "SurvivalGames", "LeLanN", createItemStackFactory(Material.IRON_SWORD)),
+	UHCSPEED("uhcSpeed", "UHCSpeed", "LeLanN", createItemStackFactory(Material.GOLDEN_APPLE)), 
+	SPACE_BALLS("spaceBalls", "SpaceBalls", "LeLanN", createItemStackFactory(Material.QUARTZ_ORE)), 
+	PEARLSWAR("pearlsWar", "PearlsWar", "LeLanN", createItemStackFactory(Material.ENDER_PEARL)),
+	CTS("cts", "CaptureTheSheep", "LeLanN", createItemStackFactory(Material.WOOL).durability(DyeColor.GRAY.getWoolData())),
+	PVPBOX("pvpBox", "PvPBox", "xMalware", createItemStackFactory(Material.DIAMOND_CHESTPLATE));
 
 	public static BadblockGame current;
 
-	private final String internalGameName, displayGameName;
+	private final String internalGameName, developer, displayGameName;
 	private final ItemStackFactory itemStackFactory;
 
 	@Setter
 	private BadblockGameData gameData;
 
-	BadblockGame(String internalGameName, String displayGameName, ItemStackFactory itemStackFactory) {
+	BadblockGame(String internalGameName, String displayGameName, String developer, ItemStackFactory itemStackFactory) {
 		itemStackFactory.displayName("gameitems." + internalGameName + ".displayname");
 		itemStackFactory.lore("gameitems." + internalGameName + ".lore");
 
 		this.internalGameName = internalGameName;
 		this.displayGameName = displayGameName;
+		this.developer = developer;
 		this.itemStackFactory = itemStackFactory;
 	}
 
@@ -53,4 +57,9 @@ public enum BadblockGame {
 		GameAPI.setGameName(displayGameName);
 		GameAPI.setInternalGameName(internalGameName);
 	}
+	
+	private static ItemStackFactory createItemStackFactory(Material material) {
+		return GameAPI.getAPI().createItemStackFactory().type(material);
+	}
+	
 }
