@@ -23,7 +23,8 @@ public enum BadblockGame {
 	SPACE_BALLS("spaceBalls", "SpaceBalls", "LeLanN", createItemStackFactory(Material.QUARTZ_ORE)), 
 	PEARLSWAR("pearlsWar", "PearlsWar", "LeLanN", createItemStackFactory(Material.ENDER_PEARL)),
 	CTS("cts", "CaptureTheSheep", "LeLanN", createItemStackFactory(Material.WOOL).durability(DyeColor.GRAY.getWoolData())),
-	PVPBOX("pvpBox", "PvPBox", "xMalware", createItemStackFactory(Material.DIAMOND_CHESTPLATE));
+	PVPBOX("pvpBox", "PvPBox", "xMalware", createItemStackFactory(Material.DIAMOND_CHESTPLATE)), // ajouté pour relier les stats de la PvPBox à Ladder plus tard
+	DAYZ("dayZ", "DayZ", "?", createItemStackFactory(Material.SKULL_ITEM).durability((byte)2));
 
 	public static BadblockGame current;
 
