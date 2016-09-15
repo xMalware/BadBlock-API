@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import fr.badblock.gameapi.GameAPI;
+import net.md_5.bungee.api.ChatColor;
 
 /**
  * Classe utilitaires permettant diverses aide concernant les items.
@@ -199,5 +200,53 @@ public class ItemStackUtils {
 		}
 
 		return result;
+	}
+	
+	public static ItemStack encodeId(ItemStack itemStack, int itemID){
+		if(!hasDisplayname(itemStack)){
+			throw new IllegalArgumentException("Invalid item");
+		}
+		
+		String name = encodeIDInName(itemStack.getItemMeta().getDisplayName(), itemID);
+		
+		ItemMeta meta = itemStack.getItemMeta();
+		meta.setDisplayName(name);
+		itemStack.setItemMeta(meta);
+		
+		return itemStack;
+	}
+	
+	public static String encodeIDInName(String itemName, int itemID) {
+		String 		  id 	  = Integer.toString(itemID);
+		StringBuilder builder = new StringBuilder();
+		
+		for(int i = 0; i < id.length(); i++) {
+			builder.append(ChatColor.COLOR_CHAR).append(id.charAt(i));
+		}
+		
+		return builder.toString() + ChatColor.COLOR_CHAR + "S" + itemName;
+	}
+
+	public static int decodeItemId(ItemStack itemStack) {
+		if(!hasDisplayname(itemStack))
+			return -1;
+		
+		return decodeItemFromName(itemStack.getItemMeta().getDisplayName());
+	}
+	
+	public static int decodeItemFromName(String itemName) {
+		int intId = -1;
+		
+		if(itemName.contains(ChatColor.COLOR_CHAR + "S")) {
+			String[] stringID = itemName.split(ChatColor.COLOR_CHAR + "S");
+			if (stringID.length > 0) {
+				itemName = stringID[0].replaceAll(ChatColor.COLOR_CHAR + "", "");
+				try {
+					intId = Integer.parseInt(itemName);
+				} catch (NumberFormatException unused){}
+			}
+		}
+		
+		return intId;
 	}
 }

@@ -49,6 +49,11 @@ public interface BadblockScoreboard {
 	 * noms du joueur<br>
 	 */
 	public void doGroupsPrefix();
+	
+	/**
+	 * Si la méthode est appelée l'API va afficher un holograme au dessus des joueurs prenant des dégats
+	 */
+	public void doOnDamageHologram();
 
 	/**
 	 * Si la méthode est appelée, l'API va register un objectif (scoreboard)

@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import org.bukkit.Chunk;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -560,6 +561,23 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 *            Le chunk
 	 */
 	public void updateChunk(Chunk chunk);
+	
+	/**
+	 * Compte les items d'un certains type
+	 * @param type Le material
+	 * @param data La data
+	 * @return Le nombre d'items
+	 */
+	public int countItems(Material type, byte data);
+	
+	/**
+	 * Enlève les items d'un certains type
+	 * @param type Le material
+	 * @param data La data
+	 * @param amount Le nombre d'items à enlever (-1 = tous)
+	 * @return Le nombre qui n'a pas pu être retiré
+	 */
+	public int removeItems(Material type, byte data, int amount);
 
 	/**
 	 * A ajouter : - toutes les statistiques BadBlock (achievements, points,
