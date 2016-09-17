@@ -1,6 +1,7 @@
 package fr.badblock.gameapi.players;
 
 import java.util.Collection;
+import java.util.function.BiConsumer;
 
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -8,7 +9,9 @@ import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Projectile;
 
 import fr.badblock.gameapi.GameAPI;
 import fr.badblock.gameapi.disguise.Disguise;
@@ -221,6 +224,9 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 */
 	public void jailPlayerAt(Location location);
 
+	
+	public <T extends Projectile> T launchProjectile(Class<T> projectile, BiConsumer<Block, Entity> action);
+	
 	/**
 	 * Joue l'animation de l'ouverture ou fermeture d'un coffre au joueur
 	 * 
