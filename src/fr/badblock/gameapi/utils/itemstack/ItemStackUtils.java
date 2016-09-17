@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import fr.badblock.gameapi.GameAPI;
+import fr.badblock.gameapi.players.BadblockPlayer;
 import net.md_5.bungee.api.ChatColor;
 
 /**
@@ -248,5 +249,17 @@ public class ItemStackUtils {
 		}
 		
 		return intId;
+	}
+	
+	public static void removeInHand(BadblockPlayer player, int count){
+		if(isValid(player.getItemInHand())){
+			int newCount = count == -1 ? 0 : player.getItemInHand().getAmount() - count;
+			
+			if(newCount <= 0)
+				player.setItemInHand(null);
+			else player.getItemInHand().setAmount(newCount);
+			
+			player.updateInventory();
+		}
 	}
 }
