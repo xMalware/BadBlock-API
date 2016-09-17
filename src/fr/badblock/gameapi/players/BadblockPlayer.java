@@ -224,7 +224,12 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 */
 	public void jailPlayerAt(Location location);
 
-	
+	/**
+	 * Lance un projectile custom, qui appelera une méthode lorsqu'il touchera un block ou une entité
+	 * @param projectile La classe du projectile
+	 * @param action L'action
+	 * @return Le projectile
+	 */
 	public <T extends Projectile> T launchProjectile(Class<T> projectile, BiConsumer<Block, Entity> action);
 	
 	/**
