@@ -1,9 +1,13 @@
 package fr.badblock.gameapi.utils.selections;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.World;
+import org.bukkit.block.Block;
 
 import lombok.Getter;
 
@@ -70,6 +74,19 @@ public class CuboidSelection extends AbstractSelection {
 
 	protected double getMinZ() {
 		return Math.min(firstBound.getZ(), secondBound.getZ());
+	}
+	
+	public List<Block> getBlocks() {
+		List<Block> list = new ArrayList<>();
+		World world = Bukkit.getWorld(getWorldName());
+		for (int x = Double.valueOf(firstBound.getX()).intValue(); x <= Double.valueOf(secondBound.getX()).intValue(); x++) {
+            for (int y = Double.valueOf(firstBound.getY()).intValue(); y <= Double.valueOf(secondBound.getY()).intValue(); y++) {
+                for (int z = Double.valueOf(firstBound.getZ()).intValue(); z <= Double.valueOf(secondBound.getZ()).intValue(); z++) {
+                	list.add(world.getBlockAt(x, y, z));
+                }
+            }
+        }
+		return list;
 	}
 
 	@Override
