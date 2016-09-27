@@ -77,18 +77,15 @@ public class CuboidSelection extends AbstractSelection {
 	}
 
 	public List<Block> getBlocks() {
-		System.out.println("-------------------");
 		List<Block> list = new ArrayList<>();
 		World world = Bukkit.getWorld(getWorldName());
 		for (int y = Double.valueOf(getMinY()).intValue(); y <= Double.valueOf(getMaxY()).intValue(); y++) {
 			for (int x = Double.valueOf(getMinX()).intValue(); x <= Double.valueOf(getMaxX()).intValue(); x++) {
 				for (int z = Double.valueOf(getMinZ()).intValue(); z <= Double.valueOf(getMaxZ()).intValue(); z++) {
 					list.add(world.getBlockAt(x, y, z));
-					System.out.println("world: " + x + ";" + y + ";" + z);
 				}
 			}
 		}
-		System.out.println("-------------------");
 		return list;
 	}
 
