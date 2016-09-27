@@ -79,6 +79,7 @@ import lombok.Setter;
  * @author LeLanN
  */
 public abstract class GameAPI extends JavaPlugin {
+	
 	public static final boolean TEST_MODE;
 
 	static {
