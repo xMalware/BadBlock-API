@@ -1,8 +1,11 @@
 package fr.badblock.gameapi.utils.entities;
 
 import java.util.List;
+import java.util.Random;
+import java.util.function.Function;
 
 import org.bukkit.entity.Entity;
+import org.bukkit.inventory.ItemStack;
 
 /**
  * Représentante une créature vivante (monstre, animal ou ambient).<br>
@@ -224,4 +227,8 @@ public interface CustomCreature {
 	 *            La valeur
 	 */
 	public void setCreatureGenericAttribute(CreatureGenericAttribute attribute, double value);
+	
+	public void setCustomLoots(Function<Random, List<ItemStack>> function);
+	
+	public Function<Random, List<ItemStack>> getCustomLoots();
 }
