@@ -36,8 +36,8 @@ public class ConfigUtils {
 		double x = location.getX();
 		double y = location.getY();
 		double z = location.getZ();
-		int pitch = (int) location.getPitch();
-		int yaw = (int) location.getYaw();
+		float pitch = location.getPitch();
+		float yaw = location.getYaw();
 		return world + "," + x + "," + y + "," + z + "," + pitch + "," + yaw;
 	}
 
@@ -73,8 +73,8 @@ public class ConfigUtils {
 		double x = Double.parseDouble(wxyzPitchYaw[1]);
 		double y = Double.parseDouble(wxyzPitchYaw[2]);
 		double z = Double.parseDouble(wxyzPitchYaw[3]);
-		int pitch = Integer.parseInt(wxyzPitchYaw[4]);
-		int yaw = Integer.parseInt(wxyzPitchYaw[5]);
+		float pitch = Float.parseFloat(wxyzPitchYaw[4]);
+		float yaw = Float.parseFloat(wxyzPitchYaw[5]);
 		Location location = new Location(w, x, y, z);
 		location.setPitch(pitch);
 		location.setYaw(yaw);
@@ -182,8 +182,8 @@ public class ConfigUtils {
 			double x = Double.parseDouble(wxyz[1]);
 			double y = Double.parseDouble(wxyz[2]);
 			double z = Double.parseDouble(wxyz[3]);
-			int pitch = Integer.parseInt(wxyz[4]);
-			int yaw = Integer.parseInt(wxyz[5]);
+			float pitch = Float.parseFloat(wxyz[4]);
+			float yaw = Float.parseFloat(wxyz[5]);
 			Location location = new Location(w, x, y, z);
 			location.setPitch(pitch);
 			location.setYaw(yaw);
