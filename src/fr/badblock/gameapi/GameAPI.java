@@ -129,7 +129,8 @@ public abstract class GameAPI extends JavaPlugin {
 	 * Log un message 'normal' (plus rapide que de récupérrer le logger)
 	 * 
 	 * @param message
-	 *            Le message
+	 *    
+	 *         Le message
 	 */
 	public static void log(String message) {
 		Bukkit.getLogger().log(Level.INFO, message);
