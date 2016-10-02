@@ -73,14 +73,6 @@ public interface Language {
 	public Message getMessage(String key);
 
 	/**
-	 * Récupère le message par défaut (message d'erreur) lorsque le message
-	 * recherché est inconnu.
-	 * 
-	 * @return Le message
-	 */
-	public String getMessageWhenUnknow();
-
-	/**
 	 * La version courte du header (c'est à dire partie de message précédent la
 	 * principale). Dans le cas du header long, il s'agit d'un simple préfixe.
 	 * Utilisé lors du formattage du message.
