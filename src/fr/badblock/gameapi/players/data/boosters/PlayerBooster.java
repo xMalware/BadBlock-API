@@ -26,7 +26,7 @@ public class PlayerBooster {
 	 * @return Un booléen
 	 */
 	public boolean isValid() {
-		return expire > System.currentTimeMillis();
+		return expire > System.currentTimeMillis() || expire == -1;
 	}
 
 }

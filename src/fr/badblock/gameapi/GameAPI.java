@@ -81,6 +81,7 @@ import lombok.Setter;
 public abstract class GameAPI extends JavaPlugin {
 	public static final boolean TEST_MODE;
 
+	
 	static {
 		String testMode = System.getProperty("badblock.testmode");
 		
