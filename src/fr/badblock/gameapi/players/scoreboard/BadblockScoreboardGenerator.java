@@ -26,7 +26,7 @@ public abstract class BadblockScoreboardGenerator {
 	}
 
 	private void doBadblockFooter0() {
-		String base = "/badblock";
+		String base = "badblock.fr";
 
 		if (current < 0) {
 			objective.changeLine(1, "&b" + base);
