@@ -237,6 +237,24 @@ public class ConfigUtils {
 		return plugin.getConfig().getStringList(key);
 	}
 
+	/**
+	 * R�cup�rer une liste de cha�ne de caract�res & la cr�er si elle n'est pas
+	 * pr�sente dans la configuration
+	 * 
+	 * @param plugin
+	 * @param key
+	 * @return
+	 */
+	public static List<Integer> getIntList(Plugin plugin, String key) {
+		if (!plugin.getConfig().contains(key)) {
+			List<Integer> list = new ArrayList<>();
+			plugin.getConfig().set(key, list);
+			plugin.saveConfig();
+			return list;
+		}
+		return plugin.getConfig().getIntegerList(key);
+	}
+
 	/*
 	 * Convertions
 	 */
