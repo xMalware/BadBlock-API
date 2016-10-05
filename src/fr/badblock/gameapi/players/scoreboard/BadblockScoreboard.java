@@ -82,7 +82,13 @@ public interface BadblockScoreboard {
 	 * @return Le scoreboard
 	 */
 	public Scoreboard getHandler();
-
+	
+	/**
+	 * Savoir si il y a ou non les prefix des groupes en affichage dans le scoreboard
+	 * @return
+	 */
+	public boolean hasGroupPrefixShown();
+	
 	/**
 	 * Récupère le nom d'affichage utilisé pour le joueur
 	 * 
