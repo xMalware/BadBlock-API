@@ -1,6 +1,6 @@
 package fr.badblock.gameapi.players.data;
 
-import java.util.Set;
+import java.util.List;
 
 import com.google.gson.JsonObject;
 
@@ -84,7 +84,7 @@ public interface PlayerData {
 	 * 
 	 * @return les boosters du joueur dans une
 	 */
-	public Set<PlayerBooster> getBoosters();
+	public List<PlayerBooster> getBoosters();
 
 	/**
 	 * Récupère le nom interne du dernier kit utilisé dans un jeu
