@@ -78,6 +78,13 @@ public interface PlayerData {
 	 * @return Le nombre de BadCoins
 	 */
 	public int getBadcoins();
+	
+	/**
+	 * Récupère le nombre de ShopPoints du joueur
+	 * 
+	 * @return Le nombre de ShopPoints
+	 */
+	public int getShopPoints();
 
 	/**
 	 * Récupère les boosters du joueur
