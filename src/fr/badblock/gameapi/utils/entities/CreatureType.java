@@ -46,7 +46,8 @@ public enum CreatureType {
 	WITCH("witch", Reaction.HOSTILE, NaturallySpawnReason.NATURAL),
 	WITHER("wither", Reaction.HOSTILE, NaturallySpawnReason.BLOCK), 
 	WOLF("wolf", Reaction.ANGRY, NaturallySpawnReason.NATURAL),
-	ZOMBIE("zombie", Reaction.HOSTILE, NaturallySpawnReason.NATURAL);
+	ZOMBIE("zombie", Reaction.HOSTILE, NaturallySpawnReason.NATURAL),
+	PLAYER("player", Reaction.FRIENDLY, NaturallySpawnReason.NATURAL);
 
 	/**
 	 * Représente les raisons de spawn d'une créature
