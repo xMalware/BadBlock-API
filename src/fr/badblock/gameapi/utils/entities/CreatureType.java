@@ -18,73 +18,35 @@ import lombok.Getter;
  * @author LeLanN
  */
 public enum CreatureType {
-	BLAZE("blaze", Reaction.HOSTILE, NaturallySpawnReason.SPAWNER), BAT("bat", Reaction.FRIENDLY,
-			NaturallySpawnReason.NATURAL), // TODO create ambient
-	CAVE_SPIDER("cave_spider", Reaction.HOSTILE, NaturallySpawnReason.SPAWNER), CHICKEN("chicken", Reaction.FRIENDLY,
-			NaturallySpawnReason.NATURAL), COW("cow", Reaction.FRIENDLY, NaturallySpawnReason.NATURAL), CREEPER(
-					"creeper", Reaction.HOSTILE, NaturallySpawnReason.NATURAL), ENDER_DRAGON("ender_dragon",
-							Reaction.HOSTILE, NaturallySpawnReason.GENERATION), ENDERMAN("enderman", Reaction.ANGRY,
-									NaturallySpawnReason.NATURAL), ENDERMITE("endermite", Reaction.HOSTILE,
-											NaturallySpawnReason.ENDERPEARL), GHAST("ghast", Reaction.HOSTILE,
-													NaturallySpawnReason.NATURAL), GIANT("giant", Reaction.HOSTILE,
-															NaturallySpawnReason.ONLY_PLUGIN), GUARDIAN("guardian",
-																	Reaction.HOSTILE,
-																	NaturallySpawnReason.NATURAL), HORSE("horse",
-																			Reaction.FRIENDLY,
-																			NaturallySpawnReason.NATURAL), MAGMA_CUBE(
-																					"magma_cube", Reaction.HOSTILE,
-																					NaturallySpawnReason.NATURAL), MUSHROOM_COW(
-																							"mushroom_cow",
-																							Reaction.FRIENDLY,
-																							NaturallySpawnReason.NATURAL), OCELOT(
-																									"ocelot",
-																									Reaction.FRIENDLY,
-																									NaturallySpawnReason.NATURAL), PIG(
-																											"pig",
-																											Reaction.FRIENDLY,
-																											NaturallySpawnReason.NATURAL), PIG_ZOMBIE(
-																													"pig_zombie",
-																													Reaction.ANGRY,
-																													NaturallySpawnReason.NATURAL), RABBIT(
-																															"rabbit",
-																															Reaction.FRIENDLY,
-																															NaturallySpawnReason.NATURAL), SHEEP(
-																																	"sheep",
-																																	Reaction.FRIENDLY,
-																																	NaturallySpawnReason.NATURAL), SILVERFISH(
-																																			"silverfish",
-																																			Reaction.HOSTILE,
-																																			NaturallySpawnReason.BLOCK), SKELETON(
-																																					"skeleton",
-																																					Reaction.HOSTILE,
-																																					NaturallySpawnReason.NATURAL), SLIME(
-																																							"slime",
-																																							Reaction.HOSTILE,
-																																							NaturallySpawnReason.NATURAL), SNOWMAN(
-																																									"snowman",
-																																									Reaction.FRIENDLY,
-																																									NaturallySpawnReason.NATURAL), SPIDER(
-																																											"spider",
-																																											Reaction.HOSTILE,
-																																											NaturallySpawnReason.NATURAL), SQUID(
-																																													"squid",
-																																													Reaction.FRIENDLY,
-																																													NaturallySpawnReason.NATURAL), VILLAGER(
-																																															"villager",
-																																															Reaction.FRIENDLY,
-																																															NaturallySpawnReason.NATURAL), WITCH(
-																																																	"witch",
-																																																	Reaction.HOSTILE,
-																																																	NaturallySpawnReason.NATURAL), WITHER(
-																																																			"wither",
-																																																			Reaction.HOSTILE,
-																																																			NaturallySpawnReason.BLOCK), WOLF(
-																																																					"wolf",
-																																																					Reaction.ANGRY,
-																																																					NaturallySpawnReason.NATURAL), ZOMBIE(
-																																																							"zombie",
-																																																							Reaction.HOSTILE,
-																																																							NaturallySpawnReason.NATURAL);
+	BLAZE("blaze", Reaction.HOSTILE, NaturallySpawnReason.SPAWNER), BAT("bat", Reaction.FRIENDLY, NaturallySpawnReason.NATURAL), // TODO create ambient
+	CAVE_SPIDER("cave_spider", Reaction.HOSTILE, NaturallySpawnReason.SPAWNER), CHICKEN("chicken", Reaction.FRIENDLY, NaturallySpawnReason.NATURAL),
+	COW("cow", Reaction.FRIENDLY, NaturallySpawnReason.NATURAL),
+	CREEPER("creeper", Reaction.HOSTILE, NaturallySpawnReason.NATURAL),
+	ENDER_DRAGON("ender_dragon", Reaction.HOSTILE, NaturallySpawnReason.GENERATION), ENDERMAN("enderman", Reaction.ANGRY, NaturallySpawnReason.NATURAL),
+	ENDERMITE("endermite", Reaction.HOSTILE, NaturallySpawnReason.ENDERPEARL),
+	GHAST("ghast", Reaction.HOSTILE, NaturallySpawnReason.NATURAL),
+	GIANT("giant", Reaction.HOSTILE, NaturallySpawnReason.ONLY_PLUGIN),
+	GUARDIAN("guardian", Reaction.HOSTILE, NaturallySpawnReason.NATURAL),
+	HORSE("horse", Reaction.FRIENDLY, NaturallySpawnReason.NATURAL),
+	IRON_GOLEM("iron_golem", Reaction.ANGRY, NaturallySpawnReason.NATURAL),
+	MAGMA_CUBE("magma_cube", Reaction.HOSTILE,NaturallySpawnReason.NATURAL),
+	MUSHROOM_COW("mushroom_cow", Reaction.FRIENDLY, NaturallySpawnReason.NATURAL),
+	OCELOT("ocelot", Reaction.FRIENDLY, NaturallySpawnReason.NATURAL),
+	PIG("pig", Reaction.FRIENDLY, NaturallySpawnReason.NATURAL),
+	PIG_ZOMBIE("pig_zombie", Reaction.ANGRY, NaturallySpawnReason.NATURAL),
+	RABBIT("rabbit", Reaction.FRIENDLY, NaturallySpawnReason.NATURAL),
+	SHEEP("sheep", Reaction.FRIENDLY, NaturallySpawnReason.NATURAL),
+	SILVERFISH("silverfish", Reaction.HOSTILE, NaturallySpawnReason.BLOCK),
+	SKELETON("skeleton", Reaction.HOSTILE, NaturallySpawnReason.NATURAL),
+	SLIME("slime", Reaction.HOSTILE, NaturallySpawnReason.NATURAL),
+	SNOWMAN("snowman", Reaction.FRIENDLY, NaturallySpawnReason.NATURAL),
+	SPIDER("spider", Reaction.HOSTILE, NaturallySpawnReason.NATURAL),
+	SQUID("squid", Reaction.FRIENDLY, NaturallySpawnReason.NATURAL),
+	VILLAGER("villager", Reaction.FRIENDLY, NaturallySpawnReason.NATURAL),
+	WITCH("witch", Reaction.HOSTILE, NaturallySpawnReason.NATURAL),
+	WITHER("wither", Reaction.HOSTILE, NaturallySpawnReason.BLOCK), 
+	WOLF("wolf", Reaction.ANGRY, NaturallySpawnReason.NATURAL),
+	ZOMBIE("zombie", Reaction.HOSTILE, NaturallySpawnReason.NATURAL);
 
 	/**
 	 * Représente les raisons de spawn d'une créature
