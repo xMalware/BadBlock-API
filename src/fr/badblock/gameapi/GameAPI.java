@@ -28,8 +28,10 @@ import fr.badblock.gameapi.packets.BadblockInPacket;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 import fr.badblock.gameapi.packets.InPacketListener;
 import fr.badblock.gameapi.packets.OutPacketListener;
+import fr.badblock.gameapi.packets.out.play.PlayPlayerInfo.PlayerInfo;
 import fr.badblock.gameapi.packets.watchers.WatcherArmorStand;
 import fr.badblock.gameapi.packets.watchers.WatcherEntity;
+import fr.badblock.gameapi.packets.watchers.WatcherLivingEntity;
 import fr.badblock.gameapi.particles.ParticleEffect;
 import fr.badblock.gameapi.particles.ParticleEffectType;
 import fr.badblock.gameapi.players.BadblockOfflinePlayer;
@@ -631,10 +633,21 @@ public abstract class GameAPI extends JavaPlugin {
 	 * 
 	 * @param location
 	 *            Sa position
-	 * @return
+	 * @return L'entité
 	 */
 	public abstract FakeEntity<WatcherArmorStand> spawnFakeArmorStand(Location location);
 
+	/**
+	 * Fait spawn un faux player
+	 * 
+	 * @param location
+	 *            Sa position
+	 * @param infos Les informations sur le joueur
+	 * @return L'entité
+	 */
+	public abstract FakeEntity<WatcherLivingEntity> spawnFakePlayer(Location location, PlayerInfo infos);
+
+	
 	/**
 	 * Spawn un faux falling block
 	 * 
