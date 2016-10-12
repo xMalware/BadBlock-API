@@ -9,6 +9,8 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.plugin.Plugin;
 
+import fr.badblock.gameapi.utils.selections.CuboidSelection;
+
 public class ConfigUtils {
 
 	/**
@@ -109,6 +111,16 @@ public class ConfigUtils {
 	 */
 	public static Location getBlockLocationFromFile(Plugin plugin, String node) {
 		return convertStringToBlockLocation(plugin.getConfig().getString(node));
+	}
+
+	/**
+	 * Récupérer un cuboid depuis une configuration
+	 * @param plugin
+	 * @param node
+	 * @return
+	 */
+	public static CuboidSelection getCuboid(Plugin plugin, String node) {
+		return new CuboidSelection(convertStringToBlockLocation(plugin.getConfig().getString(node + ".location1")), convertStringToBlockLocation(plugin.getConfig().getString(node + ".location2")));
 	}
 
 	/**
