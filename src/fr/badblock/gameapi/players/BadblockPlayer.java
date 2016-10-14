@@ -591,9 +591,24 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	public int removeItems(Material type, byte data, int amount);
 
 	/**
+	 * Récupérer le timestamp quand le joueur a utilisé une 
+	 * fausse entité
+	 * @return un timestamp en millisecondes
+	 */
+	public long getLastFakeEntityUsedTime();
+	
+	/**
+	 * Dire à l'objet que l'on a utilisé une fausse entité
+	 * récemment afin de le comptabiliser
+	 */
+	public void useFakeEntity();
+	
+	/**
 	 * A ajouter : - toutes les statistiques BadBlock (achievements, points,
 	 * ...) - Le scoreboard BadBlock - Des méthodes en plus pour la gestion du
 	 * joueur (voir, en gros, BPlayer.class et EpicPlayer.class) - sendPacket,
 	 * sendMessage/ActionBar/Title/... - ?
 	 */
+	
+	
 }
