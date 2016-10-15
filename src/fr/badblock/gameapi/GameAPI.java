@@ -171,7 +171,7 @@ public abstract class GameAPI extends JavaPlugin {
 	}
 	
 	public static String getPrettyServerName(){
-		String[] splitted = Bukkit.getServer().getServerName().split("_");
+		String[] splitted = getServerName().split("_");
 		
 		String type = StringUtils.getUpperFirstLetter(splitted[0].toLowerCase());
 		
@@ -180,6 +180,10 @@ public abstract class GameAPI extends JavaPlugin {
 		} else {
 			return type + " n°" + splitted[1];
 		}
+	}
+	
+	public static String getServerName(){
+		return Bukkit.getServer().getServerName();
 	}
 	
 	/**
