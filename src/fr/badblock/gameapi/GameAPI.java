@@ -50,6 +50,7 @@ import fr.badblock.gameapi.signs.SignManager;
 import fr.badblock.gameapi.technologies.RabbitSpeaker;
 import fr.badblock.gameapi.utils.ServerProperties;
 import fr.badblock.gameapi.utils.entities.CustomCreature;
+import fr.badblock.gameapi.utils.general.StringUtils;
 import fr.badblock.gameapi.utils.i18n.I18n;
 import fr.badblock.gameapi.utils.itemstack.CustomInventory;
 import fr.badblock.gameapi.utils.itemstack.ItemStackExtra;
@@ -167,6 +168,18 @@ public abstract class GameAPI extends JavaPlugin {
 	 */
 	public static void logWarning(String message) {
 		Bukkit.getLogger().log(Level.WARNING, message);
+	}
+	
+	public static String getPrettyServerName(){
+		String[] splitted = Bukkit.getServer().getServerName().split("_");
+		
+		String type = StringUtils.getUpperFirstLetter(splitted[0].toLowerCase());
+		
+		if(splitted.length == 1){
+			return type;
+		} else {
+			return type + " n°" + splitted[1];
+		}
 	}
 	
 	/**
