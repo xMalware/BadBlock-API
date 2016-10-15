@@ -698,4 +698,8 @@ public abstract class GameAPI extends JavaPlugin {
 	 *            Le joueur
 	 */
 	public abstract void whitelistPlayer(String player);
+	
+	public void updateScoreboards(){
+		getOnlinePlayers().stream().filter(player -> player.getCustomObjective() != null).forEach(player -> player.getCustomObjective().generate());
+	}
 }
