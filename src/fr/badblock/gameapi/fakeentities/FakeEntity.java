@@ -15,14 +15,9 @@ import fr.badblock.gameapi.players.BadblockPlayer;
  * 
  * @author LeLanN
  *
- * @param <T>
- *            Le watcher correspondant au type de l'entité gérée.
+ * @param <T> Le watcher correspondant au type de l'entité gérée.
  */
 public interface FakeEntity<T extends WatcherEntity> {
-	public enum Visibility {
-		SERVER, PLAYER;
-	}
-
 	/**
 	 * Supprime l'entité si ce n'est pas fait et la supprime du cache (ne pourra
 	 * plus être réutilisée).
@@ -108,11 +103,35 @@ public interface FakeEntity<T extends WatcherEntity> {
 	/**
 	 * Supprime l'entité pour un seul joueur.
 	 * 
-	 * @param player
-	 *            Le joueur
+	 * @param player Le joueur
+	 * @deprecated
 	 */
-	public void remove(BadblockPlayer player);
+	public default void remove(BadblockPlayer player){
+		removePlayer(EntityViewList.WHITELIST, player);
+	}
 
+	/**
+	 * Add player in a view list
+	 * @param list The list
+	 * @param player The player
+	 */
+	public void addPlayer(EntityViewList list, BadblockPlayer player);
+	
+	/**
+	 * Remove player from a view list
+	 * @param list The list
+	 * @param player The player
+	 */
+	public void removePlayer(EntityViewList list, BadblockPlayer player);
+	
+	/**
+	 * Check if the player is in a view list
+	 * @param list The list
+	 * @param player The player
+	 * @return Boolean
+	 */
+	public boolean isPlayerIn(EntityViewList list, BadblockPlayer player);
+	
 	/**
 	 * Si le joueur voit l'entité
 	 * 
@@ -120,47 +139,47 @@ public interface FakeEntity<T extends WatcherEntity> {
 	 *            Le joueur
 	 * @return Si il la voit
 	 */
-	public boolean see(BadblockPlayer player);
+	@Deprecated
+	public default boolean see(BadblockPlayer player){
+		return isPlayerIn(EntityViewList.WHITELIST, player);
+	}
 
 	/**
 	 * Change une partie de l'équimement de l'entité
 	 * 
-	 * @param equipmentSlot
-	 *            Le slot
-	 * @param itemstack
-	 *            L'item
+	 * @param equipmentSlot Le slot
+	 * @param itemstack L'item
 	 */
 	public void setEquipment(EquipmentSlot equipmentSlot, ItemStack itemstack);
 
 	/**
 	 * Modifie la rotation de la tête de l'entité
 	 * 
-	 * @param yaw
-	 *            La position de la tête
+	 * @param yaw La position de la tête
 	 */
 	public void setHeadYaw(float yaw);
 
 	/**
 	 * Définit la visibilité de l'entité
 	 * 
-	 * @param visibility
-	 *            La visibilité
+	 * @param visibility La visibilité
 	 */
 	public void setVisibility(Visibility visibility);
 
 	/**
 	 * Affiche l'entité à un joueur.
 	 * 
-	 * @param player
-	 *            Le joueur
+	 * @param player Le joueur
 	 */
-	public void show(BadblockPlayer player);
+	@Deprecated
+	public default void show(BadblockPlayer player){
+		addPlayer(EntityViewList.WHITELIST, player);
+	}
 
 	/**
 	 * Téléporte l'entité
 	 * 
-	 * @param location
-	 *            La nouvelle position
+	 * @param location *            La nouvelle position
 	 */
 	public void teleport(Location location);
 
@@ -168,4 +187,33 @@ public interface FakeEntity<T extends WatcherEntity> {
 	 * Update les watchers de l'entité (après qu'ils aient été modifiée)
 	 */
 	public void updateWatchers();
+	
+	/**
+	 * Check if the player can see the entity judging by the visibility and view lists
+	 * @param player The player
+	 * @return Boolean
+	 */
+	public default boolean canSeeEntity(BadblockPlayer player){
+		switch(getVisibility()){
+			case PLAYER: return isPlayerIn(EntityViewList.WHITELIST, player);
+			case SERVER: return isPlayerIn(EntityViewList.BLACKLIST, player);
+		}
+		
+		return false;
+	}
+	
+	public enum EntityViewList {
+		/**
+		 * Use with {@link Visibility#SERVER}
+		 */
+		BLACKLIST,
+		/**
+		 * Use with {@link Visibility#PLAYER}
+		 */
+		WHITELIST;
+	}
+	
+	public enum Visibility {
+		SERVER, PLAYER;
+	}
 }
