@@ -101,16 +101,6 @@ public interface FakeEntity<T extends WatcherEntity> {
 	public void remove();
 
 	/**
-	 * Supprime l'entité pour un seul joueur.
-	 * 
-	 * @param player Le joueur
-	 * @deprecated
-	 */
-	public default void remove(BadblockPlayer player){
-		removePlayer(EntityViewList.WHITELIST, player);
-	}
-
-	/**
 	 * Add player in a view list
 	 * @param list The list
 	 * @param player The player
@@ -133,18 +123,6 @@ public interface FakeEntity<T extends WatcherEntity> {
 	public boolean isPlayerIn(EntityViewList list, BadblockPlayer player);
 	
 	/**
-	 * Si le joueur voit l'entité
-	 * 
-	 * @param player
-	 *            Le joueur
-	 * @return Si il la voit
-	 */
-	@Deprecated
-	public default boolean see(BadblockPlayer player){
-		return isPlayerIn(EntityViewList.WHITELIST, player);
-	}
-
-	/**
 	 * Change une partie de l'équimement de l'entité
 	 * 
 	 * @param equipmentSlot Le slot
@@ -165,16 +143,6 @@ public interface FakeEntity<T extends WatcherEntity> {
 	 * @param visibility La visibilité
 	 */
 	public void setVisibility(Visibility visibility);
-
-	/**
-	 * Affiche l'entité à un joueur.
-	 * 
-	 * @param player Le joueur
-	 */
-	@Deprecated
-	public default void show(BadblockPlayer player){
-		addPlayer(EntityViewList.WHITELIST, player);
-	}
 
 	/**
 	 * Téléporte l'entité
