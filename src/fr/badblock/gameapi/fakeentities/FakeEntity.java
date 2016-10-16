@@ -164,7 +164,7 @@ public interface FakeEntity<T extends WatcherEntity> {
 	public default boolean canSeeEntity(BadblockPlayer player){
 		switch(getVisibility()){
 			case PLAYER: return isPlayerIn(EntityViewList.WHITELIST, player);
-			case SERVER: return isPlayerIn(EntityViewList.BLACKLIST, player);
+			case SERVER: return !isPlayerIn(EntityViewList.BLACKLIST, player);
 		}
 		
 		return false;
