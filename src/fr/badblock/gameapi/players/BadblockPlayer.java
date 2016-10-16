@@ -2,6 +2,7 @@ package fr.badblock.gameapi.players;
 
 import java.util.Collection;
 import java.util.function.BiConsumer;
+import java.util.function.Predicate;
 
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -602,6 +603,12 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 * récemment afin de le comptabiliser
 	 */
 	public void useFakeEntity();
+	
+	public void setVisible(boolean visible);
+	
+	public void setVisible(boolean visible, Predicate<BadblockPlayer> applicable);
+	
+	public boolean isVisible();
 	
 	/**
 	 * A ajouter : - toutes les statistiques BadBlock (achievements, points,
