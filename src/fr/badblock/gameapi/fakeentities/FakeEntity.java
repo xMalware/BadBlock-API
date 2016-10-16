@@ -142,7 +142,7 @@ public interface FakeEntity<T extends WatcherEntity> {
 	 * 
 	 * @param visibility La visibilité
 	 */
-	public void setVisibility(Visibility visibility);
+	public FakeEntity<?> setVisibility(Visibility visibility);
 
 	/**
 	 * Téléporte l'entité
