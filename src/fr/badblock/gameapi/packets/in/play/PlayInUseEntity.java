@@ -42,11 +42,25 @@ public interface PlayInUseEntity extends BadblockInPacket {
 	public UseEntityAction getAction();
 
 	/**
+	 * Récupère l'action effectuée par le joueur
+	 * 
+	 * @return L'action
+	 */
+	public void setAction(UseEntityAction action);
+	
+	/**
 	 * Récupère l'ID de l'entité visée
 	 * 
 	 * @return L'ID
 	 */
 	public int getEntityId();
+	
+	/**
+	 * Récupère l'ID de l'entité visée
+	 * 
+	 * @return L'ID
+	 */
+	public void setEntityId(int id);
 
 	/**
 	 * Récupère la position du target (uniquement pour
