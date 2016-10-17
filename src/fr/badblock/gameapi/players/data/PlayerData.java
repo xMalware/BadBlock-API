@@ -41,6 +41,15 @@ public interface PlayerData {
 	public long addXp(long xp, boolean applyBonus);
 
 	/**
+	 * Ajoute des "shop points" au joueur
+	 * 
+	 * @param "shop points"
+	 *            Le nombre de "shop points" à ajouter
+	 * @return le nombre de "shop points" que le joueur aura alors :p
+	 */
+	public long addShopPoints(long shopPoints);
+
+	/**
 	 * Vérifie si le joueur peut obtenir le niveau suivant du kit (achievements
 	 * et badcoins)
 	 * 
