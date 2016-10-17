@@ -19,6 +19,8 @@ import fr.badblock.gameapi.disguise.Disguise;
 import fr.badblock.gameapi.game.result.Result;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 import fr.badblock.gameapi.particles.ParticleEffect;
+import fr.badblock.gameapi.players.bossbars.BossBarColor;
+import fr.badblock.gameapi.players.bossbars.BossBarStyle;
 import fr.badblock.gameapi.players.scoreboard.CustomObjective;
 import fr.badblock.gameapi.utils.i18n.TranslatableString;
 import fr.badblock.gameapi.utils.selections.CuboidSelection;
@@ -32,6 +34,12 @@ import lombok.Getter;
  * @author LeLanN
  */
 public interface BadblockPlayer extends Player, BadblockPlayerData {
+	public static final int VERSION_1_8    = 47;
+	public static final int VERSION_1_9    = 107;
+	public static final int VERSION_1_9_1  = 108;
+	public static final int VERSION_1_9_2  = 109;
+	public static final int VERSION_1_10   = 210;
+	
 	/**
 	 * Représente les différents modes de jeux possibles pour un joueur Badblock
 	 * 
@@ -175,6 +183,12 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 * @return Un boolean
 	 */
 	public boolean hasAdminMode();
+	
+	/**
+	 * Récupère la version du protocol du joueur
+	 * @return La version
+	 */
+	public int getProtocolVersion();
 
 	/**
 	 * Vérifie si le joueur a une des permissions basiques des mini-jeux.
@@ -301,11 +315,6 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	public void removeBadPotionEffects();
 
 	/**
-	 * Enlève le message de la 'Boss Bar' du joueur (si il y en a un)
-	 */
-	public void removeBossBar();
-
-	/**
 	 * Enlève tous les effets (potions)
 	 */
 	public void removePotionEffects();
@@ -323,13 +332,32 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 */
 	public void sendActionBar(String message);
 
+	public void addBossBar(String key, String message, float life, BossBarColor color, BossBarStyle style);
+	
+	public void changeBossBar(String key, String message);
+	
+	public void changeBossBarStyle(String key, float life, BossBarColor color, BossBarStyle style);
+	
+	public void removeBossBar(String key);
+	
+	public void removeBossBars();
+	
+	/**
+	 * Enlève le message de la 'Boss Bar' du joueur (si il y en a un)
+	 */
+	public default void removeBossBar(){
+		removeBossBar("defaultbar");
+	}
+	
 	/**
 	 * Change le message de la 'Boss Bar' du joueur
 	 * 
 	 * @param message
 	 *            Le message
 	 */
-	public void sendBossBar(String message);
+	public default void sendBossBar(String message){
+		addBossBar("defaultbar", message, 1.0f, BossBarColor.PURPLE, BossBarStyle.SOLID);
+	}
 
 	/**
 	 * Envoit un packet à un joueur. Pour utiliser les packets voir
@@ -616,6 +644,4 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 * joueur (voir, en gros, BPlayer.class et EpicPlayer.class) - sendPacket,
 	 * sendMessage/ActionBar/Title/... - ?
 	 */
-	
-	
 }

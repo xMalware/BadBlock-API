@@ -2,7 +2,9 @@ package fr.badblock.gameapi.utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandMap;
+import org.bukkit.scheduler.BukkitRunnable;
 
+import fr.badblock.gameapi.GameAPI;
 import fr.badblock.gameapi.utils.reflection.Reflector;
 
 /**
@@ -36,11 +38,16 @@ public enum GameRules {
 							e.printStackTrace();
 						}
 					}
+
+					new BukkitRunnable() {
+						@Override
+						public void run() {
+							Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
+						}
+					}.runTaskLater(GameAPI.getAPI(), 40L);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-
-				Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
 			}
 		}.start();
 
