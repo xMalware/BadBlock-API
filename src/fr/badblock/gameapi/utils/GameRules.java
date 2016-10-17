@@ -36,6 +36,8 @@ public enum GameRules {
 							e.printStackTrace();
 						}
 					}
+					
+					Thread.sleep(200L);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
