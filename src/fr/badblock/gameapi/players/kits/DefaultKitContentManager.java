@@ -3,6 +3,7 @@ package fr.badblock.gameapi.players.kits;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 
@@ -72,7 +73,7 @@ public class DefaultKitContentManager implements PlayerKitContentManager {
 		
 		if(lore != null && !lore.isEmpty()){
 			for(String l : lore){
-				if(!l.replaceAll("�.", "").isEmpty())
+				if(!l.replaceAll(ChatColor.COLOR_CHAR + "", "").isEmpty())
 					res.add(l);
 			}
 			
