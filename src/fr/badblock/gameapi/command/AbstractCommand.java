@@ -112,10 +112,14 @@ public abstract class AbstractCommand implements TabExecutor {
 		} else if (!allowConsole && !(sender instanceof Player)) {
 			sender.sendMessage(ChatColor.RED + "This command is only for players.");
 		} else if (!executeCommand(sender, args) && usage != null) {
-			usage.send(sender);
+			sendUsage(sender);
 		}
 
 		return true;
+	}
+	
+	public void sendUsage(CommandSender sender){
+		usage.send(sender);
 	}
 
 	protected void sendTranslatedMessage(CommandSender sender, String key, Object... args) {
