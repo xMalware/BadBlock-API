@@ -51,7 +51,7 @@ public class Disguise {
 	public final FakeEntity<?> createEntity(BadblockPlayer player) {
 		FakeEntity<?> entity = createFakeEntity(player);
 
-		if (customName != null) {
+		/*if (customName != null) {
 			entity.getWatchers().setCustomNameVisible(true);
 			entity.getWatchers().setCustomName(customName);
 		} else if (doWithScoreboard) {
@@ -59,7 +59,7 @@ public class Disguise {
 
 			entity.getWatchers().setCustomNameVisible(customName != null);
 			entity.getWatchers().setCustomName(customName);
-		}
+		}*/
 
 		return entity;
 	}
