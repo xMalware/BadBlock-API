@@ -380,6 +380,14 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	public void sendParticle(Location location, ParticleEffect effect);
 
 	/**
+	 * Récupère la valeur d'une perssion de type clé/valeur
+	 * @param key La clé
+	 * @param clazz Le type dmandé
+	 * @return Le retour
+	 */
+	public <T> T getPermissionValue(String key, Class<T> clazz);
+	
+	/**
 	 * Fait changer le joueur de serveur
 	 * 
 	 * @param server
