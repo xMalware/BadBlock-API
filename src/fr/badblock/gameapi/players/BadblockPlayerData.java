@@ -13,12 +13,18 @@ import fr.badblock.gameapi.utils.i18n.TranslatableString;
  */
 public interface BadblockPlayerData {
 	/**
-	 * Récupère le préfixe (par exemple [Admin]) pour afficher le nom du group
+	 * Récupère le préfixe (par exemple [Admin]) pour afficher le nom du groupe
 	 * du joueur
 	 * 
 	 * @return Le préfixe
 	 */
 	public TranslatableString getGroupPrefix();
+	
+	/**
+	 * Récupère le suffixe (par exemple &4) pour afficher le nom du groupe du joueur
+	 * @return Le suffixe
+	 */
+	public TranslatableString getGroupSuffix();
 
 	/**
 	 * Récupère le pseudo du joueur
