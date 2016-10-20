@@ -13,4 +13,14 @@ public abstract class BadListener implements Listener {
 	protected boolean inGame() {
 		return GameAPI.getAPI().getGameServer().getGameState() == GameState.RUNNING;
 	}
+	
+	protected boolean afterGame(){
+		GameState state = GameAPI.getAPI().getGameServer().getGameState();
+		
+		return state == GameState.RUNNING || state == GameState.FINISHED || state == GameState.STOPPING;
+	}
+	
+	protected boolean beforeGame(){
+		return GameAPI.getAPI().getGameServer().getGameState() == GameState.WAITING;
+	}
 }
