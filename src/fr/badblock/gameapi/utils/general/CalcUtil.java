@@ -32,7 +32,7 @@ public class CalcUtil {
 		if (x == 0)
 			return "0";
 		if (y == 0)
-			y = x;
+			y = 1;
 		return convertInt(MathsUtils.round(x / y, 2));
 	}
 
