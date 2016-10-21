@@ -113,4 +113,11 @@ public interface GameServer {
 	 *            Le type de traitement
 	 */
 	public void whileRunningConnection(WhileRunningConnectionTypes type);
+	
+	/**
+	 * Récupère le TPS du serveur
+	 * @return
+	 */
+	public double getPassmarkTps();
+	
 }
