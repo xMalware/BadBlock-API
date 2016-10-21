@@ -1,14 +1,13 @@
 package fr.badblock.gameapi.events.api;
 
 import org.bukkit.event.Cancellable;
-import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
+import fr.badblock.gameapi.events.abstracts.BadblockPlayerEvent;
 import fr.badblock.gameapi.players.BadblockPlayer;
 import fr.badblock.gameapi.players.BadblockTeam;
 import fr.badblock.gameapi.utils.i18n.TranslatableString;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -16,8 +15,7 @@ import lombok.Setter;
  * 
  * @author LeLanN
  */
-@RequiredArgsConstructor
-public class PlayerJoinTeamEvent extends Event implements Cancellable {
+public class PlayerJoinTeamEvent extends BadblockPlayerEvent implements Cancellable {
 	/**
 	 * Raison de l'entrée dans la team
 	 * 
@@ -40,8 +38,6 @@ public class PlayerJoinTeamEvent extends Event implements Cancellable {
 		return handlers;
 	}
 	@Getter
-	private final BadblockPlayer player;
-	@Getter
 	private final BadblockTeam previousTeam;
 
 	@Getter
@@ -56,6 +52,23 @@ public class PlayerJoinTeamEvent extends Event implements Cancellable {
 	@Getter
 	@Setter
 	private TranslatableString cancelReason = null;
+
+	public PlayerJoinTeamEvent(BadblockPlayer player, BadblockTeam previousTeam, BadblockTeam newTeam, JoinReason reason) {
+		this(player, previousTeam, newTeam, reason, false, null);
+	}
+
+	public PlayerJoinTeamEvent(BadblockPlayer player, BadblockTeam previousTeam, BadblockTeam newTeam, JoinReason reason, boolean isCancelled) {
+		this(player, previousTeam, newTeam, reason, isCancelled, null);
+	}
+	
+	public PlayerJoinTeamEvent(BadblockPlayer player, BadblockTeam previousTeam, BadblockTeam newTeam, JoinReason reason, boolean isCancelled, TranslatableString cancelReason) {
+		super(player);
+		this.previousTeam = previousTeam;
+		this.newTeam = newTeam;
+		this.reason = reason;
+		this.isCancelled = isCancelled;
+		this.cancelReason = cancelReason;
+	}
 
 	@Override
 	public HandlerList getHandlers() {

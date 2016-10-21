@@ -1,13 +1,12 @@
 package fr.badblock.gameapi.events;
 
 import org.bukkit.event.Cancellable;
-import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
+import fr.badblock.gameapi.events.abstracts.BadblockPlayerEvent;
 import fr.badblock.gameapi.fakeentities.FakeEntity;
 import fr.badblock.gameapi.packets.in.play.PlayInUseEntity.UseEntityAction;
 import fr.badblock.gameapi.players.BadblockPlayer;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,15 +15,12 @@ import lombok.Setter;
  * 
  * @author LeLanN
  */
-@AllArgsConstructor
-public class PlayerFakeEntityInteractEvent extends Event implements Cancellable {
+public class PlayerFakeEntityInteractEvent extends BadblockPlayerEvent implements Cancellable {
 	private static final HandlerList handlers = new HandlerList();
 
 	public static HandlerList getHandlerList() {
 		return handlers;
 	}
-	@Getter
-	private BadblockPlayer player;
 	@Getter
 	private FakeEntity<?> entity;
 	@Getter
@@ -34,8 +30,16 @@ public class PlayerFakeEntityInteractEvent extends Event implements Cancellable 
 	@Setter
 	private boolean cancelled;
 
+	public PlayerFakeEntityInteractEvent(BadblockPlayer player, FakeEntity<?> entity, UseEntityAction action, boolean cancelled) {
+		super(player);
+		this.entity = entity;
+		this.action = action;
+		this.cancelled = cancelled;
+	}
+	
 	@Override
 	public HandlerList getHandlers() {
 		return handlers;
 	}
+	
 }

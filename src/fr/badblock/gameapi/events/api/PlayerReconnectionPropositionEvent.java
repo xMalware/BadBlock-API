@@ -1,14 +1,13 @@
 package fr.badblock.gameapi.events.api;
 
 import org.bukkit.event.Cancellable;
-import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
+import fr.badblock.gameapi.events.abstracts.BadblockPlayerEvent;
 import fr.badblock.gameapi.game.GameServer;
 import fr.badblock.gameapi.game.GameServer.WhileRunningConnectionTypes;
 import fr.badblock.gameapi.players.BadblockPlayer;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -21,16 +20,23 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@RequiredArgsConstructor
-public class PlayerReconnectionPropositionEvent extends Event implements Cancellable {
+public class PlayerReconnectionPropositionEvent extends BadblockPlayerEvent implements Cancellable {
 	private static final HandlerList handlers = new HandlerList();
 
 	public static HandlerList getHandlerList() {
 		return handlers;
-	}
-	private final BadblockPlayer player;
-
+	}	
+	
 	private boolean isCancelled = false;
+	
+	public PlayerReconnectionPropositionEvent(BadblockPlayer player) {
+		this(player, false);
+	}
+	
+	public PlayerReconnectionPropositionEvent(BadblockPlayer player, boolean isCancelled) {
+		super(player);
+		this.isCancelled = isCancelled;
+	}
 
 	@Override
 	public HandlerList getHandlers() {
