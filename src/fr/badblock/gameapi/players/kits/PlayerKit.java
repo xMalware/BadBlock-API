@@ -65,6 +65,16 @@ public interface PlayerKit {
 	 * @param player
 	 *            Le joueur
 	 */
+	public void giveKit(BadblockPlayer player);
+	
+
+	/**
+	 * Donne le Kit à un joueur (le niveau auquel le joueur à le droit sera
+	 * recherché automatiquement).
+	 * 
+	 * @param player
+	 *            Le joueur
+	 */
 	public void giveKit(BadblockPlayer player, Material... withoutMaterials);
 
 	/**

@@ -32,5 +32,16 @@ public interface PlayerKitContentManager {
 	 * @param player
 	 *            Le joueur
 	 */
+	public void give(JsonObject content, BadblockPlayer player);
+
+	/**
+	 * Permet de donner à un joueur un kit
+	 * 
+	 * @param content
+	 *            Le contenu
+	 * @param player
+	 *            Le joueur
+	 */
 	public void give(JsonObject content, BadblockPlayer player, Material... withoutMaterials);
+	
 }

@@ -42,7 +42,7 @@ public class DefaultKitContentManager implements PlayerKitContentManager {
 		Arrays.asList(itemStacks).stream().filter(itemStack -> !Arrays.asList(withoutItems).contains(itemStack.getType())).forEach(itemStack -> itemStackess.add(itemStack));
 		it = new ItemStack[itemStackess.size()];
 		player.getInventory().setArmorContents(it = itemStackess.toArray(it));
-		
+
 		for(ItemStack is : player.getInventory().getContents()){
 			boolean a = false;
 			if (withoutItems != null && withoutItems.length > 0)
@@ -60,6 +60,27 @@ public class DefaultKitContentManager implements PlayerKitContentManager {
 					if (material.equals(is.getType())) a = true;
 			if (!a)
 				prepareItem(player, is, allowDrop);
+		}
+
+		player.updateInventory();
+	}
+
+	@Override
+	public void give(JsonObject content, BadblockPlayer player) {
+		BadConfiguration configuration = GameAPI.getAPI().loadConfiguration(content);
+
+		player.clearInventory();
+
+		player.getInventory().setContents(configuration.getValueList("content", MapItemStack.class).getHandle().toArray(new ItemStack[0]));
+		player.getInventory().setArmorContents(configuration.getValueList("armor", MapItemStack.class).getHandle().toArray(new ItemStack[0]));
+
+		for(ItemStack is : player.getInventory().getContents()){
+			prepareItem(player, is, allowDrop);
+		}
+
+
+		for(ItemStack is : player.getInventory().getArmorContents()){
+			prepareItem(player, is, allowDrop);
 		}
 
 		player.updateInventory();
