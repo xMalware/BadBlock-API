@@ -66,6 +66,18 @@ public class BukkitUtils {
 			return player.getBadblockMode() != BadblockMode.SPECTATOR;
 		}).collect(Collectors.toSet());
 	}
+	
+
+	/**
+	 * Récupère le joueur demandé
+	 * 
+	 * @return Le pseudo
+	 */
+	public static BadblockPlayer getPlayer(String playerName) {
+		Player player = Bukkit.getPlayer(playerName);
+		if (player == null) return null;
+		return (BadblockPlayer) player;
+	}
 
 	/**
 	 * Vérifie si la location peut acceuillir un joueur
