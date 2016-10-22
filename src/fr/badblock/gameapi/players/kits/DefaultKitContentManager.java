@@ -47,7 +47,8 @@ public class DefaultKitContentManager implements PlayerKitContentManager {
 			boolean a = false;
 			if (withoutItems != null && withoutItems.length > 0)
 				for (Material material : withoutItems)
-					if (material.equals(is.getType())) a = true;
+					if (material != null && is != null && is.getType() != null)
+						if (is.equals(is.getType())) a = true;
 			if (!a)
 				prepareItem(player, is, allowDrop);
 		}
@@ -57,7 +58,8 @@ public class DefaultKitContentManager implements PlayerKitContentManager {
 			boolean a = false;
 			if (withoutItems != null && withoutItems.length > 0)
 				for (Material material : withoutItems)
-					if (material.equals(is.getType())) a = true;
+					if (material != null && is != null && is.getType() != null)
+						if (is.equals(is.getType())) a = true;
 			if (!a)
 				prepareItem(player, is, allowDrop);
 		}
