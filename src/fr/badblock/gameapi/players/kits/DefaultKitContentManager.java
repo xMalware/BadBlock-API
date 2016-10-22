@@ -3,6 +3,7 @@ package fr.badblock.gameapi.players.kits;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -31,37 +32,42 @@ public class DefaultKitContentManager implements PlayerKitContentManager {
 
 		player.clearInventory();
 
-		ItemStack[] itemStacks = configuration.getValueList("content", MapItemStack.class).getHandle().toArray(new ItemStack[0]);
-		final List<ItemStack> itemStackes = new ArrayList<>();
-		Arrays.asList(itemStacks).stream().filter(itemStack -> !Arrays.asList(withoutItems).contains(itemStack.getType())).forEach(itemStack -> itemStackes.add(itemStack));
-		ItemStack[] it = new ItemStack[itemStackes.size()];
-		player.getInventory().setContents(it = itemStackes.toArray(it));
-
-		itemStacks = configuration.getValueList("armor", MapItemStack.class).getHandle().toArray(new ItemStack[0]);
-		final List<ItemStack> itemStackess = new ArrayList<>();
-		Arrays.asList(itemStacks).stream().filter(itemStack -> !Arrays.asList(withoutItems).contains(itemStack.getType())).forEach(itemStack -> itemStackess.add(itemStack));
-		it = new ItemStack[itemStackess.size()];
-		player.getInventory().setArmorContents(it = itemStackess.toArray(it));
-
+		List<Material> without = Arrays.asList(withoutItems);
+		
+		ItemStack[] itemStacks = configuration.getValueList("content", MapItemStack.class).getHandle().stream().filter(item -> !without.contains(item.getType())).collect(Collectors.toList()).toArray(new ItemStack[0]);
+		//final List<ItemStack> itemStackes = new ArrayList<>();
+		//Arrays.asList(itemStacks).stream().filter(itemStack -> !Arrays.asList(withoutItems).contains(itemStack.getType())).forEach(itemStack -> itemStackes.add(itemStack));
+		//ItemStack[] it = new ItemStack[itemStackes.size()];
+		//player.getInventory().setContents(it = itemStackes.toArray(it));
+		player.getInventory().setContents(itemStacks);
+		
+		itemStacks = configuration.getValueList("armor", MapItemStack.class).getHandle().stream().filter(item -> !without.contains(item.getType())).collect(Collectors.toList()).toArray(new ItemStack[0]);
+		//itemStacks = configuration.getValueList("armor", MapItemStack.class).getHandle().toArray(new ItemStack[0]);
+		//final List<ItemStack> itemStackess = new ArrayList<>();
+		//Arrays.asList(itemStacks).stream().filter(itemStack -> !Arrays.asList(withoutItems).contains(itemStack.getType())).forEach(itemStack -> itemStackess.add(itemStack));
+		//it = new ItemStack[itemStackess.size()];
+		//player.getInventory().setArmorContents(it = itemStackess.toArray(it));
+		player.getInventory().setArmorContents(itemStacks);
+		
 		for(ItemStack is : player.getInventory().getContents()){
-			boolean a = false;
+			/*boolean a = false;
 			if (withoutItems != null && withoutItems.length > 0)
 				for (Material material : withoutItems)
 					if (material != null && is != null && is.getType() != null)
 						if (is.equals(is.getType())) a = true;
-			if (!a)
-				prepareItem(player, is, allowDrop);
+			if (!a)*/
+			prepareItem(player, is, allowDrop);
 		}
 
 
 		for(ItemStack is : player.getInventory().getArmorContents()){
-			boolean a = false;
+			/*boolean a = false;
 			if (withoutItems != null && withoutItems.length > 0)
 				for (Material material : withoutItems)
 					if (material != null && is != null && is.getType() != null)
 						if (is.equals(is.getType())) a = true;
-			if (!a)
-				prepareItem(player, is, allowDrop);
+			if (!a)*/
+			prepareItem(player, is, allowDrop);
 		}
 
 		player.updateInventory();
@@ -69,7 +75,8 @@ public class DefaultKitContentManager implements PlayerKitContentManager {
 
 	@Override
 	public void give(JsonObject content, BadblockPlayer player) {
-		BadConfiguration configuration = GameAPI.getAPI().loadConfiguration(content);
+		give(content, player, new Material[0]);
+		/*BadConfiguration configuration = GameAPI.getAPI().loadConfiguration(content);
 
 		player.clearInventory();
 
@@ -85,7 +92,7 @@ public class DefaultKitContentManager implements PlayerKitContentManager {
 			prepareItem(player, is, allowDrop);
 		}
 
-		player.updateInventory();
+		player.updateInventory();*/
 	}
 
 	@Override
