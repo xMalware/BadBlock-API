@@ -1,5 +1,7 @@
 package fr.badblock.gameapi.players.kits;
 
+import org.bukkit.Material;
+
 import fr.badblock.gameapi.achievements.PlayerAchievement;
 import fr.badblock.gameapi.players.BadblockPlayer;
 import fr.badblock.gameapi.utils.itemstack.ItemStackExtra;
@@ -63,7 +65,7 @@ public interface PlayerKit {
 	 * @param player
 	 *            Le joueur
 	 */
-	public void giveKit(BadblockPlayer player);
+	public void giveKit(BadblockPlayer player, Material... withoutMaterials);
 
 	/**
 	 * Vérifie si le Kit est VIP. Si oui, aucun achievements / badcoins n'est
