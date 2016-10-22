@@ -1,5 +1,7 @@
 package fr.badblock.gameapi.players.kits;
 
+import org.bukkit.Material;
+
 import com.google.gson.JsonObject;
 
 import fr.badblock.gameapi.players.BadblockPlayer;
@@ -30,5 +32,5 @@ public interface PlayerKitContentManager {
 	 * @param player
 	 *            Le joueur
 	 */
-	public void give(JsonObject content, BadblockPlayer player);
+	public void give(JsonObject content, BadblockPlayer player, Material... withoutMaterials);
 }
