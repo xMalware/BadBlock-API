@@ -52,27 +52,27 @@ public class CuboidSelection extends AbstractSelection {
 		return new Location(Bukkit.getWorld(getWorldName()), x, y, z);
 	}
 
-	protected double getMaxX() {
+	public double getMaxX() {
 		return Math.max(firstBound.getX(), secondBound.getX());
 	}
 
-	protected double getMaxY() {
+	public double getMaxY() {
 		return Math.max(firstBound.getY(), secondBound.getY());
 	}
 
-	protected double getMaxZ() {
+	public double getMaxZ() {
 		return Math.max(firstBound.getZ(), secondBound.getZ());
 	}
 
-	protected double getMinX() {
+	public double getMinX() {
 		return Math.min(firstBound.getX(), secondBound.getX());
 	}
 
-	protected double getMinY() {
+	public double getMinY() {
 		return Math.min(firstBound.getY(), secondBound.getY());
 	}
 
-	protected double getMinZ() {
+	public double getMinZ() {
 		return Math.min(firstBound.getZ(), secondBound.getZ());
 	}
 	

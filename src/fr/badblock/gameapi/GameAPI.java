@@ -56,6 +56,7 @@ import fr.badblock.gameapi.utils.itemstack.CustomInventory;
 import fr.badblock.gameapi.utils.itemstack.ItemStackExtra;
 import fr.badblock.gameapi.utils.itemstack.ItemStackFactory;
 import fr.badblock.gameapi.utils.merchants.CustomMerchantInventory;
+import fr.badblock.gameapi.utils.selections.CuboidSelection;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -716,6 +717,10 @@ public abstract class GameAPI extends JavaPlugin {
 	 *            Le joueur
 	 */
 	public abstract void whitelistPlayer(String player);
+	
+	public abstract void setEmptyChunks(CuboidSelection selection, boolean exclusion);
+	
+	public abstract void setLightChunks(CuboidSelection selection, boolean exclusion);
 	
 	public void updateScoreboards(){
 		getOnlinePlayers().stream().filter(player -> player.getCustomObjective() != null).forEach(player -> player.getCustomObjective().generate());
