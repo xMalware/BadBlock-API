@@ -722,6 +722,13 @@ public abstract class GameAPI extends JavaPlugin {
 	
 	public abstract void setLightChunks(CuboidSelection selection, boolean exclusion);
 	
+	/**
+	 * Charge une zone en un certains nombre de ticks serveurs (de manière synchrone)
+	 * @param selection La zone
+	 * @param ticks Le nombre de ticks
+	 */
+	public abstract void loadChunks(CuboidSelection selection, int ticks);
+	
 	public void updateScoreboards(){
 		getOnlinePlayers().stream().filter(player -> player.getCustomObjective() != null).forEach(player -> player.getCustomObjective().generate());
 	}
