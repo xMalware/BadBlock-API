@@ -162,4 +162,11 @@ public interface ItemStackFactory {
 	 * @return La factory
 	 */
 	public ItemStackFactory unbreakable(boolean unbreakable);
+	
+	/**
+	 * Définit une liste d'enchantement en NMS vide pour lisser l'item
+	 * @return
+	 */
+	public ItemStackFactory fakeEnchantment();
+	
 }
