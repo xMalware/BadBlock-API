@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.bukkit.Material;
+import org.bukkit.craftbukkit.v1_8_R3.inventory.CraftItemStack;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -12,6 +13,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 import fr.badblock.gameapi.GameAPI;
 import fr.badblock.gameapi.players.BadblockPlayer;
 import net.md_5.bungee.api.ChatColor;
+import net.minecraft.server.v1_8_R3.NBTTagCompound;
+import net.minecraft.server.v1_8_R3.NBTTagList;
 
 /**
  * Classe utilitaires permettant diverses aide concernant les items.
@@ -262,4 +265,20 @@ public class ItemStackUtils {
 			player.updateInventory();
 		}
 	}
+	
+	public static ItemStack fakeEnchant(ItemStack itemStack) {
+		net.minecraft.server.v1_8_R3.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
+		NBTTagCompound tag = null;
+		if (!nmsStack.hasTag()){
+			tag = new NBTTagCompound();
+			nmsStack.setTag(tag);
+		}
+		if (tag == null)
+			tag = nmsStack.getTag();
+		NBTTagList ench = new NBTTagList();
+		tag.set("ench", ench);
+		nmsStack.setTag(tag);
+		return itemStack = CraftItemStack.asBukkitCopy(nmsStack);
+	}
+	
 }
