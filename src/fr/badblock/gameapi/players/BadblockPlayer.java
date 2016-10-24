@@ -647,6 +647,12 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	public boolean isVisible();
 	
 	/**
+	 * Si les data sont fetch
+	 * @return
+	 */
+	public boolean isDataFetch();
+	
+	/**
 	 * A ajouter : - toutes les statistiques BadBlock (achievements, points,
 	 * ...) - Le scoreboard BadBlock - Des méthodes en plus pour la gestion du
 	 * joueur (voir, en gros, BPlayer.class et EpicPlayer.class) - sendPacket,
