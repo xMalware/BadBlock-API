@@ -19,7 +19,7 @@ public enum BadblockGame {
 	RUSH("rush", "Rush", "LeLanN", createItemStackFactory(Material.BED)),
 	TOWER("tower", "Tower", "LeLanN", createItemStackFactory(Material.NETHER_FENCE)),
 	SURVIVAL_GAMES("survivalgames", "SurvivalGames", "LeLanN", createItemStackFactory(Material.IRON_SWORD)),
-	BUILDCONTEST("buildcontest", "BuildContest", "xMalware", createItemStackFactory(Material.SANDSTONE),
+	BUILDCONTEST("buildcontest", "BuildContest", "xMalware", createItemStackFactory(Material.SANDSTONE).fakeEnchantment()),
 	UHCSPEED("uhcSpeed", "UHCSpeed", "LeLanN", createItemStackFactory(Material.GOLDEN_APPLE)), 
 	SPACE_BALLS("spaceBalls", "SpaceBalls", "LeLanN", createItemStackFactory(Material.QUARTZ_ORE)), 
 	PEARLSWAR("pearlsWar", "PearlsWar", "LeLanN", createItemStackFactory(Material.ENDER_PEARL)),
