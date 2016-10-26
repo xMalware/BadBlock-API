@@ -25,7 +25,7 @@ public enum GameRules {
 
 	private void dispatch(String command) {
 
-		new Thread() {
+		new Thread("BadBlockAPI/gamerules") {
 			@Override
 			public void run() {
 				try {
