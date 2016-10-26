@@ -278,7 +278,7 @@ public class ItemStackUtils {
 		NBTTagList ench = new NBTTagList();
 		tag.set("ench", ench);
 		nmsStack.setTag(tag);
-		return itemStack = CraftItemStack.asBukkitCopy(nmsStack);
+		return CraftItemStack.asBukkitCopy(nmsStack);
 	}
 	
 }
