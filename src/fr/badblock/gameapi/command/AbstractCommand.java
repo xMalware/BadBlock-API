@@ -14,7 +14,10 @@ import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 
 import fr.badblock.gameapi.GameAPI;
+import fr.badblock.gameapi.players.BadblockPlayer;
+import fr.badblock.gameapi.players.BadblockPlayer.BadblockMode;
 import fr.badblock.gameapi.players.BadblockPlayer.GamePermission;
+import fr.badblock.gameapi.run.RunType;
 import fr.badblock.gameapi.utils.i18n.TranslatableString;
 import fr.badblock.gameapi.utils.i18n.messages.CommandMessages;
 import fr.badblock.gameapi.utils.reflection.Reflector;
@@ -33,7 +36,9 @@ public abstract class AbstractCommand implements TabExecutor {
 
 	private String command;
 	private TranslatableString usage;
-	private String permission;
+	private String lobbyPermission;
+	private String miniGameSpectatorPermission;
+	private String miniGamePermission;
 
 	private String[] aliases;
 
@@ -52,9 +57,8 @@ public abstract class AbstractCommand implements TabExecutor {
 	 * @param aliases
 	 *            Les aliases éventuels de la commande
 	 */
-	public AbstractCommand(String command, TranslatableString usage, GamePermission permission, String... aliases) {
-		this(command, usage, 
-				permission.getPermission(), aliases);
+	public AbstractCommand(String command, TranslatableString usage, GamePermission lobbyPermission, GamePermission miniGameSpectatorPermission, GamePermission miniGamePermission, String... aliases) {
+		this(command, usage, lobbyPermission.getPermission(), miniGameSpectatorPermission.getPermission(), miniGamePermission.getPermission(), aliases);
 	}
 
 	/**
@@ -69,10 +73,12 @@ public abstract class AbstractCommand implements TabExecutor {
 	 * @param aliases
 	 *            Les aliases éventuels de la commande
 	 */
-	public AbstractCommand(String command, TranslatableString usage, String permission, String... aliases) {
+	public AbstractCommand(String command, TranslatableString usage, String lobbyPermission, String miniGameSpectatorPermission, String miniGamePermission, String... aliases) {
 		this.command = command;
 		this.usage = usage;
-		this.permission = permission;
+		this.lobbyPermission = lobbyPermission;
+		this.miniGameSpectatorPermission = miniGameSpectatorPermission;
+		this.miniGamePermission = miniGamePermission;
 		this.aliases = aliases;
 
 		ReflectCommand result = new ReflectCommand(command);
@@ -107,9 +113,13 @@ public abstract class AbstractCommand implements TabExecutor {
 
 	@Override
 	public final boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		if (permission != null && !permission.isEmpty() && !sender.hasPermission(permission)) {
+		if (GameAPI.getAPI().getRunType().equals(RunType.LOBBY) && lobbyPermission != null && !lobbyPermission.isEmpty() && !sender.hasPermission(lobbyPermission)) 
 			CommandMessages.noPermission().send(sender);
-		} else if (!allowConsole && !(sender instanceof Player)) {
+		else if (GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGameSpectatorPermission != null && !miniGameSpectatorPermission.isEmpty() && !sender.hasPermission(miniGameSpectatorPermission) && (sender instanceof BadblockPlayer) && (((BadblockPlayer)sender).getBadblockMode().equals(BadblockMode.SPECTATOR))) 
+			CommandMessages.noPermission().send(sender);
+		else if (GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGamePermission != null && !miniGamePermission.isEmpty() && !sender.hasPermission(miniGamePermission))
+			CommandMessages.noPermission().send(sender);
+		else if (!allowConsole && !(sender instanceof Player)) {
 			sender.sendMessage(ChatColor.RED + "This command is only for players.");
 		} else if (!executeCommand(sender, args) && usage != null) {
 			sendUsage(sender);
@@ -151,9 +161,13 @@ public abstract class AbstractCommand implements TabExecutor {
 	
 	@Override
 	public final List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
-		if (permission != null && !permission.isEmpty() && !sender.hasPermission(permission)) {
+		if (GameAPI.getAPI().getRunType().equals(RunType.LOBBY) && lobbyPermission != null && !lobbyPermission.isEmpty() && !sender.hasPermission(lobbyPermission)) 
 			CommandMessages.noPermission().send(sender);
-		} else if (!allowConsole && !(sender instanceof Player)) {
+		else if (GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGameSpectatorPermission != null && !miniGameSpectatorPermission.isEmpty() && !sender.hasPermission(miniGameSpectatorPermission) && (sender instanceof BadblockPlayer) && (((BadblockPlayer)sender).getBadblockMode().equals(BadblockMode.SPECTATOR))) 
+			CommandMessages.noPermission().send(sender);
+		else if (GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGamePermission != null && !miniGamePermission.isEmpty() && !sender.hasPermission(miniGamePermission))
+			CommandMessages.noPermission().send(sender);
+		else if (!allowConsole && !(sender instanceof Player)) {
 			sender.sendMessage(ChatColor.RED + "This command is only for players.");
 		} else {
 			args = changeArgs(sender, args);

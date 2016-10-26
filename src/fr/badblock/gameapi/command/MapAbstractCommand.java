@@ -24,7 +24,7 @@ public abstract class MapAbstractCommand extends AbstractCommand {
 
 	public MapAbstractCommand(String command, TranslatableString usage, GamePermission permission, String[] aliases,
 			File mapFolder) {
-		super(command, usage, permission, aliases);
+		super(command, usage, permission, permission, permission, aliases);
 		this.mapFolder = mapFolder;
 
 		if (!mapFolder.exists())
