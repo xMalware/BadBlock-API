@@ -118,7 +118,7 @@ public abstract class AbstractCommand implements TabExecutor {
 			CommandMessages.noPermission().send(sender);
 		else if (GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGamePermission != null && !miniGamePermission.isEmpty() && !sender.hasPermission(miniGamePermission))
 			CommandMessages.noPermission().send(sender);
-		if (GameAPI.getAPI().getRunType().equals(RunType.LOBBY) && lobbyPermission != null && !lobbyPermission.isEmpty() && !sender.hasPermission(lobbyPermission)) 
+		else if (GameAPI.getAPI().getRunType().equals(RunType.LOBBY) && lobbyPermission != null && !lobbyPermission.isEmpty() && !sender.hasPermission(lobbyPermission)) 
 			CommandMessages.noPermission().send(sender);
 		 else if (!allowConsole && !(sender instanceof Player)) {
 			sender.sendMessage(ChatColor.RED + "This command is only for players.");
