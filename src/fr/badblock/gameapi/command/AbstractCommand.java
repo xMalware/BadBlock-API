@@ -18,6 +18,7 @@ import fr.badblock.gameapi.players.BadblockPlayer;
 import fr.badblock.gameapi.players.BadblockPlayer.BadblockMode;
 import fr.badblock.gameapi.players.BadblockPlayer.GamePermission;
 import fr.badblock.gameapi.run.RunType;
+import fr.badblock.gameapi.utils.BukkitUtils;
 import fr.badblock.gameapi.utils.i18n.TranslatableString;
 import fr.badblock.gameapi.utils.i18n.messages.CommandMessages;
 import fr.badblock.gameapi.utils.reflection.Reflector;
@@ -113,7 +114,7 @@ public abstract class AbstractCommand implements TabExecutor {
 
 	@Override
 	public final boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		if (GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGameSpectatorPermission != null && !miniGameSpectatorPermission.isEmpty() && !sender.hasPermission(miniGameSpectatorPermission) && (sender instanceof BadblockPlayer) && (((BadblockPlayer)sender).getBadblockMode().equals(BadblockMode.SPECTATOR))) 
+		if (GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGameSpectatorPermission != null && !miniGameSpectatorPermission.isEmpty() && !sender.hasPermission(miniGameSpectatorPermission) && (sender instanceof Player) && BukkitUtils.getPlayer(sender.getName()) != null && BukkitUtils.getPlayer(sender.getName()).getBadblockMode().equals(BadblockMode.SPECTATOR)) 
 			CommandMessages.noPermission().send(sender);
 		else if (GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGamePermission != null && !miniGamePermission.isEmpty() && !sender.hasPermission(miniGamePermission))
 			CommandMessages.noPermission().send(sender);
