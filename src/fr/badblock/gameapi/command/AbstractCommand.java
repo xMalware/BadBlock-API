@@ -113,13 +113,13 @@ public abstract class AbstractCommand implements TabExecutor {
 
 	@Override
 	public final boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		if (GameAPI.getAPI().getRunType().equals(RunType.LOBBY) && lobbyPermission != null && !lobbyPermission.isEmpty() && !sender.hasPermission(lobbyPermission)) 
-			CommandMessages.noPermission().send(sender);
-		else if (GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGameSpectatorPermission != null && !miniGameSpectatorPermission.isEmpty() && !sender.hasPermission(miniGameSpectatorPermission) && (sender instanceof BadblockPlayer) && (((BadblockPlayer)sender).getBadblockMode().equals(BadblockMode.SPECTATOR))) 
+		if (GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGameSpectatorPermission != null && !miniGameSpectatorPermission.isEmpty() && !sender.hasPermission(miniGameSpectatorPermission) && (sender instanceof BadblockPlayer) && (((BadblockPlayer)sender).getBadblockMode().equals(BadblockMode.SPECTATOR))) 
 			CommandMessages.noPermission().send(sender);
 		else if (GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGamePermission != null && !miniGamePermission.isEmpty() && !sender.hasPermission(miniGamePermission))
 			CommandMessages.noPermission().send(sender);
-		else if (!allowConsole && !(sender instanceof Player)) {
+		if (GameAPI.getAPI().getRunType().equals(RunType.LOBBY) && lobbyPermission != null && !lobbyPermission.isEmpty() && !sender.hasPermission(lobbyPermission)) 
+			CommandMessages.noPermission().send(sender);
+		 else if (!allowConsole && !(sender instanceof Player)) {
 			sender.sendMessage(ChatColor.RED + "This command is only for players.");
 		} else if (!executeCommand(sender, args) && usage != null) {
 			sendUsage(sender);
