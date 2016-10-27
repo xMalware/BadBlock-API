@@ -114,21 +114,22 @@ public abstract class AbstractCommand implements TabExecutor {
 
 	@Override
 	public final boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		if (GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGameSpectatorPermission != null && !miniGameSpectatorPermission.isEmpty() && !sender.hasPermission(miniGameSpectatorPermission) && (sender instanceof Player) && BukkitUtils.getPlayer(sender.getName()) != null && BukkitUtils.getPlayer(sender.getName()).getBadblockMode().equals(BadblockMode.SPECTATOR)) 
-			CommandMessages.noPermission().send(sender);
-		else if (GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGamePermission != null && !miniGamePermission.isEmpty() && !sender.hasPermission(miniGamePermission))
-			CommandMessages.noPermission().send(sender);
-		else if (GameAPI.getAPI().getRunType().equals(RunType.LOBBY) && lobbyPermission != null && !lobbyPermission.isEmpty() && !sender.hasPermission(lobbyPermission)) 
-			CommandMessages.noPermission().send(sender);
-		 else if (!allowConsole && !(sender instanceof Player)) {
+		if (!allowConsole && !(sender instanceof Player))
 			sender.sendMessage(ChatColor.RED + "This command is only for players.");
-		} else if (!executeCommand(sender, args) && usage != null) {
-			sendUsage(sender);
-		}
-
+		else if ((GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGameSpectatorPermission != null && 
+				!miniGameSpectatorPermission.isEmpty() && sender.hasPermission(miniGameSpectatorPermission) && 
+				(((sender instanceof Player) && BukkitUtils.getPlayer(sender.getName()) != null && 
+				BukkitUtils.getPlayer(sender.getName()).getBadblockMode().equals(BadblockMode.SPECTATOR)))) || (!(sender instanceof Player)) ||
+				(GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGamePermission != null && !miniGamePermission.isEmpty() && 
+				sender.hasPermission(miniGamePermission)) ||
+				(GameAPI.getAPI().getRunType().equals(RunType.LOBBY) && lobbyPermission != null && !lobbyPermission.isEmpty() && sender.hasPermission(lobbyPermission)))
+			if (!executeCommand(sender, args) && usage != null) {
+				sendUsage(sender);
+			}
+			else CommandMessages.noPermission().send(sender);
 		return true;
 	}
-	
+
 	public void sendUsage(CommandSender sender){
 		usage.send(sender);
 	}
@@ -155,11 +156,11 @@ public abstract class AbstractCommand implements TabExecutor {
 	public Collection<String> doTab(CommandSender sender, String[] args){
 		return Bukkit.getOnlinePlayers().stream().map(player -> { return player.getName(); }).collect(Collectors.toList());
 	}
-	
+
 	public String[] changeArgs(CommandSender sender, String[] args){
 		return args;
 	}
-	
+
 	@Override
 	public final List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
 		if (GameAPI.getAPI().getRunType().equals(RunType.LOBBY) && lobbyPermission != null && !lobbyPermission.isEmpty() && !sender.hasPermission(lobbyPermission)) 
@@ -180,7 +181,7 @@ public abstract class AbstractCommand implements TabExecutor {
 		}
 		return new ArrayList<>();
 	}
-	
+
 	private final class ReflectCommand extends Command {
 		private AbstractCommand exe = null;
 
@@ -199,7 +200,7 @@ public abstract class AbstractCommand implements TabExecutor {
 			}
 			return false;
 		}
-		
+
 		@Override
 		public List<String> tabComplete(CommandSender sender, String alias, String[] args){
 			return exe.onTabComplete(sender, this, alias, args);
