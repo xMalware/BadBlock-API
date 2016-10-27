@@ -172,14 +172,12 @@ public abstract class AbstractCommand implements TabExecutor {
 				(GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGamePermission != null && !miniGamePermission.isEmpty() && 
 				sender.hasPermission(miniGamePermission)) ||
 				(GameAPI.getAPI().getRunType().equals(RunType.LOBBY) && lobbyPermission != null && !lobbyPermission.isEmpty() && sender.hasPermission(lobbyPermission))) {
-			if (!executeCommand(sender, args) && usage != null) {
-				args = changeArgs(sender, args);
-				String searched = (args.length == 0 ? "" : args[args.length - 1]).toLowerCase();
+			args = changeArgs(sender, args);
+			String searched = (args.length == 0 ? "" : args[args.length - 1]).toLowerCase();
 
-				return doTab(sender, args).stream().filter(arg -> {
-					return searched.isEmpty() || arg.regionMatches(true, 0, searched, 0, searched.length());
-				}).limit(MAX_TAB_RETURN).collect(Collectors.toList());
-			}
+			return doTab(sender, args).stream().filter(arg -> {
+				return searched.isEmpty() || arg.regionMatches(true, 0, searched, 0, searched.length());
+			}).limit(MAX_TAB_RETURN).collect(Collectors.toList());
 		}else CommandMessages.noPermission().send(sender);
 		return new ArrayList<>();
 	}
