@@ -121,7 +121,8 @@ public abstract class AbstractCommand implements TabExecutor {
 				BukkitUtils.getPlayer(sender.getName()).getBadblockMode().equals(BadblockMode.SPECTATOR)))) || (!(sender instanceof Player)) ||
 				(GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGamePermission != null && !miniGamePermission.isEmpty() && 
 				sender.hasPermission(miniGamePermission)) ||
-				(GameAPI.getAPI().getRunType().equals(RunType.LOBBY) && lobbyPermission != null && !lobbyPermission.isEmpty() && sender.hasPermission(lobbyPermission))) {
+				(GameAPI.getAPI().getRunType().equals(RunType.LOBBY) && lobbyPermission != null && !lobbyPermission.isEmpty() && sender.hasPermission(lobbyPermission))
+				|| (this.lobbyPermission == null & this.miniGamePermission == null && this.miniGameSpectatorPermission == null)) {
 			if (!executeCommand(sender, args) && usage != null) {
 				sendUsage(sender);
 			}
