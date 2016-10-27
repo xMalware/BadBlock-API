@@ -14,7 +14,6 @@ import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 
 import fr.badblock.gameapi.GameAPI;
-import fr.badblock.gameapi.players.BadblockPlayer;
 import fr.badblock.gameapi.players.BadblockPlayer.BadblockMode;
 import fr.badblock.gameapi.players.BadblockPlayer.GamePermission;
 import fr.badblock.gameapi.run.RunType;
@@ -122,11 +121,11 @@ public abstract class AbstractCommand implements TabExecutor {
 				BukkitUtils.getPlayer(sender.getName()).getBadblockMode().equals(BadblockMode.SPECTATOR)))) || (!(sender instanceof Player)) ||
 				(GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGamePermission != null && !miniGamePermission.isEmpty() && 
 				sender.hasPermission(miniGamePermission)) ||
-				(GameAPI.getAPI().getRunType().equals(RunType.LOBBY) && lobbyPermission != null && !lobbyPermission.isEmpty() && sender.hasPermission(lobbyPermission)))
+				(GameAPI.getAPI().getRunType().equals(RunType.LOBBY) && lobbyPermission != null && !lobbyPermission.isEmpty() && sender.hasPermission(lobbyPermission))) {
 			if (!executeCommand(sender, args) && usage != null) {
 				sendUsage(sender);
 			}
-			else CommandMessages.noPermission().send(sender);
+		}else CommandMessages.noPermission().send(sender);
 		return true;
 	}
 
@@ -163,22 +162,24 @@ public abstract class AbstractCommand implements TabExecutor {
 
 	@Override
 	public final List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
-		if (GameAPI.getAPI().getRunType().equals(RunType.LOBBY) && lobbyPermission != null && !lobbyPermission.isEmpty() && !sender.hasPermission(lobbyPermission)) 
-			CommandMessages.noPermission().send(sender);
-		else if (GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGameSpectatorPermission != null && !miniGameSpectatorPermission.isEmpty() && !sender.hasPermission(miniGameSpectatorPermission) && (sender instanceof BadblockPlayer) && (((BadblockPlayer)sender).getBadblockMode().equals(BadblockMode.SPECTATOR))) 
-			CommandMessages.noPermission().send(sender);
-		else if (GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGamePermission != null && !miniGamePermission.isEmpty() && !sender.hasPermission(miniGamePermission))
-			CommandMessages.noPermission().send(sender);
-		else if (!allowConsole && !(sender instanceof Player)) {
+		if (!allowConsole && !(sender instanceof Player))
 			sender.sendMessage(ChatColor.RED + "This command is only for players.");
-		} else {
-			args = changeArgs(sender, args);
-			String searched = (args.length == 0 ? "" : args[args.length - 1]).toLowerCase();
+		else if ((GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGameSpectatorPermission != null && 
+				!miniGameSpectatorPermission.isEmpty() && sender.hasPermission(miniGameSpectatorPermission) && 
+				(((sender instanceof Player) && BukkitUtils.getPlayer(sender.getName()) != null && 
+				BukkitUtils.getPlayer(sender.getName()).getBadblockMode().equals(BadblockMode.SPECTATOR)))) || (!(sender instanceof Player)) ||
+				(GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGamePermission != null && !miniGamePermission.isEmpty() && 
+				sender.hasPermission(miniGamePermission)) ||
+				(GameAPI.getAPI().getRunType().equals(RunType.LOBBY) && lobbyPermission != null && !lobbyPermission.isEmpty() && sender.hasPermission(lobbyPermission))) {
+			if (!executeCommand(sender, args) && usage != null) {
+				args = changeArgs(sender, args);
+				String searched = (args.length == 0 ? "" : args[args.length - 1]).toLowerCase();
 
-			return doTab(sender, args).stream().filter(arg -> {
-				return searched.isEmpty() || arg.regionMatches(true, 0, searched, 0, searched.length());
-			}).limit(MAX_TAB_RETURN).collect(Collectors.toList());
-		}
+				return doTab(sender, args).stream().filter(arg -> {
+					return searched.isEmpty() || arg.regionMatches(true, 0, searched, 0, searched.length());
+				}).limit(MAX_TAB_RETURN).collect(Collectors.toList());
+			}
+		}else CommandMessages.noPermission().send(sender);
 		return new ArrayList<>();
 	}
 
