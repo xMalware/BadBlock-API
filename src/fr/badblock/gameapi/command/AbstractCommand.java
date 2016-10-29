@@ -48,6 +48,30 @@ public abstract class AbstractCommand implements TabExecutor {
 	/**
 	 * Crée une nouvelle commande
 	 * 
+	 * @param command Le nom de la commande
+	 * @param usage Le message d'erreur si la commande est mal utilisée
+	 * @param permission La permission nécessaire
+	 * @param aliases Les aliases éventuels de la commande
+	 */
+	public AbstractCommand(String command, TranslatableString usage, GamePermission perm, String... aliases) {
+		this(command, usage, perm.getPermission(), aliases);
+	}
+	
+	/**
+	 * Crée une nouvelle commande
+	 * 
+	 * @param command Le nom de la commande
+	 * @param usage Le message d'erreur si la commande est mal utilisée
+	 * @param permission La permission nécessaire
+	 * @param aliases Les aliases éventuels de la commande
+	 */
+	public AbstractCommand(String command, TranslatableString usage, String perm, String... aliases) {
+		this(command, usage, perm, perm, perm, aliases);
+	}
+	
+	/**
+	 * Crée une nouvelle commande
+	 * 
 	 * @param command
 	 *            Le nom de la commande
 	 * @param usage
