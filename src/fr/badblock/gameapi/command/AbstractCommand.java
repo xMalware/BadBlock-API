@@ -14,6 +14,7 @@ import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 
 import fr.badblock.gameapi.GameAPI;
+import fr.badblock.gameapi.players.BadblockPlayer;
 import fr.badblock.gameapi.players.BadblockPlayer.BadblockMode;
 import fr.badblock.gameapi.players.BadblockPlayer.GamePermission;
 import fr.badblock.gameapi.run.RunType;
@@ -115,19 +116,23 @@ public abstract class AbstractCommand implements TabExecutor {
 	public final boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (!allowConsole && !(sender instanceof Player))
 			sender.sendMessage(ChatColor.RED + "This command is only for players.");
-		else if ((GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGameSpectatorPermission != null && 
-				!miniGameSpectatorPermission.isEmpty() && sender.hasPermission(miniGameSpectatorPermission) && 
-				(((sender instanceof Player) && BukkitUtils.getPlayer(sender.getName()) != null && 
-				BukkitUtils.getPlayer(sender.getName()).getBadblockMode().equals(BadblockMode.SPECTATOR)))) || (!(sender instanceof Player)) ||
-				(GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGamePermission != null && !miniGamePermission.isEmpty() && 
-				sender.hasPermission(miniGamePermission)) ||
-				(GameAPI.getAPI().getRunType().equals(RunType.LOBBY) && lobbyPermission != null && !lobbyPermission.isEmpty() && sender.hasPermission(lobbyPermission))
-				|| (this.lobbyPermission == null & this.miniGamePermission == null && this.miniGameSpectatorPermission == null)) {
+		else if (!hasPermission(sender)) {
 			if (!executeCommand(sender, args) && usage != null) {
 				sendUsage(sender);
 			}
 		}else CommandMessages.noPermission().send(sender);
 		return true;
+	}
+	
+	public boolean hasPermission(CommandSender sender){
+		boolean spectator = sender instanceof Player && ((BadblockPlayer) sender).getBadblockMode() == BadblockMode.SPECTATOR;
+		String permission = null;
+		
+		if(GameAPI.getAPI().getRunType() == RunType.GAME)
+			permission = spectator ? miniGameSpectatorPermission : miniGamePermission;
+		else permission = lobbyPermission;
+		
+		return permission == null || permission.isEmpty() || sender.hasPermission(permission);
 	}
 
 	public void sendUsage(CommandSender sender){
