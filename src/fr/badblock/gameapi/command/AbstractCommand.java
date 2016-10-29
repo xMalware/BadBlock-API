@@ -52,9 +52,9 @@ public abstract class AbstractCommand implements TabExecutor {
 	 *            Le nom de la commande
 	 * @param usage
 	 *            Le message d'erreur si la commande est mal utilisée
-	 * @param permission
-	 *            La permission nécessaire (pas de permission est
-	 *            {@link GamePermission#PLAYER})
+	 * @param lobbyPermission La permission nécessaire au lobby
+	 * @param miniGameSpectatorPermission La permission nécessaire en jeu (spectateur)
+	 * @param miniGamePermission La permisison nécessaire en jeu (joueur)
 	 * @param aliases
 	 *            Les aliases éventuels de la commande
 	 */
@@ -69,8 +69,9 @@ public abstract class AbstractCommand implements TabExecutor {
 	 *            Le nom de la commande
 	 * @param usage
 	 *            Le message d'erreur si la commande est mal utilisée
-	 * @param permission
-	 *            La permission nécessaire (pas de permission est chaîne vide)
+	 * @param lobbyPermission La permission nécessaire au lobby
+	 * @param miniGameSpectatorPermission La permission nécessaire en jeu (spectateur)
+	 * @param miniGamePermission La permisison nécessaire en jeu (joueur)
 	 * @param aliases
 	 *            Les aliases éventuels de la commande
 	 */
