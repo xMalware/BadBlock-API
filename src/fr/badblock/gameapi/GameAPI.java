@@ -732,4 +732,8 @@ public abstract class GameAPI extends JavaPlugin {
 	public void updateScoreboards(){
 		getOnlinePlayers().stream().filter(player -> player.getCustomObjective() != null).forEach(player -> player.getCustomObjective().generate());
 	}
+
+	public abstract boolean isLeaverBusterEnabled();
+	
+	public abstract void setLeaverBusterEnabled(boolean enabled);
 }
