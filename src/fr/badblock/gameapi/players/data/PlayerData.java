@@ -247,4 +247,6 @@ public interface PlayerData {
 	 *            Le kit
 	 */
 	public void unlockNextLevel(PlayerKit kit);
+	
+	public List<Long> getLeaves();
 }
