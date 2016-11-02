@@ -2,6 +2,7 @@ package fr.badblock.gameapi.utils;
 
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -66,7 +67,7 @@ public class BukkitUtils {
 			return player.getBadblockMode() != BadblockMode.SPECTATOR;
 		}).collect(Collectors.toSet());
 	}
-	
+
 
 	/**
 	 * Récupère le joueur demandé
@@ -75,6 +76,17 @@ public class BukkitUtils {
 	 */
 	public static BadblockPlayer getPlayer(String playerName) {
 		Player player = Bukkit.getPlayer(playerName);
+		if (player == null) return null;
+		return (BadblockPlayer) player;
+	}
+
+	/**
+	 * Récupère le joueur demandé
+	 * 
+	 * @return Le pseudo
+	 */
+	public static BadblockPlayer getPlayer(UUID playerUniqueId) {
+		Player player = Bukkit.getPlayer(playerUniqueId);
 		if (player == null) return null;
 		return (BadblockPlayer) player;
 	}
