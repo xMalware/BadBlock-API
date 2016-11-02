@@ -5,6 +5,7 @@ import java.lang.reflect.Modifier;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.logging.Level;
 
 import org.bukkit.Bukkit;
@@ -736,4 +737,7 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract boolean isLeaverBusterEnabled();
 	
 	public abstract void setLeaverBusterEnabled(boolean enabled);
+	
+	public abstract void balancePlayers(BadblockPlayer leader, List<UUID> slaves);
+	
 }
