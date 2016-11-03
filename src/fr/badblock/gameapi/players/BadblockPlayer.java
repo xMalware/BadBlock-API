@@ -652,6 +652,10 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 */
 	public boolean isDataFetch();
 	
+	public int getVipLevel();
+	
+	public boolean hasVipLevel(int level, boolean showErrorMessage);
+	
 	/**
 	 * A ajouter : - toutes les statistiques BadBlock (achievements, points,
 	 * ...) - Le scoreboard BadBlock - Des méthodes en plus pour la gestion du
