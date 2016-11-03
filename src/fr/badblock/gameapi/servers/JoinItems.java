@@ -5,6 +5,7 @@ import java.util.Map;
 
 import fr.badblock.gameapi.players.kits.PlayerKit;
 import fr.badblock.gameapi.run.BadblockGame;
+import fr.badblock.gameapi.utils.itemstack.ItemStackExtra;
 
 /**
  * Classe permettant de gérer les items donnés au joueur leur du join. A
@@ -86,4 +87,17 @@ public interface JoinItems {
 	 * @param doAchiev Si le slot achievements y va
 	 */
 	public void registerGroupItem(int slot, boolean doVote, boolean doTeam, boolean doKit, boolean doAchiev);
+	
+	/**
+	 * Demande à l'API de gérer l'item VIP (affiche les avantages)
+	 * @param slot Le slot
+	 */
+	public void registerVipItem(int slot);
+	
+	/**
+	 * Demande à l'API de gérer un item custom
+	 * @param slot Le slot
+	 * @param extra L'item
+	 */
+	public void registerCustomItem(int slot, ItemStackExtra extra);
 }
