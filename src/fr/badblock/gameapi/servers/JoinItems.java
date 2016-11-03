@@ -76,4 +76,14 @@ public interface JoinItems {
 	 *            Le slot
 	 */
 	public void registerVoteItem(int slot);
+	
+	/**
+	 * Met les options de jeu dans un sous-inventaire
+	 * @param slot Le slot
+	 * @param doVote Si le slot vote y va
+	 * @param doTeam Si le slot team y va
+	 * @param doKit Si le slot kit y va
+	 * @param doAchiev Si le slot achievements y va
+	 */
+	public void registerGroupItem(int slot, boolean doVote, boolean doTeam, boolean doKit, boolean doAchiev);
 }
