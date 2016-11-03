@@ -5,7 +5,9 @@ import java.util.Map;
 
 import fr.badblock.gameapi.players.kits.PlayerKit;
 import fr.badblock.gameapi.run.BadblockGame;
+import fr.badblock.gameapi.utils.itemstack.ItemEvent;
 import fr.badblock.gameapi.utils.itemstack.ItemStackExtra;
+import fr.badblock.gameapi.utils.itemstack.ItemStackFactory;
 
 /**
  * Classe permettant de gérer les items donnés au joueur leur du join. A
@@ -97,7 +99,8 @@ public interface JoinItems {
 	/**
 	 * Demande à l'API de gérer un item custom
 	 * @param slot Le slot
-	 * @param extra L'item
+	 * @param factory La factory pour créer l'item
+	 * @param event L'event de l'item
 	 */
-	public void registerCustomItem(int slot, ItemStackExtra extra);
+	public void registerCustomItem(int slot, ItemStackFactory factory, ItemEvent event);
 }
