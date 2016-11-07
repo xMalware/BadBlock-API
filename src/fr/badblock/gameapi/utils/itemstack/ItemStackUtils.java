@@ -265,10 +265,10 @@ public class ItemStackUtils {
 	}
 	
 	public static ItemStack fakeEnchant(ItemStack itemStack) {
+		itemStack.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 1);
 		ItemMeta itemMeta = itemStack.getItemMeta();
 		itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 		itemStack.setItemMeta(itemMeta);
-		itemStack.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 1);
 		return itemStack;
 	}
 	
