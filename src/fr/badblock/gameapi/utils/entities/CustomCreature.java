@@ -230,5 +230,9 @@ public interface CustomCreature {
 	
 	public void setCustomLoots(Function<Random, List<ItemStack>> function);
 	
+	public void setSpeed(double speed);
+	
+	public double getSpeed();
+	
 	public Function<Random, List<ItemStack>> getCustomLoots();
 }
