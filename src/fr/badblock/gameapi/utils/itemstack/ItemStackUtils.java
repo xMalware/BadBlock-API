@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -265,9 +266,9 @@ public class ItemStackUtils {
 	
 	public static ItemStack fakeEnchant(ItemStack itemStack) {
 		itemStack.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 1);
-		/*ItemMeta itemMeta = itemStack.getItemMeta();
+		ItemMeta itemMeta = itemStack.getItemMeta();
 		itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-		itemStack.setItemMeta(itemMeta);*/
+		itemStack.setItemMeta(itemMeta);
 		return itemStack;
 	}
 	
