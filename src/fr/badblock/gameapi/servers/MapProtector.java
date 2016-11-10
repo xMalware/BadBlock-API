@@ -65,6 +65,8 @@ public interface MapProtector {
 
 	public boolean canEntityBeingDamaged(Entity entity);
 
+	public boolean canEntityBeingDamaged(Entity entity, BadblockPlayer badblockPlayer);
+
 	public boolean canFillBucket(BadblockPlayer player);
 
 	public boolean canInteract(BadblockPlayer player, Action action, Block block);
