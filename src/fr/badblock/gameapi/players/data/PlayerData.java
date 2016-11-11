@@ -105,6 +105,10 @@ public interface PlayerData {
 	 */
 	public int getShopPoints();
 
+	public int addRankedPoints(int rankedPoints);
+	
+	public int removeRankedPoints(int rankedPoints);
+
 	/**
 	 * Récupère les boosters du joueur
 	 * 
