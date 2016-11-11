@@ -27,7 +27,8 @@ public enum BadblockGame {
 	// IN-DEV GAMES
 	DAYZ("dayZ", "DayZ", "?", createItemStackFactory(Material.SKULL_ITEM).durability((byte)2)),
 	BUILDCONTEST("buildcontest", "BuildContest", "xMalware", createItemStackFactory(Material.SANDSTONE)),
-	GUARDS("guards", "Guards", "xMalware", createItemStackFactory(Material.EMERALD).fakeEnchantment());
+	GUARDS("guards", "Guards", "xMalware", createItemStackFactory(Material.EMERALD).fakeEnchantment()),
+	DOMINATION("domination", "Domination", "Odanorr", createItemStackFactory(Material.BLAZE_ROD).fakeEnchantment());
 
 	public static BadblockGame current;
 
