@@ -5,6 +5,7 @@ import java.util.Random;
 import java.util.function.Function;
 
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 
 /**
@@ -89,6 +90,11 @@ public interface CustomCreature {
 		 */
 		DAMAGE;
 	}
+	
+	public enum TargetType {
+		NEAREST,
+		HURTED_BY;
+	}
 
 	/**
 	 * Ajoute un flag à l'entité
@@ -114,7 +120,17 @@ public interface CustomCreature {
 			addCreatureFlag(flag);
 		}
 	}
+	
+	public void targetAllHurtingCreatures();
+	
+	public void addTargetable(EntityType entityType, TargetType targetType);
 
+	public void removeTargetable(EntityType entityType);
+	
+	public void clearTargetables();
+	
+	public TargetType getTargetType(EntityType entityType);
+	
 	/**
 	 * Récupère l'entité Bukkit
 	 * 
