@@ -1,13 +1,25 @@
 package fr.badblock.gameapi.fakeentities;
 
+import org.bukkit.DyeColor;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Villager;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 
+import fr.badblock.gameapi.GameAPI;
+import fr.badblock.gameapi.configuration.values.MapLocation;
 import fr.badblock.gameapi.packets.out.play.PlayEntityStatus.EntityStatus;
+import fr.badblock.gameapi.packets.watchers.WatcherAgeable;
+import fr.badblock.gameapi.packets.watchers.WatcherCreeper;
 import fr.badblock.gameapi.packets.watchers.WatcherEntity;
+import fr.badblock.gameapi.packets.watchers.WatcherLivingEntity;
+import fr.badblock.gameapi.packets.watchers.WatcherSheep;
+import fr.badblock.gameapi.packets.watchers.WatcherSkeleton;
+import fr.badblock.gameapi.packets.watchers.WatcherVillager;
+import fr.badblock.gameapi.packets.watchers.WatcherZombie;
 import fr.badblock.gameapi.players.BadblockPlayer;
+import fr.badblock.gameapi.utils.entities.CreatureType;
 
 /**
  * Représente une entité qui n'est pas gérée côté serveur. Ne peut être qu'une
@@ -18,6 +30,73 @@ import fr.badblock.gameapi.players.BadblockPlayer;
  * @param <T> Le watcher correspondant au type de l'entité gérée.
  */
 public interface FakeEntity<T extends WatcherEntity> {
+	public static class EntityConfig {
+		public MapLocation  		location		  = new MapLocation();
+		public CreatureType 		creature		  = CreatureType.VILLAGER;
+		
+		public boolean 				isOnFire		  = false;
+		public int					arrowsInBody	  = 0;
+		
+		public Villager.Profession	profession		  = Villager.Profession.LIBRARIAN;
+		public DyeColor				color			  = DyeColor.RED;
+		public boolean				isZombieVillager  = false;
+		public boolean				isCreeperPowered  = false;
+		public boolean				isWitherSkeleton  = false;
+		public boolean			    isBaby			  = false;
+	}
+	
+	public static FakeEntity<?> spawnFakeEntity(EntityConfig config){
+		EntityType ent = config.creature.bukkit();
+		Location   loc = config.location.getHandle();
+		
+		FakeEntity<? extends WatcherLivingEntity> result = null;
+		
+		switch(config.creature){
+			case CREEPER:
+				FakeEntity<WatcherCreeper> creeper = GameAPI.getAPI().spawnFakeLivingEntity(loc, ent, WatcherCreeper.class);
+				creeper.getWatchers().setPowered(config.isCreeperPowered);
+				result = creeper;
+			break;
+			case CHICKEN:
+			case COW:
+			case HORSE:
+			case OCELOT:
+			case RABBIT:
+			case WOLF:
+				FakeEntity<WatcherAgeable> ageable = GameAPI.getAPI().spawnFakeLivingEntity(loc, ent, WatcherAgeable.class);
+				ageable.getWatchers().setBaby(config.isBaby);
+				result = ageable;
+			break;
+			case SHEEP:
+				FakeEntity<WatcherSheep> sheep = GameAPI.getAPI().spawnFakeLivingEntity(loc, ent, WatcherSheep.class);
+				sheep.getWatchers().setColor(config.color).setBaby(config.isBaby);
+				result = sheep;
+			break;
+			case SKELETON:
+				FakeEntity<WatcherSkeleton> skeleton = GameAPI.getAPI().spawnFakeLivingEntity(loc, ent, WatcherSkeleton.class);
+				skeleton.getWatchers().setWither(config.isWitherSkeleton);
+				result = skeleton;
+			break;
+			case VILLAGER:
+				FakeEntity<WatcherVillager> villager = GameAPI.getAPI().spawnFakeLivingEntity(loc, ent, WatcherVillager.class);
+				villager.getWatchers().setProfession(config.profession).setBaby(config.isBaby);
+				result = villager;
+			break;
+			case ZOMBIE:
+				FakeEntity<WatcherZombie> zombie = GameAPI.getAPI().spawnFakeLivingEntity(loc, ent, WatcherZombie.class);
+				zombie.getWatchers().setVillager(config.isZombieVillager).setBaby(config.isBaby);
+				result = zombie;
+			break;
+			default:
+				result = GameAPI.getAPI().spawnFakeLivingEntity(loc, ent, WatcherLivingEntity.class);
+			break;
+		
+		}
+		
+		result.getWatchers().setArrowsInEntity(config.arrowsInBody).setOnFire(config.isOnFire);
+		return result;
+	}
+	
 	/**
 	 * Supprime l'entité si ce n'est pas fait et la supprime du cache (ne pourra
 	 * plus être réutilisée).
