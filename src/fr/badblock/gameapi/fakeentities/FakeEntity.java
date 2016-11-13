@@ -35,6 +35,10 @@ import lombok.NoArgsConstructor;
 public interface FakeEntity<T extends WatcherEntity> {
 	@NoArgsConstructor@AllArgsConstructor
 	public static class EntityConfig implements MapValue<FakeEntity<?>> {
+		public EntityConfig(Location loc){
+			this.location = new MapLocation(loc);
+		}
+		
 		public MapLocation  		location		  = new MapLocation();
 		public CreatureType 		creature		  = CreatureType.VILLAGER;
 		
