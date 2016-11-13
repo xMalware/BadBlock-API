@@ -10,12 +10,8 @@ public class StringUtils {
 		return string.substring(0, 1).toUpperCase() + string.substring(1, string.length());
 	}
 
-	public static <T> String join(Stream<T> toJoin, String joiner) {
-		return join(toJoin.collect(Collectors.toSet()), new String[]{joiner});
-	}
-	
-	public static <T> String join(Collection<T> toJoin, String joiner) {
-		return join(toJoin, new String[]{joiner});
+	public static <T> String join(Stream<T> toJoin, String... joiners) {
+		return join(toJoin.collect(Collectors.toSet()), joiners);
 	}
 	
 	public static <T> String join(Collection<T> toJoin, String... joiners) {
