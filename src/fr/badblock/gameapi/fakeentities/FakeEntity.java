@@ -9,6 +9,7 @@ import org.bukkit.inventory.ItemStack;
 
 import fr.badblock.gameapi.GameAPI;
 import fr.badblock.gameapi.configuration.values.MapLocation;
+import fr.badblock.gameapi.configuration.values.MapValue;
 import fr.badblock.gameapi.packets.out.play.PlayEntityStatus.EntityStatus;
 import fr.badblock.gameapi.packets.watchers.WatcherAgeable;
 import fr.badblock.gameapi.packets.watchers.WatcherCreeper;
@@ -20,6 +21,8 @@ import fr.badblock.gameapi.packets.watchers.WatcherVillager;
 import fr.badblock.gameapi.packets.watchers.WatcherZombie;
 import fr.badblock.gameapi.players.BadblockPlayer;
 import fr.badblock.gameapi.utils.entities.CreatureType;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 /**
  * Représente une entité qui n'est pas gérée côté serveur. Ne peut être qu'une
@@ -30,7 +33,8 @@ import fr.badblock.gameapi.utils.entities.CreatureType;
  * @param <T> Le watcher correspondant au type de l'entité gérée.
  */
 public interface FakeEntity<T extends WatcherEntity> {
-	public static class EntityConfig {
+	@NoArgsConstructor@AllArgsConstructor
+	public static class EntityConfig implements MapValue<FakeEntity<?>> {
 		public MapLocation  		location		  = new MapLocation();
 		public CreatureType 		creature		  = CreatureType.VILLAGER;
 		
@@ -43,6 +47,11 @@ public interface FakeEntity<T extends WatcherEntity> {
 		public boolean				isCreeperPowered  = false;
 		public boolean				isWitherSkeleton  = false;
 		public boolean			    isBaby			  = false;
+		
+		@Override
+		public FakeEntity<?> getHandle() {
+			return spawnFakeEntity(this);
+		}
 	}
 	
 	public static FakeEntity<?> spawnFakeEntity(EntityConfig config){
