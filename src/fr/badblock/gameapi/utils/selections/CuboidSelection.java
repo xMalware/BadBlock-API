@@ -103,4 +103,17 @@ public class CuboidSelection extends AbstractSelection {
 		return loc.getX() >= getMinX() && loc.getX() <= getMaxX() && loc.getY() >= getMinY() && loc.getY() <= getMaxY()
 				&& loc.getZ() >= getMinZ() && loc.getZ() <= getMaxZ();
 	}
+	
+	public CuboidSelection reduce(int reduce){
+		double minX = getMinX() < 0 ? getMinX() + reduce : getMinX() - reduce;
+		double maxX = getMaxX() < 0 ? getMaxX() + reduce : getMaxX() - reduce;
+		
+		double minY = getMinY() < 0 ? getMinY() + reduce : getMinY() - reduce;
+		double maxY = getMaxY() < 0 ? getMaxY() + reduce : getMaxY() - reduce;
+		
+		double minZ = getMinZ() < 0 ? getMinZ() + reduce : getMinZ() - reduce;
+		double maxZ = getMaxZ() < 0 ? getMaxZ() + reduce : getMaxZ() - reduce;
+		
+		return new CuboidSelection(worldName, new Vector3f(minX, minY, minZ), new Vector3f(maxX, maxY, maxZ));
+	}
 }
