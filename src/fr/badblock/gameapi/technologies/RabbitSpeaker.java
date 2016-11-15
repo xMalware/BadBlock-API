@@ -15,4 +15,6 @@ public interface RabbitSpeaker {
 
 	public void sendSyncUTF8Publisher(String queueName, String content, long ttl, boolean debug);
 
+	public void cut();
+	
 }
