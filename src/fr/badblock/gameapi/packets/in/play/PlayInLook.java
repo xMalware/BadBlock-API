@@ -1,6 +1,5 @@
 package fr.badblock.gameapi.packets.in.play;
 
-import fr.badblock.gameapi.packets.BadblockInPacket;
 import fr.badblock.gameapi.packets.BadblockInPackets;
 
 /**
@@ -8,7 +7,7 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
  * 
  * @author LeLanN
  */
-public interface PlayInLook extends BadblockInPacket {
+public interface PlayInLook extends PlayInFlying {
 	/**
 	 * Le nouveau pitch
 	 * 

@@ -1,6 +1,5 @@
 package fr.badblock.gameapi.packets.in.play;
 
-import fr.badblock.gameapi.packets.BadblockInPacket;
 import fr.badblock.gameapi.packets.BadblockInPackets;
 import fr.badblock.gameapi.utils.selections.Vector3f;
 
@@ -9,7 +8,7 @@ import fr.badblock.gameapi.utils.selections.Vector3f;
  * 
  * @author LeLanN
  */
-public interface PlayInPosition extends BadblockInPacket {
+public interface PlayInPosition extends PlayInFlying {
 	/**
 	 * La nouvelle position
 	 * 
