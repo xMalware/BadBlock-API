@@ -14,6 +14,7 @@ import fr.badblock.gameapi.packets.in.play.PlayInCloseWindow;
 import fr.badblock.gameapi.packets.in.play.PlayInCustomPayload;
 import fr.badblock.gameapi.packets.in.play.PlayInEnchantItem;
 import fr.badblock.gameapi.packets.in.play.PlayInEntityAction;
+import fr.badblock.gameapi.packets.in.play.PlayInFlying;
 import fr.badblock.gameapi.packets.in.play.PlayInHeldItemSlot;
 import fr.badblock.gameapi.packets.in.play.PlayInKeepAlive;
 import fr.badblock.gameapi.packets.in.play.PlayInLook;
@@ -40,24 +41,26 @@ public enum BadblockInPackets {
 									PlayInCloseWindow.class), PLAY_CUSTOM_PAYLOAD(
 											PlayInCustomPayload.class), PLAY_ENCHANT_ITEM(
 													PlayInEnchantItem.class), PLAY_ENTITY_ACTION(
-															PlayInEntityAction.class), PLAY_HELD_ITEM_SLOT(
-																	PlayInHeldItemSlot.class), PLAY_KEEPALIVE(
-																			PlayInKeepAlive.class), PLAY_LOOK(
-																					PlayInLook.class), PLAY_POSITION(
-																							PlayInPosition.class), PLAY_POSITION_LOOK(
-																									PlayInPositionLook.class), PLAY_RESOURCEPACK_STATUS(
-																											PlayInResourcePackStatus.class), PLAY_SET_CREATIVE_SLOT(
-																													PlayInSetCreativeSlot.class), PLAY_SETTINGS(
-																															PlayInSettings.class), PLAY_SPECCTATE(
-																																	PlayInSpectate.class), PLAY_STEER_VEHICLE(
-																																			PlayInSteerVehicle.class), PLAY_TAB_COMPLETE(
-																																					PlayInTabComplete.class), PLAY_TRANSACTION(
-																																							PlayInTransaction.class), PLAY_UPDATE_SIGN(
-																																									PlayInUpdateSign.class), PLAY_USE_ENTITY(
-																																											PlayInUseEntity.class), PLAY_WINDOW_CLICK(
-																																													PlayInWindowClick.class), STATUS_PING(
-																																															StatusPing.class), STATUS_REQUEST(
-																																																	StatusRequest.class);
+															PlayInEntityAction.class), PLAY_FLYING(
+																	PlayInFlying.class),
+	PLAY_HELD_ITEM_SLOT(
+			PlayInHeldItemSlot.class), PLAY_KEEPALIVE(
+					PlayInKeepAlive.class), PLAY_LOOK(
+							PlayInLook.class), PLAY_POSITION(
+									PlayInPosition.class), PLAY_POSITION_LOOK(
+											PlayInPositionLook.class), PLAY_RESOURCEPACK_STATUS(
+													PlayInResourcePackStatus.class), PLAY_SET_CREATIVE_SLOT(
+															PlayInSetCreativeSlot.class), PLAY_SETTINGS(
+																	PlayInSettings.class), PLAY_SPECCTATE(
+																			PlayInSpectate.class), PLAY_STEER_VEHICLE(
+																					PlayInSteerVehicle.class), PLAY_TAB_COMPLETE(
+																							PlayInTabComplete.class), PLAY_TRANSACTION(
+																									PlayInTransaction.class), PLAY_UPDATE_SIGN(
+																											PlayInUpdateSign.class), PLAY_USE_ENTITY(
+																													PlayInUseEntity.class), PLAY_WINDOW_CLICK(
+																															PlayInWindowClick.class), STATUS_PING(
+																																	StatusPing.class), STATUS_REQUEST(
+																																			StatusRequest.class);
 
 	private Class<? extends BadblockInPacket> clazz;
 
