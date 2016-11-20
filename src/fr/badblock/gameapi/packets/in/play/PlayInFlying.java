@@ -16,6 +16,12 @@ public interface PlayInFlying extends BadblockInPacket {
 	 * @return La position
 	 */
 	public Vector3f getPosition();
+	
+	public boolean hasPosition();
+	
+	public boolean hasLook();
+	
+	public boolean isOnGround();
 
 	@Override
 	default BadblockInPackets getType() {
