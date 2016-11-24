@@ -1,6 +1,7 @@
 package fr.badblock.gameapi.players;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Predicate;
 
@@ -665,6 +666,8 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	public int getVipLevel();
 	
 	public boolean hasVipLevel(int level, boolean showErrorMessage);
+	
+	public void setLeaves(List<Long> leaves);
 	
 	/**
 	 * A ajouter : - toutes les statistiques BadBlock (achievements, points,
