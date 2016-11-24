@@ -666,8 +666,9 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	public int getVipLevel();
 	
 	public boolean hasVipLevel(int level, boolean showErrorMessage);
-	
+
 	public void setLeaves(List<Long> leaves);
+	public List<Long> getLeaves();
 	
 	/**
 	 * A ajouter : - toutes les statistiques BadBlock (achievements, points,
