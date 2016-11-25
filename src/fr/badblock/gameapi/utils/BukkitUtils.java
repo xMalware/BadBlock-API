@@ -1,5 +1,6 @@
 package fr.badblock.gameapi.utils;
 
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -147,4 +148,17 @@ public class BukkitUtils {
 	public static void temporaryChangeBlock(Block block, Material newType, byte newData, int ticks) {
 
 	}
+	
+	public static void setMaxPlayers(int maxPlayers)
+			throws ReflectiveOperationException {
+		String bukkitversion = Bukkit.getServer().getClass().getPackage()
+				.getName().substring(23);
+		Object playerlist = Class.forName("org.bukkit.craftbukkit." + bukkitversion    + ".CraftServer").getDeclaredMethod("getHandle", null).invoke(Bukkit.getServer(), null);
+		Field maxplayers = playerlist.getClass().getSuperclass()
+				.getDeclaredField("maxPlayers");
+		maxplayers.setAccessible(true);
+
+		maxplayers.set(playerlist, maxPlayers);
+	}
+	
 }
