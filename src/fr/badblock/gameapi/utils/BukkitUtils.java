@@ -1,22 +1,31 @@
 package fr.badblock.gameapi.utils;
 
-import java.lang.reflect.Field;
+import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World.Environment;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.Plugin;
 
+import fr.badblock.gameapi.BadListener;
 import fr.badblock.gameapi.players.BadblockPlayer;
 import fr.badblock.gameapi.players.BadblockPlayer.BadblockMode;
+import fr.badblock.gameapi.utils.reflection.ReflectionUtils;
+import fr.badblock.gameapi.utils.reflection.Reflector;
 
 /**
  * Une série de méthode permettant de simplifier certaines utilisations de l'API
@@ -148,17 +157,98 @@ public class BukkitUtils {
 	public static void temporaryChangeBlock(Block block, Material newType, byte newData, int ticks) {
 
 	}
-	
-	public static void setMaxPlayers(int maxPlayers)
-			throws ReflectiveOperationException {
-		String bukkitversion = Bukkit.getServer().getClass().getPackage()
-				.getName().substring(23);
-		Object playerlist = Class.forName("org.bukkit.craftbukkit." + bukkitversion    + ".CraftServer").getDeclaredMethod("getHandle", null).invoke(Bukkit.getServer(), null);
-		Field maxplayers = playerlist.getClass().getSuperclass()
-				.getDeclaredField("maxPlayers");
-		maxplayers.setAccessible(true);
 
-		maxplayers.set(playerlist, maxPlayers);
+	public static void setMaxPlayers(int maxPlayers) throws Exception {
+		new Reflector(ReflectionUtils.getHandle( Bukkit.getServer() )).setFieldValue("maxPlayers", maxPlayers);
 	}
-	
+
+	/**
+	 * Instancie les listeners (BadListener et Listener) présent dans un package
+	 * @param plugin Le plugin
+	 * @param paths Les packages
+	 * @throws IOException En cas de problème avec la lecture du JAR
+	 */
+	public static void instanciateListenersFrom(Plugin plugin, String... paths) throws IOException {
+		URL url = plugin.getClass().getProtectionDomain().getCodeSource().getLocation();
+
+		ZipInputStream zip = new ZipInputStream(url.openStream());
+		ZipEntry entry = null;
+
+		while((entry = zip.getNextEntry()) != null)
+		{
+			String finded = null;
+			
+			for(String path : paths){
+				if(entry.getName().startsWith( path.replace(".", "/") ))
+				{
+					finded = path;
+					break;
+				}}
+
+			if(finded != null && entry.getName().endsWith(".class"))
+			{
+				try {
+					String[] splitted = entry.getName().split("/");
+					splitted = splitted[splitted.length - 1].split("\\.");
+
+					String className = finded + "." + splitted[0];
+
+					Class<?> clazz = plugin.getClass().getClassLoader().loadClass(className);
+
+					if( inheritBadListener(clazz) )
+					{
+						System.out.println(clazz.getCanonicalName());
+						instanciate(clazz);
+					}
+					else if( inheritNormalListener(clazz) )
+					{
+						Listener listener = (Listener) instanciate(clazz);
+
+						if(listener != null)
+							plugin.getServer().getPluginManager().registerEvents(listener, plugin);
+					}
+				} catch(Exception e){
+					e.printStackTrace();
+				}
+			}
+
+		}
+	}
+
+	private static boolean inheritBadListener(Class<?> clazz){
+		while(clazz != Object.class)
+		{
+			if(clazz == BadListener.class)
+				return true;
+
+			clazz = clazz.getSuperclass();
+		}
+
+		return false;
+	}
+
+	private static boolean inheritNormalListener(Class<?> clazz){
+
+		while(clazz != Object.class)
+		{
+			if(ArrayUtils.contains(clazz.getInterfaces(), Listener.class))
+				return true;
+
+			clazz = clazz.getSuperclass();
+		}
+
+		return false;
+
+	}
+
+	private static Object instanciate(Class<?> clazz) throws Exception {
+		if(clazz.getConstructor() == null)
+		{
+			System.out.println("Warning: can't load " + clazz.getCanonicalName() + " (no empty constructor)");
+			return null;
+		}
+
+		return clazz.getConstructor().newInstance();
+	}
+
 }
