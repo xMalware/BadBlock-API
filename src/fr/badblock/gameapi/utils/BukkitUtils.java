@@ -198,7 +198,6 @@ public class BukkitUtils {
 
 					if( inheritFrom(clazz, BadListener.class) )
 					{
-						System.out.println(clazz.getCanonicalName());
 						instanciate(clazz);
 					}
 					else if( inheritNormalListener(clazz) )
