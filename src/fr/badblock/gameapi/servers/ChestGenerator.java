@@ -1,8 +1,13 @@
 package fr.badblock.gameapi.servers;
 
 import java.io.File;
+import java.util.List;
+import java.util.function.Function;
 
 import org.bukkit.inventory.ItemStack;
+
+import fr.badblock.gameapi.players.BadblockPlayer;
+import lombok.AllArgsConstructor;
 
 /**
  * Permet de générer des coffres aléatoires avec une configuration
@@ -36,7 +41,7 @@ public interface ChestGenerator {
 	 *            Le nombre de lignes
 	 * @return Le contenu de l'inventaire
 	 */
-	public ItemStack[] generateChest(int lines);
+	public ItemStack[] generateChest(BadblockPlayer player, int lines);
 
 	/**
 	 * Vérifie si le générateur à été configuré
@@ -79,4 +84,12 @@ public interface ChestGenerator {
 	 * @param individualChest Si les coffres sont individuels
 	 */
 	public void setIndividualChest(boolean individualChest);
+	
+	public void setAlternateItemsProvider(Function<BadblockPlayer, List<ISProb>> provider);
+	
+	@AllArgsConstructor
+	public static class ISProb {
+		public int prob;
+		public ItemStack stack;
+	}
 }
