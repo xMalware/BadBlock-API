@@ -73,4 +73,10 @@ public interface ChestGenerator {
 	 *            Si le coffre se supprime
 	 */
 	public void setRemoveOnOpen(boolean removeOnOpen);
+	
+	/**
+	 * Définit si les coffres sont individuels (faux coffres)
+	 * @param individualChest Si les coffres sont individuels
+	 */
+	public void setIndividualChest(boolean individualChest);
 }
