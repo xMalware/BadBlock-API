@@ -107,4 +107,8 @@ public interface MapProtector {
 	public boolean modifyItemFrame(BadblockPlayer player, Entity itemFrame);
 
 	public boolean modifyItemFrame(Entity itemframe);
+	
+	public default boolean canBlockExplode(Block b){
+		return true;
+	}
 }
