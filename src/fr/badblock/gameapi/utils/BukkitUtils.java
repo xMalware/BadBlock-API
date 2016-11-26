@@ -22,6 +22,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 
 import fr.badblock.gameapi.BadListener;
+import fr.badblock.gameapi.command.AbstractCommand;
 import fr.badblock.gameapi.players.BadblockPlayer;
 import fr.badblock.gameapi.players.BadblockPlayer.BadblockMode;
 import fr.badblock.gameapi.utils.reflection.ReflectionUtils;
@@ -163,12 +164,12 @@ public class BukkitUtils {
 	}
 
 	/**
-	 * Instancie les listeners (BadListener et Listener) présent dans un package
+	 * Instancie les listeners (BadListener et Listener) et commands (AbstractCommand) présent dans un package
 	 * @param plugin Le plugin
 	 * @param paths Les packages
 	 * @throws IOException En cas de problème avec la lecture du JAR
 	 */
-	public static void instanciateListenersFrom(Plugin plugin, String... paths) throws IOException {
+	public static void instanciateListenersAndCommandsFrom(Plugin plugin, String... paths) throws IOException {
 		URL url = plugin.getClass().getProtectionDomain().getCodeSource().getLocation();
 
 		ZipInputStream zip = new ZipInputStream(url.openStream());
@@ -195,7 +196,7 @@ public class BukkitUtils {
 
 					Class<?> clazz = plugin.getClass().getClassLoader().loadClass(className);
 
-					if( inheritBadListener(clazz) )
+					if( inheritFrom(clazz, BadListener.class) )
 					{
 						System.out.println(clazz.getCanonicalName());
 						instanciate(clazz);
@@ -207,6 +208,10 @@ public class BukkitUtils {
 						if(listener != null)
 							plugin.getServer().getPluginManager().registerEvents(listener, plugin);
 					}
+					else if( inheritFrom(clazz, AbstractCommand.class) )
+					{
+						instanciate(clazz);
+					}
 				} catch(Exception e){
 					e.printStackTrace();
 				}
@@ -215,10 +220,10 @@ public class BukkitUtils {
 		}
 	}
 
-	private static boolean inheritBadListener(Class<?> clazz){
+	private static boolean inheritFrom(Class<?> clazz, Class<?> from){
 		while(clazz != Object.class)
 		{
-			if(clazz == BadListener.class)
+			if(clazz == from)
 				return true;
 
 			clazz = clazz.getSuperclass();
