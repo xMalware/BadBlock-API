@@ -182,17 +182,14 @@ public class BukkitUtils {
 			for(String path : paths){
 				if(entry.getName().startsWith( path.replace(".", "/") ))
 				{
-					finded = path;
+					finded = entry.getName().replace("/", ".");
 					break;
 				}}
 
 			if(finded != null && entry.getName().endsWith(".class"))
 			{
 				try {
-					String[] splitted = entry.getName().split("/");
-					splitted = splitted[splitted.length - 1].split("\\.");
-
-					String className = finded + "." + splitted[0];
+					String className = finded.substring(0, finded.length() - 6);
 
 					Class<?> clazz = plugin.getClass().getClassLoader().loadClass(className);
 
@@ -246,13 +243,11 @@ public class BukkitUtils {
 	}
 
 	private static Object instanciate(Class<?> clazz) throws Exception {
-		if(clazz.getConstructor() == null)
-		{
-			System.out.println("Warning: can't load " + clazz.getCanonicalName() + " (no empty constructor)");
+		try {
+			return clazz.getConstructor().newInstance();
+		} catch(NoSuchMethodException e){
 			return null;
 		}
-
-		return clazz.getConstructor().newInstance();
 	}
 
 }
