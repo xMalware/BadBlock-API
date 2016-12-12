@@ -120,4 +120,10 @@ public interface GameServer {
 	 */
 	public double getPassmarkTps();
 	
+	/**
+	 * Détermine si le serveur est joignable en pleine partie par Docker
+	 * @return
+	 */
+	public boolean isJoinableWhenRunning();
+	
 }
