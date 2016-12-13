@@ -164,4 +164,16 @@ public interface BadblockTeam {
 	 *         correcte)
 	 */
 	public <T extends TeamData> T teamData(Class<T> clazz);
+	
+	/**
+	 * Retourne si l'équipe ne peut plus être jouée (éliminiation..)
+	 * @return
+	 */
+	public boolean isDead();
+	
+	/**
+	 * "Tuer" une équipe
+	 */
+	public void die();
+	
 }
