@@ -126,4 +126,6 @@ public interface GameServer {
 	 */
 	public boolean isJoinableWhenRunning();
 	
+	public void keepAlive();
+	
 }
