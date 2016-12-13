@@ -1,6 +1,7 @@
 package fr.badblock.gameapi.servers;
 
 import java.io.File;
+import java.util.List;
 import java.util.Map;
 
 import fr.badblock.gameapi.players.kits.PlayerKit;
@@ -102,4 +103,7 @@ public interface JoinItems {
 	 * @param event L'event de l'item
 	 */
 	public void registerCustomItem(int slot, ItemStackFactory factory, ItemEvent event);
+	
+	public List<PlayerKit> getKits();
+	
 }
