@@ -669,6 +669,8 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	public boolean canJoinWhileRunning();
 	
+	public void setCanJoinWhileRunning(long time);
+	
 	public void setLeaves(List<Long> leaves);
 	public List<Long> getLeaves();
 	
