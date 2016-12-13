@@ -667,6 +667,8 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	
 	public boolean hasVipLevel(int level, boolean showErrorMessage);
 
+	public boolean canJoinWhileRunning();
+	
 	public void setLeaves(List<Long> leaves);
 	public List<Long> getLeaves();
 	
