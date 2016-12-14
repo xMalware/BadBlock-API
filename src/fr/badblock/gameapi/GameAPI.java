@@ -120,6 +120,8 @@ public abstract class GameAPI extends JavaPlugin {
 	@Getter
 	protected static Gson prettyGson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT)
 			.disableHtmlEscaping().setPrettyPrinting().create();
+	@Getter@Setter
+	protected static boolean isJoinable = true;
 
 	/**
 	 * Récupère le système d'internationalisation (pour éviter de récupérer

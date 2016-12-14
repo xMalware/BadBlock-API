@@ -22,8 +22,4 @@ public abstract class BadblockPlugin extends JavaPlugin {
 
 	public abstract void onEnable(RunType runType);
 	
-	public boolean isJoinable() {
-		return true;
-	}
-	
 }
