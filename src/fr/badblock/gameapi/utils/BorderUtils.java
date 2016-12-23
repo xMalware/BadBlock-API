@@ -1,11 +1,21 @@
 package fr.badblock.gameapi.utils;
 
 import org.bukkit.Bukkit;
+import org.bukkit.World;
 import org.bukkit.WorldBorder;
 
+import lombok.Getter;
+
 public class BorderUtils {
+	@Getter
+	private static final World managedWorld = Bukkit.getWorlds().get(0);
+	
 	public static void setBorder(int size, long time){
-		WorldBorder wb = Bukkit.getWorlds().get(0).getWorldBorder();
+		setBorder(size, time, getManagedWorld());
+	}
+	
+	public static void setBorder(int size, long time, World world){
+		WorldBorder wb = world.getWorldBorder();
 		
 		wb.setCenter(0d, 0d);
 		wb.setWarningTime(3);
@@ -18,8 +28,16 @@ public class BorderUtils {
 		setBorder(size, 0);
 	}
 	
+	public static void setBorder(World world, int size){
+		setBorder(size, 0, world);
+	}
+	
 	public static int getBorderSize(){
-		WorldBorder wb = Bukkit.getWorlds().get(0).getWorldBorder();
+		return getBorderSize(getManagedWorld());
+	}
+	
+	public static int getBorderSize(World world){
+		WorldBorder wb = world.getWorldBorder();
 		
 		return (int) wb.getSize();
 	}
