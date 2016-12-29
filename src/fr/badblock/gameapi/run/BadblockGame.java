@@ -16,13 +16,13 @@ import lombok.Setter;
 public enum BadblockGame {
 
 	// PROD GAMES
-	RUSH("rush", "Rush", "LeLanN", createItemStackFactory(Material.BED)),
+	RUSH("rush", "Rush", "xMalware", createItemStackFactory(Material.BED)),
 	TOWER("tower", "Tower", "LeLanN", createItemStackFactory(Material.NETHER_FENCE)),
-	SURVIVAL_GAMES("survivalgames", "SurvivalGames", "LeLanN", createItemStackFactory(Material.IRON_SWORD)),
+	SURVIVAL_GAMES("survivalgames", "SurvivalGames", "LeLanN & xMalware", createItemStackFactory(Material.IRON_SWORD)),
 	UHCSPEED("uhcSpeed", "UHCSpeed", "LeLanN", createItemStackFactory(Material.GOLDEN_APPLE)), 
 	SPACE_BALLS("spaceBalls", "SpaceBalls", "LeLanN", createItemStackFactory(Material.QUARTZ_ORE)), 
 	PEARLSWAR("pearlsWar", "PearlsWar", "LeLanN", createItemStackFactory(Material.ENDER_PEARL)),
-	CTS("cts", "CaptureTheSheep", "LeLanN", createItemStackFactory(Material.WOOL).durability(DyeColor.GRAY.getWoolData())),
+	CTS("cts", "CaptureTheSheep", "Odanorr", createItemStackFactory(Material.WOOL).durability(DyeColor.GRAY.getWoolData())),
 	PVPBOX("pvpbox", "PvPBox", "xMalware", createItemStackFactory(Material.DIAMOND_CHESTPLATE)),
 	// IN-DEV GAMES
 	DAYZ("dayZ", "DayZ", "?", createItemStackFactory(Material.SKULL_ITEM).durability((byte)2)),
