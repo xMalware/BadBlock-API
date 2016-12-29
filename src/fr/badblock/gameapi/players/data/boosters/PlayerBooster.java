@@ -9,6 +9,7 @@ public class PlayerBooster {
 
 	private long	expire;
 	private boolean enabled;
+	private String  gameName;
 	private Booster booster;
 
 	/**
