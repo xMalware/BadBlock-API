@@ -1,7 +1,6 @@
 package fr.badblock.gameapi.players.data;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.google.gson.JsonObject;
 
@@ -115,16 +114,6 @@ public interface PlayerData {
 	 * @return les boosters du joueur dans une liste
 	 */
 	public List<PlayerBooster> getBoosters();
-
-	/**
-	 * Récupère un booster actif du joueur
-	 * @return le booster (ou null, si aucun n'est activé)
-	 */
-	public default PlayerBooster getActiveBooster(){
-		Optional<PlayerBooster> res = getBoosters().stream().filter(booster -> booster.isEnabled() && !booster.isExpired()).findAny();
-		
-		return res.isPresent() ? res.get() : null;
-	}
 	
 	/**
 	 * Récupère le nom interne du dernier kit utilisé dans un jeu
