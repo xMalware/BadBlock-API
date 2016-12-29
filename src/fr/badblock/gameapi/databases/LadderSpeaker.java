@@ -126,4 +126,7 @@ public interface LadderSpeaker {
 	 *            Les données à update (ne doit pas nécessairement être complet)
 	 */
 	public void updatePlayerData(String player, JsonObject toUpdate);
+	
+	public void broadcast(String... messages);
+	
 }
