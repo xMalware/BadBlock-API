@@ -107,6 +107,8 @@ public interface PlayerData {
 	public int addRankedPoints(int rankedPoints);
 	
 	public int removeRankedPoints(int rankedPoints);
+	
+	public double getMultiplier();
 
 	/**
 	 * Récupère les boosters du joueur
