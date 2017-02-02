@@ -26,7 +26,7 @@ public enum BadblockGame {
 	PVPBOX("pvpbox", "PvPBox", "xMalware", createItemStackFactory(Material.DIAMOND_CHESTPLATE)),
 	FREEBUILD("freebuild", "FreeBuild", "xMalware", createItemStackFactory(Material.BRICK)),
 	// IN-DEV GAMES
-	DAYZ("dayZ", "DayZ", "?", createItemStackFactory(Material.SKULL_ITEM).durability((byte)2)),
+	DAYZ("dayZ", "DayZ", "LeLanN", createItemStackFactory(Material.SKULL_ITEM).durability((byte)2)),
 	BUILDCONTEST("buildcontest", "BuildContest", "xMalware", createItemStackFactory(Material.SANDSTONE)),
 	GUARDS("guards", "Guards", "xMalware", createItemStackFactory(Material.EMERALD).fakeEnchantment()),
 	DOMINATION("domination", "Domination", "Odanorr", createItemStackFactory(Material.BLAZE_ROD).fakeEnchantment());
