@@ -24,6 +24,7 @@ public enum BadblockGame {
 	PEARLSWAR("pearlsWar", "PearlsWar", "LeLanN", createItemStackFactory(Material.ENDER_PEARL)),
 	CTS("cts", "CaptureTheSheep", "Odanorr", createItemStackFactory(Material.WOOL).durability(DyeColor.GRAY.getWoolData())),
 	PVPBOX("pvpbox", "PvPBox", "xMalware", createItemStackFactory(Material.DIAMOND_CHESTPLATE)),
+	FREEBUILD("freebuild", "FreeBuild", "xMalware", createItemStackFactory(Material.BRICK)),
 	// IN-DEV GAMES
 	DAYZ("dayZ", "DayZ", "?", createItemStackFactory(Material.SKULL_ITEM).durability((byte)2)),
 	BUILDCONTEST("buildcontest", "BuildContest", "xMalware", createItemStackFactory(Material.SANDSTONE)),
