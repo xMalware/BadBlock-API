@@ -655,7 +655,13 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	
 	public void setVisible(boolean visible, Predicate<BadblockPlayer> applicable);
 	
+	/**
+	 * @deprecated
+	 */
 	public boolean isVisible();
+
+	public Predicate<BadblockPlayer> getVisiblePredicate();
+	public Predicate<BadblockPlayer> getInvisiblePredicate();
 	
 	/**
 	 * Si les data sont fetch
