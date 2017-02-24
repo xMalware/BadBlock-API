@@ -123,6 +123,8 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 */
 	public void feed();
 
+	public Object getHandle();
+	
 	/**
 	 * Récupère les groupes secondaires du joueur (par exemple emeraude et
 	 * modo). Peut être vide.
