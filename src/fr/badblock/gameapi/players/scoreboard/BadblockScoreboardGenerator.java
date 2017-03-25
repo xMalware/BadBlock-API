@@ -26,7 +26,7 @@ public abstract class BadblockScoreboardGenerator {
 	public void doBadblockFooter(CustomObjective objective) {
 		objective.changeLine(1, "&bplay.badblock.fr / " + GameAPI.getServerName());
 		this.objective = objective;
-		bukkitTask = Bukkit.getScheduler().runTaskTimer(GameAPI.getAPI(), this::doBadblockFooter0, 0, 2L);
+		bukkitTask = Bukkit.getScheduler().runTaskTimer(GameAPI.getAPI(), this::doBadblockFooter0, 0, 1L);
 	}
 
 	private void doBadblockFooter0() {
