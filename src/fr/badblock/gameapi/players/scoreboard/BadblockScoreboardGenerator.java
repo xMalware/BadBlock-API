@@ -35,7 +35,7 @@ public abstract class BadblockScoreboardGenerator {
 			return;
 		}
 
-		String base = "badblock.fr";
+		String base = "badblock.fr / " + GameAPI.getServerName();
 
 		if (current < 0) {
 			objective.changeLine(1, "&b" + base);
