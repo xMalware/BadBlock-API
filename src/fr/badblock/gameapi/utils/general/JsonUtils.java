@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Type;
 
 import com.google.common.base.Charsets;
 import com.google.gson.JsonArray;
@@ -41,6 +42,24 @@ public class JsonUtils {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				JsonUtils.save(file, t, true);
+			}
+			return t;
+		} catch (JsonSyntaxException | JsonIOException | UnsupportedEncodingException e) {
+			e.printStackTrace();
+			return null;
+		} catch (FileNotFoundException unused) {
+			return null;
+		}
+	}
+	
+	public static <T> T load(File file, Type type, T def) {
+		try {
+			if (!file.exists())
+				save(file, "{}");
+			T t = GameAPI.getGson().fromJson(getInputStream(file), type);
+			if (t == null) {
+				t = def;
 				JsonUtils.save(file, t, true);
 			}
 			return t;
