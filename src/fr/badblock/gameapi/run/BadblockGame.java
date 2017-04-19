@@ -25,9 +25,10 @@ public enum BadblockGame {
 	CTS("cts", "CaptureTheSheep", "Odanorr", createItemStackFactory(Material.WOOL).durability(DyeColor.GRAY.getWoolData())),
 	PVPBOX("pvpbox", "PvPBox", "xMalware", createItemStackFactory(Material.DIAMOND_CHESTPLATE)),
 	FREEBUILD("freebuild", "FreeBuild", "xMalware", createItemStackFactory(Material.BRICK)),
+	BUILDCONTEST("buildcontest", "BuildContest", "archimede67 & Frekzz", createItemStackFactory(Material.SANDSTONE).fakeEnchantment()),
 	// IN-DEV GAMES
 	DAYZ("dayZ", "DayZ", "LeLanN", createItemStackFactory(Material.SKULL_ITEM).durability((byte)2)),
-	BUILDCONTEST("buildcontest", "BuildContest", "archimede67 & Frekzz", createItemStackFactory(Material.SANDSTONE)),
+	SHOOTFLAG("shootflag", "ShootFlag", "xMalware", createItemStackFactory(Material.BLAZE_ROD).fakeEnchantment()),
 	GUARDS("guards", "Guards", "xMalware", createItemStackFactory(Material.EMERALD).fakeEnchantment()),
 	DOMINATION("domination", "Domination", "Odanorr", createItemStackFactory(Material.BLAZE_ROD).fakeEnchantment());
 
