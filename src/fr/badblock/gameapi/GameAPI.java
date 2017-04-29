@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
@@ -742,5 +743,7 @@ public abstract class GameAPI extends JavaPlugin {
 	
 	public abstract void balancePlayers(BadblockPlayer leader, List<UUID> slaves);
 	
-	public abstract ItemStack generateQrCode(String content);
+	public abstract ItemStack generateQrCode(World world, String content);
+	
+	public abstract ItemStack generateGoogleAuthQrCode(BadblockPlayer player, String googleAuthKey, String image);
 }
