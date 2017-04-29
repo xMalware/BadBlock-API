@@ -742,4 +742,5 @@ public abstract class GameAPI extends JavaPlugin {
 	
 	public abstract void balancePlayers(BadblockPlayer leader, List<UUID> slaves);
 	
+	public abstract ItemStack generateQrCode(String content);
 }
