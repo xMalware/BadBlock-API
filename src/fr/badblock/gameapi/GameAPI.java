@@ -123,6 +123,8 @@ public abstract class GameAPI extends JavaPlugin {
 			.disableHtmlEscaping().setPrettyPrinting().create();
 	@Getter@Setter
 	protected static boolean isJoinable = true;
+	@Getter@Setter
+	private boolean finished;
 
 	/**
 	 * R�cup�re le syst�me d'internationalisation (pour �viter de r�cup�rer
