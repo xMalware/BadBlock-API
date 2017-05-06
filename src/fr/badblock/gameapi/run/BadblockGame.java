@@ -5,8 +5,6 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import fr.badblock.gameapi.GameAPI;
-import fr.badblock.gameapi.players.BadblockPlayer;
-import fr.badblock.gameapi.utils.i18n.Locale;
 import fr.badblock.gameapi.utils.itemstack.ItemStackFactory;
 import lombok.Getter;
 import lombok.Setter;
@@ -51,12 +49,8 @@ public enum BadblockGame {
 		this.itemStackFactory = itemStackFactory;
 	}
 
-	public ItemStack createItemStack(BadblockPlayer player) {
-		return createItemStack(player.getPlayerData().getLocale());
-	}
-
-	public ItemStack createItemStack(Locale locale) {
-		return itemStackFactory.clone().doWithI18n(locale).create(1);
+	public ItemStack createItemStack() {
+		return itemStackFactory.clone().create(1);
 	}
 
 	public void use() {
