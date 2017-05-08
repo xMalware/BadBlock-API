@@ -49,6 +49,15 @@ public interface ItemStackFactory {
 	 * @return L'item créé
 	 */
 	public ItemStack asSkull(int amount, String owner);
+	
+	/**
+	 * Crée l'ItemStack en lui ajoutant une couleur d'armure type() et durability() automatique.
+	 * 
+	 * @param amount Le nombre d'item à créer
+	 * @param owner L'url du skin
+	 * @return L'item créé
+	 */
+	public ItemStack asCustomSkull(int amount, String url);
 
 	/**
 	 * Crée l'ItemStack en lui ajoutant une couleur de laine. type() et

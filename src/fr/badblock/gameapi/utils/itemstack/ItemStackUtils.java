@@ -3,7 +3,9 @@ package fr.badblock.gameapi.utils.itemstack;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
+import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -20,6 +22,29 @@ import net.md_5.bungee.api.ChatColor;
  * @author LeLanN
  */
 public class ItemStackUtils {
+	private static Random random = new Random();
+	private static Color[] fireWork = new Color[]
+			{
+				Color.AQUA,
+				Color.BLACK,
+				Color.BLUE,
+				Color.FUCHSIA,
+				Color.GRAY,
+				Color.GREEN,
+				Color.LIME,
+				Color.MAROON,
+				Color.NAVY,
+				Color.OLIVE,
+				Color.ORANGE,
+				Color.PURPLE,
+				Color.RED,
+				Color.SILVER,
+				Color.TEAL,
+				Color.WHITE,
+				Color.YELLOW,
+			};
+	
+	
 	/**
 	 * Compare plusieurs items et vérifie si ils sont exactement pareils
 	 * (type/data/enchantements/lore/displayname).<br>
@@ -250,6 +275,11 @@ public class ItemStackUtils {
 		}
 		
 		return intId;
+	}
+	
+	public static Color getRandomFireworkColor()
+	{
+		return fireWork[random.nextInt(fireWork.length)];
 	}
 	
 	public static void removeInHand(BadblockPlayer player, int count){
