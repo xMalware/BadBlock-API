@@ -1,5 +1,7 @@
 package fr.badblock.gameapi.players.scoreboard;
 
+import java.util.List;
+
 import org.bukkit.scoreboard.Scoreboard;
 
 import com.google.gson.JsonArray;
@@ -32,11 +34,17 @@ public interface BadblockScoreboard {
 	/**
 	 * Commence un vote à partir d'une liste de valeur
 	 * 
-	 * @param maps
-	 *            Un array JSON avec toutes les maps sous forme de VoteElement.
+	 * @param maps Un array JSON avec toutes les maps sous forme de VoteElement.
 	 */
 	public void beginVote(JsonArray maps);
 
+	/**
+	 * Commence un vote à partir d'une liste de valeur
+	 * 
+	 * @param maps Une liste avec toutes les maps sous forme de VoteElement.
+	 */
+	public void beginVote(List<VoteElement> maps);
+	
 	/**
 	 * Si la méthode est appelée, l'API va register un objectif (scoreboard)
 	 * pour gérer l'affichage de la vie sous les pseudos joueurs.
