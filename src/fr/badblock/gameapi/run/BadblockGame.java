@@ -5,8 +5,6 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import fr.badblock.gameapi.GameAPI;
-import fr.badblock.gameapi.players.BadblockPlayer;
-import fr.badblock.gameapi.utils.i18n.Locale;
 import fr.badblock.gameapi.utils.itemstack.ItemStackFactory;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,11 +23,13 @@ public enum BadblockGame {
 	CTS("cts", "CaptureTheSheep", "Odanorr", createItemStackFactory(Material.WOOL).durability(DyeColor.GRAY.getWoolData())),
 	PVPBOX("pvpbox", "PvPBox", "xMalware", createItemStackFactory(Material.DIAMOND_CHESTPLATE)),
 	FREEBUILD("freebuild", "FreeBuild", "xMalware", createItemStackFactory(Material.BRICK)),
+	BUILDCONTEST("buildcontest", "BuildContest", "archimede67 & Frekzz", createItemStackFactory(Material.SANDSTONE).fakeEnchantment()),
 	// IN-DEV GAMES
-	DAYZ("dayZ", "DayZ", "LeLanN", createItemStackFactory(Material.SKULL_ITEM).durability((byte)2)),
-	BUILDCONTEST("buildcontest", "BuildContest", "archimede67 & Frekzz", createItemStackFactory(Material.SANDSTONE)),
+	DAYZ("dayZ", "DayZ", "LeLanN", createItemStackFactory(Material.SKULL_ITEM).durability((byte)2)), // C'est pas encore fini?!
+	SHOOTFLAG("shootflag", "ShootFlag", "xMalware", createItemStackFactory(Material.BLAZE_ROD).fakeEnchantment()),
 	GUARDS("guards", "Guards", "xMalware", createItemStackFactory(Material.EMERALD).fakeEnchantment()),
-	DOMINATION("domination", "Domination", "Odanorr", createItemStackFactory(Material.BLAZE_ROD).fakeEnchantment());
+	DOMINATION("domination", "Domination", "Odanorr", createItemStackFactory(Material.BLAZE_ROD).fakeEnchantment()),
+	POINTOUT("pointout", "PointOut", "RedSpri", createItemStackFactory(Material.POTION).fakeEnchantment());
 
 	public static BadblockGame current;
 
@@ -49,12 +49,8 @@ public enum BadblockGame {
 		this.itemStackFactory = itemStackFactory;
 	}
 
-	public ItemStack createItemStack(BadblockPlayer player) {
-		return createItemStack(player.getPlayerData().getLocale());
-	}
-
-	public ItemStack createItemStack(Locale locale) {
-		return itemStackFactory.clone().doWithI18n(locale).create(1);
+	public ItemStack createItemStack() {
+		return itemStackFactory.clone().create(1);
 	}
 
 	public void use() {
