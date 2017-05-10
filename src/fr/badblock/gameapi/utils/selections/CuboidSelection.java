@@ -8,11 +8,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 
 import lombok.Getter;
 
 /**
- * Représente une séléction en forme de cube, définie par deux vecteurs et un
+ * Reprï¿½sente une sï¿½lï¿½ction en forme de cube, dï¿½finie par deux vecteurs et un
  * monde
  * 
  * @author LeLanN
@@ -28,7 +29,7 @@ public class CuboidSelection extends AbstractSelection {
 	}
 
 	/**
-	 * Crée une nouvelle séléction à partir du nom du monde et deux de points
+	 * Crï¿½e une nouvelle sï¿½lï¿½ction ï¿½ partir du nom du monde et deux de points
 	 * 
 	 * @param worldName
 	 *            Le monde
@@ -105,15 +106,42 @@ public class CuboidSelection extends AbstractSelection {
 	}
 	
 	public CuboidSelection reduce(int reduce){
-		double minX = getMinX() < 0 ? getMinX() + reduce : getMinX() - reduce;
-		double maxX = getMaxX() < 0 ? getMaxX() + reduce : getMaxX() - reduce;
-		
-		double minY = getMinY() < 0 ? getMinY() + reduce : getMinY() - reduce;
-		double maxY = getMaxY() < 0 ? getMaxY() + reduce : getMaxY() - reduce;
-		
-		double minZ = getMinZ() < 0 ? getMinZ() + reduce : getMinZ() - reduce;
-		double maxZ = getMaxZ() < 0 ? getMaxZ() + reduce : getMaxZ() - reduce;
-		
-		return new CuboidSelection(worldName, new Vector3f(minX, minY, minZ), new Vector3f(maxX, maxY, maxZ));
+		return augment(reduce, reduce, reduce, -reduce, -reduce, -reduce);
+	}
+	
+	public CuboidSelection move(int val)
+	{
+		return augment(val, val, val, val, val, val);
+	}
+	
+	public CuboidSelection augment(int val)
+	{
+		return augment(-val, -val, -val, val, val, val);
+	}
+	
+	public CuboidSelection augment(int dx1, int dy1, int dz1, int dx2, int dy2, int dz2)
+	{
+		return new CuboidSelection(worldName, new Vector3f(getMinX() + dx1, getMinY() + dy1, getMinZ() + dz1), new Vector3f(getMaxX() + dx2, getMaxY() + dy2, getMaxZ() + dz2));
+	}
+	
+	public CuboidSelection augment(int val, BlockFace face)
+	{
+		switch(face)
+		{
+			case DOWN:
+				return augment(0, -val, 0, 0, 0, 0);
+			case EAST:
+				return augment(-val, 0, 0, 0, 0, 0);
+			case NORTH:
+				return augment(0, 0, -val, 0, 0, 0);
+			case SOUTH:
+				return augment(0, 0, 0, 0, 0, val);
+			case UP:
+				return augment(0, 0, 0, 0, val, 0);
+			case WEST:
+				return augment(0, 0, 0, val, 0, 0);
+			default:
+				return this;
+		}
 	}
 }
