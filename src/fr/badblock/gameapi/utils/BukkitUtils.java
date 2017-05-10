@@ -22,6 +22,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 
 import fr.badblock.gameapi.BadListener;
+import fr.badblock.gameapi.GameAPI;
 import fr.badblock.gameapi.command.AbstractCommand;
 import fr.badblock.gameapi.players.BadblockPlayer;
 import fr.badblock.gameapi.players.BadblockPlayer.BadblockMode;
@@ -80,10 +81,8 @@ public class BukkitUtils {
 	 * 
 	 * @return Les joueurs
 	 */
-	public static Set<BadblockPlayer> getAllPlayers() {
-		return Bukkit.getOnlinePlayers().stream().map(player -> {
-			return (BadblockPlayer) player;
-		}).collect(Collectors.toSet());
+	public static List<BadblockPlayer> getAllPlayers() {
+		return GameAPI.getAPI().getOnlinePlayers();
 	}
 
 
