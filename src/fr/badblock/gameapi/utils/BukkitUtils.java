@@ -42,11 +42,7 @@ public class BukkitUtils {
 	 *            L'action
 	 */
 	public static void forEachPlayers(Consumer<BadblockPlayer> action) {
-		for (Player p : Bukkit.getOnlinePlayers()) {
-			BadblockPlayer player = (BadblockPlayer) p;
-
-			action.accept(player);
-		}
+		getAllPlayers().forEach(player -> action.accept(player));
 	}
 
 	/**
@@ -76,6 +72,17 @@ public class BukkitUtils {
 			return (BadblockPlayer) player;
 		}).filter(player -> {
 			return player.getBadblockMode() != BadblockMode.SPECTATOR;
+		}).collect(Collectors.toSet());
+	}
+	
+	/**
+	 * Récupère tous les joueurs connectés sur le serveur en tant que BadblockPlayer
+	 * 
+	 * @return Les joueurs
+	 */
+	public static Set<BadblockPlayer> getAllPlayers() {
+		return Bukkit.getOnlinePlayers().stream().map(player -> {
+			return (BadblockPlayer) player;
 		}).collect(Collectors.toSet());
 	}
 
