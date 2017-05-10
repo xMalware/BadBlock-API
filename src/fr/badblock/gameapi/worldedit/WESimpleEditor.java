@@ -12,6 +12,8 @@ public interface WESimpleEditor {
 	public void replaceBlockAt(int x, int y, int z);
 	
 	public void setBlockAt(int x, int y, int z);
+	
+	public boolean hasSameData(int x, int y, int z);
 
 	public void finalizeWorkOnChunk();
 }
