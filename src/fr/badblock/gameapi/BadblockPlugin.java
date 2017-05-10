@@ -11,6 +11,7 @@ import fr.badblock.gameapi.run.RunType;
  * @author LeLanN
  */
 public abstract class BadblockPlugin extends JavaPlugin {
+	
 	public GameAPI getAPI() {
 		return GameAPI.getAPI();
 	}
