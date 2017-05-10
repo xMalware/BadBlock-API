@@ -18,7 +18,6 @@ import fr.badblock.gameapi.players.BadblockPlayer;
 import fr.badblock.gameapi.players.BadblockPlayer.BadblockMode;
 import fr.badblock.gameapi.players.BadblockPlayer.GamePermission;
 import fr.badblock.gameapi.run.RunType;
-import fr.badblock.gameapi.utils.BukkitUtils;
 import fr.badblock.gameapi.utils.i18n.TranslatableString;
 import fr.badblock.gameapi.utils.i18n.messages.CommandMessages;
 import fr.badblock.gameapi.utils.reflection.Reflector;
@@ -27,7 +26,7 @@ import net.md_5.bungee.api.ChatColor;
 
 /**
  * Classe abstraite permettantt de simplifier l'utilisation des commandes. Par
- * exemple, elles ne devront pas être situées dans le plugin.yml
+ * exemple, elles ne devront pas ï¿½tre situï¿½es dans le plugin.yml
  * 
  * @author LeLanN
  */
@@ -46,58 +45,58 @@ public abstract class AbstractCommand implements TabExecutor {
 	private boolean allowConsole = true;
 
 	/**
-	 * Crée une nouvelle commande
+	 * Crï¿½e une nouvelle commande
 	 * 
 	 * @param command Le nom de la commande
-	 * @param usage Le message d'erreur si la commande est mal utilisée
-	 * @param permission La permission nécessaire
-	 * @param aliases Les aliases éventuels de la commande
+	 * @param usage Le message d'erreur si la commande est mal utilisï¿½e
+	 * @param permission La permission nï¿½cessaire
+	 * @param aliases Les aliases ï¿½ventuels de la commande
 	 */
 	public AbstractCommand(String command, TranslatableString usage, GamePermission perm, String... aliases) {
 		this(command, usage, perm.getPermission(), aliases);
 	}
 	
 	/**
-	 * Crée une nouvelle commande
+	 * Crï¿½e une nouvelle commande
 	 * 
 	 * @param command Le nom de la commande
-	 * @param usage Le message d'erreur si la commande est mal utilisée
-	 * @param permission La permission nécessaire
-	 * @param aliases Les aliases éventuels de la commande
+	 * @param usage Le message d'erreur si la commande est mal utilisï¿½e
+	 * @param permission La permission nï¿½cessaire
+	 * @param aliases Les aliases ï¿½ventuels de la commande
 	 */
 	public AbstractCommand(String command, TranslatableString usage, String perm, String... aliases) {
 		this(command, usage, perm, perm, perm, aliases);
 	}
 	
 	/**
-	 * Crée une nouvelle commande
+	 * Crï¿½e une nouvelle commande
 	 * 
 	 * @param command
 	 *            Le nom de la commande
 	 * @param usage
-	 *            Le message d'erreur si la commande est mal utilisée
-	 * @param lobbyPermission La permission nécessaire au lobby
-	 * @param miniGameSpectatorPermission La permission nécessaire en jeu (spectateur)
-	 * @param miniGamePermission La permisison nécessaire en jeu (joueur)
+	 *            Le message d'erreur si la commande est mal utilisï¿½e
+	 * @param lobbyPermission La permission nï¿½cessaire au lobby
+	 * @param miniGameSpectatorPermission La permission nï¿½cessaire en jeu (spectateur)
+	 * @param miniGamePermission La permisison nï¿½cessaire en jeu (joueur)
 	 * @param aliases
-	 *            Les aliases éventuels de la commande
+	 *            Les aliases ï¿½ventuels de la commande
 	 */
 	public AbstractCommand(String command, TranslatableString usage, GamePermission lobbyPermission, GamePermission miniGameSpectatorPermission, GamePermission miniGamePermission, String... aliases) {
 		this(command, usage, lobbyPermission.getPermission(), miniGameSpectatorPermission.getPermission(), miniGamePermission.getPermission(), aliases);
 	}
 
 	/**
-	 * Crée une nouvelle commande
+	 * Crï¿½e une nouvelle commande
 	 * 
 	 * @param command
 	 *            Le nom de la commande
 	 * @param usage
-	 *            Le message d'erreur si la commande est mal utilisée
-	 * @param lobbyPermission La permission nécessaire au lobby
-	 * @param miniGameSpectatorPermission La permission nécessaire en jeu (spectateur)
-	 * @param miniGamePermission La permisison nécessaire en jeu (joueur)
+	 *            Le message d'erreur si la commande est mal utilisï¿½e
+	 * @param lobbyPermission La permission nï¿½cessaire au lobby
+	 * @param miniGameSpectatorPermission La permission nï¿½cessaire en jeu (spectateur)
+	 * @param miniGamePermission La permisison nï¿½cessaire en jeu (joueur)
 	 * @param aliases
-	 *            Les aliases éventuels de la commande
+	 *            Les aliases ï¿½ventuels de la commande
 	 */
 	public AbstractCommand(String command, TranslatableString usage, String lobbyPermission, String miniGameSpectatorPermission, String miniGamePermission, String... aliases) {
 		this.command = command;
@@ -116,7 +115,7 @@ public abstract class AbstractCommand implements TabExecutor {
 	}
 
 	/**
-	 * Permet de dire si la console peut utiliser la commande. Par défaut à
+	 * Permet de dire si la console peut utiliser la commande. Par dï¿½faut ï¿½
 	 * false.
 	 * 
 	 * @param console
@@ -127,13 +126,13 @@ public abstract class AbstractCommand implements TabExecutor {
 	}
 
 	/**
-	 * Permet d'exécuter la commande
+	 * Permet d'exï¿½cuter la commande
 	 * 
 	 * @param sender
 	 *            Le sender
 	 * @param args
 	 *            Les arguments
-	 * @return Si la commande est bien utilisée
+	 * @return Si la commande est bien utilisï¿½e
 	 */
 	public abstract boolean executeCommand(CommandSender sender, String[] args);
 
@@ -145,7 +144,7 @@ public abstract class AbstractCommand implements TabExecutor {
 			if (!executeCommand(sender, args) && usage != null) {
 				sendUsage(sender);
 			}
-		}else CommandMessages.noPermission().send(sender);
+		} else CommandMessages.noPermission().send(sender);
 		return true;
 	}
 	
@@ -178,7 +177,7 @@ public abstract class AbstractCommand implements TabExecutor {
 	}
 
 	/**
-	 * Retourne une liste d'arguments qui seront triés ensuite
+	 * Retourne une liste d'arguments qui seront triï¿½s ensuite
 	 * @param sender Le sender
 	 * @param args Les arguments
 	 * @return La liste
@@ -195,20 +194,18 @@ public abstract class AbstractCommand implements TabExecutor {
 	public final List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
 		if (!allowConsole && !(sender instanceof Player))
 			sender.sendMessage(ChatColor.RED + "This command is only for players.");
-		else if ((GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGameSpectatorPermission != null && 
-				!miniGameSpectatorPermission.isEmpty() && sender.hasPermission(miniGameSpectatorPermission) && 
-				(((sender instanceof Player) && BukkitUtils.getPlayer(sender.getName()) != null && 
-				BukkitUtils.getPlayer(sender.getName()).getBadblockMode().equals(BadblockMode.SPECTATOR)))) || (!(sender instanceof Player)) ||
-				(GameAPI.getAPI().getRunType().equals(RunType.GAME) && miniGamePermission != null && !miniGamePermission.isEmpty() && 
-				sender.hasPermission(miniGamePermission)) ||
-				(GameAPI.getAPI().getRunType().equals(RunType.LOBBY) && lobbyPermission != null && !lobbyPermission.isEmpty() && sender.hasPermission(lobbyPermission))) {
+		else if (hasPermission(sender)) {
 			args = changeArgs(sender, args);
 			String searched = (args.length == 0 ? "" : args[args.length - 1]).toLowerCase();
 
-			return doTab(sender, args).stream().filter(arg -> {
-				return searched.isEmpty() || arg.regionMatches(true, 0, searched, 0, searched.length());
-			}).limit(MAX_TAB_RETURN).collect(Collectors.toList());
-		}else CommandMessages.noPermission().send(sender);
+			Collection<String> result = doTab(sender, args);
+			
+			if(result != null)
+				return doTab(sender, args).stream().filter(arg ->
+				  searched.isEmpty() || arg.regionMatches(true, 0, searched, 0, searched.length())
+			).limit(MAX_TAB_RETURN).collect(Collectors.toList());
+		}
+		
 		return new ArrayList<>();
 	}
 
