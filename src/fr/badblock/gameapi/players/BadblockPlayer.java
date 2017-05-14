@@ -680,12 +680,10 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	public void setOnlyJoinWhileWaiting(long time);
 	
 	public void setLeaves(List<Long> leaves);
+	
 	public List<Long> getLeaves();
 	
-	/**
-	 * A ajouter : - toutes les statistiques BadBlock (achievements, points,
-	 * ...) - Le scoreboard BadBlock - Des méthodes en plus pour la gestion du
-	 * joueur (voir, en gros, BPlayer.class et EpicPlayer.class) - sendPacket,
-	 * sendMessage/ActionBar/Title/... - ?
-	 */
+	public void setPlayerSkin(String skinUrl);
+	
+	public void setPlayerSkin(String skinUrl, String capeUrl);
 }
