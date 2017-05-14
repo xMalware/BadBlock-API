@@ -686,4 +686,6 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	public void setPlayerSkin(String skinUrl);
 	
 	public void setPlayerSkin(String skinUrl, String capeUrl);
+
+	public void setTextureProperty(String value, String signature);
 }
