@@ -25,11 +25,12 @@ public enum BadblockGame {
 	FREEBUILD("freebuild", "FreeBuild", "xMalware", createItemStackFactory(Material.BRICK)),
 	BUILDCONTEST("buildcontest", "BuildContest", "archimede67 & Frekzz", createItemStackFactory(Material.SANDSTONE).fakeEnchantment()),
 	// IN-DEV GAMES
-	DAYZ("dayZ", "DayZ", "LeLanN", createItemStackFactory(Material.SKULL_ITEM).durability((byte)2)), // C'est pas encore fini?!
+	DAYZ("dayZ", "DayZ", "LeLanN", createItemStackFactory(Material.SKULL_ITEM).durability((byte)2)),
 	SHOOTFLAG("shootflag", "ShootFlag", "xMalware", createItemStackFactory(Material.BLAZE_ROD).fakeEnchantment()),
 	GUARDS("guards", "Guards", "xMalware", createItemStackFactory(Material.EMERALD).fakeEnchantment()),
 	DOMINATION("domination", "Domination", "Odanorr", createItemStackFactory(Material.BLAZE_ROD).fakeEnchantment()),
-	POINTOUT("pointout", "PointOut", "RedSpri", createItemStackFactory(Material.POTION).fakeEnchantment());
+	POINTOUT("pointout", "PointOut", "RedSpri", createItemStackFactory(Material.AIR).fakeEnchantment()),
+	POTIONGAME("potiongame", "PotionGame", "Frekzz", createItemStackFactory(Material.POTION).fakeEnchantment());
 
 	public static BadblockGame current;
 
