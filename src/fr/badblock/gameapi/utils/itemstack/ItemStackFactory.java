@@ -71,6 +71,15 @@ public interface ItemStackFactory {
 	 */
 	public ItemStack asWool(int amount, DyeColor color);
 
+	
+	public ItemStackFactory setAsLeatherArmor(Color color);
+	
+	public ItemStackFactory setAsCustomSkull(String url);
+	
+	public ItemStackFactory setAsSkull(String user);
+	
+	public ItemStackFactory setAsWool(DyeColor color);
+	
 	/**
 	 * Retourne une nouvelle factory avec les mêmes paramètres
 	 * 
