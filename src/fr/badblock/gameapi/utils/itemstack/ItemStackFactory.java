@@ -187,4 +187,7 @@ public interface ItemStackFactory {
 	 */
 	public ItemStackFactory fakeEnchantment();
 	
+	public ItemStack updateItemStack(int amount, ItemStack itemStack);
+	
+	public ItemStack updateItemExtra(int amount, ItemStackExtra itemStackExtra);
 }
