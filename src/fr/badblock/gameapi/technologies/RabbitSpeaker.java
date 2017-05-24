@@ -17,4 +17,6 @@ public interface RabbitSpeaker {
 
 	public void cut();
 	
+	public RabbitAPIListener listen(String queue, RabbitListenerType type, long ttl, boolean debug);
+	
 }
