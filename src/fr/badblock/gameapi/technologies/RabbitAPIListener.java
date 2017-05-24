@@ -7,7 +7,6 @@ import lombok.Getter;
 
 	private String 			   queue;
 	private RabbitListenerType type;
-	private long			   ttl;
 	private boolean			   debug;
 	
 	public abstract void onPacketReceiving(String body);
