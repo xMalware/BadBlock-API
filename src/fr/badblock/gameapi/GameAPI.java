@@ -295,6 +295,11 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract void enableAntiSpawnKill();
 
 	/**
+	 * Active l'anti-spambow
+	 */
+	public abstract void enableAntiBowSpam(long milliseconds);
+
+	/**
 	 * Active le formattage du chat par l'API
 	 * 
 	 * @param format
