@@ -19,6 +19,14 @@ public abstract class GlobalPacketListener {
 	 * @param packet
 	 *            La classe
 	 */
-	public abstract void listen(BadblockPlayer player, Object packet);
+	public abstract void listen(BadblockPlayer player, BadblockInPacket packet);
+	
+	/**
+	 * Appel la classe avant le packet reçu
+	 * 
+	 * @param packet
+	 *            La classe
+	 */
+	public abstract void listen(BadblockPlayer player, BadblockOutPacket packet);
 
 }
