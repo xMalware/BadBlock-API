@@ -3,7 +3,6 @@ package fr.badblock.gameapi.packets.out.play;
 import org.bukkit.inventory.ItemStack;
 
 import fr.badblock.gameapi.packets.BadblockOutPacket;
-import fr.badblock.gameapi.packets.EnumItemSlot;
 
 public interface PlayEntityEquipment extends BadblockOutPacket {
 	public int getEntityId();
