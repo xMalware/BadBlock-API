@@ -28,6 +28,7 @@ import fr.badblock.gameapi.fakeentities.FakeEntity;
 import fr.badblock.gameapi.game.GameServer;
 import fr.badblock.gameapi.packets.BadblockInPacket;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
+import fr.badblock.gameapi.packets.GlobalPacketListener;
 import fr.badblock.gameapi.packets.InPacketListener;
 import fr.badblock.gameapi.packets.OutPacketListener;
 import fr.badblock.gameapi.packets.out.play.PlayPlayerInfo.PlayerInfo;
@@ -545,6 +546,14 @@ public abstract class GameAPI extends JavaPlugin {
 	 *            Le listener
 	 */
 	public abstract <T extends BadblockOutPacket> void listenAtPacket(OutPacketListener<T> listener);
+	
+	/**
+	 * Ecouter tous les packets
+	 * 
+	 * @param listener
+	 *            Le listener
+	 */
+	public abstract <T extends BadblockOutPacket> void listenAllPackets(GlobalPacketListener listener);
 
 	/**
 	 * Charge une configuration JSON depuis un fichier
