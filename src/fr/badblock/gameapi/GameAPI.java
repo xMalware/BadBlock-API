@@ -553,7 +553,7 @@ public abstract class GameAPI extends JavaPlugin {
 	 * @param listener
 	 *            Le listener
 	 */
-	public abstract <T extends BadblockOutPacket> void listenAllPackets(GlobalPacketListener listener);
+	public abstract void listenAllPackets(GlobalPacketListener listener);
 
 	/**
 	 * Charge une configuration JSON depuis un fichier
