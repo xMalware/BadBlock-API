@@ -46,7 +46,7 @@ public abstract class FakeDeathEvent extends Event implements Cancellable {
 	private Location whileRespawnPlace = null;
 	@Getter
 	@Setter
-	private boolean lightning = false;
+	private boolean lightning = true;
 	@Getter
 	@Setter
 	private boolean keepInventory = false;
