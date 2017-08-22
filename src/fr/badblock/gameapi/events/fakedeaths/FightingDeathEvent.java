@@ -9,16 +9,16 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Event appelé lorsque le joueur se fait tué en PVP ou en PVE.<br>
- * L'entité fournie peut être :
+ * Event appelï¿½ lorsque le joueur se fait tuï¿½ en PVP ou en PVE.<br>
+ * L'entitï¿½ fournie peut ï¿½tre :
  * <ul>
  * <li>Un joueur</li>
- * <li>Une entité agressive</li>
- * <li>Un projectile si la source du projectile n'est pas une entité vivante
- * (par exemple avec un dispenser).</li> Cet event est aussi appelé si l'entité
- * a été en combat dans les quelques dernières secondes et est morte de chute,
- * feu, ... Utiliser le {@link #getLastDamageCause()} pour ça.<br>
- * {@link #getFightType()} donne le type du dernier combat (CàC, TàD, potion,
+ * <li>Une entitï¿½ agressive</li>
+ * <li>Un projectile si la source du projectile n'est pas une entitï¿½ vivante
+ * (par exemple avec un dispenser).</li> Cet event est aussi appelï¿½ si l'entitï¿½
+ * a ï¿½tï¿½ en combat dans les quelques derniï¿½res secondes et est morte de chute,
+ * feu, ... Utiliser le {@link #getLastDamageCause()} pour ï¿½a.<br>
+ * {@link #getFightType()} donne le type du dernier combat (Cï¿½C, Tï¿½D, potion,
  * custom)
  * 
  * @author LeLanN
@@ -26,17 +26,17 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class FightingDeathEvent extends FakeDeathEvent {
 	/**
-	 * Les différents modes de PvP pour savoir comment est mort le joueur.
+	 * Les diffï¿½rents modes de PvP pour savoir comment est mort le joueur.
 	 * 
 	 * @author LeLanN
 	 */
 	public enum FightingDeaths {
 		/**
-		 * Au corps à corps
+		 * Au corps ï¿½ corps
 		 */
 		INFIGHTING,
 		/**
-		 * A l'arc ou à distance
+		 * A l'arc ou ï¿½ distance
 		 */
 		BOW,
 		/**
@@ -44,7 +44,7 @@ public class FightingDeathEvent extends FakeDeathEvent {
 		 */
 		POTION,
 		/**
-		 * Via les dégats d'un plugins
+		 * Via les dï¿½gats d'un plugins
 		 */
 		CUSTOM;
 	}
@@ -63,6 +63,9 @@ public class FightingDeathEvent extends FakeDeathEvent {
 
 	@Getter
 	private final DamageCause lastDamageCause;
+	
+	@Getter
+	private final Object recognizer;
 
 	@Override
 	public HandlerList getHandlers() {
