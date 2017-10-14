@@ -40,6 +40,7 @@ public class TaskManager {
 		for (int taskId : taskList.values()) {
 			scheduler.cancelTask(taskId);
 		}
+		taskList.clear();
 	}
 
 	// Annule une tâche par l'ID
