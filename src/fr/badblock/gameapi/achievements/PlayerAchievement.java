@@ -54,9 +54,9 @@ public class PlayerAchievement {
 	 */
 	public void reward(BadblockPlayer player) {
 		PlayerData data = player.getPlayerData();
-
-		data.addBadcoins(coinsReward, true);
-		data.addXp(xpReward, true);
+		
+		data.addTempBadcoins(coinsReward, false);
+		data.addTempXp(xpReward, false);
 
 		player.sendTranslatedMessage("achievements.unlocked", getDisplayName(), coinsReward, xpReward);
 	}

@@ -29,6 +29,30 @@ public interface PlayerData {
 	public int addBadcoins(int badcoins, boolean applyBonus);
 
 	/**
+	 * Ajoute des XP dans une valeur temporaire qui seront ajouté à l'ajout de nouveaux XP définitif (addXp())
+	 * Cela permet de mettre les achievements dans le gain final de la partie
+	 * 
+	 * @param xp
+	 *            L'XP à ajouter
+	 * @param applyBonus
+	 *            Si il faut appliquer les bonus joueur/serveur
+	 * @return Le nombre d'xp donné
+	 */
+	public void addTempXp(long xp, boolean applyBonus);
+
+	/**
+	 * Ajoute des BadCoins dans une valeur temporaire qui seront ajouté à l'ajout de nouveaux BadCoins définitif (addXp())
+	 * Cela permet de mettre les achievements dans le gain final de la partie
+	 * 
+	 * @param badcoins
+	 *            Une valeur POSITIVE
+	 * @param applyBonus
+	 *            Si il faut appliquer les bonus joueur/serveur
+	 * @return Le nombre de badcoins donnés
+	 */
+	public void addTempBadcoins(long badcoins, boolean applyBonus);
+
+	/**
 	 * Ajoute de l'XP au joueur
 	 * 
 	 * @param xp
