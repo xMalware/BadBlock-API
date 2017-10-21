@@ -153,7 +153,21 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 * @return Le groupe principal
 	 */
 	public String getMainGroup();
+	
+	/**
+	 * Met à jour le nombre de points boutique du joueur
+	 * en récupérant du site sur la méthode getShopPoints
+	 */
+	public void refreshShopPoints();
 
+	/**
+	 * Récupère le nombre de points boutique
+	 * (attention: il est en cache !)
+	 * Ne pas oublier à le refresh (refreshShopPoints)
+	 * @return
+	 */
+	public int getShopPoints();
+	
 	/**
 	 * Récupère le ping du joueur
 	 * 

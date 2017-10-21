@@ -40,24 +40,6 @@ public interface PlayerData {
 	public long addXp(long xp, boolean applyBonus);
 
 	/**
-	 * Ajoute des "shop points" au joueur
-	 * 
-	 * @param "shop points"
-	 *            Le nombre de "shop points" à ajouter
-	 * @return le nombre de "shop points" que le joueur aura alors :p
-	 */
-	public long addShopPoints(long shopPoints);
-
-	/**
-	 * Supprimer des "shop points" au joueur
-	 * 
-	 * @param "shop points"
-	 *            Le nombre de "shop points" à supprimer
-	 * @return le nombre de "shop points" que le joueur aura alors :p
-	 */
-	public long removeShopPoints(long shopPoints);
-
-	/**
 	 * Vérifie si le joueur peut obtenir le niveau suivant du kit (achievements
 	 * et badcoins)
 	 * 
@@ -96,13 +78,6 @@ public interface PlayerData {
 	 * @return Le nombre de BadCoins
 	 */
 	public int getBadcoins();
-	
-	/**
-	 * Récupère le nombre de ShopPoints du joueur
-	 * 
-	 * @return Le nombre de ShopPoints
-	 */
-	public int getShopPoints();
 
 	public int addRankedPoints(int rankedPoints);
 	
