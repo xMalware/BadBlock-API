@@ -10,10 +10,6 @@ public class NumberFormat {
 	static {
 	  suffixes.put(1_000L, "K");
 	  suffixes.put(1_000_000L, "M");
-	  suffixes.put(1_000_000_000L, "G");
-	  suffixes.put(1_000_000_000_000L, "T");
-	  suffixes.put(1_000_000_000_000_000L, "P");
-	  suffixes.put(1_000_000_000_000_000_000L, "E");
 	}
 
 	public static String format(long value) {
