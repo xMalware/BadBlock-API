@@ -36,7 +36,7 @@ public interface PlayerData {
 	 *            L'XP à ajouter
 	 * @param applyBonus
 	 *            Si il faut appliquer les bonus joueur/serveur
-	 * @return Le nombre d'xp donné
+	 * @return Le nombre d'xp donnés
 	 */
 	public void addTempXp(long xp, boolean applyBonus);
 
