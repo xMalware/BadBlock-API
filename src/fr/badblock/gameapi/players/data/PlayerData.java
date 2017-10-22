@@ -62,6 +62,13 @@ public interface PlayerData {
 	 * @return Le nombre d'xp donné
 	 */
 	public long addXp(long xp, boolean applyBonus);
+	
+	/**
+	 * Ajouter des données temporaires au joueur
+	 * (bien mettre le nombre de données initialisées!)
+	 * @param data
+	 */
+	public void incrementTempRankedData(String gameName, String field, long data);
 
 	/**
 	 * Vérifie si le joueur peut obtenir le niveau suivant du kit (achievements
