@@ -21,7 +21,7 @@ public class FakeRankedManager extends RankedManager
 	}
 
 	@Override
-	public long getData(String gameName, String playerName, String fieldName) {
+	public long getData(String gameName, BadblockPlayer playerName, String fieldName) {
 		return 0;
 	}
 
