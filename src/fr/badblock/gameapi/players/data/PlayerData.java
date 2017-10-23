@@ -69,6 +69,13 @@ public interface PlayerData {
 	 * @param data
 	 */
 	public void incrementTempRankedData(String gameName, String field, long data);
+	
+	/**
+	 * Mettre des données temporaires au joueur
+	 * (bien mettre le nombre de données initialisées!)
+	 * @param data
+	 */
+	public void setTempRankedData(String gameName, String field, long data);
 
 	/**
 	 * Vérifie si le joueur peut obtenir le niveau suivant du kit (achievements
