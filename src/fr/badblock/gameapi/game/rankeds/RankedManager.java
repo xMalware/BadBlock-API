@@ -9,7 +9,7 @@ public abstract class RankedManager {
 	public abstract String getCurrentRankedGameName();
 	public abstract void initialize(String gameName, String... fields);
 	public abstract void fill(String gameName);
-	public abstract long getData(String gameName, String playerName, String fieldName);
+	public abstract long getData(String gameName, BadblockPlayer player, String fieldName);
 	public abstract void calcPoints(String gameName, BadblockPlayer player, RankedCalc calc);
 	
 }
