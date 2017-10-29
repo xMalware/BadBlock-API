@@ -7,14 +7,14 @@ import fr.badblock.gameapi.players.BadblockPlayer;
 import fr.badblock.gameapi.utils.itemstack.ItemStackExtra;
 
 /**
- * Représente un Kit obtenable par un joueur.
+ * ReprÃ©sente un Kit obtenable par un joueur.
  * 
  * @author LeLanN
  */
 public interface PlayerKit {
 	/**
-	 * Récupère le nombre de BadCoins nécessaires pour obtenir le kit au niveau
-	 * donné
+	 * RÃ©cupÄre le nombre de BadCoins nÃ©cessaires pour obtenir le kit au niveau
+	 * donnÃ©
 	 * 
 	 * @param level
 	 *            Le niveau du Kit
@@ -23,8 +23,8 @@ public interface PlayerKit {
 	public int getBadcoinsCost(int level);
 
 	/**
-	 * Retourne l'itemstack devant représenter l'item dans un inventaire avec
-	 * les informations propre au joueur (le niveau, si il est séléctionné)
+	 * Retourne l'itemstack devant reprÃ©senter l'item dans un inventaire avec
+	 * les informations propre au joueur (le niveau, si il est sÃ©lÃ©ctionnÃ©)
 	 * 
 	 * @param player
 	 *            Le joueur pour lequel l'item est fait
@@ -33,24 +33,24 @@ public interface PlayerKit {
 	public ItemStackExtra getKitItem(BadblockPlayer player);
 
 	/**
-	 * Récupère le nom 'interne' (qui ne sera jamais affiché) du kit. Par
+	 * RÃ©cupÄre le nom 'interne' (qui ne sera jamais affichÃ©) du kit. Par
 	 * exemple rush.archer<br>
-	 * Pour obtenir la version affichage, passer par le système d'i18n.
+	 * Pour obtenir la version affichage, passer par le systÄme d'i18n.
 	 * 
 	 * @return Le nom 'interne'
 	 */
 	public String getKitName();
 
 	/**
-	 * Récupère le niveau maximal du Kit
+	 * RÃ©cupÄre le niveau maximal du Kit
 	 * 
 	 * @return
 	 */
 	public int getMaxLevel();
 
 	/**
-	 * Récupère les achievements que doit avoir terminé le joueur pour obtenir
-	 * le Kit au niveau donné
+	 * RÃ©cupÄre les achievements que doit avoir terminÃ© le joueur pour obtenir
+	 * le Kit au niveau donnÃ©
 	 * 
 	 * @param level
 	 *            Le niveau du Kit
@@ -59,8 +59,8 @@ public interface PlayerKit {
 	public PlayerAchievement[] getNeededAchievements(int level);
 
 	/**
-	 * Donne le Kit à un joueur (le niveau auquel le joueur à le droit sera
-	 * recherché automatiquement).
+	 * Donne le Kit Å• un joueur (le niveau auquel le joueur Å• le droit sera
+	 * recherchÃ© automatiquement).
 	 * 
 	 * @param player
 	 *            Le joueur
@@ -69,8 +69,8 @@ public interface PlayerKit {
 	
 
 	/**
-	 * Donne le Kit à un joueur (le niveau auquel le joueur à le droit sera
-	 * recherché automatiquement).
+	 * Donne le Kit Å• un joueur (le niveau auquel le joueur Å• le droit sera
+	 * recherchÃ© automatiquement).
 	 * 
 	 * @param player
 	 *            Le joueur
@@ -78,8 +78,8 @@ public interface PlayerKit {
 	public void giveKit(BadblockPlayer player, Material... withoutMaterials);
 
 	/**
-	 * Vérifie si le Kit est VIP. Si oui, aucun achievements / badcoins n'est
-	 * nécessaire
+	 * VÃ©rifie si le Kit est VIP. Si oui, aucun achievements / badcoins n'est
+	 * nÃ©cessaire
 	 * 
 	 * @return
 	 */

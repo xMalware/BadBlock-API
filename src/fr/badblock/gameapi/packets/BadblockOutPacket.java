@@ -3,32 +3,32 @@ package fr.badblock.gameapi.packets;
 import fr.badblock.gameapi.players.BadblockPlayer;
 
 /**
- * Représente un packet MineCraft, allant du serveur au client, tel qu'il est
- * géré par l'API.<br>
- * Ces packets ne sont pas intercéptés et sont simplement envoyé sans passer par
+ * ReprÃ©sente un packet MineCraft, allant du serveur au client, tel qu'il est
+ * gÃ©rÃ© par l'API.<br>
+ * Ces packets ne sont pas intercÃ©ptÃ©s et sont simplement envoyÃ© sans passer par
  * un traitement via le serveur.<br>
- * Ils peuvent être très utiles, par exemple pour les fausses entités ou les
- * titles non géré par l'API Bukkit/Spigot en 1.8.<br>
+ * Ils peuvent Ä™tre trÄs utiles, par exemple pour les fausses entitÃ©s ou les
+ * titles non gÃ©rÃ© par l'API Bukkit/Spigot en 1.8.<br>
  * <br>
- * De ce fait tous les packets ne sont pas représentés. En effet :
+ * De ce fait tous les packets ne sont pas reprÃ©sentÃ©s. En effet :
  * <ul>
  * <li>Pour certains, l'API Bukkit/Spigot est largement suffisante (par exemple
  * [Player].spigot().respawn() pour le packet de respawn)</li>
- * <li>Pour d'autres, il peut être 'dangeureux' ou simplement inefficace
- * d'envoyé le packet sans que le serveur en soit informé</li>
+ * <li>Pour d'autres, il peut Ä™tre 'dangeureux' ou simplement inefficace
+ * d'envoyÃ© le packet sans que le serveur en soit informÃ©</li>
  * </ul>
  * <br>
- * Si un packet n'est pas assez documenté, penser à se documenter grâce à
+ * Si un packet n'est pas assez documentÃ©, penser Å• se documenter grÃ¢ce Å•
  * http://wiki.vg/Protocol<br>
  * Pour instancier un packet, voir
  * {@link fr.badblock.gameapi.GameAPI#createPacket(Class)}<br>
- * La classe n'est pas à confondre avec {@link BadblockInPacket}
+ * La classe n'est pas Å• confondre avec {@link BadblockInPacket}
  * 
  * @author LeLanN
  */
 public interface BadblockOutPacket extends BadblockPacket {
 	/**
-	 * Envoit le packet à un joueur.
+	 * Envoit le packet Å• un joueur.
 	 * 
 	 * @param player
 	 *            Le joueur

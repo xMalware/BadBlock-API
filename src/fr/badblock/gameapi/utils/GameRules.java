@@ -8,14 +8,14 @@ import fr.badblock.gameapi.GameAPI;
 import fr.badblock.gameapi.utils.reflection.Reflector;
 
 /**
- * ReprÈsentation des diffÈrentes GameRules par dÈfaut de MineCraft, afin de
- * pouvoir les modifier aisÈment.<br>
- * Utilise les commandes pour Èviter de passer par NMS (inutile).<br>
+ * Repr√©sentation des diff√©rentes GameRules par d√©faut de MineCraft, afin de
+ * pouvoir les modifier ais√©ment.<br>
+ * Utilise les commandes pour √©viter de passer par NMS (inutile).<br>
  * Pour plus d'informations sur leur effet, rechercher sur Internet (ou dans
  * votre cerveau, d'ailleurs).<br>
  * <br>
- * Par exemple, doFireTick (false) est trËs pratique pour beaucoup de mini-jeux,
- * cela Èvite d'avoir ‡ bloquer la propagation du feu (qui nÈcessite de cancel 2
+ * Par exemple, doFireTick (false) est trƒçs pratique pour beaucoup de mini-jeux,
+ * cela √©vite d'avoir ≈ï bloquer la propagation du feu (qui n√©cessite de cancel 2
  * ou 3 events).
  * 
  * @author LeLanN
@@ -54,8 +54,8 @@ public enum GameRules {
 	}
 
 	/**
-	 * DÈfinit une GameRule. Marche pour toute sauf randomTickSpeed qui
-	 * nÈcessite une valeur numÈrique.
+	 * D√©finit une GameRule. Marche pour toute sauf randomTickSpeed qui
+	 * n√©cessite une valeur num√©rique.
 	 * 
 	 * @param value
 	 *            La valeur
@@ -69,8 +69,8 @@ public enum GameRules {
 	}
 
 	/**
-	 * DÈfinit une GameRule. Marche uniquement pour randomTickSpeed qui
-	 * nÈcessite une valeur numÈrique.
+	 * D√©finit une GameRule. Marche uniquement pour randomTickSpeed qui
+	 * n√©cessite une valeur num√©rique.
 	 * 
 	 * @param value
 	 *            La valeur

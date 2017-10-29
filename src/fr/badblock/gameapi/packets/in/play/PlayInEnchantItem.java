@@ -4,13 +4,13 @@ import fr.badblock.gameapi.packets.BadblockInPacket;
 import fr.badblock.gameapi.packets.BadblockInPackets;
 
 /**
- * Packet envoyé par le joueur lorsqu'il enchant un item
+ * Packet envoyÃ© par le joueur lorsqu'il enchant un item
  * 
  * @author LeLanN
  */
 public interface PlayInEnchantItem extends BadblockInPacket {
 	/**
-	 * Récupère l'enchantement choisit (0 = celui du haut)
+	 * RÃ©cupÄre l'enchantement choisit (0 = celui du haut)
 	 * 
 	 * @return L'enchantement
 	 */
@@ -22,7 +22,7 @@ public interface PlayInEnchantItem extends BadblockInPacket {
 	}
 
 	/**
-	 * Récupère l'inventaire de la table d'enchantement
+	 * RÃ©cupÄre l'inventaire de la table d'enchantement
 	 * 
 	 * @return L'inventaire
 	 */

@@ -1,20 +1,20 @@
 package fr.badblock.gameapi.packets;
 
 /**
- * Représente un packet envoyé par un joueur. Le packet est intercépté et
- * récupérable grâce aux listeners.
+ * ReprÃ©sente un packet envoyÃ© par un joueur. Le packet est intercÃ©ptÃ© et
+ * rÃ©cupÃ©rable grÃ¢ce aux listeners.
  * 
- * Si un packet n'est pas assez documenté, penser à se documenter grâce à
+ * Si un packet n'est pas assez documentÃ©, penser Å• se documenter grÃ¢ce Å•
  * http://wiki.vg/Protocol<br>
  * Pour instancier un packet, voir
  * {@link fr.badblock.gameapi.GameAPI#createPacket(Class)}<br>
- * La classe n'est pas à confondre avec {@link BadblockOutPacket}
+ * La classe n'est pas Å• confondre avec {@link BadblockOutPacket}
  * 
  * @author LeLanN
  */
 public interface BadblockInPacket extends BadblockPacket {
 	/**
-	 * Récupère le type de packet
+	 * RÃ©cupÄre le type de packet
 	 * 
 	 * @return Le type de packet
 	 */

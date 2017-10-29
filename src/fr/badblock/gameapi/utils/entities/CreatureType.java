@@ -9,11 +9,11 @@ import fr.badblock.gameapi.utils.i18n.Word.WordDeterminant;
 import lombok.Getter;
 
 /**
- * Représente une créature (mob), comme org.bukkit.entity.CreatureType
- * (déprécié) et rajoute un nombre conséquant d'informations non disponnible via
- * l'API Bukkit. Pour les autres entités, utiliser EntityType (Bukkit).
+ * ReprÃ©sente une crÃ©ature (mob), comme org.bukkit.entity.CreatureType
+ * (dÃ©prÃ©ciÃ©) et rajoute un nombre consÃ©quant d'informations non disponnible via
+ * l'API Bukkit. Pour les autres entitÃ©s, utiliser EntityType (Bukkit).
  * 
- * Permet aussi la traduction grâce à getKey().
+ * Permet aussi la traduction grÃ¢ce Å• getKey().
  * 
  * @author LeLanN
  */
@@ -50,7 +50,7 @@ public enum CreatureType {
 	PLAYER("player", Reaction.FRIENDLY, NaturallySpawnReason.NATURAL);
 
 	/**
-	 * Représente les raisons de spawn d'une créature
+	 * ReprÃ©sente les raisons de spawn d'une crÃ©ature
 	 * 
 	 * @author LeLanN
 	 */
@@ -58,7 +58,7 @@ public enum CreatureType {
 		BLOCK, ENDERPEARL, GENERATION, NATURAL, ONLY_PLUGIN, SPAWNER;
 	}
 	/**
-	 * Représente une réaction de créature
+	 * ReprÃ©sente une rÃ©action de crÃ©ature
 	 * 
 	 * @author LeLanN
 	 */
@@ -72,16 +72,16 @@ public enum CreatureType {
 		 */
 		HOSTILE,
 		/**
-		 * Attaquera le joueur seulement si il a été agressé
+		 * Attaquera le joueur seulement si il a Ã©tÃ© agressÃ©
 		 */
 		ANGRY;
 	}
 	/**
-	 * Récupère une CreatureType via une EntityType Bukkit
+	 * RÃ©cupÄre une CreatureType via une EntityType Bukkit
 	 * 
 	 * @param bukkit
 	 *            L'EntityType Bukkit
-	 * @return La CreatureType (si non trouvé, null)
+	 * @return La CreatureType (si non trouvÃ©, null)
 	 */
 	public static CreatureType getByBukkit(EntityType bukkit) {
 		for (CreatureType ct : values())
@@ -91,22 +91,22 @@ public enum CreatureType {
 	}
 
 	/**
-	 * Récupère une CreatureType via une entité Bukkit
+	 * RÃ©cupÄre une CreatureType via une entitÃ© Bukkit
 	 * 
 	 * @param bukkit
-	 *            L'entité Bukkit
-	 * @return La CreatureType (si non trouvé, null)
+	 *            L'entitÃ© Bukkit
+	 * @return La CreatureType (si non trouvÃ©, null)
 	 */
 	public static CreatureType getByBukkitEntity(Entity bukkit) {
 		return getByBukkit(bukkit.getType());
 	}
 
 	/**
-	 * Récupère un CreatureType à partir du nom de l'entité
+	 * RÃ©cupÄre un CreatureType Å• partir du nom de l'entitÃ©
 	 * 
 	 * @param name
 	 *            Le nom
-	 * @return Le CreatureType (si non trouvé, null)
+	 * @return Le CreatureType (si non trouvÃ©, null)
 	 */
 	public static CreatureType matchCreature(String name) {
 		for (CreatureType ct : values())
@@ -131,7 +131,7 @@ public enum CreatureType {
 	}
 
 	/**
-	 * Récupère l'EntityType équivalent
+	 * RÃ©cupÄre l'EntityType Ã©quivalent
 	 * 
 	 * @return L'EntityType
 	 */
@@ -148,7 +148,7 @@ public enum CreatureType {
 	}
 
 	/**
-	 * Vérifie si la créature est amicale
+	 * VÃ©rifie si la crÃ©ature est amicale
 	 * 
 	 * @return Un boolean
 	 */
@@ -157,7 +157,7 @@ public enum CreatureType {
 	}
 
 	/**
-	 * Vérifie si la créature est hostile
+	 * VÃ©rifie si la crÃ©ature est hostile
 	 * 
 	 * @return Un boolean
 	 */
@@ -166,12 +166,12 @@ public enum CreatureType {
 	}
 
 	/**
-	 * Fait spawn une nouvelle entité du type du CreatureType à une certaine
+	 * Fait spawn une nouvelle entitÃ© du type du CreatureType Å• une certaine
 	 * position
 	 * 
 	 * @param l
 	 *            La location
-	 * @return La nouvelle entité
+	 * @return La nouvelle entitÃ©
 	 */
 	public Entity spawn(Location l) {
 		return l.getWorld().spawnEntity(l, bukkit());

@@ -11,7 +11,7 @@ import fr.badblock.gameapi.players.BadblockPlayer;
 import lombok.Getter;
 
 /**
- * Appelée lorsque q'un groupe arrive en jeu
+ * AppelÃ©e lorsque q'un groupe arrive en jeu
  * 
  * @author LeLanN
  */

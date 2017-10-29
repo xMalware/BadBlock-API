@@ -4,13 +4,13 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
 import lombok.Getter;
 
 /**
- * Packet envoyÈ lorsque une donnÈe de jeu change.
+ * Packet envoy√© lorsque une donn√©e de jeu change.
  * 
  * @author LeLanN
  */
 public interface PlayChangeGameState extends BadblockOutPacket {
 	/**
-	 * ReprÈsente les diffÈrentes choses pouvant Ítre appelÈe avec
+	 * Repr√©sente les diff√©rentes choses pouvant ƒôtre appel√©e avec
 	 * {@link PlayChangeGameState}
 	 * 
 	 * @author LeLanN
@@ -18,14 +18,14 @@ public interface PlayChangeGameState extends BadblockOutPacket {
 	public static enum GameState {
 		INVALID_BED(0), RAINING_END(1), RAINING_START(2),
 		/**
-		 * Valeur : valeur numÈrique du gamemode (0, 1, 2, 3)
+		 * Valeur : valeur num√©rique du gamemode (0, 1, 2, 3)
 		 */
 		GAMEMODE_CHANGE(3), ENTER_CREDITS(4),
 		/**
 		 * Valeurs :
 		 * <ul>
-		 * <li>0 : montre l'image de dÈmo</li>
-		 * <li>101 : montre le message indiquant comment se dÈplacer</li>
+		 * <li>0 : montre l'image de d√©mo</li>
+		 * <li>101 : montre le message indiquant comment se d√©placer</li>
 		 * <li>102 : montre le message indiquant comment sauter
 		 * <li>
 		 * <li>103 : montre le message indiquant comment ouvrir l'inventaire
@@ -34,7 +34,7 @@ public interface PlayChangeGameState extends BadblockOutPacket {
 		 */
 		DEMO_MESSAGE(5), ARROW_HIT_PLAYER(6),
 		/**
-		 * La luminositÈ actuelle, entre 0 et 1 (0 = lumineux, 1 = sombre)
+		 * La luminosit√© actuelle, entre 0 et 1 (0 = lumineux, 1 = sombre)
 		 */
 		FADE_VALUE(7),
 		/**
@@ -58,22 +58,22 @@ public interface PlayChangeGameState extends BadblockOutPacket {
 	}
 
 	/**
-	 * RÈcupËre ce qu'il faut changer
+	 * R√©cupƒçre ce qu'il faut changer
 	 * 
 	 * @return Ce qu'il faut changer
 	 */
 	public GameState getState();
 
 	/**
-	 * RÈcupËre la valeur du gamestate. Voir {@link GameState} POur connaÓtre
-	 * les valeurs possibles (rien Ècrit = pas de valeur particuliËre).
+	 * R√©cupƒçre la valeur du gamestate. Voir {@link GameState} POur conna√Ætre
+	 * les valeurs possibles (rien √©crit = pas de valeur particuliƒçre).
 	 * 
 	 * @return La valeur
 	 */
 	public float getValue();
 
 	/**
-	 * DÈfinit ce qu'il faut changer
+	 * D√©finit ce qu'il faut changer
 	 * 
 	 * @param state
 	 *            Ce qu'il faut changer
@@ -82,8 +82,8 @@ public interface PlayChangeGameState extends BadblockOutPacket {
 	public PlayChangeGameState setState(GameState state);
 
 	/**
-	 * DÈfinit la valeur du gamestate. Voir {@link GameState} POur connaÓtre les
-	 * valeurs possibles (rien Ècrit = pas de valeur particuliËre).
+	 * D√©finit la valeur du gamestate. Voir {@link GameState} POur conna√Ætre les
+	 * valeurs possibles (rien √©crit = pas de valeur particuliƒçre).
 	 * 
 	 * @param value
 	 *            La valeur

@@ -8,7 +8,7 @@ public enum TimeUnit {
 					MILLIS_SECOND.getNano() * 1000L, "s",
 					"seconde"), MINUTE(SECOND.getNano() * 60L, "m", "minute"), HOUR(MINUTE.getNano() * 60L, "h",
 							"heure"), DAY(HOUR.getNano() * 24L, "d", "jour"), MONTH(DAY.getNano() * 30L, "mo",
-									"mois"), YEAR(DAY.getNano() * 365L, "y", "année");
+									"mois"), YEAR(DAY.getNano() * 365L, "y", "annÃ©e");
 
 	private static TimeUnit[] inOrder = new TimeUnit[] { NANO_SECOND, MICRO_SECOND, MILLIS_SECOND, SECOND, MINUTE, HOUR,
 			DAY, MONTH, YEAR };

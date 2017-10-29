@@ -9,84 +9,84 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 
 /**
- * Représentante une créature vivante (monstre, animal ou ambient).<br>
- * Ajoute des méthodes non présente par défaut dans Bukkit (vitesse ou
- * invincibilité par exemple) évitant de passer par NMS.<br>
- * Ajoute des méthodes non présente par défaut dans Minecraft, principalement le
- * comportement de la créature (pouvoir voler, agressivité, ...)<br>
+ * ReprÃ©sentante une crÃ©ature vivante (monstre, animal ou ambient).<br>
+ * Ajoute des mÃ©thodes non prÃ©sente par dÃ©faut dans Bukkit (vitesse ou
+ * invincibilitÃ© par exemple) Ã©vitant de passer par NMS.<br>
+ * Ajoute des mÃ©thodes non prÃ©sente par dÃ©faut dans Minecraft, principalement le
+ * comportement de la crÃ©ature (pouvoir voler, agressivitÃ©, ...)<br>
  * <br>
  * Les CustomCreatures sont register lorsque le plugin API s'enable.<br>
- * Pour récupérer, utiliser
+ * Pour rÃ©cupÃ©rer, utiliser
  * {@link fr.badblock.gameapi.utils.entities.CreatureUtils#getAsCustom(org.bukkit.entity.Entity)}
  * 
  * @author LeLanN
  */
 public interface CustomCreature {
 	/**
-	 * Liste les comportements appliquables aux entités
+	 * Liste les comportements appliquables aux entitÃ©s
 	 * 
 	 * @author LeLanN
 	 */
 	public enum CreatureBehaviour {
 		/**
-		 * L'entité ne peut pas se déplacer ou tourner la tête. Elle n'est pas
-		 * non plus sensible à la gravité.
+		 * L'entitÃ© ne peut pas se dÃ©placer ou tourner la tÄ™te. Elle n'est pas
+		 * non plus sensible Å• la gravitÃ©.
 		 */
 		MOTIONLESS,
 		/**
-		 * L'entité peut voler (IA de chauve-souris)
+		 * L'entitÃ© peut voler (IA de chauve-souris)
 		 */
 		FLYING,
 		/**
-		 * L'entité est normale (comportement par défaut)
+		 * L'entitÃ© est normale (comportement par dÃ©faut)
 		 */
 		NORMAL;
 	}
 
 	/**
-	 * Liste des flags applicables aux entités
+	 * Liste des flags applicables aux entitÃ©s
 	 * 
 	 * @author LeLanN
 	 */
 	public enum CreatureFlag {
 		/**
-		 * Si l'entité est rideable (autrement dit si l'on peut monter dessus en
+		 * Si l'entitÃ© est rideable (autrement dit si l'on peut monter dessus en
 		 * cliquant.<br>
-		 * Néanmoins, que l'entité ai se flag ou nous, si un joueur est passager
-		 * de l'entité, il pourra la contrôler.
+		 * NÃ©anmoins, que l'entitÃ© ai se flag ou nous, si un joueur est passager
+		 * de l'entitÃ©, il pourra la contrÃ´ler.
 		 */
 		RIDEABLE,
 		/**
-		 * Si l'entité est agressive (attaque les joueurs proches)
+		 * Si l'entitÃ© est agressive (attaque les joueurs proches)
 		 */
 		AGRESSIVE,
 		/**
-		 * Si l'entité est invincible (ne peut pas prendre de dégat)
+		 * Si l'entitÃ© est invincible (ne peut pas prendre de dÃ©gat)
 		 */
 		INVINCIBLE,
 		/**
-		 * Si l'entité est invincible au feu (ne peut pas prendre de dégat de
+		 * Si l'entitÃ© est invincible au feu (ne peut pas prendre de dÃ©gat de
 		 * feu)
 		 */
 		FIREPROOF,
 		/**
-		 * Si l'entité est invisible
+		 * Si l'entitÃ© est invisible
 		 */
 		INVISIBLE;
 	}
 
 	/**
-	 * List les attributs appliquable à l'entité
+	 * List les attributs appliquable Å• l'entitÃ©
 	 * 
 	 * @author LeLanN
 	 */
 	public enum CreatureGenericAttribute {
 		/**
-		 * La vitesse de l'entité
+		 * La vitesse de l'entitÃ©
 		 */
 		SPEED,
 		/**
-		 * Les dégats fait par l'entité
+		 * Les dÃ©gats fait par l'entitÃ©
 		 */
 		DAMAGE;
 	}
@@ -97,7 +97,7 @@ public interface CustomCreature {
 	}
 
 	/**
-	 * Ajoute un flag à l'entité
+	 * Ajoute un flag Å• l'entitÃ©
 	 * 
 	 * @param flag
 	 *            Le flag
@@ -110,7 +110,7 @@ public interface CustomCreature {
 	}
 
 	/**
-	 * Ajoute des flags à l'entité
+	 * Ajoute des flags Å• l'entitÃ©
 	 * 
 	 * @param flags
 	 *            Les flags
@@ -132,21 +132,21 @@ public interface CustomCreature {
 	public TargetType getTargetType(EntityType entityType);
 	
 	/**
-	 * Récupère l'entité Bukkit
+	 * RÃ©cupÄre l'entitÃ© Bukkit
 	 * 
-	 * @return L'entité Bukkit
+	 * @return L'entitÃ© Bukkit
 	 */
 	public Entity getBukkit();
 
 	/**
-	 * Récupère le comportement de l'entité
+	 * RÃ©cupÄre le comportement de l'entitÃ©
 	 * 
 	 * @return Le comportement
 	 */
 	public CreatureBehaviour getCreatureBehaviour();
 
 	/**
-	 * Récupère un attribut générique de l'entité
+	 * RÃ©cupÄre un attribut gÃ©nÃ©rique de l'entitÃ©
 	 * 
 	 * @param attribute
 	 *            L'attribut
@@ -155,36 +155,36 @@ public interface CustomCreature {
 	public double getCreatureGenericAttribute(CreatureGenericAttribute attribute);
 
 	/**
-	 * Récupère le type de la créature.
+	 * RÃ©cupÄre le type de la crÃ©ature.
 	 * 
-	 * @return Le type de la créature.
+	 * @return Le type de la crÃ©ature.
 	 */
 	public CreatureType getEntityType();
 
 	/**
-	 * Récupère une liste des flags de l'entité
+	 * RÃ©cupÄre une liste des flags de l'entitÃ©
 	 * 
 	 * @return Les flags
 	 */
 	public List<CreatureFlag> getFlags();
 
 	/**
-	 * Vérifie si l'entité à un flag
+	 * VÃ©rifie si l'entitÃ© Å• un flag
 	 * 
 	 * @param flag
 	 *            Le flag
-	 * @return Si l'entité l'a
+	 * @return Si l'entitÃ© l'a
 	 */
 	default boolean hasCreatureFlag(CreatureFlag flag) {
 		return getFlags().contains(flag);
 	}
 
 	/**
-	 * Vérifie si l'entité à des flags
+	 * VÃ©rifie si l'entitÃ© Å• des flags
 	 * 
 	 * @param flag
 	 *            Les flags
-	 * @return Si l'entité les a
+	 * @return Si l'entitÃ© les a
 	 */
 	default boolean hasCreatureFlags(CreatureFlag... flags) {
 		for (CreatureFlag flag : flags) {
@@ -196,13 +196,13 @@ public interface CustomCreature {
 	}
 
 	/**
-	 * Met à jour le comportement de l'entité avec les flags actuels (appelé
+	 * Met Å• jour le comportement de l'entitÃ© avec les flags actuels (appelÃ©
 	 * automatiquement)
 	 */
 	public void regenerateAttributes();
 
 	/**
-	 * Enlève un flag à l'entité
+	 * EnlÄve un flag Å• l'entitÃ©
 	 * 
 	 * @param flag
 	 *            Le flag
@@ -213,7 +213,7 @@ public interface CustomCreature {
 	}
 
 	/**
-	 * Enlève des flags à l'entité
+	 * EnlÄve des flags Å• l'entitÃ©
 	 * 
 	 * @param flags
 	 *            Les flags
@@ -227,7 +227,7 @@ public interface CustomCreature {
 	}
 
 	/**
-	 * Définit le comportement de l'entité (au niveau du mouvement)
+	 * DÃ©finit le comportement de l'entitÃ© (au niveau du mouvement)
 	 * 
 	 * @param behaviour
 	 *            Le comportement
@@ -235,7 +235,7 @@ public interface CustomCreature {
 	public void setCreatureBehaviour(CreatureBehaviour behaviour);
 
 	/**
-	 * Définit un attribut générique de l'entité
+	 * DÃ©finit un attribut gÃ©nÃ©rique de l'entitÃ©
 	 * 
 	 * @param attribute
 	 *            L'attribut

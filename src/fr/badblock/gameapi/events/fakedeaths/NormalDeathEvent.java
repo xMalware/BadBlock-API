@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Event appel� lorsque le joueur meurt seul (ni PVP ni PVE).
+ * Event appelďż˝ lorsque le joueur meurt seul (ni PVP ni PVE).
  * 
  * @author LeLanN
  */

@@ -11,9 +11,9 @@ import fr.badblock.gameapi.utils.i18n.TranslatableWord;
 import fr.badblock.gameapi.utils.i18n.Word.WordDeterminant;
 
 /**
- * Liste de messages utilisés par l'API ou à déstination des plugins annexes
- * pour unifier le système de traduction (pas de doublon) et simplifier le
- * développement.<br>
+ * Liste de messages utilisÃ©s par l'API ou Å• dÃ©stination des plugins annexes
+ * pour unifier le systÄme de traduction (pas de doublon) et simplifier le
+ * dÃ©veloppement.<br>
  * Messages jeux.
  * 
  * @author LeLanN
@@ -36,7 +36,7 @@ public class GameMessages {
 	}
 
 	/**
-	 * Lorsqu'un spectateur s'éloigne, le message qui lui est affiché. Utile
+	 * Lorsqu'un spectateur s'Ã©loigne, le message qui lui est affichÃ©. Utile
 	 * uniquement pour l'API.
 	 * 
 	 * @return Le message
@@ -46,16 +46,16 @@ public class GameMessages {
 	}
 
 	/**
-	 * Lorsqu'un un joueur join, récupère le message de join
+	 * Lorsqu'un un joueur join, rÃ©cupÄre le message de join
 	 * 
 	 * @param name
 	 *            Le nom du jeu ou serveur.
 	 * @param player
 	 *            Le nom du joueur
 	 * @param current
-	 *            Le nombre de joueurs connectés
+	 *            Le nombre de joueurs connectÃ©s
 	 * @param max
-	 *            Le nombre maximum de joueurs connectés.
+	 *            Le nombre maximum de joueurs connectÃ©s.
 	 * @return Le message
 	 */
 	public static TranslatableString joinMessage(String name, String player, int current, int max) {

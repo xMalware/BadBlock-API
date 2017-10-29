@@ -27,7 +27,7 @@ public enum BadblockGame {
 	// IN-DEV GAMES
 	DAYZ("dayZ", "DayZ", "LeLanN", createItemStackFactory(Material.SKULL_ITEM).durability((byte)2)),
 	SHOOTFLAG("shootflag", "ShootFlag", "xMalware", createItemStackFactory(Material.BLAZE_ROD).fakeEnchantment()),
-	BRAIN("brain", "Brain", "xMalware", createItemStackFactory(Material.SANDSTONE).fakeEnchantment()), /** Changement de nom bientôt **/
+	BRAIN("brain", "Brain", "xMalware", createItemStackFactory(Material.SANDSTONE).fakeEnchantment()), /** Changement de nom bientÃ´t **/
 	GUARDS("guards", "Guards", "xMalware", createItemStackFactory(Material.EMERALD).fakeEnchantment()),
 	DOMINATION("domination", "Domination", "Odanorr", createItemStackFactory(Material.BLAZE_ROD).fakeEnchantment()),
 	POINTOUT("pointout", "PointOut", "RedSpri", createItemStackFactory(Material.AIR).fakeEnchantment()),

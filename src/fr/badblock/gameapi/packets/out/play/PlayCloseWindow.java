@@ -5,9 +5,9 @@ import org.bukkit.entity.Player;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 
 /**
- * Packet envoyé par le serveur pour forcer le client à fermer un
+ * Packet envoyÃ© par le serveur pour forcer le client Å• fermer un
  * inventaire.<br>
- * Aucune méthode ajouté car {@link Player#closeInventory()} et
+ * Aucune mÃ©thode ajoutÃ© car {@link Player#closeInventory()} et
  * {@link #setCancelled(boolean)} suffisent.
  * 
  * @author LeLanN

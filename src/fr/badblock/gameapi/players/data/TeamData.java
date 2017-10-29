@@ -1,10 +1,10 @@
 package fr.badblock.gameapi.players.data;
 
 /**
- * Représente les données in game d'une team.<br>
- * Attention, pour être utiliser, appeler
+ * ReprÃ©sente les donnÃ©es in game d'une team.<br>
+ * Attention, pour Ä™tre utiliser, appeler
  * {@link fr.badblock.gameapi.GameAPI#registerTeams(int, Class, org.bukkit.configuration.ConfigurationSection)}
- * dans le onEnable() puis récupérer grâce à
+ * dans le onEnable() puis rÃ©cupÃ©rer grÃ¢ce Å•
  * {@link fr.badblock.gameapi.players.BadblockTeam#teamData(Class)}.
  * 
  * @author LeLanN

@@ -5,13 +5,13 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
 import lombok.Getter;
 
 /**
- * Premier packet envoyé par le joueur. Il n'est pas modifiable.
+ * Premier packet envoyÃ© par le joueur. Il n'est pas modifiable.
  * 
  * @author LeLanN
  */
 public interface Handshake extends BadblockInPacket {
 	/**
-	 * Représente les différents protocoles pouvant être demandé par le joueur
+	 * ReprÃ©sente les diffÃ©rents protocoles pouvant Ä™tre demandÃ© par le joueur
 	 * lors de l'handhsake
 	 * 
 	 * @author LeLanN
@@ -42,21 +42,21 @@ public interface Handshake extends BadblockInPacket {
 	}
 
 	/**
-	 * Récupère le protocol que le joueur souhaite pour la prochaine étape
+	 * RÃ©cupÄre le protocol que le joueur souhaite pour la prochaine Ã©tape
 	 * 
-	 * @return La prochaine étape
+	 * @return La prochaine Ã©tape
 	 */
 	public NextState getNextState();
 
 	/**
-	 * Récupère la version du protocol souhaité par le joueur
+	 * RÃ©cupÄre la version du protocol souhaitÃ© par le joueur
 	 * 
 	 * @return La version du protocol
 	 */
 	public int getProtocolVersion();
 
 	/**
-	 * Récupère l'addresse du serveur selon le joueur (contient aussi, avec
+	 * RÃ©cupÄre l'addresse du serveur selon le joueur (contient aussi, avec
 	 * Bungee, des informations sur le joueur)
 	 * 
 	 * @return L'addresse du serveur
@@ -64,7 +64,7 @@ public interface Handshake extends BadblockInPacket {
 	public String getServerAddress();
 
 	/**
-	 * Récupère le port du serveur selon le joueur
+	 * RÃ©cupÄre le port du serveur selon le joueur
 	 * 
 	 * @return Le port du serveur
 	 */

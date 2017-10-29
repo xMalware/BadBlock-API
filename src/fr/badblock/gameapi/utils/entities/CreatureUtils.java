@@ -13,18 +13,18 @@ import fr.badblock.gameapi.utils.general.MathsUtils;
 import fr.badblock.gameapi.utils.reflection.ReflectionUtils;
 
 /**
- * Classe d'aide à la gestion des différentes créatures MineCraft.
+ * Classe d'aide Å• la gestion des diffÃ©rentes crÃ©atures MineCraft.
  * 
  * @author LeLanN
  */
 public class CreatureUtils {
 	/**
-	 * Recherche la version modifiée (par l'API) d'une créature. Si l'API n'a
-	 * pas sa classe de register ou que l'entité n'est pas gérée, retourne null.
+	 * Recherche la version modifiÃ©e (par l'API) d'une crÃ©ature. Si l'API n'a
+	 * pas sa classe de register ou que l'entitÃ© n'est pas gÃ©rÃ©e, retourne null.
 	 * 
 	 * @param entity
-	 *            L'entité.
-	 * @return La version modifiée de la créature. Attention, peut être null !
+	 *            L'entitÃ©.
+	 * @return La version modifiÃ©e de la crÃ©ature. Attention, peut Ä™tre null !
 	 */
 	public static CustomCreature getAsCustom(Entity entity) {
 		Object handler = ReflectionUtils.getHandle(entity);
@@ -37,13 +37,13 @@ public class CreatureUtils {
 	}
 
 	/**
-	 * Permet de récupérer une entité par son UUID.
+	 * Permet de rÃ©cupÃ©rer une entitÃ© par son UUID.
 	 * 
 	 * @param world
-	 *            Le monde où se trouve l'entité
+	 *            Le monde oÅ¯ se trouve l'entitÃ©
 	 * @param entityId
-	 *            L'UUID de l'entité.
-	 * @return L'entité si elle est trouvée (autrement, null).
+	 *            L'UUID de l'entitÃ©.
+	 * @return L'entitÃ© si elle est trouvÃ©e (autrement, null).
 	 */
 	public static Entity getEntityByUUID(World world, UUID entityId) {
 		for (Entity entity : world.getEntities()) {
@@ -55,14 +55,14 @@ public class CreatureUtils {
 	}
 
 	/**
-	 * Recherche toutes les entités proche d'un certain point.
+	 * Recherche toutes les entitÃ©s proche d'un certain point.
 	 * 
 	 * @param location
 	 *            La position centrale
 	 * @param radius
-	 *            La distance maximum entre l'entité et la position
+	 *            La distance maximum entre l'entitÃ© et la position
 	 * 
-	 * @return Les entités trouvées
+	 * @return Les entitÃ©s trouvÃ©es
 	 */
 	public static Collection<Entity> getNearbyEntities(Location location, double radius) {
 		List<Entity> entities = new ArrayList<>();
@@ -80,12 +80,12 @@ public class CreatureUtils {
 	 * Change le yaw et le pitch de la location pour regarder vers une autre
 	 * 
 	 * @param from
-	 *            La location à changer
+	 *            La location Å• changer
 	 * @param to
-	 *            La location à regarder
+	 *            La location Å• regarder
 	 * @param aiming
-	 *            La précision (100 = précision totale)
-	 * @return La location changée
+	 *            La prÃ©cision (100 = prÃ©cision totale)
+	 * @return La location changÃ©e
 	 */
 	public static Location lookAt(Location from, Location to, float aiming) {
 		from = from.clone();
@@ -120,12 +120,12 @@ public class CreatureUtils {
 	}
 
 	/**
-	 * Fait spawn une entité.
+	 * Fait spawn une entitÃ©.
 	 * 
 	 * @param location
 	 *            La position du spawn
 	 * @param clazz
-	 *            Le type d'entité à faire spawn
+	 *            Le type d'entitÃ© Å• faire spawn
 	 */
 	public static void spawn(Location location, Class<? extends Entity> clazz) {
 		location.getWorld().spawn(location, clazz);

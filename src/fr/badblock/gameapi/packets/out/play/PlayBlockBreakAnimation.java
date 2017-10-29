@@ -5,35 +5,35 @@ import org.bukkit.block.Block;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 
 /**
- * Packet envoyÈ lorsqu'une entitÈ casse un bloc afin de faire l'animation du
+ * Packet envoy√© lorsqu'une entit√© casse un bloc afin de faire l'animation du
  * block qui se casse;
  * 
  * @author LeLanN
  */
 public interface PlayBlockBreakAnimation extends BadblockOutPacket {
 	/**
-	 * RÈcupËre le block sur lequel jouer l'animation
+	 * R√©cupƒçre le block sur lequel jouer l'animation
 	 * 
 	 * @return Le block
 	 */
 	public Block getBlock();
 
 	/**
-	 * RÈcupËre l'id de l'entitÈ
+	 * R√©cupƒçre l'id de l'entit√©
 	 * 
 	 * @return L'id
 	 */
 	public int getEntityId();
 
 	/**
-	 * RÈcupËre la taille de la 'fissure'
+	 * R√©cupƒçre la taille de la 'fissure'
 	 * 
 	 * @return La taille (voir {@link #setState(int)})
 	 */
 	public int getState();
 
 	/**
-	 * DÈfinit le block sur lequel jouer l'animation
+	 * D√©finit le block sur lequel jouer l'animation
 	 * 
 	 * @param block
 	 *            Le block
@@ -42,7 +42,7 @@ public interface PlayBlockBreakAnimation extends BadblockOutPacket {
 	public PlayBlockBreakAnimation setBlock(Block block);
 
 	/**
-	 * DÈfinit l'id de l'entitÈ
+	 * D√©finit l'id de l'entit√©
 	 * 
 	 * @param entityId
 	 *            L'id
@@ -51,10 +51,10 @@ public interface PlayBlockBreakAnimation extends BadblockOutPacket {
 	public PlayBlockBreakAnimation setEntityId(int entityId);
 
 	/**
-	 * DÈfinit la taille de la 'fissure'
+	 * D√©finit la taille de la 'fissure'
 	 * 
 	 * @param state
-	 *            La taille, de 0 ‡ 9. Si c'est une autre valeur, plus
+	 *            La taille, de 0 ≈ï 9. Si c'est une autre valeur, plus
 	 *            d'animation.
 	 * @return Le packet
 	 */

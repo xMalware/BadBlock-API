@@ -14,7 +14,7 @@ import fr.badblock.gameapi.utils.i18n.TranslatableString;
 import fr.badblock.gameapi.utils.itemstack.ItemStackExtra;
 
 /**
- * Représente une Team utilisée pour un MiniJeu.<br>
+ * ReprÃ©sente une Team utilisÃ©e pour un MiniJeu.<br>
  * Pour les utiliser les registers avec
  * {@link fr.badblock.gameapi.GameAPI#registerTeams(int, Class, org.bukkit.configuration.ConfigurationSection)}
  * 
@@ -22,7 +22,7 @@ import fr.badblock.gameapi.utils.itemstack.ItemStackExtra;
  */
 public interface BadblockTeam {
 	/**
-	 * Créé l'item de join pour la team
+	 * CrÃ©Ã© l'item de join pour la team
 	 * 
 	 * @param locale
 	 *            La langue
@@ -31,14 +31,14 @@ public interface BadblockTeam {
 	public ItemStackExtra createJoinItem(Locale locale);
 
 	/**
-	 * Récupère la couleur (autre) de l'équipe.
+	 * RÃ©cupÄre la couleur (autre) de l'Ã©quipe.
 	 * 
 	 * @return La couleur.
 	 */
 	public Color geNormalColor();
 
 	/**
-	 * Récupère la string (i18n) du nom dans le chat (pour le mettrre dans une
+	 * RÃ©cupÄre la string (i18n) du nom dans le chat (pour le mettrre dans une
 	 * phrase) de la team
 	 * 
 	 * @return La string
@@ -46,7 +46,7 @@ public interface BadblockTeam {
 	public TranslatableString getChatName();
 
 	/**
-	 * Récupère la string (i18n) du préfixe dans le chat de la team (quand les
+	 * RÃ©cupÄre la string (i18n) du prÃ©fixe dans le chat de la team (quand les
 	 * joueurs parlent)
 	 * 
 	 * @return La string
@@ -54,84 +54,84 @@ public interface BadblockTeam {
 	public TranslatableString getChatPrefix();
 
 	/**
-	 * Récupère la couleur (chat) de l'équipe.
+	 * RÃ©cupÄre la couleur (chat) de l'Ã©quipe.
 	 * 
 	 * @return La couleur (chat).
 	 */
 	public ChatColor getColor();
 
 	/**
-	 * Récupère la couleur (laine) de l'équipe.
+	 * RÃ©cupÄre la couleur (laine) de l'Ã©quipe.
 	 * 
 	 * @return La couleur (laine).
 	 */
 	public DyeColor getDyeColor();
 
 	/**
-	 * Récupère le nom interne de la team
+	 * RÃ©cupÄre le nom interne de la team
 	 * 
 	 * @return Le nom interne.
 	 */
 	public String getKey();
 
 	/**
-	 * Récupère le nombre maximum de joueurs dans la team.
+	 * RÃ©cupÄre le nombre maximum de joueurs dans la team.
 	 * 
 	 * @return Le nombre maximum.
 	 */
 	public int getMaxPlayers();
 
 	/**
-	 * Récupère les joueurs de la team étant connectés
+	 * RÃ©cupÄre les joueurs de la team Ã©tant connectÃ©s
 	 * 
 	 * @return Une collection
 	 */
 	public Collection<BadblockPlayer> getOnlinePlayers();
 
 	/**
-	 * Récupère les noms des joueurs de la team étant connectés
+	 * RÃ©cupÄre les noms des joueurs de la team Ã©tant connectÃ©s
 	 * 
 	 * @return Une collection
 	 */
 	public Collection<String> getOnlinePlayersName();
 
 	/**
-	 * Récupère les joueurs présent lors du démarrage
+	 * RÃ©cupÄre les joueurs prÃ©sent lors du dÃ©marrage
 	 * 
 	 * @return Les joueurs
 	 */
 	public Collection<UUID> getPlayersAtStart();
 
 	/**
-	 * Récupère les joueurs présent lors du démarrage
+	 * RÃ©cupÄre les joueurs prÃ©sent lors du dÃ©marrage
 	 * 
 	 * @return Les joueurs
 	 */
 	public Collection<String> getPlayersNameAtStart();
 
 	/**
-	 * Retourne la string (i18n) du préfixe dans la tabulation de la Team
+	 * Retourne la string (i18n) du prÃ©fixe dans la tabulation de la Team
 	 * 
 	 * @param color
-	 *            La couleur (verte ou rouge) pour savoir si la team est alliée
+	 *            La couleur (verte ou rouge) pour savoir si la team est alliÃ©e
 	 *            ou non
 	 * @return La string
 	 */
 	public TranslatableString getTabPrefix(ChatColor color);
 
 	/**
-	 * Permet à un BadblockPlayer de rejoindre la team.
+	 * Permet Å• un BadblockPlayer de rejoindre la team.
 	 * 
 	 * @param player
 	 *            Le player
 	 * @param reason
 	 *            La raison du join
-	 * @return Si l'opération est un succès
+	 * @return Si l'opÃ©ration est un succÄs
 	 */
 	public boolean joinTeam(BadblockPlayer player, JoinReason reason);
 
 	/**
-	 * Fait quitter la team à un BadblockPlayer.
+	 * Fait quitter la team Å• un BadblockPlayer.
 	 * 
 	 * @param player
 	 *            Le player
@@ -139,14 +139,14 @@ public interface BadblockTeam {
 	public void leaveTeam(BadblockPlayer player);
 
 	/**
-	 * Récupère le nombre de joueurs dans la team connectés sur le serveur.
+	 * RÃ©cupÄre le nombre de joueurs dans la team connectÃ©s sur le serveur.
 	 * 
 	 * @return Le nombre de joueurs.
 	 */
 	public int playersCurrentlyOnline();
 
 	/**
-	 * Définit le nombre maximum de joueurs dans la team.
+	 * DÃ©finit le nombre maximum de joueurs dans la team.
 	 * 
 	 * @param maxPlayers
 	 *            Le nombre maximum.
@@ -154,25 +154,25 @@ public interface BadblockTeam {
 	public void setMaxPlayers(int maxPlayers);
 
 	/**
-	 * Récupère les données ingame de la team. Attention, la classe fournie doit
-	 * être celle donnée dans le onEnable grâçe à
+	 * RÃ©cupÄre les donnÃ©es ingame de la team. Attention, la classe fournie doit
+	 * Ä™tre celle donnÃ©e dans le onEnable grÃ¢Ã§e Å•
 	 * {@link fr.badblock.gameapi.GameAPI#registerTeams(int, Class, org.bukkit.configuration.ConfigurationSection)}
 	 * 
 	 * @param clazz
-	 *            La classe implémentant TeamData
-	 * @return Les données joueurs (ou null si la classe donnée n'est pas
+	 *            La classe implÃ©mentant TeamData
+	 * @return Les donnÃ©es joueurs (ou null si la classe donnÃ©e n'est pas
 	 *         correcte)
 	 */
 	public <T extends TeamData> T teamData(Class<T> clazz);
 	
 	/**
-	 * Retourne si l'équipe ne peut plus être jouée (éliminiation..)
+	 * Retourne si l'Ã©quipe ne peut plus Ä™tre jouÃ©e (Ã©liminiation..)
 	 * @return
 	 */
 	public boolean isDead();
 	
 	/**
-	 * "Tuer" une équipe
+	 * "Tuer" une Ã©quipe
 	 */
 	public void die();
 	

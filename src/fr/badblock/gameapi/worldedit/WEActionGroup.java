@@ -12,7 +12,7 @@ import fr.badblock.gameapi.GameAPI;
 import lombok.Getter;
 
 /**
- * ReprÈsente un groupe d'action WorldEdit sous la forme d'une action unique
+ * Repr√©sente un groupe d'action WorldEdit sous la forme d'une action unique
  * @author LeLanN
  */
 public class WEActionGroup implements WEAction {
@@ -41,7 +41,7 @@ public class WEActionGroup implements WEAction {
 	}
 	
 	/**
-	 * Ajoute des actions ‡ la liste d'attente
+	 * Ajoute des actions ≈ï la liste d'attente
 	 * @param actions Les actions
 	 */
 	public void addActions(Iterable<WEAction> actions)
@@ -53,7 +53,7 @@ public class WEActionGroup implements WEAction {
 	}
 	
 	/**
-	 * Ajoute des actions ‡ la liste d'attente
+	 * Ajoute des actions ≈ï la liste d'attente
 	 * @param actions Les actions
 	 */
 	public void addActions(WEAction... actions)
@@ -65,7 +65,7 @@ public class WEActionGroup implements WEAction {
 	}
 	
 	/**
-	 * RÈcupËre l'action actuelle
+	 * R√©cupƒçre l'action actuelle
 	 * @return Une action
 	 */
 	public WEAction getCurrentAction()
@@ -84,7 +84,7 @@ public class WEActionGroup implements WEAction {
 	}
 	
 	/**
-	 * Force l'arrÍt de l'action actuelle
+	 * Force l'arrƒôt de l'action actuelle
 	 */
 	public void stopCurrentAction()
 	{
@@ -100,7 +100,7 @@ public class WEActionGroup implements WEAction {
 	}
 
 	/**
-	 * RÈcupËre toutes les actions en attente
+	 * R√©cupƒçre toutes les actions en attente
 	 * @return Les actions en attente
 	 */
 	public Set<WEAction> getPendingActions()

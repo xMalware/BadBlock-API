@@ -8,7 +8,7 @@ import org.bukkit.WorldType;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 
 /**
- * Packet envoyé pour faire changer le joueur de dimension (si le joueur est
+ * Packet envoyÃ© pour faire changer le joueur de dimension (si le joueur est
  * mort, il respawnera)<br>
  * 
  * @author LeLanN

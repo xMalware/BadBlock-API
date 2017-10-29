@@ -3,7 +3,7 @@ package fr.badblock.gameapi.utils.itemstack;
 import org.bukkit.inventory.ItemStack;
 
 /**
- * Classe permettant de gÈrer des fonctionnalitÈs par l'API Bukkit
+ * Classe permettant de g√©rer des fonctionnalit√©s par l'API Bukkit
  * facilement.<br>
  * Utiliser {@link fr.badblock.gameapi.GameAPI} pour initialiser.
  * 
@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
  */
 public interface ItemStackExtra {
 	/**
-	 * Les diffÈrentes places d'un item
+	 * Les diff√©rentes places d'un item
 	 * 
 	 * @author LeLanN
 	 */
@@ -40,7 +40,7 @@ public interface ItemStackExtra {
 	}
 
 	/**
-	 * Autorise une action sur l'item sans l'Ècouter
+	 * Autorise une action sur l'item sans l'√©couter
 	 * 
 	 * @param action
 	 *            Les actions
@@ -58,7 +58,7 @@ public interface ItemStackExtra {
 	public ItemStackExtra allowDropOnDeath(boolean can);
 
 	/**
-	 * Refuse une action sur l'item sans l'Ècouter
+	 * Refuse une action sur l'item sans l'√©couter
 	 * 
 	 * @param action
 	 *            Les actions
@@ -67,7 +67,7 @@ public interface ItemStackExtra {
 	public ItemStackExtra disallow(ItemAction... action);
 
 	/**
-	 * RÈcupËre l'item gÈrÈ par l'extra
+	 * R√©cupƒçre l'item g√©r√© par l'extra
 	 */
 	public ItemStack getHandler();
 
@@ -75,7 +75,7 @@ public interface ItemStackExtra {
 	 * Ecoute une action sur l'item
 	 * 
 	 * @param event
-	 *            Pour Ècouter les actions
+	 *            Pour √©couter les actions
 	 * @param actions
 	 *            Les actions
 	 * @return L'item extra
@@ -83,10 +83,10 @@ public interface ItemStackExtra {
 	public ItemStackExtra listen(ItemEvent event, ItemAction... actions);
 
 	/**
-	 * DÈfinit les listeners en fonction d'un type prÈÈxistant d'item
+	 * D√©finit les listeners en fonction d'un type pr√©√©xistant d'item
 	 * 
 	 * @param optionalEvent
-	 *            Un event ‡ renseigner si le type choisit est cliquable
+	 *            Un event ≈ï renseigner si le type choisit est cliquable
 	 * @param place
 	 *            Le type d'item
 	 * @return L'item extra
@@ -102,7 +102,7 @@ public interface ItemStackExtra {
 	public ItemStackExtra setDisplayName(String name);
 
 	/**
-	 * Abandonne les fonctionnalitÈes de l'extra
+	 * Abandonne les fonctionnalit√©es de l'extra
 	 */
 	public void stopListeningAt();
 }

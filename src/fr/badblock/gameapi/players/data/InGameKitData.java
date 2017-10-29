@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * InGameData pour gérer le kit choisit par le joueur
+ * InGameData pour gÃ©rer le kit choisit par le joueur
  * 
  * @author LeLanN
  */

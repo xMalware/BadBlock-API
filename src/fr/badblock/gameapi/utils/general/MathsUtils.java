@@ -5,18 +5,18 @@ import java.math.RoundingMode;
 import java.util.Random;
 
 /**
- * Classe contenant plusieurs méthodes utiles pour l'utilisation des nombres
+ * Classe contenant plusieurs mÃ©thodes utiles pour l'utilisation des nombres
  * 
  * @author LeLanN
  */
 public class MathsUtils {
 	/**
-	 * Ajoute un certains pourcentage à une valeur de base
+	 * Ajoute un certains pourcentage Å• une valeur de base
 	 * 
 	 * @param base
 	 *            La valeur de base
 	 * @param percent
-	 *            Le pourcentage à ajouter
+	 *            Le pourcentage Å• ajouter
 	 * @return La nouvelle valeur
 	 */
 	public static double addPercentage(double base, double percent) {
@@ -24,15 +24,15 @@ public class MathsUtils {
 	}
 
 	/**
-	 * Ajoute un certains pourcentage, un certains nombre de fois, à une valeur
+	 * Ajoute un certains pourcentage, un certains nombre de fois, Å• une valeur
 	 * de base
 	 * 
 	 * @param base
 	 *            La valeur de base
 	 * @param percent
-	 *            Le pourcentage à ajouter
+	 *            Le pourcentage Å• ajouter
 	 * @param n
-	 *            Le nombre de fois où il faut ajouter ce pourcentage
+	 *            Le nombre de fois oÅ¯ il faut ajouter ce pourcentage
 	 * @return La nouvelle valeur
 	 */
 	public static double addPercentage(double base, double percent, int n) {
@@ -40,7 +40,7 @@ public class MathsUtils {
 	}
 
 	/**
-	 * Renvoit un nombre aléatoire
+	 * Renvoit un nombre alÃ©atoire
 	 *
 	 * @param max
 	 *            Le maximum
@@ -63,7 +63,7 @@ public class MathsUtils {
 	}
 
 	/**
-	 * Renvoit un nombre aléatoire
+	 * Renvoit un nombre alÃ©atoire
 	 *
 	 * @param max
 	 *            Le maximum
@@ -82,12 +82,12 @@ public class MathsUtils {
 	}
 
 	/**
-	 * Arrondit un nombre à un certains nombre de décimales
+	 * Arrondit un nombre Å• un certains nombre de dÃ©cimales
 	 * 
 	 * @param number
 	 *            La valeur
 	 * @param dec
-	 *            Le nombre de décimales
+	 *            Le nombre de dÃ©cimales
 	 * @return La nouvelle valeur
 	 */
 	public static double round(double number, int dec) {

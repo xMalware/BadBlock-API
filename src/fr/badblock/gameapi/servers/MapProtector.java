@@ -12,10 +12,10 @@ import fr.badblock.gameapi.players.BadblockPlayer;
 
 /**
  * Classe permettant de faciliter l'utilisation des events Bukkit. Si une
- * méthode retourne 'true' rien ne sera fait (hormis {@link #destroyArrow()}).
- * Si une méthode retourne 'false' un ou des events seront annulés.<br>
+ * mÃ©thode retourne 'true' rien ne sera fait (hormis {@link #destroyArrow()}).
+ * Si une mÃ©thode retourne 'false' un ou des events seront annulÃ©s.<br>
  * 
- * Pour utiliser, définir le protecteur avec
+ * Pour utiliser, dÃ©finir le protecteur avec
  * {@link GameAPI#setMapProtector(MapProtector)}.
  * 
  * @author LeLanN
@@ -95,7 +95,7 @@ public interface MapProtector {
 	public boolean canUsePortal(BadblockPlayer player);
 
 	/**
-	 * Si les flèches sont détruites dès qu'elles touchent le sol
+	 * Si les flÄches sont dÃ©truites dÄs qu'elles touchent le sol
 	 * (optimisation).
 	 * 
 	 * @return False si l'on ne veut rien changer

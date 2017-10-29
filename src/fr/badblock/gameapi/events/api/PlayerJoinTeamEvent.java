@@ -11,24 +11,24 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Event appelé lorsque un joueur entre dans une team
+ * Event appelÃ© lorsque un joueur entre dans une team
  * 
  * @author LeLanN
  */
 public class PlayerJoinTeamEvent extends BadblockPlayerEvent implements Cancellable {
 	/**
-	 * Raison de l'entrée dans la team
+	 * Raison de l'entrÃ©e dans la team
 	 * 
 	 * @author LeLanN
 	 */
 	public static enum JoinReason {
 		/**
-		 * Choix fait par le joueur lors de la période d'attente
+		 * Choix fait par le joueur lors de la pÃ©riode d'attente
 		 */
 		WHILE_WAITING,
 		/**
-		 * Changement de la répartition ou assignation forcée de team lors du
-		 * démarrage
+		 * Changement de la rÃ©partition ou assignation forcÃ©e de team lors du
+		 * dÃ©marrage
 		 */
 		REBALANCING;
 	}

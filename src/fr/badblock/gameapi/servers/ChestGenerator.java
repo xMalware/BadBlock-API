@@ -10,32 +10,32 @@ import fr.badblock.gameapi.players.BadblockPlayer;
 import lombok.AllArgsConstructor;
 
 /**
- * Permet de générer des coffres aléatoires avec une configuration
+ * Permet de gÃ©nÃ©rer des coffres alÃ©atoires avec une configuration
  * 
  * @author LeLanN
  */
 public interface ChestGenerator {
 	/**
-	 * Ajoute un item dans la configuration chargée
+	 * Ajoute un item dans la configuration chargÃ©e
 	 * 
 	 * @param item
 	 *            L'item
 	 * @param probability
-	 *            La probabilité d'avoir cet item
+	 *            La probabilitÃ© d'avoir cet item
 	 * @param save
-	 *            Si la configuration doit être sauvegardée avec cet item
+	 *            Si la configuration doit Ä™tre sauvegardÃ©e avec cet item
 	 */
 	public void addItemInConfiguration(ItemStack item, int probability, boolean save);
 
 	/**
-	 * Après que cette méthode soit appelée, les coffres ouverts par les joueurs
-	 * seront automatiquement générés
+	 * AprÄs que cette mÃ©thode soit appelÃ©e, les coffres ouverts par les joueurs
+	 * seront automatiquement gÃ©nÃ©rÃ©s
 	 */
 	public void beginJob();
 
 	/**
-	 * Permet de générer un inventaire d'un certains nombre de lignes avec la
-	 * configuration chargée
+	 * Permet de gÃ©nÃ©rer un inventaire d'un certains nombre de lignes avec la
+	 * configuration chargÃ©e
 	 * 
 	 * @param lines
 	 *            Le nombre de lignes
@@ -44,22 +44,22 @@ public interface ChestGenerator {
 	public ItemStack[] generateChest(BadblockPlayer player, int lines);
 
 	/**
-	 * Vérifie si le générateur à été configuré
+	 * VÃ©rifie si le gÃ©nÃ©rateur Å• Ã©tÃ© configurÃ©
 	 * 
-	 * @return Si il a été configuré
+	 * @return Si il a Ã©tÃ© configurÃ©
 	 */
 	public boolean isConfigurated();
 
 	/**
-	 * Vérifie si le générateur a été démarré (remplissage automatique des
+	 * VÃ©rifie si le gÃ©nÃ©rateur a Ã©tÃ© dÃ©marrÃ© (remplissage automatique des
 	 * coffres)
 	 * 
-	 * @return Si il a été démarré
+	 * @return Si il a Ã©tÃ© dÃ©marrÃ©
 	 */
 	public boolean isWorking();
 
 	/**
-	 * Réinitialise le contenu des coffres
+	 * RÃ©initialise le contenu des coffres
 	 */
 	public void resetChests();
 
@@ -72,7 +72,7 @@ public interface ChestGenerator {
 	public void setConfigurationFile(File file);
 
 	/**
-	 * Définit si le coffre se supprime lorsqu'un joueur le ferme
+	 * DÃ©finit si le coffre se supprime lorsqu'un joueur le ferme
 	 * 
 	 * @param removeOnOpen
 	 *            Si le coffre se supprime
@@ -80,7 +80,7 @@ public interface ChestGenerator {
 	public void setRemoveOnOpen(boolean removeOnOpen);
 	
 	/**
-	 * Définit si les coffres sont individuels (faux coffres)
+	 * DÃ©finit si les coffres sont individuels (faux coffres)
 	 * @param individualChest Si les coffres sont individuels
 	 */
 	public void setIndividualChest(boolean individualChest);

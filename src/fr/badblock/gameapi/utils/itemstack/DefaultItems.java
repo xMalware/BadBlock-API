@@ -5,7 +5,7 @@ import org.bukkit.inventory.ItemStack;
 import fr.badblock.gameapi.utils.i18n.Locale;
 
 /**
- * Représente quelques items par défaut (pour les inventaires ect) BadBlock
+ * ReprÃ©sente quelques items par dÃ©faut (pour les inventaires ect) BadBlock
  * 
  * @author LeLanN
  */

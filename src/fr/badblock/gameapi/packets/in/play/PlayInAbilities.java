@@ -4,14 +4,14 @@ import fr.badblock.gameapi.packets.BadblockInPacket;
 import fr.badblock.gameapi.packets.BadblockInPackets;
 
 /**
- * Packet envoyé par le client quand il se met à voler. La plupart des
+ * Packet envoyÃ© par le client quand il se met Å• voler. La plupart des
  * informations du packets sont inutiles.
  * 
  * @author LeLanN
  */
 public interface PlayInAbilities extends BadblockInPacket {
 	/**
-	 * Récupère la vitesse de vole du joueur
+	 * RÃ©cupÄre la vitesse de vole du joueur
 	 * 
 	 * @return La vitesse
 	 */
@@ -23,28 +23,28 @@ public interface PlayInAbilities extends BadblockInPacket {
 	}
 
 	/**
-	 * Récupère la vitesse de marche du joueur
+	 * RÃ©cupÄre la vitesse de marche du joueur
 	 * 
 	 * @return La vitesse
 	 */
 	public float getWalkingSpeed();
 
 	/**
-	 * Si le joueur est autorisé à voler
+	 * Si le joueur est autorisÃ© Å• voler
 	 * 
 	 * @return Un boolean
 	 */
 	public boolean isAllowedToFly();
 
 	/**
-	 * Si le joueur est en créatif
+	 * Si le joueur est en crÃ©atif
 	 * 
 	 * @return Un boolean
 	 */
 	public boolean isCreative();
 
 	/**
-	 * Si le joueur vole (seul paramètre utilisé)
+	 * Si le joueur vole (seul paramÄtre utilisÃ©)
 	 * 
 	 * @return Un boolean
 	 */

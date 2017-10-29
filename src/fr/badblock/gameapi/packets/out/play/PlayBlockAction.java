@@ -6,12 +6,12 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
 import fr.badblock.gameapi.utils.selections.Vector3f;
 
 /**
- * Packet envoyé par le serveur lors de :
+ * Packet envoyÃ© par le serveur lors de :
  * <ul>
  * <li>Ouverture et fermeture de coffre
- * <li>Activation/Désactivation de pistons
+ * <li>Activation/DÃ©sactivation de pistons
  * <li>Noteblock jouant une note
- * <li>Mise à jour de balise
+ * <li>Mise Å• jour de balise
  * </ul>
  * <br>
  * 
@@ -20,46 +20,46 @@ import fr.badblock.gameapi.utils.selections.Vector3f;
  */
 public interface PlayBlockAction extends BadblockOutPacket {
 	/**
-	 * Récupère les coordonnées du bloc
+	 * RÃ©cupÄre les coordonnÃ©es du bloc
 	 * 
-	 * @return Les coordonnées
+	 * @return Les coordonnÃ©es
 	 */
 	public Vector3f getBlockPosition();
 
 	/**
-	 * Récupère le type de block
+	 * RÃ©cupÄre le type de block
 	 * 
 	 * @return Le type de block
 	 */
 	public Material getBlockType();
 
 	/**
-	 * Récupère la première donnée.
+	 * RÃ©cupÄre la premiÄre donnÃ©e.
 	 * 
 	 * @see "http://wiki.vg/Block_Actions"
-	 * @return La première donnée
+	 * @return La premiÄre donnÃ©e
 	 */
 	public byte getByte1();
 
 	/**
-	 * Récupère la deuxième donnée.
+	 * RÃ©cupÄre la deuxiÄme donnÃ©e.
 	 * 
 	 * @see "http://wiki.vg/Block_Actions"
-	 * @return La deuxième donnée
+	 * @return La deuxiÄme donnÃ©e
 	 */
 	public byte getByte2();
 
 	/**
-	 * Définit les coordonnées du bloc
+	 * DÃ©finit les coordonnÃ©es du bloc
 	 * 
 	 * @param position
-	 *            Les coordonnées
+	 *            Les coordonnÃ©es
 	 * @return Le packet
 	 */
 	public PlayBlockAction setBlockPosition(Vector3f position);
 
 	/**
-	 * Définit le type de block
+	 * DÃ©finit le type de block
 	 * 
 	 * @param type
 	 *            Le type de block
@@ -68,21 +68,21 @@ public interface PlayBlockAction extends BadblockOutPacket {
 	public PlayBlockAction setBlockType(Material type);
 
 	/**
-	 * Définit la première donnée.
+	 * DÃ©finit la premiÄre donnÃ©e.
 	 * 
 	 * @see "http://wiki.vg/Block_Actions"
 	 * @param value
-	 *            La première donnée
+	 *            La premiÄre donnÃ©e
 	 * @return Le packet
 	 */
 	public PlayBlockAction setByte1(byte value);
 
 	/**
-	 * Définit la deuxième donnée.
+	 * DÃ©finit la deuxiÄme donnÃ©e.
 	 * 
 	 * @see "http://wiki.vg/Block_Actions"
 	 * @param value
-	 *            La deuxième donnée
+	 *            La deuxiÄme donnÃ©e
 	 * @return Le packet
 	 */
 	public PlayBlockAction setByte2(byte value);

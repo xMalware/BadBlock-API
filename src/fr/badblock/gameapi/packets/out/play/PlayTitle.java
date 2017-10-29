@@ -13,16 +13,16 @@ public interface PlayTitle extends BadblockOutPacket {
 		 */
 		SUBTITLE(),
 		/**
-		 * Change les timings (temps d'affichages, affichera le title à l'écran)
+		 * Change les timings (temps d'affichages, affichera le title Å• l'Ã©cran)
 		 */
 		TIMES(),
 		/**
-		 * Fait disparaître le title de l'écran (utiliser TIMES pour le
+		 * Fait disparaÃ®tre le title de l'Ã©cran (utiliser TIMES pour le
 		 * remettre)
 		 */
 		CLEAR(),
 		/**
-		 * Réinitialise tout le packet
+		 * RÃ©initialise tout le packet
 		 */
 		RESET();
 	}

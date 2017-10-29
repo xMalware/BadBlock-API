@@ -7,13 +7,13 @@ import fr.badblock.gameapi.players.BadblockPlayerData;
 import fr.badblock.gameapi.players.BadblockTeam;
 
 /**
- * Classe permettant de gérer le statut des jeux
+ * Classe permettant de gÃ©rer le statut des jeux
  * 
  * @authors xMalware & LeLanN
  */
 public interface GameServer {
 	/**
-	 * Représente les différents types de reconnection
+	 * ReprÃ©sente les diffÃ©rents types de reconnection
 	 * 
 	 * @author LeLanN
 	 */
@@ -23,17 +23,17 @@ public interface GameServer {
 		 */
 		SPECTATOR,
 		/**
-		 * Récupère les données joueurs stockées si le joueur avait déco<br>
-		 * Si cette politique n'est pas utilisable à chaque fois, vous pouvez
+		 * RÃ©cupÄre les donnÃ©es joueurs stockÃ©es si le joueur avait dÃ©co<br>
+		 * Si cette politique n'est pas utilisable Å• chaque fois, vous pouvez
 		 * cancel l'event {@link PlayerReconnectionPropositionEvent}
 		 */
 		BACKUP;
 	}
 
 	/**
-	 * Si la phase du jeu change (entrée en Deathmatch par exemple), utiliser
+	 * Si la phase du jeu change (entrÃ©e en Deathmatch par exemple), utiliser
 	 * ceci pour cancel les propositions pour rejoindre le serveur<br>
-	 * Autrement, utilisé automatiquement à la fin de la partie
+	 * Autrement, utilisÃ© automatiquement Å• la fin de la partie
 	 */
 	public void cancelReconnectionInvitations();
 
@@ -47,28 +47,28 @@ public interface GameServer {
 	public void cancelReconnectionInvitations(BadblockTeam team);
 
 	/**
-	 * Récupère la date/heure de début du jeu (GameState = RUNNING)
+	 * RÃ©cupÄre la date/heure de dÃ©but du jeu (GameState = RUNNING)
 	 * 
 	 * @return La date/heure
 	 */
 	public String getGameBegin();
 
 	/**
-	 * Récupérer le statut de la partie
+	 * RÃ©cupÃ©rer le statut de la partie
 	 * 
 	 * @return gameState Le statut
 	 */
 	public GameState getGameState();
 
 	/**
-	 * Récupére le nombre max de joueurs
+	 * RÃ©cupÃ©re le nombre max de joueurs
 	 * 
 	 * @return Le nombre max de joueurs
 	 */
 	public int getMaxPlayers();
 
 	/**
-	 * Récupère les joueurs sauvegardés avec
+	 * RÃ©cupÄre les joueurs sauvegardÃ©s avec
 	 * {@link #saveTeamsAndPlayersForResult()}
 	 * 
 	 * @return Une liste des tous les joueurs
@@ -76,7 +76,7 @@ public interface GameServer {
 	public Collection<BadblockPlayerData> getSavedPlayers();
 
 	/**
-	 * Récupère les teams sauvegardés avec
+	 * RÃ©cupÄre les teams sauvegardÃ©s avec
 	 * {@link #saveTeamsAndPlayersForResult()}
 	 * 
 	 * @return Une liste des toutes les teams
@@ -84,13 +84,13 @@ public interface GameServer {
 	public Collection<BadblockTeam> getSavedTeams();
 
 	/**
-	 * Sauvegarde les teams/joueurs pour pouvoir les récupérer pour le résultat
+	 * Sauvegarde les teams/joueurs pour pouvoir les rÃ©cupÃ©rer pour le rÃ©sultat
 	 * final
 	 */
 	public void saveTeamsAndPlayersForResult();
 
 	/**
-	 * Définir le statut de la partie
+	 * DÃ©finir le statut de la partie
 	 * 
 	 * @param gameState
 	 *            Le statut
@@ -98,7 +98,7 @@ public interface GameServer {
 	public void setGameState(GameState gameState);
 
 	/**
-	 * Définit le nombre max de joueurs
+	 * DÃ©finit le nombre max de joueurs
 	 * 
 	 * @param maxPlayers
 	 *            Le nombre max de joueurs
@@ -106,7 +106,7 @@ public interface GameServer {
 	public void setMaxPlayers(int maxPlayers);
 
 	/**
-	 * Définit le traitement des joueurs si il se reconnecte après le début de
+	 * DÃ©finit le traitement des joueurs si il se reconnecte aprÄs le dÃ©but de
 	 * la partie
 	 * 
 	 * @param type
@@ -115,13 +115,13 @@ public interface GameServer {
 	public void whileRunningConnection(WhileRunningConnectionTypes type);
 	
 	/**
-	 * Récupère le TPS du serveur
+	 * RÃ©cupÄre le TPS du serveur
 	 * @return
 	 */
 	public double getPassmarkTps();
 	
 	/**
-	 * Détermine si le serveur est joignable en pleine partie par Docker
+	 * DÃ©termine si le serveur est joignable en pleine partie par Docker
 	 * @return
 	 */
 	public boolean isJoinableWhenRunning();

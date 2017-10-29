@@ -4,7 +4,7 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
 import fr.badblock.gameapi.utils.selections.Vector3f;
 
 /**
- * Packet envoyé pour faire spawn des orbes d'expériences.
+ * Packet envoyÃ© pour faire spawn des orbes d'expÃ©riences.
  * 
  * @author LeLanN
  */

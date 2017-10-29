@@ -9,7 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Représente un Material Bukkit et sa data (ex : Stone:1)
+ * ReprÃ©sente un Material Bukkit et sa data (ex : Stone:1)
  * 
  * @author LeLanN
  */
@@ -36,7 +36,7 @@ public class MapMaterial implements MapValue<Material> {
 	}
 
 	/**
-	 * Vérifie si l'item correspond au Block
+	 * VÃ©rifie si l'item correspond au Block
 	 * 
 	 * @param block
 	 *            Le block
@@ -48,7 +48,7 @@ public class MapMaterial implements MapValue<Material> {
 	}
 
 	/**
-	 * Vérifie si l'item correspond au Material
+	 * VÃ©rifie si l'item correspond au Material
 	 * 
 	 * @param item
 	 *            L'item

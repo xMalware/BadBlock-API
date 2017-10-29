@@ -25,12 +25,12 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 /**
- * Représente une entité qui n'est pas gérée côté serveur. Ne peut être qu'une
- * entité vivante.
+ * ReprÃ©sente une entitÃ© qui n'est pas gÃ©rÃ©e cÃ´tÃ© serveur. Ne peut Ä™tre qu'une
+ * entitÃ© vivante.
  * 
  * @author LeLanN
  *
- * @param <T> Le watcher correspondant au type de l'entité gérée.
+ * @param <T> Le watcher correspondant au type de l'entitÃ© gÃ©rÃ©e.
  */
 public interface FakeEntity<T extends WatcherEntity> {
 	@NoArgsConstructor@AllArgsConstructor
@@ -111,67 +111,67 @@ public interface FakeEntity<T extends WatcherEntity> {
 	}
 	
 	/**
-	 * Supprime l'entité si ce n'est pas fait et la supprime du cache (ne pourra
-	 * plus être réutilisée).
+	 * Supprime l'entitÃ© si ce n'est pas fait et la supprime du cache (ne pourra
+	 * plus Ä™tre rÃ©utilisÃ©e).
 	 */
 	public void destroy();
 
 	/**
-	 * Récupère la rotation de la tête de l'entité
+	 * RÃ©cupÄre la rotation de la tÄ™te de l'entitÃ©
 	 * 
-	 * @return La position de la tête
+	 * @return La position de la tÄ™te
 	 */
 	public float getHeadYaw();
 
 	/**
-	 * L'entité de l'ID
+	 * L'entitÃ© de l'ID
 	 * 
 	 * @return L'ID
 	 */
 	public int getId();
 
 	/**
-	 * Récupère la position du joueur
+	 * RÃ©cupÄre la position du joueur
 	 * 
 	 * @return La position
 	 */
 	public Location getLocation();
 
 	/**
-	 * Récupère le type de l'entité
+	 * RÃ©cupÄre le type de l'entitÃ©
 	 * 
 	 * @return Le type
 	 */
 	public EntityType getType();
 
 	/**
-	 * Récupère la visibilité de l'entité
+	 * RÃ©cupÄre la visibilitÃ© de l'entitÃ©
 	 * 
-	 * @return La visibilité
+	 * @return La visibilitÃ©
 	 */
 	public Visibility getVisibility();
 
 	/**
-	 * Récupère les watchers de l'entité
+	 * RÃ©cupÄre les watchers de l'entitÃ©
 	 * 
 	 * @return Les watchers
 	 */
 	public T getWatchers();
 
 	/**
-	 * Vérifie si l'entité est remove.
+	 * VÃ©rifie si l'entitÃ© est remove.
 	 * 
 	 * @return Si elle est remove.
 	 */
 	public boolean isRemoved();
 
 	/**
-	 * Tue (naturellement) l'entité. Autrement, même effet que remove().
+	 * Tue (naturellement) l'entitÃ©. Autrement, mÄ™me effet que remove().
 	 */
 	public void kill();
 
 	/**
-	 * Déplace (en essayant de le faire naturellement) l'entité
+	 * DÃ©place (en essayant de le faire naturellement) l'entitÃ©
 	 * 
 	 * @param location
 	 *            La nouvelle position
@@ -179,7 +179,7 @@ public interface FakeEntity<T extends WatcherEntity> {
 	public void move(Location location);
 
 	/**
-	 * Donne un statut à l'entité
+	 * Donne un statut Å• l'entitÃ©
 	 * 
 	 * @param status
 	 *            Le statut
@@ -187,8 +187,8 @@ public interface FakeEntity<T extends WatcherEntity> {
 	public void playStatus(EntityStatus status);
 
 	/**
-	 * Supprime l'entité. L'entité pour être respawn. Pour la supprimer de la
-	 * mémoire utiliser {@link destroy}.
+	 * Supprime l'entitÃ©. L'entitÃ© pour Ä™tre respawn. Pour la supprimer de la
+	 * mÃ©moire utiliser {@link destroy}.
 	 */
 	public void remove();
 
@@ -215,7 +215,7 @@ public interface FakeEntity<T extends WatcherEntity> {
 	public boolean isPlayerIn(EntityViewList list, BadblockPlayer player);
 	
 	/**
-	 * Change une partie de l'équimement de l'entité
+	 * Change une partie de l'Ã©quimement de l'entitÃ©
 	 * 
 	 * @param equipmentSlot Le slot
 	 * @param itemstack L'item
@@ -223,28 +223,28 @@ public interface FakeEntity<T extends WatcherEntity> {
 	public void setEquipment(EquipmentSlot equipmentSlot, ItemStack itemstack);
 
 	/**
-	 * Modifie la rotation de la tête de l'entité
+	 * Modifie la rotation de la tÄ™te de l'entitÃ©
 	 * 
-	 * @param yaw La position de la tête
+	 * @param yaw La position de la tÄ™te
 	 */
 	public void setHeadYaw(float yaw);
 
 	/**
-	 * Définit la visibilité de l'entité
+	 * DÃ©finit la visibilitÃ© de l'entitÃ©
 	 * 
-	 * @param visibility La visibilité
+	 * @param visibility La visibilitÃ©
 	 */
 	public FakeEntity<T> setVisibility(Visibility visibility);
 
 	/**
-	 * Téléporte l'entité
+	 * TÃ©lÃ©porte l'entitÃ©
 	 * 
 	 * @param location *            La nouvelle position
 	 */
 	public void teleport(Location location);
 
 	/**
-	 * Update les watchers de l'entité (après qu'ils aient été modifiée)
+	 * Update les watchers de l'entitÃ© (aprÄs qu'ils aient Ã©tÃ© modifiÃ©e)
 	 */
 	public void updateWatchers();
 	

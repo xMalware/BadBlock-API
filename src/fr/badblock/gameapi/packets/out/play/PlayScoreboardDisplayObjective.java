@@ -4,24 +4,24 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
 import lombok.Getter;
 
 /**
- * Le packet envoyé pour dire au client d'afficher un objectif déjà connu.
+ * Le packet envoyÃ© pour dire au client d'afficher un objectif dÃ©jÅ• connu.
  * 
  * @author LeLanN
  */
 public interface PlayScoreboardDisplayObjective extends BadblockOutPacket {
 	/**
-	 * Représente les différentes positions possibles du scoreboard
+	 * ReprÃ©sente les diffÃ©rentes positions possibles du scoreboard
 	 * 
 	 * @author LeLanN
 	 */
 	public enum ObjectivePosition {
 		/**
-		 * Dans la tablist (à côté du pseudo du joueur), généralement la vie du
+		 * Dans la tablist (Å• cÃ´tÃ© du pseudo du joueur), gÃ©nÃ©ralement la vie du
 		 * joueur
 		 */
 		LLST((byte) 0),
 		/**
-		 * Le scoreboard en lui-même
+		 * Le scoreboard en lui-mÄ™me
 		 */
 		SIDEBAR((byte) 1),
 		/**
@@ -45,7 +45,7 @@ public interface PlayScoreboardDisplayObjective extends BadblockOutPacket {
 	}
 
 	/**
-	 * Définit le nom (interne) de l'objectif en question
+	 * DÃ©finit le nom (interne) de l'objectif en question
 	 * 
 	 * @param objectiveName
 	 *            Le nom
@@ -54,7 +54,7 @@ public interface PlayScoreboardDisplayObjective extends BadblockOutPacket {
 	public PlayScoreboardDisplayObjective setObjectiveName(String objectiveName);
 
 	/**
-	 * Définit la position de l'objectif
+	 * DÃ©finit la position de l'objectif
 	 * 
 	 * @param objectivePosition
 	 *            La position

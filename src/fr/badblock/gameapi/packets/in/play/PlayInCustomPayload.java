@@ -10,16 +10,16 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
  */
 public interface PlayInCustomPayload extends BadblockInPacket {
 	/**
-	 * Récupère le channel du plugin message
+	 * RÃ©cupÄre le channel du plugin message
 	 * 
 	 * @return Le channel
 	 */
 	public String getChannel();
 
 	/**
-	 * Récupère les données du plugin message
+	 * RÃ©cupÄre les donnÃ©es du plugin message
 	 * 
-	 * @return Les données
+	 * @return Les donnÃ©es
 	 */
 	public byte[] getData();
 

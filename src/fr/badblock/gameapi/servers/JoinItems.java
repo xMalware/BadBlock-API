@@ -10,25 +10,25 @@ import fr.badblock.gameapi.utils.itemstack.ItemEvent;
 import fr.badblock.gameapi.utils.itemstack.ItemStackFactory;
 
 /**
- * Classe permettant de gÈrer les items donnÈs au joueur leur du join. A
+ * Classe permettant de g√©rer les items donn√©s au joueur leur du join. A
  * utiliser dans le onEnable() :o
  * 
  * @author LeLanN
  */
 public interface JoinItems {
 	/**
-	 * Clear l'inventaire du joueur ‡ la connection (par dÈfaut activÈ)
+	 * Clear l'inventaire du joueur ≈ï la connection (par d√©faut activ√©)
 	 */
 	public void doClearInventory(boolean clear);
 
 	/**
-	 * A appeler lorsqu'il faut arrÍter les actions demandÈes (par exemple,
+	 * A appeler lorsqu'il faut arrƒôter les actions demand√©es (par exemple,
 	 * lorsque la partie commence)
 	 */
 	public void end();
 
 	/**
-	 * Demande ‡ l'API de gÈrer l'item permettant de voir les achievements
+	 * Demande ≈ï l'API de g√©rer l'item permettant de voir les achievements
 	 * 
 	 * @param slot
 	 *            Le slot
@@ -38,12 +38,12 @@ public interface JoinItems {
 	public void registerAchievementsItem(int slot, BadblockGame game);
 
 	/**
-	 * Demande ‡ l'API de gÈrer l'item de kit
+	 * Demande ≈ï l'API de g√©rer l'item de kit
 	 * 
 	 * @param slot
-	 *            Le slot dans lequel mettre l'item ‡ la connection
+	 *            Le slot dans lequel mettre l'item ≈ï la connection
 	 * @param kits
-	 *            Les kits chargÈs par le plgin
+	 *            Les kits charg√©s par le plgin
 	 * @param kitListConfig
 	 *            Le fichier de configuration pour savoir l'ordre des kits dans
 	 *            l'inventaire
@@ -51,17 +51,17 @@ public interface JoinItems {
 	public void registerKitItem(int slot, Map<String, PlayerKit> kits, File kitListConfig);
 
 	/**
-	 * Demande ‡ l'API de gÈrer l'item pour quitter la partie
+	 * Demande ≈ï l'API de g√©rer l'item pour quitter la partie
 	 * 
 	 * @param slot
 	 *            Le slot
 	 * @param fallbackServer
-	 *            Le serveur sur lequel tÈlÈporter le joueur
+	 *            Le serveur sur lequel t√©l√©porter le joueur
 	 */
 	public void registerLeaveItem(int slot, String fallbackServer);
 
 	/**
-	 * Demande ‡ l'API de gÈrer l'item de team (‡ appeler aprËs avoir charger
+	 * Demande ≈ï l'API de g√©rer l'item de team (≈ï appeler aprƒçs avoir charger
 	 * les teams)
 	 * 
 	 * @param slot
@@ -73,7 +73,7 @@ public interface JoinItems {
 	public void registerTeamItem(int slot, File teamListConfig);
 
 	/**
-	 * Demande ‡ l'API de gÈrer l'item de vote (choix de la map)
+	 * Demande ≈ï l'API de g√©rer l'item de vote (choix de la map)
 	 * 
 	 * @param slot
 	 *            Le slot
@@ -91,15 +91,15 @@ public interface JoinItems {
 	public void registerGroupItem(int slot, boolean doVote, boolean doTeam, boolean doKit, boolean doAchiev);
 	
 	/**
-	 * Demande ‡ l'API de gÈrer l'item VIP (affiche les avantages)
+	 * Demande ≈ï l'API de g√©rer l'item VIP (affiche les avantages)
 	 * @param slot Le slot
 	 */
 	public void registerVipItem(int slot);
 	
 	/**
-	 * Demande ‡ l'API de gÈrer un item custom
+	 * Demande ≈ï l'API de g√©rer un item custom
 	 * @param slot Le slot
-	 * @param factory La factory pour crÈer l'item
+	 * @param factory La factory pour cr√©er l'item
 	 * @param event L'event de l'item
 	 */
 	public void registerCustomItem(int slot, ItemStackFactory factory, ItemEvent event);

@@ -13,7 +13,7 @@ import org.bukkit.block.BlockFace;
 import lombok.Getter;
 
 /**
- * Repr�sente une s�l�ction en forme de cube, d�finie par deux vecteurs et un
+ * Reprďż˝sente une sďż˝lďż˝ction en forme de cube, dďż˝finie par deux vecteurs et un
  * monde
  * 
  * @author LeLanN
@@ -29,7 +29,7 @@ public class CuboidSelection extends AbstractSelection {
 	}
 
 	/**
-	 * Cr�e une nouvelle s�l�ction � partir du nom du monde et deux de points
+	 * Crďż˝e une nouvelle sďż˝lďż˝ction ďż˝ partir du nom du monde et deux de points
 	 * 
 	 * @param worldName
 	 *            Le monde

@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * Représente une vente d'un marchand.
+ * ReprÃ©sente une vente d'un marchand.
  * 
  * @author LeLanN
  */

@@ -5,13 +5,13 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
 import lombok.Getter;
 
 /**
- * Packet envoyÈ par le client lorsque il exÈcute une action prÈcise.
+ * Packet envoy√© par le client lorsque il ex√©cute une action pr√©cise.
  * 
  * @author LeLanN
  */
 public interface PlayInEntityAction extends BadblockInPacket {
 	/**
-	 * ReprÈsente les diffÈrentes actions possibles pour
+	 * Repr√©sente les diff√©rentes actions possibles pour
 	 * {@link PlayInEntityAction}
 	 * 
 	 * @author LeLanN
@@ -47,15 +47,15 @@ public interface PlayInEntityAction extends BadblockInPacket {
 	}
 
 	/**
-	 * RÈcupËre l'action faite par le joueur
+	 * R√©cupƒçre l'action faite par le joueur
 	 * 
 	 * @return L'action
 	 */
 	public EntityActions getAction();
 
 	/**
-	 * La valeur de l'action. Actuellement, utilisÈ uniquement par
-	 * {@link EntityActions#RIDING_JUMP} (reprÈsente la force du saut, de 0 ‡
+	 * La valeur de l'action. Actuellement, utilis√© uniquement par
+	 * {@link EntityActions#RIDING_JUMP} (repr√©sente la force du saut, de 0 ≈ï
 	 * 100).
 	 * 
 	 * @return La valeur de l'action
@@ -63,7 +63,7 @@ public interface PlayInEntityAction extends BadblockInPacket {
 	public int getActionParameter();
 
 	/**
-	 * RÈcupËre l'ID de l'entitÈ (en rÈalitÈ, celle du joueur)
+	 * R√©cupƒçre l'ID de l'entit√© (en r√©alit√©, celle du joueur)
 	 * 
 	 * @return L'ID
 	 */

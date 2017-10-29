@@ -6,7 +6,7 @@ import fr.badblock.gameapi.events.abstracts.BadblockPlayerEvent;
 import fr.badblock.gameapi.players.BadblockPlayer;
 
 /**
- * Event appelé lorsque un joueur rentre dans le serveur pendant une partie
+ * Event appelÃ© lorsque un joueur rentre dans le serveur pendant une partie
  * 
  * @author LeLanN
  */

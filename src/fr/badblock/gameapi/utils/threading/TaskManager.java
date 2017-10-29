@@ -43,7 +43,7 @@ public class TaskManager {
 		taskList.clear();
 	}
 
-	// Annule une tâche par l'ID
+	// Annule une tĂ˘che par l'ID
 	public static void cancelTaskById(int id) {
 		scheduler.cancelTask(id);
 	}
@@ -59,7 +59,7 @@ public class TaskManager {
 		return false;
 	}
 
-	// Récupération de l'id
+	// RĂŠcupĂŠration de l'id
 	public static int getTaskId(String taskName) {
 		if (taskExist(taskName)) {
 			return taskList.get(taskName);
@@ -68,7 +68,7 @@ public class TaskManager {
 	}
 
 	/**
-	 * Créer un nom de tâche unique basé sur un nom de tâche
+	 * CrĂŠer un nom de tĂ˘che unique basĂŠ sur un nom de tĂ˘che
 	 * 
 	 * @param string
 	 * @return
@@ -82,12 +82,12 @@ public class TaskManager {
 	}
 
 	/**
-	 * Tente de récupérer le nom de la task par l'id si elle existe encore et
-	 * qu'elle a été déclaré dans ce manager
+	 * Tente de rĂŠcupĂŠrer le nom de la task par l'id si elle existe encore et
+	 * qu'elle a ĂŠtĂŠ dĂŠclarĂŠ dans ce manager
 	 * 
 	 * @param id
 	 *            de la task
-	 * @return null si non trouvé
+	 * @return null si non trouvĂŠ
 	 */
 	public static String getTaskNameById(int id) {
 		for (Entry<String, Integer> entry : taskList.entrySet()) {
@@ -98,7 +98,7 @@ public class TaskManager {
 	}
 
 	/**
-	 * Récupérer l'utilisation de la tâche en millisecondes
+	 * RĂŠcupĂŠrer l'utilisation de la tĂ˘che en millisecondes
 	 * 
 	 * @param task
 	 * @return
@@ -109,7 +109,7 @@ public class TaskManager {
 	}
 
 	/**
-	 * Récupérer l'utilisation de toutes les tâches en millisecondes
+	 * RĂŠcupĂŠrer l'utilisation de toutes les tĂ˘ches en millisecondes
 	 * 
 	 * @return
 	 */
@@ -150,8 +150,8 @@ public class TaskManager {
 	}
 
 	/**
-	 * Créer et enregistre une task, se retire de la liste toute seule à
-	 * l'expiration, permet de l'annuler dans un plugin et éviter les mémory
+	 * CrĂŠer et enregistre une task, se retire de la liste toute seule Ă 
+	 * l'expiration, permet de l'annuler dans un plugin et ĂŠviter les mĂŠmory
 	 * leaks Tourne en async
 	 * 
 	 * @param taskName
@@ -165,8 +165,8 @@ public class TaskManager {
 		runAsyncTaskLater(new Runnable() {
 			@Override
 			public void run() {
-				// Toujours la même task ID pour éviter la suppression de task
-				// renouvelées
+				// Toujours la mĂŞme task ID pour ĂŠviter la suppression de task
+				// renouvelĂŠes
 				if (taskList.get(taskName) != null && taskList.get(taskName) == id)
 					taskList.remove(taskName);
 			}
@@ -203,8 +203,8 @@ public class TaskManager {
 	}
 
 	/**
-	 * Créer et enregistre une task, se retire de la liste toute seule à
-	 * l'expiration, permet de l'annuler dans un plugin et éviter les mémory
+	 * CrĂŠer et enregistre une task, se retire de la liste toute seule Ă 
+	 * l'expiration, permet de l'annuler dans un plugin et ĂŠviter les mĂŠmory
 	 * leaks
 	 * 
 	 * @param taskName
@@ -218,8 +218,8 @@ public class TaskManager {
 		runTaskLater(new Runnable() {
 			@Override
 			public void run() {
-				// Toujours la même task ID pour éviter la suppression de task
-				// renouvelées
+				// Toujours la mĂŞme task ID pour ĂŠviter la suppression de task
+				// renouvelĂŠes
 				if (taskList.get(taskName) != null && taskList.get(taskName) == id)
 					taskList.remove(taskName);
 			}
@@ -228,7 +228,7 @@ public class TaskManager {
 	}
 
 	/**
-	 * Ajoute une tâche répétitive en async Annule la précédante du meme
+	 * Ajoute une tĂ˘che rĂŠpĂŠtitive en async Annule la prĂŠcĂŠdante du meme
 	 * nom si existe.
 	 * 
 	 * @param runnable
@@ -245,7 +245,7 @@ public class TaskManager {
 	}
 
 	/**
-	 * Ajoute une tâche répétitive Annule la précédante du meme nom si
+	 * Ajoute une tĂ˘che rĂŠpĂŠtitive Annule la prĂŠcĂŠdante du meme nom si
 	 * existe.
 	 * 
 	 * @param runnable
@@ -260,7 +260,7 @@ public class TaskManager {
 		return task;
 	}
 
-	// La tâche existe ?
+	// La tĂ˘che existe ?
 	public static boolean taskExist(String taskName) {
 		if (taskList.containsKey(taskName)) {
 			return true;
@@ -269,7 +269,7 @@ public class TaskManager {
 	}
 
 	/**
-	 * Recupère la task
+	 * RecupĂ¨re la task
 	 * 
 	 * @param taskName
 	 * @return

@@ -6,7 +6,7 @@ import fr.badblock.gameapi.players.BadblockPlayer;
 import fr.badblock.gameapi.utils.i18n.TranslatableString;
 
 /**
- * Représente les offres d'un marchant
+ * ReprÃ©sente les offres d'un marchant
  * 
  * @author LeLanN
  */
@@ -20,7 +20,7 @@ public interface CustomMerchantInventory {
 	public void addRecipe(CustomMerchantRecipe recipe);
 
 	/**
-	 * Applique les offres choisies à un villageois
+	 * Applique les offres choisies Å• un villageois
 	 * 
 	 * @param villager
 	 *            Le villageois
@@ -28,14 +28,14 @@ public interface CustomMerchantInventory {
 	public void applyTo(Villager villager);
 
 	/**
-	 * Récupère les objets vendables par le marchant
+	 * RÃ©cupÄre les objets vendables par le marchant
 	 * 
 	 * @return Les objets vendables
 	 */
 	public CustomMerchantRecipe[] getRecipes();
 
 	/**
-	 * Permet d'ouvrir l'inventaire à un joueur
+	 * Permet d'ouvrir l'inventaire Å• un joueur
 	 * 
 	 * @param player
 	 *            Le joueur
@@ -43,7 +43,7 @@ public interface CustomMerchantInventory {
 	public void open(BadblockPlayer player);
 
 	/**
-	 * Permet d'ouvrir l'inventaire à un joueur
+	 * Permet d'ouvrir l'inventaire Å• un joueur
 	 * 
 	 * @param player
 	 *            Le joueur
@@ -53,7 +53,7 @@ public interface CustomMerchantInventory {
 	public void open(BadblockPlayer player, TranslatableString customName);
 
 	/**
-	 * Enlève un objet vendable
+	 * EnlÄve un objet vendable
 	 * 
 	 * @param recipe
 	 *            L'objet

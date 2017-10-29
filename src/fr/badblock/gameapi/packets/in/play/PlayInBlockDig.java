@@ -6,13 +6,13 @@ import fr.badblock.gameapi.utils.selections.Vector3f;
 import lombok.Getter;
 
 /**
- * Packet envoyÈ par le joueur lorsqu'il mine un block
+ * Packet envoy√© par le joueur lorsqu'il mine un block
  * 
  * @author LeLanN
  */
 public interface PlayInBlockDig extends BadblockInPacket {
 	/**
-	 * ReprÈsente les diffÈrentes actions pour {@link PlayInBlockDig}.
+	 * Repr√©sente les diff√©rentes actions pour {@link PlayInBlockDig}.
 	 * 
 	 * @author LeLanN
 	 */
@@ -36,7 +36,7 @@ public interface PlayInBlockDig extends BadblockInPacket {
 	}
 
 	/**
-	 * ReprÈsente les diffÈrentes face d'un block
+	 * Repr√©sente les diff√©rentes face d'un block
 	 * 
 	 * @author LeLanN
 	 */
@@ -59,21 +59,21 @@ public interface PlayInBlockDig extends BadblockInPacket {
 	}
 
 	/**
-	 * RÈcupËre l'action du joueur
+	 * R√©cupƒçre l'action du joueur
 	 * 
 	 * @return L'action
 	 */
 	public BlockDigAction getAction();
 
 	/**
-	 * RÈcupËre la face visÈe par le joueur
+	 * R√©cupƒçre la face vis√©e par le joueur
 	 * 
 	 * @return La face
 	 */
 	public BlockFace getBlockFace();
 
 	/**
-	 * RÈcupËre la position du block
+	 * R√©cupƒçre la position du block
 	 * 
 	 * @return La position
 	 */

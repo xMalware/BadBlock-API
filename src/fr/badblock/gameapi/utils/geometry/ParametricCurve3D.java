@@ -6,15 +6,15 @@ import java.util.List;
 import fr.badblock.gameapi.utils.selections.Vector3f;
 
 /**
- * Représente une courbe paramétrée tridimensionnelle pour être utiliser pour
- * des particules, par <b>exemple</b>. La courbe peut être bidimensionnelle, il
- * suffit de définir une de ses coordonnées comme fixe.<br>
- * On rappel qu'une courbe paramétrée peut être :
+ * ReprÃ©sente une courbe paramÃ©trÃ©e tridimensionnelle pour Ä™tre utiliser pour
+ * des particules, par <b>exemple</b>. La courbe peut Ä™tre bidimensionnelle, il
+ * suffit de dÃ©finir une de ses coordonnÃ©es comme fixe.<br>
+ * On rappel qu'une courbe paramÃ©trÃ©e peut Ä™tre :
  * <ul>
- * <li>De la famille des cercles (cercle, ellipse, spirale) et leurs équivalents
+ * <li>De la famille des cercles (cercle, ellipse, spirale) et leurs Ã©quivalents
  * tridimensionnels</li>
  * <li>Une droite</li>
- * <li>Pleins de choses géniales que je ne pourrais pas décrire ... ;)</li>
+ * <li>Pleins de choses gÃ©niales que je ne pourrais pas dÃ©crire ... ;)</li>
  * </ul>
  * 
  * @author LeLanN
@@ -38,32 +38,32 @@ public abstract class ParametricCurve3D {
 	}
 
 	/**
-	 * Renvoit la coordonnée x en fonction de t
+	 * Renvoit la coordonnÃ©e x en fonction de t
 	 * 
 	 * @param t
-	 *            La variable t c'est à dire la 'position' dans la courbe
-	 *            paramétrique
-	 * @return La coordonnée
+	 *            La variable t c'est Å• dire la 'position' dans la courbe
+	 *            paramÃ©trique
+	 * @return La coordonnÃ©e
 	 */
 	public abstract double x(double t);
 
 	/**
-	 * Renvoit la coordonnée y en fonction de t
+	 * Renvoit la coordonnÃ©e y en fonction de t
 	 * 
 	 * @param t
-	 *            La variable t c'est à dire la 'position' dans la courbe
-	 *            paramétrique
-	 * @return La coordonnée
+	 *            La variable t c'est Å• dire la 'position' dans la courbe
+	 *            paramÃ©trique
+	 * @return La coordonnÃ©e
 	 */
 	public abstract double y(double t);
 
 	/**
-	 * Renvoit la coordonnée z en fonction de t
+	 * Renvoit la coordonnÃ©e z en fonction de t
 	 * 
 	 * @param t
-	 *            La variable t c'est à dire la 'position' dans la courbe
-	 *            paramétrique
-	 * @return La coordonnée
+	 *            La variable t c'est Å• dire la 'position' dans la courbe
+	 *            paramÃ©trique
+	 * @return La coordonnÃ©e
 	 */
 	public abstract double z(double t);
 }

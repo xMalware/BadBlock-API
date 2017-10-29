@@ -16,18 +16,18 @@ public class PlayerBooster {
 	private Booster booster;
 
 	/**
-	 * Récupère le fait que le booster est expiré ou non
+	 * RÃ©cupÄre le fait que le booster est expirÃ© ou non
 	 * 
-	 * @return Un booléen
+	 * @return Un boolÃ©en
 	 */
 	public boolean isExpired() {
 		return !isValid();
 	}
 
 	/**
-	 * Récupère le fait que le booster est encore valide ou non
+	 * RÃ©cupÄre le fait que le booster est encore valide ou non
 	 * 
-	 * @return Un booléen
+	 * @return Un boolÃ©en
 	 */
 	public boolean isValid() {
 		return expire > System.currentTimeMillis() || expire == -1;

@@ -6,8 +6,8 @@ import fr.badblock.gameapi.events.abstracts.BadblockPlayerEvent;
 import fr.badblock.gameapi.players.BadblockPlayer;
 
 /**
- * Event appelé lorsque les données du joueur sont reçues de Ladder. Ne pas
- * utiliser ces données au join !
+ * Event appelÃ© lorsque les donnÃ©es du joueur sont reÃ§ues de Ladder. Ne pas
+ * utiliser ces donnÃ©es au join !
  * 
  * @author LeLanN
  */

@@ -7,42 +7,42 @@ import java.sql.Statement;
 import fr.badblock.gameapi.utils.general.Callback;
 
 /**
- * Représente la base de donnée SQL
+ * ReprÃ©sente la base de donnÃ©e SQL
  * 
  * @author LeLanN/xMalware
  */
 public interface SQLDatabase {
 
 	/**
-	 * Appeler un gestionnaire Multithreading qui va gérer en asynchrone la
-	 * requête La requête peut être donc traitée de sorte qu'elle ne renvoit
-	 * aucune information ou qu'elle renvoit des données, se référer à
+	 * Appeler un gestionnaire Multithreading qui va gÃ©rer en asynchrone la
+	 * requÄ™te La requÄ™te peut Ä™tre donc traitÃ©e de sorte qu'elle ne renvoit
+	 * aucune information ou qu'elle renvoit des donnÃ©es, se rÃ©fÃ©rer Å•
 	 * {@link fr.badblock.gameapi.databases.SQLRequestType}
 	 * 
 	 * @param request
-	 *            > Requête
+	 *            > RequÄ™te
 	 * @param sqlRequestType
-	 *            > Type de la requête, DATA OR QUERY
+	 *            > Type de la requÄ™te, DATA OR QUERY
 	 */
 	public void call(String request, SQLRequestType sqlRequestType);
 
 	/**
-	 * Appeler un gestionnaire Multithreading qui va gérer en asynchrone la
-	 * requête La requête peut être donc traitée de sorte qu'elle ne renvoit
-	 * aucune information ou qu'elle renvoit des données, se référer à
+	 * Appeler un gestionnaire Multithreading qui va gÃ©rer en asynchrone la
+	 * requÄ™te La requÄ™te peut Ä™tre donc traitÃ©e de sorte qu'elle ne renvoit
+	 * aucune information ou qu'elle renvoit des donnÃ©es, se rÃ©fÃ©rer Å•
 	 * {@link fr.badblock.gameapi.databases.SQLRequestType}
 	 * 
 	 * @param request
-	 *            > Requête
+	 *            > RequÄ™te
 	 * @param sqlRequestType
-	 *            > Type de la requête, DATA OR QUERY
+	 *            > Type de la requÄ™te, DATA OR QUERY
 	 * @param callback
-	 *            > Réponse de la requête
+	 *            > RÃ©ponse de la requÄ™te
 	 */
 	public void call(String request, SQLRequestType sqlRequestType, Callback<ResultSet> callback);
 
 	/**
-	 * Récupère un statement pour une gestion plus personnalisée du SQL. Ne pas
+	 * RÃ©cupÄre un statement pour une gestion plus personnalisÃ©e du SQL. Ne pas
 	 * oublier de le close :0
 	 * 
 	 * @return Le statement
@@ -50,7 +50,7 @@ public interface SQLDatabase {
 	public Statement createStatement() throws Exception;
 
 	/**
-	 * Récupère un statement permettant de faire des requêtes préparées. Ne pas
+	 * RÃ©cupÄre un statement permettant de faire des requÄ™tes prÃ©parÃ©es. Ne pas
 	 * oublier de le close :0
 	 * 
 	 * @return Le statement

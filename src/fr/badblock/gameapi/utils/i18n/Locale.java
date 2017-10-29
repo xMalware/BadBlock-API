@@ -3,17 +3,17 @@ package fr.badblock.gameapi.utils.i18n;
 import lombok.Getter;
 
 /**
- * Représente les différents langages supportés par BadBlock.
+ * ReprÃ©sente les diffÃ©rents langages supportÃ©s par BadBlock.
  * 
  * @author LelanN
  */
 public enum Locale {
 	/**
-	 * Représente la langue française telle qu'elle est parlée en France
+	 * ReprÃ©sente la langue franÃ§aise telle qu'elle est parlÃ©e en France
 	 */
 	FRENCH_FRANCE("fr_FR"),
 	/**
-	 * Représente la langue anglaise telle qu'elle est parlée aux Etats-Unis
+	 * ReprÃ©sente la langue anglaise telle qu'elle est parlÃ©e aux Etats-Unis
 	 */
 	ENGLISH_US("en_US");
 

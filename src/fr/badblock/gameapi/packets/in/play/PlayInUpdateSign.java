@@ -6,41 +6,41 @@ import fr.badblock.gameapi.utils.selections.Vector3f;
 import net.md_5.bungee.api.chat.BaseComponent;
 
 /**
- * Packet envoyé par le client quand il vaut modifier un panneau
+ * Packet envoyÃ© par le client quand il vaut modifier un panneau
  * 
  * @author LeLanN
  */
 public interface PlayInUpdateSign extends BadblockInPacket {
 	/**
-	 * Récupère le contenu de la ligne 1
+	 * RÃ©cupÄre le contenu de la ligne 1
 	 * 
 	 * @return Le contenu
 	 */
 	public BaseComponent[] getLine1();
 
 	/**
-	 * Récupère le contenu de la ligne 2
+	 * RÃ©cupÄre le contenu de la ligne 2
 	 * 
 	 * @return Le contenu
 	 */
 	public BaseComponent[] getLine2();
 
 	/**
-	 * Récupère le contenu de la ligne 3
+	 * RÃ©cupÄre le contenu de la ligne 3
 	 * 
 	 * @return Le contenu
 	 */
 	public BaseComponent[] getLine3();
 
 	/**
-	 * Récupère le contenu de la ligne 4
+	 * RÃ©cupÄre le contenu de la ligne 4
 	 * 
 	 * @return Le contenu
 	 */
 	public BaseComponent[] getLine4();
 
 	/**
-	 * Récupère la position du panneau
+	 * RÃ©cupÄre la position du panneau
 	 * 
 	 * @return La position
 	 */

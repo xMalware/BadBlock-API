@@ -6,9 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * Représente un mot traductible. Utiliser à plusieurs endroit dans l'API pour
- * simplifier, ou pour intégrer un mot traduit en<br>
- * paramètre d'un message (ex : block ou entité).
+ * ReprÃ©sente un mot traductible. Utiliser Å• plusieurs endroit dans l'API pour
+ * simplifier, ou pour intÃ©grer un mot traduit en<br>
+ * paramÄtre d'un message (ex : block ou entitÃ©).
  * 
  * @author LeLanN
  */
@@ -20,7 +20,7 @@ public class TranslatableWord {
 	private WordDeterminant determinant;
 
 	/**
-	 * Récupère le mot traduit dans une langue
+	 * RÃ©cupÄre le mot traduit dans une langue
 	 * 
 	 * @param locale
 	 *            La langue

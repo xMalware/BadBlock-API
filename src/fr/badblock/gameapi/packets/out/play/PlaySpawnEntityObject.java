@@ -13,7 +13,7 @@ import lombok.Getter;
  */
 public interface PlaySpawnEntityObject extends BadblockOutPacket {
 	/**
-	 * ReprÈsente les diffÈrents objets pouvant Ítre spawn avec
+	 * Repr√©sente les diff√©rents objets pouvant ƒôtre spawn avec
 	 * {@link PlaySpawnEntityObject}
 	 * 
 	 * @author LeLanN
@@ -32,7 +32,7 @@ public interface PlaySpawnEntityObject extends BadblockOutPacket {
 		 */
 		MINECART(10),
 		/**
-		 * Une TNT activÈe
+		 * Une TNT activ√©e
 		 */
 		ACTIVATED_TNT(50),
 		/**
@@ -40,15 +40,15 @@ public interface PlaySpawnEntityObject extends BadblockOutPacket {
 		 */
 		ENDER_CRYSTAL(51),
 		/**
-		 * Une flËche (lancÈe)
+		 * Une flƒçche (lanc√©e)
 		 */
 		ARROW_PROJECTILE(60),
 		/**
-		 * Une snowball (lancÈe)
+		 * Une snowball (lanc√©e)
 		 */
 		SNOWBALL_PROJECTILE(61),
 		/**
-		 * Un oeuf (lancÈ)
+		 * Un oeuf (lanc√©)
 		 */
 		EGG_PROJECTILE(62),
 		/**
@@ -64,7 +64,7 @@ public interface PlaySpawnEntityObject extends BadblockOutPacket {
 		 */
 		ENDERPEARL_PROJECTILE(65),
 		/**
-		 * Le projectile des Withers (les cr‚nes)
+		 * Le projectile des Withers (les cr√¢nes)
 		 */
 		WITHERSKULL_PROJECTILE(66),
 		/**
@@ -88,7 +88,7 @@ public interface PlaySpawnEntityObject extends BadblockOutPacket {
 		 */
 		EXP_BOTTLE_PROJECTILE(75),
 		/**
-		 * Une fusÈe
+		 * Une fus√©e
 		 */
 		FIREWORK(76),
 		/**
@@ -100,7 +100,7 @@ public interface PlaySpawnEntityObject extends BadblockOutPacket {
 		 */
 		ARMOR_STAND(78),
 		/**
-		 * Le flotteur d'une c‚ne ‡ pÍche
+		 * Le flotteur d'une c√¢ne ≈ï pƒôche
 		 */
 		FISHING_FLOAT(90);
 
@@ -120,7 +120,7 @@ public interface PlaySpawnEntityObject extends BadblockOutPacket {
 	}
 
 	/**
-	 * RÈcupËre la 'data' de l'entitÈ (voir http://wiki.vg/Object_Data pour plus
+	 * R√©cupƒçre la 'data' de l'entit√© (voir http://wiki.vg/Object_Data pour plus
 	 * d'informations)
 	 * 
 	 * @return La data
@@ -128,35 +128,35 @@ public interface PlaySpawnEntityObject extends BadblockOutPacket {
 	public int getData();
 
 	/**
-	 * RÈcupËre l'ID de l'entitÈ
+	 * R√©cupƒçre l'ID de l'entit√©
 	 * 
 	 * @return L'ID
 	 */
 	public int getEntityId();
 
 	/**
-	 * RÈcupËre la position
+	 * R√©cupƒçre la position
 	 * 
 	 * @return La position
 	 */
 	public Location getLocation();
 
 	/**
-	 * RÈcupËre le type de l'objet
+	 * R√©cupƒçre le type de l'objet
 	 * 
 	 * @return Le type
 	 */
 	public SpawnableObjects getType();
 
 	/**
-	 * RÈcupËre la vÈlocitÈ
+	 * R√©cupƒçre la v√©locit√©
 	 * 
-	 * @return La vÈlocitÈ
+	 * @return La v√©locit√©
 	 */
 	public Vector getVelocity();
 
 	/**
-	 * DÈfinit la 'data' de l'entitÈ (voir http://wiki.vg/Object_Data pour plus
+	 * D√©finit la 'data' de l'entit√© (voir http://wiki.vg/Object_Data pour plus
 	 * d'informations)
 	 * 
 	 * @param data
@@ -166,7 +166,7 @@ public interface PlaySpawnEntityObject extends BadblockOutPacket {
 	public PlaySpawnEntityObject setData(int data);
 
 	/**
-	 * DÈfinit l'ID de l'entitÈ
+	 * D√©finit l'ID de l'entit√©
 	 * 
 	 * @param id
 	 *            L'ID
@@ -175,7 +175,7 @@ public interface PlaySpawnEntityObject extends BadblockOutPacket {
 	public PlaySpawnEntityObject setEntityId(int id);
 
 	/**
-	 * DÈfinit la position
+	 * D√©finit la position
 	 * 
 	 * @param location
 	 *            La position
@@ -184,7 +184,7 @@ public interface PlaySpawnEntityObject extends BadblockOutPacket {
 	public PlaySpawnEntityObject setLocation(Location location);
 
 	/**
-	 * DÈfinit le type de l'objet
+	 * D√©finit le type de l'objet
 	 * 
 	 * @param type
 	 *            Le type
@@ -193,10 +193,10 @@ public interface PlaySpawnEntityObject extends BadblockOutPacket {
 	public PlaySpawnEntityObject setType(SpawnableObjects type);
 
 	/**
-	 * DÈfinit la vÈlocitÈ
+	 * D√©finit la v√©locit√©
 	 * 
 	 * @param velocity
-	 *            La vÈlocitÈ
+	 *            La v√©locit√©
 	 * @return Le packet
 	 */
 	public PlaySpawnEntityObject setVelocity(Vector velocity);

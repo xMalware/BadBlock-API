@@ -5,7 +5,7 @@ import org.bukkit.entity.Player;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 
 /**
- * Packet envoyé pour donner le resource pack du serveur. Aucune méthode ajouté
+ * Packet envoyÃ© pour donner le resource pack du serveur. Aucune mÃ©thode ajoutÃ©
  * car {@link Player#setResourcePack(String)} et {@link #setCancelled(boolean)}
  * suffisent.
  * 

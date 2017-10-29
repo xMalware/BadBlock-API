@@ -44,7 +44,7 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * Location Block � partir d'une chaine
+	 * Location Block ďż˝ partir d'une chaine
 	 * 
 	 * @param string
 	 * @return
@@ -62,7 +62,7 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * Location � partir d'une chaine
+	 * Location ďż˝ partir d'une chaine
 	 * 
 	 * @param string
 	 * @return
@@ -84,8 +84,8 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * R�cup�rer un objet quelconque � l'aide d'une cl� & cr�er cette cl� avec
-	 * une valeur par d�faut si cette cl� n'est pas pr�sente dans la
+	 * Rďż˝cupďż˝rer un objet quelconque ďż˝ l'aide d'une clďż˝ & crďż˝er cette clďż˝ avec
+	 * une valeur par dďż˝faut si cette clďż˝ n'est pas prďż˝sente dans la
 	 * configuration
 	 * 
 	 * @param plugin
@@ -103,7 +103,7 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * Recup�rer une location de type Block dans la config
+	 * Recupďż˝rer une location de type Block dans la config
 	 * 
 	 * @param plugin
 	 * @param node
@@ -114,7 +114,7 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * Récupérer un cuboid depuis une configuration
+	 * RĂŠcupĂŠrer un cuboid depuis une configuration
 	 * @param plugin
 	 * @param node
 	 * @return
@@ -124,7 +124,7 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * R�cup�rer un bool�en & le set si il n'y est pas pr�sent dans la
+	 * Rďż˝cupďż˝rer un boolďż˝en & le set si il n'y est pas prďż˝sent dans la
 	 * configuration
 	 * 
 	 * @param plugin
@@ -141,7 +141,7 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * R�p�rer un entier & le set si il n'y est pas pr�sent dans la
+	 * Rďż˝pďż˝rer un entier & le set si il n'y est pas prďż˝sent dans la
 	 * configuration
 	 * 
 	 * @param plugin
@@ -158,17 +158,17 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * Recup�re le point nomm�
+	 * Recupďż˝re le point nommďż˝
 	 * 
 	 * @param plugin
-	 * @return le point nomm� ou le spawn de base du world
+	 * @return le point nommďż˝ ou le spawn de base du world
 	 */
 	public static Location getLocation(Plugin plugin, String name) {
 		return getLocationFromFile(plugin, name) != null ? getLocationFromFile(plugin, name) : null;
 	}
 
 	/**
-	 * Recup�re une location dans la config
+	 * Recupďż˝re une location dans la config
 	 * 
 	 * @param plugin
 	 * @param node
@@ -183,7 +183,7 @@ public class ConfigUtils {
 	 */
 
 	/**
-	 * Recup�re une liste de locations
+	 * Recupďż˝re une liste de locations
 	 */
 	public static List<Location> getLocationList(Plugin plugin, String name) {
 		List<Location> spawns = new ArrayList<Location>();
@@ -205,7 +205,7 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * Recup�rer le nom de la map
+	 * Recupďż˝rer le nom de la map
 	 * 
 	 * @param plugin
 	 * @return le nom ou "NoName" si la configuration n'en a pas
@@ -215,7 +215,7 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * R�cup�rer un mat�riel & le set si il n'y est pas pr�sent dans la
+	 * Rďż˝cupďż˝rer un matďż˝riel & le set si il n'y est pas prďż˝sent dans la
 	 * configuration
 	 * 
 	 * @param plugin
@@ -232,8 +232,8 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * R�cup�rer une liste de cha�ne de caract�res & la cr�er si elle n'est pas
-	 * pr�sente dans la configuration
+	 * Rďż˝cupďż˝rer une liste de chaďż˝ne de caractďż˝res & la crďż˝er si elle n'est pas
+	 * prďż˝sente dans la configuration
 	 * 
 	 * @param plugin
 	 * @param key
@@ -250,8 +250,8 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * R�cup�rer une liste de cha�ne de caract�res & la cr�er si elle n'est pas
-	 * pr�sente dans la configuration
+	 * Rďż˝cupďż˝rer une liste de chaďż˝ne de caractďż˝res & la crďż˝er si elle n'est pas
+	 * prďż˝sente dans la configuration
 	 * 
 	 * @param plugin
 	 * @param key
@@ -312,7 +312,7 @@ public class ConfigUtils {
 	}
 
 	/**
-	 * D�finit la location nomm�e
+	 * Dďż˝finit la location nommďż˝e
 	 * 
 	 * @param plugin
 	 * @param location

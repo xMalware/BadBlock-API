@@ -3,7 +3,7 @@ package fr.badblock.gameapi.game;
 import lombok.Getter;
 
 /**
- * Cette classe représente les différents statuts de la partie
+ * Cette classe reprÃ©sente les diffÃ©rents statuts de la partie
  * 
  * @author LeLanN
  */

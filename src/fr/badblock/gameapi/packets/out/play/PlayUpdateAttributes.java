@@ -3,8 +3,8 @@ package fr.badblock.gameapi.packets.out.play;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 
 /**
- * Packet permettant d'update les propriétés d'une entité, comme sa vitesse, sa
- * vie maximale, sa résistance au knockback, ...
+ * Packet permettant d'update les propriÃ©tÃ©s d'une entitÃ©, comme sa vitesse, sa
+ * vie maximale, sa rÃ©sistance au knockback, ...
  * 
  * @author LeLanN
  */

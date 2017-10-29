@@ -5,27 +5,27 @@ import org.bukkit.potion.PotionEffectType;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 
 /**
- * Packet envoyé pour enlevé un effet de potion d'une entité
+ * Packet envoyÃ© pour enlevÃ© un effet de potion d'une entitÃ©
  * 
  * @author LeLanN
  */
 public interface PlayRemoveEntityEffect extends BadblockOutPacket {
 	/**
-	 * Récupère l'effect à enlever
+	 * RÃ©cupÄre l'effect Å• enlever
 	 * 
 	 * @return L'effect
 	 */
 	public PotionEffectType getEffect();
 
 	/**
-	 * Récupère l'entité (id)
+	 * RÃ©cupÄre l'entitÃ© (id)
 	 * 
 	 * @return L'id
 	 */
 	public int getEntityId();
 
 	/**
-	 * Définit l'effect à enlever
+	 * DÃ©finit l'effect Å• enlever
 	 * 
 	 * @param effect
 	 *            L'effect
@@ -34,7 +34,7 @@ public interface PlayRemoveEntityEffect extends BadblockOutPacket {
 	public PlayRemoveEntityEffect setEffect(PotionEffectType effect);
 
 	/**
-	 * Définit l'entité (id)
+	 * DÃ©finit l'entitÃ© (id)
 	 * 
 	 * @param entityId
 	 *            L'id

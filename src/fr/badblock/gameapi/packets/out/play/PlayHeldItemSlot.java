@@ -5,8 +5,8 @@ import org.bukkit.inventory.PlayerInventory;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 
 /**
- * Packet envoyé par le serveur pour faire changer le slot séléctionné par le
- * joueur. Aucune méthode ajouté car
+ * Packet envoyÃ© par le serveur pour faire changer le slot sÃ©lÃ©ctionnÃ© par le
+ * joueur. Aucune mÃ©thode ajoutÃ© car
  * {@link PlayerInventory#setHeldItemSlot(int)} et
  * {@link #setCancelled(boolean)} suffisent.
  * 

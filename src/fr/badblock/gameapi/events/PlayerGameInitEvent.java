@@ -6,7 +6,7 @@ import fr.badblock.gameapi.events.abstracts.BadblockPlayerEvent;
 import fr.badblock.gameapi.players.BadblockPlayer;
 
 /**
- * Appelée lorsque qu'un joueur doit être initialisé dans une partie en plein cours de la partie
+ * AppelÃ©e lorsque qu'un joueur doit Ä™tre initialisÃ© dans une partie en plein cours de la partie
  * 
  * @author LeLanN
  */

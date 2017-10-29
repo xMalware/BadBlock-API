@@ -3,17 +3,17 @@ package fr.badblock.gameapi.players.scoreboard;
 import fr.badblock.gameapi.GameAPI;
 
 /**
- * Représente la classe permettant de générer le scoreboard.
+ * ReprÃ©sente la classe permettant de gÃ©nÃ©rer le scoreboard.
  * 
  * @author LeLanN
  */
 public abstract class BadblockScoreboardGenerator {
 
 	/**
-	 * Permet de générer une dernière ligne animée
+	 * Permet de gÃ©nÃ©rer une derniÄre ligne animÃ©e
 	 * 
 	 * @param objective
-	 *            L'objectif géré
+	 *            L'objectif gÃ©rÃ©
 	 */
 	public void doBadblockFooter(CustomObjective objective) {
 		objective.changeLine(1, "&bplay.badblock.fr / " + GameAPI.getServerName());
@@ -44,7 +44,7 @@ public abstract class BadblockScoreboardGenerator {
 	}*/
 
 	/**
-	 * Génère le scoreboard
+	 * GÃ©nÄre le scoreboard
 	 */
 	public abstract void generate();
 }

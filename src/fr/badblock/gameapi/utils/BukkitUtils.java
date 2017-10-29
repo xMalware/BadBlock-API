@@ -30,7 +30,7 @@ import fr.badblock.gameapi.utils.reflection.ReflectionUtils;
 import fr.badblock.gameapi.utils.reflection.Reflector;
 
 /**
- * Une série de méthode permettant de simplifier certaines utilisations de l'API
+ * Une sÃ©rie de mÃ©thode permettant de simplifier certaines utilisations de l'API
  * Bukkit.
  * 
  * @author LelanN
@@ -47,7 +47,7 @@ public class BukkitUtils {
 	}
 
 	/**
-	 * Récupère un environement de monde (nether, end, overworld) à partir de
+	 * RÃ©cupÄre un environement de monde (nether, end, overworld) Å• partir de
 	 * son id
 	 * 
 	 * @param id
@@ -64,7 +64,7 @@ public class BukkitUtils {
 	}
 
 	/**
-	 * Récupère les joueurs étant entrain de joueur (hors spectateurs)
+	 * RÃ©cupÄre les joueurs Ã©tant entrain de joueur (hors spectateurs)
 	 * 
 	 * @return Les joueurs
 	 */
@@ -77,7 +77,7 @@ public class BukkitUtils {
 	}
 	
 	/**
-	 * Récupère tous les joueurs connectés sur le serveur en tant que BadblockPlayer
+	 * RÃ©cupÄre tous les joueurs connectÃ©s sur le serveur en tant que BadblockPlayer
 	 * 
 	 * @return Les joueurs
 	 */
@@ -87,7 +87,7 @@ public class BukkitUtils {
 
 
 	/**
-	 * Récupère le joueur demandé
+	 * RÃ©cupÄre le joueur demandÃ©
 	 * 
 	 * @return Le pseudo
 	 */
@@ -98,7 +98,7 @@ public class BukkitUtils {
 	}
 
 	/**
-	 * Récupère le joueur demandé
+	 * RÃ©cupÄre le joueur demandÃ©
 	 * 
 	 * @return Le pseudo
 	 */
@@ -109,7 +109,7 @@ public class BukkitUtils {
 	}
 
 	/**
-	 * Vérifie si la location peut acceuillir un joueur
+	 * VÃ©rifie si la location peut acceuillir un joueur
 	 * 
 	 * @param location
 	 *            La location
@@ -121,14 +121,14 @@ public class BukkitUtils {
 	}
 
 	/**
-	 * Téléporte tous les joueurs vers une liste de locations
+	 * TÃ©lÃ©porte tous les joueurs vers une liste de locations
 	 * 
 	 * @param location
 	 *            Les locatioins
 	 * @param whenNoTp
-	 *            Là ou tp quand le joueur ne doit pas être tp avec les autres
+	 *            LÅ• ou tp quand le joueur ne doit pas Ä™tre tp avec les autres
 	 * @param doTp
-	 *            Vérifie si le joueur doit êtret p
+	 *            VÃ©rifie si le joueur doit Ä™tret p
 	 */
 	public static void teleportPlayersToLocations(List<Location> location, Location whenNoTp,
 			Predicate<BadblockPlayer> doTp) {
@@ -150,14 +150,14 @@ public class BukkitUtils {
 	}
 
 	/**
-	 * Permet de changer un block de manière temporaire
+	 * Permet de changer un block de maniÄre temporaire
 	 * 
 	 * @param block
 	 *            Le block
 	 * @param newType
-	 *            Le type à mettre temporairement
+	 *            Le type Å• mettre temporairement
 	 * @param newData
-	 *            La data à mettre temporairement
+	 *            La data Å• mettre temporairement
 	 * @param ticks
 	 *            Le nombre de ticks pendant lesquels le block va rester
 	 */
@@ -170,10 +170,10 @@ public class BukkitUtils {
 	}
 
 	/**
-	 * Instancie les listeners (BadListener et Listener) et commands (AbstractCommand) présent dans un package
+	 * Instancie les listeners (BadListener et Listener) et commands (AbstractCommand) prÃ©sent dans un package
 	 * @param plugin Le plugin
 	 * @param paths Les packages
-	 * @throws IOException En cas de problème avec la lecture du JAR
+	 * @throws IOException En cas de problÄme avec la lecture du JAR
 	 */
 	public static void instanciateListenersAndCommandsFrom(Plugin plugin, String... paths) throws IOException {
 		URL url = plugin.getClass().getProtectionDomain().getCodeSource().getLocation();

@@ -9,7 +9,7 @@ import org.bukkit.event.inventory.InventoryAction;
 import lombok.Getter;
 
 /**
- * Représente les différentes intéractions possible avec un item
+ * ReprÃ©sente les diffÃ©rentes intÃ©ractions possible avec un item
  * 
  * @author LeLanN
  * @author xMalware

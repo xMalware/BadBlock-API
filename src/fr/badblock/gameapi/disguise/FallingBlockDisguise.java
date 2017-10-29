@@ -11,7 +11,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Représente un déguisement en forme de block
+ * ReprÃ©sente un dÃ©guisement en forme de block
  * 
  * @author LeLanN
  */

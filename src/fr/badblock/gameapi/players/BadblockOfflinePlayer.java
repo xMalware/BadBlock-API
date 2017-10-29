@@ -7,23 +7,23 @@ import fr.badblock.gameapi.game.GameServer.WhileRunningConnectionTypes;
 import fr.badblock.gameapi.players.scoreboard.CustomObjective;
 
 /**
- * Donne les anciennes données d'un joueur ayant déconnecté après le début de la
+ * Donne les anciennes donnÃ©es d'un joueur ayant dÃ©connectÃ© aprÄs le dÃ©but de la
  * partie.<br>
- * Si le mini-jeu l'autorise, ces informations seront réutilisées (voir
+ * Si le mini-jeu l'autorise, ces informations seront rÃ©utilisÃ©es (voir
  * {@link GameServer#whileRunningConnection(WhileRunningConnectionTypes)})
  * 
  * @author LeLanN
  */
 public interface BadblockOfflinePlayer extends BadblockPlayerData {
 	/**
-	 * Récupère le CustomObjective vu par le joueur avant la déconnection
+	 * RÃ©cupÄre le CustomObjective vu par le joueur avant la dÃ©connection
 	 * 
-	 * @return Le CustomObjective (null si non définit)
+	 * @return Le CustomObjective (null si non dÃ©finit)
 	 */
 	public CustomObjective getCustomObjective();
 
 	/**
-	 * Récupère la fausse dimension dans laquelle le joueur était (afin de lui
+	 * RÃ©cupÄre la fausse dimension dans laquelle le joueur Ã©tait (afin de lui
 	 * recharger au retour :o)
 	 * 
 	 * @return La fausse dimension

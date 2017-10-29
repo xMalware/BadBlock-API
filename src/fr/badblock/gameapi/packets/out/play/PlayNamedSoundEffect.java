@@ -4,7 +4,7 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
 import fr.badblock.gameapi.utils.selections.Vector3f;
 
 /**
- * Packet envoyé pour jouer un son
+ * Packet envoyÃ© pour jouer un son
  * 
  * @author LeLanN
  */

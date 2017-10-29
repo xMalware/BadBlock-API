@@ -5,13 +5,16 @@ import lombok.Getter;
 import net.md_5.bungee.api.chat.BaseComponent;
 
 /**
+<<<<<<< HEAD
  * Packet envoy� lorsque l'on veut envoyer un message chat/actionbar au joueur
+=======
+ * Packet envoyé lorsque l'on veut envoyer un message chat/actionbar au joueur
+>>>>>>> branch 'master' of http://gitlab.badblock-network.fr/API0/BadblockAPI.git
  * 
  * @author LeLanN
  */
 public interface PlayChat extends BadblockOutPacket {
 	/**
-	 * Repr�sente les diff�rents types de messages envoyables gr�ce �
 	 * {@link PlayChat}
 	 * 
 	 * @author LeLanN
@@ -22,7 +25,6 @@ public interface PlayChat extends BadblockOutPacket {
 		 */
 		CHAT(0),
 		/**
-		 * Message (syst�me) dans le chat
 		 */
 		SYSTEM(1),
 		/**
@@ -46,8 +48,6 @@ public interface PlayChat extends BadblockOutPacket {
 	}
 
 	/**
-	 * R�cup�re le message � envoyer
-	 * 
 	 * @return Les messages
 	 */
 	public String getContent();
@@ -55,14 +55,12 @@ public interface PlayChat extends BadblockOutPacket {
 	public BaseComponent[] getContentAsComponent();
 
 	/**
-	 * R�cup�re le type de message
 	 * 
 	 * @return Le type
 	 */
 	public ChatType getType();
 
 	/**
-	 * D�finit le message � envoyer
 	 * 
 	 * @param content
 	 *            Le messages
@@ -73,7 +71,7 @@ public interface PlayChat extends BadblockOutPacket {
 	public PlayChat setContent(BaseComponent... components);
 
 	/**
-	 * D�finit le type de message
+	 * Définit le type de message
 	 * 
 	 * @param type
 	 *            Le type

@@ -3,7 +3,7 @@ package fr.badblock.gameapi.utils.i18n;
 import fr.badblock.gameapi.utils.i18n.Word.WordDeterminant;
 
 /**
- * Implémentation d'une langue, va gérer la configuration et le formattage des
+ * ImplÃ©mentation d'une langue, va gÃ©rer la configuration et le formattage des
  * messages.
  * 
  * @author LeLanN
@@ -11,99 +11,99 @@ import fr.badblock.gameapi.utils.i18n.Word.WordDeterminant;
 public interface Language {
 	/**
 	 * 
-	 * Formatte le message envoyé dans cette langue (pour ce qui est du
-	 * header/footer, la langue dépend de celle du Message).
+	 * Formatte le message envoyÃ© dans cette langue (pour ce qui est du
+	 * header/footer, la langue dÃ©pend de celle du Message).
 	 * 
 	 * @param message
-	 *            Le message à formatter.
+	 *            Le message Å• formatter.
 	 * @param args
-	 *            Les arguments à remplacer dans le message (%0 le premier, %1
-	 *            le deuxième, ..., %n le énième)
+	 *            Les arguments Å• remplacer dans le message (%0 le premier, %1
+	 *            le deuxiÄme, ..., %n le Ã©niÄme)
 	 * 
-	 * @return Le message formatté et traduit.
+	 * @return Le message formattÃ© et traduit.
 	 */
 	public String[] formatMessage(Message message, Object... args);
 
 	/**
 	 * 
-	 * Récupère un message dans cette langue.
+	 * RÃ©cupÄre un message dans cette langue.
 	 * 
 	 * @param key
-	 *            La clé du message dans le fichier configuration
+	 *            La clÃ© du message dans le fichier configuration
 	 * @param args
-	 *            Les arguments à remplacer dans le message (%0 le premier, %1
-	 *            le deuxième, ..., %n le énième)
+	 *            Les arguments Å• remplacer dans le message (%0 le premier, %1
+	 *            le deuxiÄme, ..., %n le Ã©niÄme)
 	 * 
-	 * @return Le message formatté et traduit
+	 * @return Le message formattÃ© et traduit
 	 */
 	public String[] get(String key, Object... args);
 
 	/**
-	 * Le footer (c'est à dire partie de message succédant la principale). Il
-	 * s'agit ici d'une ligne. Utilisé lors du formattage du message.
+	 * Le footer (c'est Å• dire partie de message succÃ©dant la principale). Il
+	 * s'agit ici d'une ligne. UtilisÃ© lors du formattage du message.
 	 * 
-	 * @return Le footer trouvé, n'est pas censé être null.
+	 * @return Le footer trouvÃ©, n'est pas censÃ© Ä™tre null.
 	 */
 	public String getFooter();
 
 	/**
-	 * La version longue du header (c'est à dire partie de message précédent la
-	 * principale). Dans le cas du header long, il s'agit d'une ligne. Utilisé
+	 * La version longue du header (c'est Å• dire partie de message prÃ©cÃ©dent la
+	 * principale). Dans le cas du header long, il s'agit d'une ligne. UtilisÃ©
 	 * lors du formattage du message.
 	 * 
-	 * @return Le header trouvé, n'est pas censé être null.
+	 * @return Le header trouvÃ©, n'est pas censÃ© Ä™tre null.
 	 */
 	public String[] getHeader();
 
 	/**
-	 * Renvoit la langue gérée par la classe.
+	 * Renvoit la langue gÃ©rÃ©e par la classe.
 	 * 
 	 * @return La langue.
 	 */
 	public Locale getLocale();
 
 	/**
-	 * Récupère le message de manière non formatté, tel qu'il a été récupéré
+	 * RÃ©cupÄre le message de maniÄre non formattÃ©, tel qu'il a Ã©tÃ© rÃ©cupÃ©rÃ©
 	 * dans la configuration.
 	 * 
 	 * @param key
-	 *            La clé du message dans le fichier configuration
-	 * @return Le message non formatté. Si il n'existe pas, retourne null.
+	 *            La clÃ© du message dans le fichier configuration
+	 * @return Le message non formattÃ©. Si il n'existe pas, retourne null.
 	 */
 	public Message getMessage(String key);
 
 	/**
-	 * La version courte du header (c'est à dire partie de message précédent la
-	 * principale). Dans le cas du header long, il s'agit d'un simple préfixe.
-	 * Utilisé lors du formattage du message.
+	 * La version courte du header (c'est Å• dire partie de message prÃ©cÃ©dent la
+	 * principale). Dans le cas du header long, il s'agit d'un simple prÃ©fixe.
+	 * UtilisÃ© lors du formattage du message.
 	 * 
 	 * Ex : [BadBlock]
 	 * 
-	 * @return Le header trouvé, n'est pas censé être null.
+	 * @return Le header trouvÃ©, n'est pas censÃ© Ä™tre null.
 	 */
 	public String getShortHeader();
 
 	/**
-	 * Récupère le mot de manière non formatté, tel qu'il a été récupéré dans la
+	 * RÃ©cupÄre le mot de maniÄre non formattÃ©, tel qu'il a Ã©tÃ© rÃ©cupÃ©rÃ© dans la
 	 * configuration.
 	 * 
 	 * @param key
-	 *            La clé du mot dans le fichier configuration
-	 * @return Le mot non formatté. Si il n'existe pas, retourne null.
+	 *            La clÃ© du mot dans le fichier configuration
+	 * @return Le mot non formattÃ©. Si il n'existe pas, retourne null.
 	 */
 	public Word getWord(String key);
 
 	/**
-	 * Récupère un message d'une seule ligne dans cette langue
+	 * RÃ©cupÄre un message d'une seule ligne dans cette langue
 	 * 
 	 * @param key
-	 *            La clé du message dans le fichier configuration
+	 *            La clÃ© du message dans le fichier configuration
 	 * @param plural
-	 *            Si le mot doit être au pluriel
+	 *            Si le mot doit Ä™tre au pluriel
 	 * @param determinant
-	 *            Le type de déterminant avant le mot
+	 *            Le type de dÃ©terminant avant le mot
 	 * 
-	 * @return Le message formatté et traduit
+	 * @return Le message formattÃ© et traduit
 	 */
 	public String getWord(String key, boolean plural, WordDeterminant determinant);
 }

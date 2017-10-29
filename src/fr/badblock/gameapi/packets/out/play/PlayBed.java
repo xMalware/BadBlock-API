@@ -3,7 +3,7 @@ package fr.badblock.gameapi.packets.out.play;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 
 /**
- * Packet envoyé par le serveur quand une entité entre dans un lit
+ * Packet envoyÃ© par le serveur quand une entitÃ© entre dans un lit
  * 
  * @author LeLanN
  */

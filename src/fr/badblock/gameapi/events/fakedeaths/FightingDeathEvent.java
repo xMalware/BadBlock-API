@@ -9,16 +9,16 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Event appel� lorsque le joueur se fait tu� en PVP ou en PVE.<br>
- * L'entit� fournie peut �tre :
+ * Event appelďż˝ lorsque le joueur se fait tuďż˝ en PVP ou en PVE.<br>
+ * L'entitďż˝ fournie peut ďż˝tre :
  * <ul>
  * <li>Un joueur</li>
- * <li>Une entit� agressive</li>
- * <li>Un projectile si la source du projectile n'est pas une entit� vivante
- * (par exemple avec un dispenser).</li> Cet event est aussi appel� si l'entit�
- * a �t� en combat dans les quelques derni�res secondes et est morte de chute,
- * feu, ... Utiliser le {@link #getLastDamageCause()} pour �a.<br>
- * {@link #getFightType()} donne le type du dernier combat (C�C, T�D, potion,
+ * <li>Une entitďż˝ agressive</li>
+ * <li>Un projectile si la source du projectile n'est pas une entitďż˝ vivante
+ * (par exemple avec un dispenser).</li> Cet event est aussi appelďż˝ si l'entitďż˝
+ * a ďż˝tďż˝ en combat dans les quelques derniďż˝res secondes et est morte de chute,
+ * feu, ... Utiliser le {@link #getLastDamageCause()} pour ďż˝a.<br>
+ * {@link #getFightType()} donne le type du dernier combat (Cďż˝C, Tďż˝D, potion,
  * custom)
  * 
  * @author LeLanN
@@ -26,17 +26,17 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class FightingDeathEvent extends FakeDeathEvent {
 	/**
-	 * Les diff�rents modes de PvP pour savoir comment est mort le joueur.
+	 * Les diffďż˝rents modes de PvP pour savoir comment est mort le joueur.
 	 * 
 	 * @author LeLanN
 	 */
 	public enum FightingDeaths {
 		/**
-		 * Au corps � corps
+		 * Au corps ďż˝ corps
 		 */
 		INFIGHTING,
 		/**
-		 * A l'arc ou � distance
+		 * A l'arc ou ďż˝ distance
 		 */
 		BOW,
 		/**
@@ -44,7 +44,7 @@ public class FightingDeathEvent extends FakeDeathEvent {
 		 */
 		POTION,
 		/**
-		 * Via les d�gats d'un plugins
+		 * Via les dďż˝gats d'un plugins
 		 */
 		CUSTOM;
 	}

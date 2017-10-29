@@ -4,7 +4,7 @@ import fr.badblock.gameapi.packets.BadblockInPacket;
 import fr.badblock.gameapi.packets.BadblockInPackets;
 
 /**
- * Packet envoyé pour demandé le statut (joueurs, nombre de joueurs, motd,
+ * Packet envoyÃ© pour demandÃ© le statut (joueurs, nombre de joueurs, motd,
  * version du protocol). N'a aucun argument.
  * 
  * @author LeLanN

@@ -10,7 +10,7 @@ import fr.badblock.gameapi.utils.i18n.Locale;
 import fr.badblock.gameapi.utils.i18n.TranslatableString;
 
 /**
- * Classe permettant de crÈer un item stack complexe de maniËre beaucoup plus
+ * Classe permettant de cr√©er un item stack complexe de maniƒçre beaucoup plus
  * simple.<br>
  * Utiliser {@link fr.badblock.gameapi.GameAPI} pour avoir une nouvelle factory.
  * 
@@ -21,53 +21,53 @@ public interface ItemStackFactory {
 	 * Transforme la factory en itemstackextra
 	 * 
 	 * @param amount
-	 *            Le nom d'item ‡ crÈer
+	 *            Le nom d'item ≈ï cr√©er
 	 * @return L'extra
 	 */
 	public ItemStackExtra asExtra(int amount);
 
 	/**
-	 * CrÈe l'ItemStack en lui ajoutant une couleur d'armure. Attention,
+	 * Cr√©e l'ItemStack en lui ajoutant une couleur d'armure. Attention,
 	 * utiliser le bon type(material) avant.
 	 * 
 	 * @param amount
-	 *            Le nombre d'item ‡ crÈer
+	 *            Le nombre d'item ≈ï cr√©er
 	 * @param color
 	 *            La couleur d'armure
-	 * @return L'item crÈÈ
+	 * @return L'item cr√©√©
 	 */
 	public ItemStack asLeatheredArmor(int amount, Color color);
 
 	/**
-	 * CrÈe l'ItemStack en lui ajoutant une couleur d'armure. type() et
+	 * Cr√©e l'ItemStack en lui ajoutant une couleur d'armure. type() et
 	 * durability() automatique.
 	 * 
 	 * @param amount
-	 *            Le nombre d'item ‡ crÈer
+	 *            Le nombre d'item ≈ï cr√©er
 	 * @param owner
-	 *            Le personnage du cr‚ne crÈÈ
-	 * @return L'item crÈÈ
+	 *            Le personnage du cr√¢ne cr√©√©
+	 * @return L'item cr√©√©
 	 */
 	public ItemStack asSkull(int amount, String owner);
 	
 	/**
-	 * CrÈe l'ItemStack en lui ajoutant une couleur d'armure type() et durability() automatique.
+	 * Cr√©e l'ItemStack en lui ajoutant une couleur d'armure type() et durability() automatique.
 	 * 
-	 * @param amount Le nombre d'item ‡ crÈer
+	 * @param amount Le nombre d'item ≈ï cr√©er
 	 * @param owner L'url du skin
-	 * @return L'item crÈÈ
+	 * @return L'item cr√©√©
 	 */
 	public ItemStack asCustomSkull(int amount, String url);
 
 	/**
-	 * CrÈe l'ItemStack en lui ajoutant une couleur de laine. type() et
+	 * Cr√©e l'ItemStack en lui ajoutant une couleur de laine. type() et
 	 * durability() automatique.
 	 * 
 	 * @param amount
-	 *            Le nombre d'item ‡ crÈer
+	 *            Le nombre d'item ≈ï cr√©er
 	 * @param color
 	 *            La couleur de laine
-	 * @return L'item crÈÈ
+	 * @return L'item cr√©√©
 	 */
 	public ItemStack asWool(int amount, DyeColor color);
 
@@ -81,50 +81,50 @@ public interface ItemStackFactory {
 	public ItemStackFactory setAsWool(DyeColor color);
 	
 	/**
-	 * Retourne une nouvelle factory avec les mÍmes paramËtres
+	 * Retourne une nouvelle factory avec les mƒômes paramƒçtres
 	 * 
 	 * @return Une nouvelle factory
 	 */
 	public ItemStackFactory clone();
 
 	/**
-	 * CrÈe un ItemStack normal
+	 * Cr√©e un ItemStack normal
 	 * 
 	 * @param amount
-	 * @return L'item crÈÈ
+	 * @return L'item cr√©√©
 	 */
 	public ItemStack create(int amount);
 
 	/**
 	 * Permet de changer le displayname du futur item. Les codes couleurs seront
-	 * remplacÈe automatiquement.
+	 * remplac√©e automatiquement.
 	 * 
 	 * @param displayName
-	 *            Le displayName ‡ mettre ‡ l'item
+	 *            Le displayName ≈ï mettre ≈ï l'item
 	 * @return La factory
 	 */
 	public ItemStackFactory displayName(String displayName);
 
 	/**
 	 * Permet de changer le displayname du futur item. Les codes couleurs seront
-	 * remplacÈe automatiquement.
+	 * remplac√©e automatiquement.
 	 * 
 	 * @param displayName
-	 *            Le displayName ‡ mettre ‡ l'item
+	 *            Le displayName ≈ï mettre ≈ï l'item
 	 * @return La factory
 	 */
 	public ItemStackFactory displayName(TranslatableString displayName);
 
 	/**
-	 * Permet de 'dire' ‡ la factory d'utiliser l'I18n pour displayName et lore
+	 * Permet de 'dire' ≈ï la factory d'utiliser l'I18n pour displayName et lore
 	 * 
 	 * @param locale
-	 *            La langue utilisÈe
+	 *            La langue utilis√©e
 	 */
 	public ItemStackFactory doWithI18n(Locale locale);
 
 	/**
-	 * Change la durabilitÈ (ou le data, c'est Èquivalent) du futur item.
+	 * Change la durabilit√© (ou le data, c'est √©quivalent) du futur item.
 	 * 
 	 * @param data
 	 *            Le nouveau data
@@ -136,7 +136,7 @@ public interface ItemStackFactory {
 	 * Permet d'enchanter le futur item
 	 * 
 	 * @param enchantment
-	 *            L'enchantement ‡ appliquer
+	 *            L'enchantement ≈ï appliquer
 	 * @param level
 	 *            Le niveau de l'enchantement
 	 * @return La factory
@@ -145,7 +145,7 @@ public interface ItemStackFactory {
 
 	/**
 	 * Permet de changer la description du futur item. Les codes couleurs seront
-	 * remplacÈe automatiquement.
+	 * remplac√©e automatiquement.
 	 * 
 	 * @param lore
 	 *            La liste de description
@@ -155,7 +155,7 @@ public interface ItemStackFactory {
 
 	/**
 	 * Permet de changer la description du futur item. Les codes couleurs seront
-	 * remplacÈe automatiquement.
+	 * remplac√©e automatiquement.
 	 * 
 	 * @param lore
 	 *            La liste de description
@@ -173,7 +173,7 @@ public interface ItemStackFactory {
 	public ItemStackFactory type(Material material);
 
 	/**
-	 * DÈfinit si le futur item est cassable ou non.
+	 * D√©finit si le futur item est cassable ou non.
 	 * 
 	 * @param unbreakable
 	 *            Si le futur item est cassable.
@@ -182,7 +182,7 @@ public interface ItemStackFactory {
 	public ItemStackFactory unbreakable(boolean unbreakable);
 	
 	/**
-	 * DÈfinit une liste d'enchantement en NMS vide pour lisser l'item
+	 * D√©finit une liste d'enchantement en NMS vide pour lisser l'item
 	 * @return
 	 */
 	public ItemStackFactory fakeEnchantment();

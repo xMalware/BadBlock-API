@@ -6,7 +6,7 @@ import fr.badblock.gameapi.packets.BadblockInPacket;
 import fr.badblock.gameapi.packets.BadblockInPackets;
 
 /**
- * Packet envoyé par le client lorsqu'il clique sur un item dans un inventaire
+ * Packet envoyÃ© par le client lorsqu'il clique sur un item dans un inventaire
  * <ul>
  * <li>Mode 0 : Clique avec un bouton de souris seul
  * <ul>
@@ -55,35 +55,35 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
  */
 public interface PlayInWindowClick extends BadblockInPacket {
 	/**
-	 * Un ID unique pour la transaction, utilisé pour la réponse du serveur
+	 * Un ID unique pour la transaction, utilisÃ© pour la rÃ©ponse du serveur
 	 * 
 	 * @return L'ID
 	 */
 	public int getActionNumber();
 
 	/**
-	 * Le bouton utilisé
+	 * Le bouton utilisÃ©
 	 * 
 	 * @return Le bouton
 	 */
 	public int getButton();
 
 	/**
-	 * Récupère l'item cliqué
+	 * RÃ©cupÄre l'item cliquÃ©
 	 * 
 	 * @return L'item
 	 */
 	public ItemStack getItem();
 
 	/**
-	 * Le mode utilisé
+	 * Le mode utilisÃ©
 	 * 
 	 * @return Le mode
 	 */
 	public int getMode();
 
 	/**
-	 * Le slot cliqué
+	 * Le slot cliquÃ©
 	 * 
 	 * @return Le slot
 	 */

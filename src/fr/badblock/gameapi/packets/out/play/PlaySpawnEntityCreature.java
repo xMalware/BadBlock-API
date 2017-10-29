@@ -9,14 +9,14 @@ import fr.badblock.gameapi.packets.watchers.WatcherEntity;
 import lombok.Getter;
 
 /**
- * Packet envoyé lors du spawn d'une créature vivante (monster, animal, complex,
+ * Packet envoyÃ© lors du spawn d'une crÃ©ature vivante (monster, animal, complex,
  * ambient, ...).
  * 
  * @author LeLanN
  */
 public interface PlaySpawnEntityCreature extends BadblockOutPacket {
 	/**
-	 * Représente les différents mobs spawnables avec
+	 * ReprÃ©sente les diffÃ©rents mobs spawnables avec
 	 * {@link PlaySpawnEntityCreature}
 	 * 
 	 * @author LeLanN
@@ -31,11 +31,11 @@ public interface PlaySpawnEntityCreature extends BadblockOutPacket {
 		 */
 		SKELETON(51),
 		/**
-		 * Une arraîgnée
+		 * Une arraÃ®gnÃ©e
 		 */
 		SPIDER(52),
 		/**
-		 * Un zombie géant
+		 * Un zombie gÃ©ant
 		 */
 		GIANT_ZOMBIE(53),
 		/**
@@ -59,7 +59,7 @@ public interface PlaySpawnEntityCreature extends BadblockOutPacket {
 		 */
 		ENDERMAN(58),
 		/**
-		 * Une arraîgnée des cavernes
+		 * Une arraÃ®gnÃ©e des cavernes
 		 */
 		CAVE_SPIDER(59),
 		/**
@@ -87,7 +87,7 @@ public interface PlaySpawnEntityCreature extends BadblockOutPacket {
 		 */
 		BAT(65),
 		/**
-		 * Une sorcière
+		 * Une sorciÄre
 		 */
 		WITCH(66),
 		/**
@@ -167,49 +167,49 @@ public interface PlaySpawnEntityCreature extends BadblockOutPacket {
 	}
 
 	/**
-	 * Récupère l'ID de l'entité
+	 * RÃ©cupÄre l'ID de l'entitÃ©
 	 * 
 	 * @return L'ID
 	 */
 	public int getEntityId();
 
 	/**
-	 * Récupère la rotation de la tête (angle)
+	 * RÃ©cupÄre la rotation de la tÄ™te (angle)
 	 * 
 	 * @return La rotation
 	 */
 	public float getHeadRotation();
 
 	/**
-	 * Récupère la position
+	 * RÃ©cupÄre la position
 	 * 
 	 * @return La position
 	 */
 	public Location getLocation();
 
 	/**
-	 * Récupère le type de l'objet
+	 * RÃ©cupÄre le type de l'objet
 	 * 
 	 * @return Le type
 	 */
 	public EntityType getType();
 
 	/**
-	 * Récupère la vélocité
+	 * RÃ©cupÄre la vÃ©locitÃ©
 	 * 
-	 * @return La vélocité
+	 * @return La vÃ©locitÃ©
 	 */
 	public Vector getVelocity();
 
 	/**
-	 * Récupère les watchers de l'entité
+	 * RÃ©cupÄre les watchers de l'entitÃ©
 	 * 
 	 * @return Les watchers
 	 */
 	public WatcherEntity getWatchers();
 
 	/**
-	 * Définit l'ID de l'entité
+	 * DÃ©finit l'ID de l'entitÃ©
 	 * 
 	 * @param id
 	 *            L'ID
@@ -218,7 +218,7 @@ public interface PlaySpawnEntityCreature extends BadblockOutPacket {
 	public PlaySpawnEntityCreature setEntityId(int id);
 
 	/**
-	 * Définit la rotation de la tête (angle)
+	 * DÃ©finit la rotation de la tÄ™te (angle)
 	 * 
 	 * @param rotation
 	 * @return Le packet
@@ -226,7 +226,7 @@ public interface PlaySpawnEntityCreature extends BadblockOutPacket {
 	public PlaySpawnEntityCreature setHeadRotation(float rotation);
 
 	/**
-	 * Définit la position
+	 * DÃ©finit la position
 	 * 
 	 * @param location
 	 *            La position
@@ -235,7 +235,7 @@ public interface PlaySpawnEntityCreature extends BadblockOutPacket {
 	public PlaySpawnEntityCreature setLocation(Location location);
 
 	/**
-	 * Définit le type de l'objet
+	 * DÃ©finit le type de l'objet
 	 * 
 	 * @param type
 	 *            Le type
@@ -244,16 +244,16 @@ public interface PlaySpawnEntityCreature extends BadblockOutPacket {
 	public PlaySpawnEntityCreature setType(EntityType type);
 
 	/**
-	 * Définit la vélocité
+	 * DÃ©finit la vÃ©locitÃ©
 	 * 
 	 * @param velocity
-	 *            La vélocité
+	 *            La vÃ©locitÃ©
 	 * @return Le packet
 	 */
 	public PlaySpawnEntityCreature setVelocity(Vector velocity);
 
 	/**
-	 * Définit les watchers de l'entité
+	 * DÃ©finit les watchers de l'entitÃ©
 	 * 
 	 * @param watcher
 	 *            Les watchers

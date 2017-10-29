@@ -4,13 +4,13 @@ import fr.badblock.gameapi.packets.BadblockInPacket;
 import fr.badblock.gameapi.packets.BadblockInPackets;
 
 /**
- * Packet envoyé par le joueur lorsqu'il utilise "tab" dans le chat
+ * Packet envoyÃ© par le joueur lorsqu'il utilise "tab" dans le chat
  * 
  * @author LeLanN
  */
 public interface PlayInTabComplete extends BadblockInPacket {
 	/**
-	 * Récupère le message avant le curseur
+	 * RÃ©cupÄre le message avant le curseur
 	 * 
 	 * @return Le message
 	 */

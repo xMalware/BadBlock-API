@@ -6,7 +6,7 @@ import fr.badblock.gameapi.events.abstracts.BadblockPlayerEvent;
 import fr.badblock.gameapi.players.BadblockPlayer;
 
 /**
- * Event appelé lorsque des données du joueur ont été modifiées
+ * Event appelÃ© lorsque des donnÃ©es du joueur ont Ã©tÃ© modifiÃ©es
  * 
  * @author LeLanN
  */

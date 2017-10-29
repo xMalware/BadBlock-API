@@ -5,13 +5,13 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
 import lombok.Getter;
 
 /**
- * Packet envoyé par le client lorsqu'il change ses paramètres
+ * Packet envoyÃ© par le client lorsqu'il change ses paramÄtres
  * 
  * @author LeLanN
  */
 public interface PlayInSettings extends BadblockInPacket {
 	/**
-	 * Représente les différents modes de chats possibles
+	 * ReprÃ©sente les diffÃ©rents modes de chats possibles
 	 * 
 	 * @author LeLanN
 	 */
@@ -34,7 +34,7 @@ public interface PlayInSettings extends BadblockInPacket {
 	}
 
 	/**
-	 * Récupère m'activation du chat du joueur
+	 * RÃ©cupÄre m'activation du chat du joueur
 	 * 
 	 * @return L'activation
 	 */
@@ -43,13 +43,13 @@ public interface PlayInSettings extends BadblockInPacket {
 	/**
 	 * Les parties du skin que le joueur affiche :
 	 * <ul>
-	 * <li>0x01 : Cape activée
-	 * <li>0x02 : Veste activée
-	 * <li>0x04 : Manche gauche activée
-	 * <li>0x08 : Manche droite activée
-	 * <li>0x10 : Jambière de gauche activée
-	 * <li>0x20 : Jambière de droite activée
-	 * <li>0x40 : Chapeau activé
+	 * <li>0x01 : Cape activÃ©e
+	 * <li>0x02 : Veste activÃ©e
+	 * <li>0x04 : Manche gauche activÃ©e
+	 * <li>0x08 : Manche droite activÃ©e
+	 * <li>0x10 : JambiÄre de gauche activÃ©e
+	 * <li>0x20 : JambiÄre de droite activÃ©e
+	 * <li>0x40 : Chapeau activÃ©
 	 * </ul>
 	 * 
 	 * @return
@@ -69,16 +69,16 @@ public interface PlayInSettings extends BadblockInPacket {
 	}
 
 	/**
-	 * Récupère la view distance du joueur en chunk
+	 * RÃ©cupÄre la view distance du joueur en chunk
 	 * 
 	 * @return La view distance
 	 */
 	public int getViewDistance();
 
 	/**
-	 * Si la couleur est activée dans le chat du joueur
+	 * Si la couleur est activÃ©e dans le chat du joueur
 	 * 
-	 * @return Si la couleur est activée
+	 * @return Si la couleur est activÃ©e
 	 */
 	public boolean isColorEnabled();
 }
