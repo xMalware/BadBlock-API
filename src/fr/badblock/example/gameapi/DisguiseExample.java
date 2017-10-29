@@ -6,7 +6,7 @@ import fr.badblock.gameapi.disguise.Disguise;
 import fr.badblock.gameapi.players.BadblockPlayer;
 
 /**
- * Un exemple de l'utilisation des déguisements
+ * Un exemple de l'utilisation des dÃ©guisements
  * 
  * @author LeLanN
  */
