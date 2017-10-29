@@ -10,9 +10,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * Représente l'avancement d'un joueur dans un achievement (si il l'a déjà
- * réussi (et quand), sa progression).<br>
- * Peut être obtenu via
+ * ReprÃ©sente l'avancement d'un joueur dans un achievement (si il l'a dÃ©jÅ•
+ * rÃ©ussi (et quand), sa progression).<br>
+ * Peut Ä™tre obtenu via
  * {@link fr.badblock.gameapi.players.data.PlayerData#getAchievementState(fr.badblock.gameapi.players.PlayerAchievement)}
  * 
  * @author LeLanN
@@ -40,8 +40,8 @@ public class PlayerAchievementState {
 	}
 
 	/**
-	 * Change l'achievement en 'réussi'. Sauvegarde la date de réussite et
-	 * réinitialisera l'avancée.
+	 * Change l'achievement en 'rÃ©ussi'. Sauvegarde la date de rÃ©ussite et
+	 * rÃ©initialisera l'avancÃ©e.
 	 */
 	public void succeed() {
 		if (succeeds)

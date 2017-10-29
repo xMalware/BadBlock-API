@@ -8,19 +8,19 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * Permet d'écouter de manière simple les packets allant au client
+ * Permet d'Ã©couter de maniÄre simple les packets allant au client
  * 
  * @author LeLanN
  *
  * @param <T>
- *            Le type de packet à écouter
+ *            Le type de packet Å• Ã©couter
  * @see fr.badblock.gameapi.GameAPI#listenAtPacket(OutPacketListener)
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 public abstract class OutPacketListener<T extends BadblockOutPacket> extends PacketListener<T> {
 	/**
-	 * Récupère la classe du packet listen. Utile uniquement en interne.
+	 * RÃ©cupÄre la classe du packet listen. Utile uniquement en interne.
 	 * 
 	 * @return La classe
 	 */
@@ -31,7 +31,7 @@ public abstract class OutPacketListener<T extends BadblockOutPacket> extends Pac
 
 	// TODO la classe BadBlockOutPackets
 	/**
-	 * Appel la classe avant le packet reçu
+	 * Appel la classe avant le packet reÃ§u
 	 * 
 	 * @param packet
 	 *            La classe

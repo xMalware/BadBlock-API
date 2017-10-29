@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Représente un nombre
+ * ReprÃ©sente un nombre
  * 
  * @author LeLanN
  */

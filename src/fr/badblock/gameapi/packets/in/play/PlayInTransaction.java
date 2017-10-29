@@ -4,8 +4,8 @@ import fr.badblock.gameapi.packets.BadblockInPacket;
 import fr.badblock.gameapi.packets.BadblockInPackets;
 
 /**
- * Packet envoyé par le client lorsque un click dans un inventaire n'a pas été
- * accepté
+ * Packet envoyÃ© par le client lorsque un click dans un inventaire n'a pas Ã©tÃ©
+ * acceptÃ©
  * 
  * @author LeLanN
  */
@@ -30,7 +30,7 @@ public interface PlayInTransaction extends BadblockInPacket {
 	public int getWindowId();
 
 	/**
-	 * Si c'est accepté
+	 * Si c'est acceptÃ©
 	 * 
 	 * @return Un boolean
 	 */

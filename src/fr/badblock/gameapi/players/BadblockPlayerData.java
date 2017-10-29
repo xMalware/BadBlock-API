@@ -7,75 +7,75 @@ import fr.badblock.gameapi.players.data.PlayerData;
 import fr.badblock.gameapi.utils.i18n.TranslatableString;
 
 /**
- * Représente les données d'un joueur
+ * ReprÃ©sente les donnÃ©es d'un joueur
  * 
  * @author LeLanN
  */
 public interface BadblockPlayerData {
 	/**
-	 * Récupère le préfixe (par exemple [Admin]) pour afficher le nom du groupe
+	 * RÃ©cupÄre le prÃ©fixe (par exemple [Admin]) pour afficher le nom du groupe
 	 * du joueur
 	 * 
-	 * @return Le préfixe
+	 * @return Le prÃ©fixe
 	 */
 	public TranslatableString getGroupPrefix();
 	
 	/**
-	 * Récupère le suffixe (par exemple &4) pour afficher le nom du groupe du joueur
+	 * RÃ©cupÄre le suffixe (par exemple &4) pour afficher le nom du groupe du joueur
 	 * @return Le suffixe
 	 */
 	public TranslatableString getGroupSuffix();
 
 	/**
-	 * Récupère le pseudo du joueur
+	 * RÃ©cupÄre le pseudo du joueur
 	 * 
 	 * @return Le pseudo
 	 */
 	public String getName();
 
 	/**
-	 * Récupère les données du joueur. Elles ne seront pas redemandées à Ladder
-	 * (elles n'ont théoriquement pas changées)
+	 * RÃ©cupÄre les donnÃ©es du joueur. Elles ne seront pas redemandÃ©es Å• Ladder
+	 * (elles n'ont thÃ©oriquement pas changÃ©es)
 	 * 
-	 * @return Les données
+	 * @return Les donnÃ©es
 	 */
 	public PlayerData getPlayerData();
 
 	/**
-	 * Récupère le préfixe (par exemple [Admin]) pour afficher le nom du group
+	 * RÃ©cupÄre le prÃ©fixe (par exemple [Admin]) pour afficher le nom du group
 	 * du joueur en tablist
 	 * 
-	 * @return Le préfixe
+	 * @return Le prÃ©fixe
 	 */
 	public TranslatableString getTabGroupPrefix();
 
 	/**
-	 * Récupère la team du joueur avant sa déconnection
+	 * RÃ©cupÄre la team du joueur avant sa dÃ©connection
 	 * 
 	 * @return La team
 	 */
 	public BadblockTeam getTeam();
 
 	/**
-	 * Récupère l'UUID du joueur
+	 * RÃ©cupÄre l'UUID du joueur
 	 * 
 	 * @return L'UUID
 	 */
 	public UUID getUniqueId();
 
 	/**
-	 * Récupère les données ingame du joueur, avant sa déconnection. Attention,
+	 * RÃ©cupÄre les donnÃ©es ingame du joueur, avant sa dÃ©connection. Attention,
 	 * la classe fournie doit avoir un constructeur sans arguments.
 	 * 
 	 * @param clazz
-	 *            La classe implémentant InGameData
-	 * @return Les données joueurs (ou null si la classe donnée n'est pas
+	 *            La classe implÃ©mentant InGameData
+	 * @return Les donnÃ©es joueurs (ou null si la classe donnÃ©e n'est pas
 	 *         correcte)
 	 */
 	public <T extends InGameData> T inGameData(Class<T> clazz);
 
 	/**
-	 * Définit la team du joueur. A ne pas utiliser pour la changer réellement,
+	 * DÃ©finit la team du joueur. A ne pas utiliser pour la changer rÃ©ellement,
 	 * simplement une valeur de stockage.
 	 * 
 	 * @param team

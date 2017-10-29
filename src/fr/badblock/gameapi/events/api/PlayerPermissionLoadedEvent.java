@@ -6,7 +6,7 @@ import fr.badblock.gameapi.events.abstracts.BadblockPlayerEvent;
 import fr.badblock.gameapi.players.BadblockPlayer;
 
 /**
- * Event appelé lorsque les permissions du joueur sont mises à jour
+ * Event appelÃ© lorsque les permissions du joueur sont mises Å• jour
  * 
  * @author LeLanN
  */

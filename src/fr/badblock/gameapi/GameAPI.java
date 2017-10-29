@@ -64,24 +64,24 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * La classe principale de l'API. Elle permet de r�cup�rer la plupart de ses
+ * La classe principale de l'API. Elle permet de rďż˝cupďż˝rer la plupart de ses
  * composants (sauf ceux disponibles en statics) ainsi que de la configurer.<br>
- * Les principaux �l�ments � configurer sont :
+ * Les principaux ďż˝lďż˝ments ďż˝ configurer sont :
  * <ul>
- * <li>Les kits, car il est tr�s utile de garder une base commune � tous les
- * jeux, n�anmoins la gestion des items est diff�rentes entre les jeux (ex :
+ * <li>Les kits, car il est trďż˝s utile de garder une base commune ďż˝ tous les
+ * jeux, nďż˝anmoins la gestion des items est diffďż˝rentes entre les jeux (ex :
  * splatoon, les armes ne sont pas dans la configuration). C'est pourquoi il
- * faut d�finir la classe permettant de load les items.</li>
- * <li>Les donn�es de joueur InGame, car il est inutile de cr�er une Map
- * uniquement pour ces donn�es, et que les donn�es entre les jeux peuvent �tre
- * tr�s diff�rentes.</li>
+ * faut dďż˝finir la classe permettant de load les items.</li>
+ * <li>Les donnďż˝es de joueur InGame, car il est inutile de crďż˝er une Map
+ * uniquement pour ces donnďż˝es, et que les donnďż˝es entre les jeux peuvent ďż˝tre
+ * trďż˝s diffďż˝rentes.</li>
  * <li>ect ...</li>
  * </ul>
  * <br>
- * Le principe de l'API r�side donc sur deux points : elle est � la fois une
- * base � tous les jeux, pour qu'ils se ressemblent (et soient plus rapidement
- * mettables � jours) ainsi qu'une longue liste d'utilitaires vari�s, pour
- * simplifier le d�veloppement.<br>
+ * Le principe de l'API rďż˝side donc sur deux points : elle est ďż˝ la fois une
+ * base ďż˝ tous les jeux, pour qu'ils se ressemblent (et soient plus rapidement
+ * mettables ďż˝ jours) ainsi qu'une longue liste d'utilitaires variďż˝s, pour
+ * simplifier le dďż˝veloppement.<br>
  *
  * @author LeLanN
  */
@@ -128,17 +128,17 @@ public abstract class GameAPI extends JavaPlugin {
 	private boolean finished;
 
 	/**
-	 * R�cup�re le syst�me d'internationalisation (pour �viter de r�cup�rer
+	 * Rďż˝cupďż˝re le systďż˝me d'internationalisation (pour ďż˝viter de rďż˝cupďż˝rer
 	 * l'instance).
 	 * 
-	 * @return Le syst�me d'i18n
+	 * @return Le systďż˝me d'i18n
 	 */
 	public static I18n i18n() {
 		return API.getI18n();
 	}
 	
 	/**
-	 * Log un message 'normal' (plus rapide que de r�cup�rrer le logger)
+	 * Log un message 'normal' (plus rapide que de rďż˝cupďż˝rrer le logger)
 	 * 
 	 * @param message
 	 *    
@@ -150,17 +150,17 @@ public abstract class GameAPI extends JavaPlugin {
 
 	/**
 	 * Log un message avec des couleurs ({@link I18n#replaceColors(String)}
-	 * appel�)
+	 * appelďż˝)
 	 * 
 	 * @param message
-	 *            Le message color�
+	 *            Le message colorďż˝
 	 */
 	public static void logColor(String message) {
 		Bukkit.getConsoleSender().sendMessage(i18n().replaceColors(message));
 	}
 
 	/**
-	 * Log un message d'erreur (plus rapide que de r�cup�rrer le logger)
+	 * Log un message d'erreur (plus rapide que de rďż˝cupďż˝rrer le logger)
 	 * 
 	 * @param message
 	 *            Le message
@@ -170,7 +170,7 @@ public abstract class GameAPI extends JavaPlugin {
 	}
 
 	/**
-	 * Log un message d'alerte (plus rapide que de r�cup�rrer le logger)
+	 * Log un message d'alerte (plus rapide que de rďż˝cupďż˝rrer le logger)
 	 * 
 	 * @param message
 	 *            Le message
@@ -187,7 +187,7 @@ public abstract class GameAPI extends JavaPlugin {
 		if(splitted.length == 1){
 			return type;
 		} else {
-			return type + " n�" + splitted[1];
+			return type + " nďż˝" + splitted[1];
 		}
 	}
 	
@@ -196,36 +196,36 @@ public abstract class GameAPI extends JavaPlugin {
 	}
 	
 	/**
-	 * R�cup�re l'ensemble des joueurs en ligne
+	 * Rďż˝cupďż˝re l'ensemble des joueurs en ligne
 	 * @return Une liste non modifiable
 	 */
 	public abstract List<BadblockPlayer> getOnlinePlayers();
 
 	/**
-	 * R�cup�re l'ensemble des joueurs en ligne n'�tant pas en mode spectateur
+	 * Rďż˝cupďż˝re l'ensemble des joueurs en ligne n'ďż˝tant pas en mode spectateur
 	 * @return Une liste non modifiable
 	 */
 	public abstract List<BadblockPlayer> getRealOnlinePlayers();
 	
 	/**
-	 * Permet d'�quilibrer les teams
+	 * Permet d'ďż˝quilibrer les teams
 	 * 
 	 * @param sameSize
-	 *            Si il faut que toutes les teams ai le m�me nombre de joueurs
+	 *            Si il faut que toutes les teams ai le mďż˝me nombre de joueurs
 	 */
 	public abstract void balanceTeams(boolean sameSize);
 
 	/**
-	 * Cr�� un nouveau objective custom
+	 * Crďż˝ďż˝ un nouveau objective custom
 	 * 
 	 * @param name
 	 *            Le nom (interne) de l'objective
-	 * @return Le CustomObjective cr��.
+	 * @return Le CustomObjective crďż˝ďż˝.
 	 */
 	public abstract CustomObjective buildCustomObjective(String name);
 
 	/**
-	 * Cr�� un nouvel inventaire custom
+	 * Crďż˝ďż˝ un nouvel inventaire custom
 	 * 
 	 * @param line
 	 *            Le nombre de ligne (et non pas de cases !)
@@ -236,34 +236,34 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract CustomInventory createCustomInventory(int line, String displayName);
 
 	/**
-	 * Cr�e un nouveau extra pour un item
+	 * Crďż˝e un nouveau extra pour un item
 	 * 
 	 * @param itemStack
-	 *            L'item stack auquel ajout� l'extra
-	 * @return Un nouvel extra ou celui existant si d�j� register pour la
+	 *            L'item stack auquel ajoutďż˝ l'extra
+	 * @return Un nouvel extra ou celui existant si dďż˝jďż˝ register pour la
 	 *         l'item.
 	 */
 	public abstract ItemStackExtra createItemStackExtra(ItemStack itemStack);
 
 	/**
-	 * Cr�e une nouvelle factory d'items
+	 * Crďż˝e une nouvelle factory d'items
 	 * 
 	 * @return La factory d'items
 	 */
 	public abstract ItemStackFactory createItemStackFactory();
 
 	/**
-	 * Cr�� une nouvelle factory d'items
+	 * Crďż˝ďż˝ une nouvelle factory d'items
 	 * 
 	 * @param item
-	 *            L'item de base qui sera utilis� pour le param�trage de la
+	 *            L'item de base qui sera utilisďż˝ pour le paramďż˝trage de la
 	 *            factory
 	 * @return La factory
 	 */
 	public abstract ItemStackFactory createItemStackFactory(ItemStack item);
 
 	/**
-	 * Cr�e un packet � partir de l'interface le repr�sentant.
+	 * Crďż˝e un packet ďż˝ partir de l'interface le reprďż˝sentant.
 	 * 
 	 * @param clazz
 	 *            La classe de l'interface du packet.
@@ -272,7 +272,7 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract <T extends BadblockOutPacket> T createPacket(Class<T> clazz);
 
 	/**
-	 * Cr�� une particule. Envoyable gr�ce �
+	 * Crďż˝ďż˝ une particule. Envoyable grďż˝ce ďż˝
 	 * {@link BadblockPlayer#sendParticle(Location, ParticleEffect)}
 	 * 
 	 * @param type
@@ -282,7 +282,7 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract ParticleEffect createParticleEffect(ParticleEffectType type);
 
 	/**
-	 * Cr�e un datawatcher � partir de l'interface le repr�sentant.
+	 * Crďż˝e un datawatcher ďż˝ partir de l'interface le reprďż˝sentant.
 	 * 
 	 * @param clazz
 	 *            La classe de l'interface du DataWatcher.
@@ -304,9 +304,9 @@ public abstract class GameAPI extends JavaPlugin {
 	 * Active le formattage du chat par l'API
 	 * 
 	 * @param format
-	 *            Si le formattage est activ�
+	 *            Si le formattage est activďż˝
 	 * @param doTeamChat
-	 *            Si (lorsque formattage activ�) le les messages pr�c�d�s de $
+	 *            Si (lorsque formattage activďż˝) le les messages prďż˝cďż˝dďż˝s de $
 	 *            sont pour la team
 	 */
 	public abstract void formatChat(boolean format, boolean doTeamChat);
@@ -315,80 +315,80 @@ public abstract class GameAPI extends JavaPlugin {
 	 * Active le formattage du chat par l'API
 	 * 
 	 * @param format
-	 *            Si le formattage est activ�
+	 *            Si le formattage est activďż˝
 	 * @param doTeamChat
-	 *            Si (lorsque formattage activ�) le les messages pr�c�d�s de $
+	 *            Si (lorsque formattage activďż˝) le les messages prďż˝cďż˝dďż˝s de $
 	 *            sont pour la team
 	 * @param custom
-	 *            Si le chat est diff�rent d'autres serveurs, le nom custom
+	 *            Si le chat est diffďż˝rent d'autres serveurs, le nom custom
 	 */
 	public abstract void formatChat(boolean format, boolean doTeamChat, String custom);
 
 	/**
-	 * R�cup�re le BadblockScoreboard commun � tous les joueurs permettant
+	 * Rďż˝cupďż˝re le BadblockScoreboard commun ďż˝ tous les joueurs permettant
 	 * d'afficher la vie, les noms de teams, les votes, ...
 	 */
 	public abstract BadblockScoreboard getBadblockScoreboard();
 
 	/**
-	 * R�cup�re l'objet permettant de g�n�rer des coffres al�atoires
+	 * Rďż˝cupďż˝re l'objet permettant de gďż˝nďż˝rer des coffres alďż˝atoires
 	 * 
 	 * @return L'objet
 	 */
 	public abstract ChestGenerator getChestGenerator();
 
 	/**
-	 * Cr�� un inventaire de marchant custom
+	 * Crďż˝ďż˝ un inventaire de marchant custom
 	 * 
 	 * @return Le marchant
 	 */
 	public abstract CustomMerchantInventory getCustomMerchantInventory();
 
 	/**
-	 * R�cup�re le syst�me de gestion des statuts
+	 * Rďż˝cupďż˝re le systďż˝me de gestion des statuts
 	 * 
-	 * @return Le syst�me de gestion des statuts
+	 * @return Le systďż˝me de gestion des statuts
 	 */
 	public abstract GameServer getGameServer();
 
 	/**
-	 * R�cup�re le syst�me de messaging et internationalisation
+	 * Rďż˝cupďż˝re le systďż˝me de messaging et internationalisation
 	 * 
-	 * @return Le syst�me
+	 * @return Le systďż˝me
 	 */
 	public abstract I18n getI18n();
 
 	/**
-	 * R�cup�re l'instance de la configuration des items de join
+	 * Rďż˝cupďż˝re l'instance de la configuration des items de join
 	 * 
 	 * @return L'instance
 	 */
 	public abstract JoinItems getJoinItems();
 
 	/**
-	 * R�cup�re le manager de contenu (r�cup�ration / give des items) des kits,
-	 * pour le jeu charger. Par d�faut, charge simplement un inventaire
+	 * Rďż˝cupďż˝re le manager de contenu (rďż˝cupďż˝ration / give des items) des kits,
+	 * pour le jeu charger. Par dďż˝faut, charge simplement un inventaire
 	 * 
 	 * @return Le manager
 	 */
 	public abstract PlayerKitContentManager getKitContentManager();
 
 	/**
-	 * R�cup�re la classe permettant de communiquer avec Ladder
+	 * Rďż˝cupďż˝re la classe permettant de communiquer avec Ladder
 	 * 
 	 * @return La classe permettant de communiquer avec Ladder
 	 */
 	public abstract LadderSpeaker getLadderDatabase();
 
 	/**
-	 * R�cup�re la liste des portails charg�s
+	 * Rďż˝cupďż˝re la liste des portails chargďż˝s
 	 * 
 	 * @return La liste des portails
 	 */
 	public abstract Collection<Portal> getLoadedPortals();
 
 	/**
-	 * R�cup�re la classe prot�geant la map. Par d�faut une protection tr�s
+	 * Rďż˝cupďż˝re la classe protďż˝geant la map. Par dďż˝faut une protection trďż˝s
 	 * permissive (ne change rien :p).
 	 * 
 	 * @return La classe
@@ -396,17 +396,17 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract MapProtector getMapProtector();
 
 	/**
-	 * R�cup�re les donn�es d'un joueur ayant d�connecter apr�s le d�but de la
-	 * partie, si le jeu a demand� la sauvegarde
+	 * Rďż˝cupďż˝re les donnďż˝es d'un joueur ayant dďż˝connecter aprďż˝s le dďż˝but de la
+	 * partie, si le jeu a demandďż˝ la sauvegarde
 	 * 
 	 * @param name
 	 *            Le joueur
-	 * @return Les donn�es joueurs (ou null)
+	 * @return Les donnďż˝es joueurs (ou null)
 	 */
 	public abstract BadblockOfflinePlayer getOfflinePlayer(String name);
 
 	/**
-	 * R�cup�re un portail par une location
+	 * Rďż˝cupďż˝re un portail par une location
 	 * 
 	 * @param location
 	 *            La location
@@ -415,7 +415,7 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract Portal getPortal(Location location);
 
 	/**
-	 * R�cup�re un portail par son nom
+	 * Rďż˝cupďż˝re un portail par son nom
 	 * 
 	 * @param name
 	 *            Le nom
@@ -424,7 +424,7 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract Portal getPortal(String name);
 
 	/**
-	 * R�cup�re la classe permettant de communiquer avec RabbitMQ
+	 * Rďż˝cupďż˝re la classe permettant de communiquer avec RabbitMQ
 	 * 
 	 * @return La classe permettant de communiquer avec RabbitMQ
 	 * @author xMalware
@@ -432,51 +432,51 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract RabbitSpeaker getRabbitSpeaker();
 
 	/**
-	 * R�cup�re le type de partie
+	 * Rďż˝cupďż˝re le type de partie
 	 * 
 	 * @return Le type
 	 */
 	public abstract RunType getRunType();
 
 	/**
-	 * Retourne une position ou le joueur peut �tre t�l�port� sans crainte.
+	 * Retourne une position ou le joueur peut ďż˝tre tďż˝lďż˝portďż˝ sans crainte.
 	 * 
 	 * @param location
 	 *            La position initiale
-	 * @return La position modifi�e (ou null en cas de probl�me)
+	 * @return La position modifiďż˝e (ou null en cas de problďż˝me)
 	 */
 	public abstract Location getSafeLocation(Location location);
 
 	/**
-	 * R�cup�re le bonus �venementiel en badcoins
+	 * Rďż˝cupďż˝re le bonus ďż˝venementiel en badcoins
 	 * 
 	 * @return Le bonus
 	 */
 	public abstract double getServerBadcoinsBonus();
 
 	/**
-	 * R�cup�re le bonus �venementiel en xp
+	 * Rďż˝cupďż˝re le bonus ďż˝venementiel en xp
 	 * 
 	 * @return Le bonus
 	 */
 	public abstract double getServerXpBonus();
 
 	/**
-	 * R�cup�re le syst�me de gestion de panneau i18n
+	 * Rďż˝cupďż˝re le systďż˝me de gestion de panneau i18n
 	 * 
-	 * @return Le syst�me
+	 * @return Le systďż˝me
 	 */
 	public abstract SignManager getSignManager();
 
 	/**
-	 * R�cup�re la base de donn�e SQl
+	 * Rďż˝cupďż˝re la base de donnďż˝e SQl
 	 * 
-	 * @return La base de donn�e
+	 * @return La base de donnďż˝e
 	 */
 	public abstract SQLDatabase getSqlDatabase();
 
 	/**
-	 * R�cup�re une team � partir de son nom interne (voir
+	 * Rďż˝cupďż˝re une team ďż˝ partir de son nom interne (voir
 	 * {@link #getTeamsKey()}}.
 	 * 
 	 * @param key
@@ -486,7 +486,7 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract BadblockTeam getTeam(String key);
 
 	/**
-	 * R�cup�re les teams registers gr�ce �
+	 * Rďż˝cupďż˝re les teams registers grďż˝ce ďż˝
 	 * {@link #registerTeams(int, Class, ConfigurationSection)}
 	 * 
 	 * @return Une collection de team
@@ -494,7 +494,7 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract Collection<BadblockTeam> getTeams();
 
 	/**
-	 * Retourne les noms internes des teams, registers gr�ce �
+	 * Retourne les noms internes des teams, registers grďż˝ce ďż˝
 	 * {@link #registerTeams(int, Class, ConfigurationSection)}
 	 * 
 	 * @return Une collection de string
@@ -502,32 +502,32 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract Collection<String> getTeamsKey();
 
 	/**
-	 * R�cup�re les joueurs dans la whitelist
+	 * Rďż˝cupďż˝re les joueurs dans la whitelist
 	 * 
 	 * @return Les joueurs
 	 */
 	public abstract Collection<String> getWhitelistedPlayers();
 
 	/**
-	 * R�cup�re si la whitelist est on ou non
+	 * Rďż˝cupďż˝re si la whitelist est on ou non
 	 * 
 	 * @return Le statut
 	 */
 	public abstract boolean getWhitelistStatus();
 
 	/**
-	 * R�cup�re si le compas s�lectionne la cible la plus proche au clique droit
+	 * Rďż˝cupďż˝re si le compas sďż˝lectionne la cible la plus proche au clique droit
 	 * 
 	 * @return Un boolean
 	 */
 	public abstract boolean isCompassSelectNearestTarget();
 
 	/**
-	 * V�rifie si le joueur est whitelist�
+	 * Vďż˝rifie si le joueur est whitelistďż˝
 	 * 
 	 * @param player
 	 *            Le joueur
-	 * @return Si il est whitelist�
+	 * @return Si il est whitelistďż˝
 	 */
 	public abstract boolean isWhitelisted(String player);
 
@@ -574,7 +574,7 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract BadConfiguration loadConfiguration(JsonObject content);
 
 	/**
-	 * R�cup�re une liste de kit via un nom de jeu
+	 * Rďż˝cupďż˝re une liste de kit via un nom de jeu
 	 * 
 	 * @param game
 	 *            Le nom du jeu
@@ -584,7 +584,7 @@ public abstract class GameAPI extends JavaPlugin {
 
 	/**
 	 * Manage les portails, en les chargeants / sauvegardants avec le dossier
-	 * donn�
+	 * donnďż˝
 	 * 
 	 * @param folder
 	 *            Le dossier
@@ -592,7 +592,7 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract void managePortals(File folder);
 
 	/**
-	 * Manage les shops, en les chargeants / sauvegardants avec le dossier donn�
+	 * Manage les shops, en les chargeants / sauvegardants avec le dossier donnďż˝
 	 * 
 	 * @param folder
 	 *            Le dossier
@@ -600,20 +600,20 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract void manageShops(File folder);
 
 	/**
-	 * Register les teams (ne peut �tre appel� qu'une fois !) � partir d'une
+	 * Register les teams (ne peut ďż˝tre appelďż˝ qu'une fois !) ďż˝ partir d'une
 	 * configuration.
 	 * 
 	 * @param maxPlayers
 	 *            Le nombre maximum de joueurs par teams.
 	 * @param clazz
-	 *            La classe repr�sentant les donn�es in-game d'une team.
+	 *            La classe reprďż˝sentant les donnďż˝es in-game d'une team.
 	 * @param configuration
 	 *            La configuration des teams.
 	 */
 	public abstract void registerTeams(int maxPlayers, ConfigurationSection configuration);
 
 	/**
-	 * Fait en sorte que le compas s�lectionne la cible la plus proche au clique
+	 * Fait en sorte que le compas sďż˝lectionne la cible la plus proche au clique
 	 * droit
 	 * 
 	 * @param selectNearestTarget
@@ -622,18 +622,18 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract void setCompassSelectNearestTarget(boolean selectNearestTarget);
 
 	/**
-	 * Red�finit le manager de kit par d�faut, o� changer la param�tre allowDrop
-	 * (de base � true)
+	 * Redďż˝finit le manager de kit par dďż˝faut, oďż˝ changer la paramďż˝tre allowDrop
+	 * (de base ďż˝ true)
 	 * 
 	 * @param allowDrop
-	 *            Si les items du kit peuvent �tre drop par le joueur ou � la
+	 *            Si les items du kit peuvent ďż˝tre drop par le joueur ou ďż˝ la
 	 *            mort
 	 */
 	public abstract void setDefaultKitContentManager(boolean allowDrop);
 
 	/**
-	 * D�finit le manager de contenu (r�cup�ration / give des items) des kits,
-	 * pour le jeu charger. Par d�faut, charge simplement un inventaire
+	 * Dďż˝finit le manager de contenu (rďż˝cupďż˝ration / give des items) des kits,
+	 * pour le jeu charger. Par dďż˝faut, charge simplement un inventaire
 	 * 
 	 * @param manager
 	 *            Le manager
@@ -641,7 +641,7 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract void setKitContentManager(PlayerKitContentManager manager);
 
 	/**
-	 * Change la classe prot�geant la map
+	 * Change la classe protďż˝geant la map
 	 * 
 	 * @param protector
 	 *            La classe
@@ -649,7 +649,7 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract void setMapProtector(MapProtector protector);
 
 	/**
-	 * D�finit si la whitelist est on ou non
+	 * Dďż˝finit si la whitelist est on ou non
 	 * 
 	 * @param on
 	 *            Si elle est on
@@ -657,13 +657,13 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract void setWhitelistStatus(boolean on);
 
 	/**
-	 * Fait spawn une entit� custom
+	 * Fait spawn une entitďż˝ custom
 	 * 
 	 * @param location
-	 *            La position de l'entit�
+	 *            La position de l'entitďż˝
 	 * @param type
-	 *            Le type de l'entit�
-	 * @return L'entit�
+	 *            Le type de l'entitďż˝
+	 * @return L'entitďż˝
 	 */
 	public abstract CustomCreature spawnCustomEntity(Location location, EntityType type);
 
@@ -672,7 +672,7 @@ public abstract class GameAPI extends JavaPlugin {
 	 * 
 	 * @param location
 	 *            Sa position
-	 * @return L'entit�
+	 * @return L'entitďż˝
 	 */
 	public abstract FakeEntity<WatcherArmorStand> spawnFakeArmorStand(Location location);
 
@@ -682,7 +682,7 @@ public abstract class GameAPI extends JavaPlugin {
 	 * @param location
 	 *            Sa position
 	 * @param infos Les informations sur le joueur
-	 * @return L'entit�
+	 * @return L'entitďż˝
 	 */
 	public abstract FakeEntity<WatcherLivingEntity> spawnFakePlayer(Location location, PlayerInfo infos);
 
@@ -696,20 +696,20 @@ public abstract class GameAPI extends JavaPlugin {
 	 *            Le type de falling block
 	 * @param data
 	 *            Le 'data'
-	 * @return L'entit�
+	 * @return L'entitďż˝
 	 */
 	public abstract FakeEntity<WatcherEntity> spawnFakeFallingBlock(Location location, Material type, byte data);
 
 	/**
-	 * Cr�e une nouvelle fausse entit�.
+	 * Crďż˝e une nouvelle fausse entitďż˝.
 	 * 
 	 * @param location
 	 *            Sa position
 	 * @param type
-	 *            Le type de l'entit�
+	 *            Le type de l'entitďż˝
 	 * @param clazz
 	 *            La classe de ses DataWatchers
-	 * @return La fausse entit�
+	 * @return La fausse entitďż˝
 	 */
 	public abstract <T extends WatcherEntity> FakeEntity<T> spawnFakeLivingEntity(Location location, EntityType type,
 			Class<T> clazz);
@@ -718,12 +718,12 @@ public abstract class GameAPI extends JavaPlugin {
 	 * Supprime une Team ayant perdue
 	 * 
 	 * @param team
-	 *            La Team � supprimer.
+	 *            La Team ďż˝ supprimer.
 	 */
 	public abstract void unregisterTeam(BadblockTeam team);
 
 	/**
-	 * Enl�ve un joueur temporairement (jusqu'au red�marrage) de la whitelist
+	 * Enlďż˝ve un joueur temporairement (jusqu'au redďż˝marrage) de la whitelist
 	 * 
 	 * @param player
 	 *            Le joueur
@@ -731,7 +731,7 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract void unwhitelistPlayer(String player);
 
 	/**
-	 * Met temporairement (jusqu'au red�marrage) un joueur dans la whitelist
+	 * Met temporairement (jusqu'au redďż˝marrage) un joueur dans la whitelist
 	 * 
 	 * @param player
 	 *            Le joueur
@@ -743,7 +743,7 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract void setLightChunks(CuboidSelection selection, boolean exclusion);
 	
 	/**
-	 * Charge une zone en un certains nombre de ticks serveurs (de mani�re synchrone)
+	 * Charge une zone en un certains nombre de ticks serveurs (de maniďż˝re synchrone)
 	 * @param selection La zone
 	 * @param ticks Le nombre de ticks
 	 */

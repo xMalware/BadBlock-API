@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 /**
- * Classe utilitaire permettant de récupérer et définir facilement des données configurées dans le server.properties
+ * Classe utilitaire permettant de rÃ©cupÃ©rer et dÃ©finir facilement des donnÃ©es configurÃ©es dans le server.properties
  * @author LeLanN
  */
 public class ServerProperties {
@@ -25,7 +25,7 @@ public class ServerProperties {
 	}
 
 	/**
-	 * Récupère les données
+	 * RÃ©cupÄre les donnÃ©es
 	 * @return {@link Properties}
 	 */
 	public static Properties getProperties(){
@@ -33,7 +33,7 @@ public class ServerProperties {
 	}
 	
 	/**
-	 * Sauvegarde les données
+	 * Sauvegarde les donnÃ©es
 	 */
 	public static void saveProperties(){
 		try {

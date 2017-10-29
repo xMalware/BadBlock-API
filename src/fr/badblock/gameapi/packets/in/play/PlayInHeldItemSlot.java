@@ -4,7 +4,7 @@ import fr.badblock.gameapi.packets.BadblockInPacket;
 import fr.badblock.gameapi.packets.BadblockInPackets;
 
 /**
- * Packet envoyé par le joueur lorsque l'item séléctionné change.
+ * Packet envoyÃ© par le joueur lorsque l'item sÃ©lÃ©ctionnÃ© change.
  * 
  * @author LelanN
  */

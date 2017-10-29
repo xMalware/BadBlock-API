@@ -12,7 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * Packet envoyé pour update la tablist du joueur
+ * Packet envoyÃ© pour update la tablist du joueur
  * 
  * @author LeLanN
  */

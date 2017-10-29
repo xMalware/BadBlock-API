@@ -26,7 +26,7 @@ import net.md_5.bungee.api.ChatColor;
 
 /**
  * Classe abstraite permettantt de simplifier l'utilisation des commandes. Par
- * exemple, elles ne devront pas �tre situ�es dans le plugin.yml
+ * exemple, elles ne devront pas ďż˝tre situďż˝es dans le plugin.yml
  * 
  * @author LeLanN
  */
@@ -45,58 +45,58 @@ public abstract class AbstractCommand implements TabExecutor {
 	private boolean allowConsole = true;
 
 	/**
-	 * Cr�e une nouvelle commande
+	 * Crďż˝e une nouvelle commande
 	 * 
 	 * @param command Le nom de la commande
-	 * @param usage Le message d'erreur si la commande est mal utilis�e
-	 * @param permission La permission n�cessaire
-	 * @param aliases Les aliases �ventuels de la commande
+	 * @param usage Le message d'erreur si la commande est mal utilisďż˝e
+	 * @param permission La permission nďż˝cessaire
+	 * @param aliases Les aliases ďż˝ventuels de la commande
 	 */
 	public AbstractCommand(String command, TranslatableString usage, GamePermission perm, String... aliases) {
 		this(command, usage, perm.getPermission(), aliases);
 	}
 	
 	/**
-	 * Cr�e une nouvelle commande
+	 * Crďż˝e une nouvelle commande
 	 * 
 	 * @param command Le nom de la commande
-	 * @param usage Le message d'erreur si la commande est mal utilis�e
-	 * @param permission La permission n�cessaire
-	 * @param aliases Les aliases �ventuels de la commande
+	 * @param usage Le message d'erreur si la commande est mal utilisďż˝e
+	 * @param permission La permission nďż˝cessaire
+	 * @param aliases Les aliases ďż˝ventuels de la commande
 	 */
 	public AbstractCommand(String command, TranslatableString usage, String perm, String... aliases) {
 		this(command, usage, perm, perm, perm, aliases);
 	}
 	
 	/**
-	 * Cr�e une nouvelle commande
+	 * Crďż˝e une nouvelle commande
 	 * 
 	 * @param command
 	 *            Le nom de la commande
 	 * @param usage
-	 *            Le message d'erreur si la commande est mal utilis�e
-	 * @param lobbyPermission La permission n�cessaire au lobby
-	 * @param miniGameSpectatorPermission La permission n�cessaire en jeu (spectateur)
-	 * @param miniGamePermission La permisison n�cessaire en jeu (joueur)
+	 *            Le message d'erreur si la commande est mal utilisďż˝e
+	 * @param lobbyPermission La permission nďż˝cessaire au lobby
+	 * @param miniGameSpectatorPermission La permission nďż˝cessaire en jeu (spectateur)
+	 * @param miniGamePermission La permisison nďż˝cessaire en jeu (joueur)
 	 * @param aliases
-	 *            Les aliases �ventuels de la commande
+	 *            Les aliases ďż˝ventuels de la commande
 	 */
 	public AbstractCommand(String command, TranslatableString usage, GamePermission lobbyPermission, GamePermission miniGameSpectatorPermission, GamePermission miniGamePermission, String... aliases) {
 		this(command, usage, lobbyPermission.getPermission(), miniGameSpectatorPermission.getPermission(), miniGamePermission.getPermission(), aliases);
 	}
 
 	/**
-	 * Cr�e une nouvelle commande
+	 * Crďż˝e une nouvelle commande
 	 * 
 	 * @param command
 	 *            Le nom de la commande
 	 * @param usage
-	 *            Le message d'erreur si la commande est mal utilis�e
-	 * @param lobbyPermission La permission n�cessaire au lobby
-	 * @param miniGameSpectatorPermission La permission n�cessaire en jeu (spectateur)
-	 * @param miniGamePermission La permisison n�cessaire en jeu (joueur)
+	 *            Le message d'erreur si la commande est mal utilisďż˝e
+	 * @param lobbyPermission La permission nďż˝cessaire au lobby
+	 * @param miniGameSpectatorPermission La permission nďż˝cessaire en jeu (spectateur)
+	 * @param miniGamePermission La permisison nďż˝cessaire en jeu (joueur)
 	 * @param aliases
-	 *            Les aliases �ventuels de la commande
+	 *            Les aliases ďż˝ventuels de la commande
 	 */
 	public AbstractCommand(String command, TranslatableString usage, String lobbyPermission, String miniGameSpectatorPermission, String miniGamePermission, String... aliases) {
 		this.command = command;
@@ -115,7 +115,7 @@ public abstract class AbstractCommand implements TabExecutor {
 	}
 
 	/**
-	 * Permet de dire si la console peut utiliser la commande. Par d�faut �
+	 * Permet de dire si la console peut utiliser la commande. Par dďż˝faut ďż˝
 	 * false.
 	 * 
 	 * @param console
@@ -126,13 +126,13 @@ public abstract class AbstractCommand implements TabExecutor {
 	}
 
 	/**
-	 * Permet d'ex�cuter la commande
+	 * Permet d'exďż˝cuter la commande
 	 * 
 	 * @param sender
 	 *            Le sender
 	 * @param args
 	 *            Les arguments
-	 * @return Si la commande est bien utilis�e
+	 * @return Si la commande est bien utilisďż˝e
 	 */
 	public abstract boolean executeCommand(CommandSender sender, String[] args);
 
@@ -177,7 +177,7 @@ public abstract class AbstractCommand implements TabExecutor {
 	}
 
 	/**
-	 * Retourne une liste d'arguments qui seront tri�s ensuite
+	 * Retourne une liste d'arguments qui seront triďż˝s ensuite
 	 * @param sender Le sender
 	 * @param args Les arguments
 	 * @return La liste

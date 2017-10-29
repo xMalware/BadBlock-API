@@ -3,7 +3,7 @@ package fr.badblock.gameapi.packets.in.play;
 import fr.badblock.gameapi.packets.BadblockInPackets;
 
 /**
- * Packet envoyé pour définir la direction regardée
+ * Packet envoyÃ© pour dÃ©finir la direction regardÃ©e
  * 
  * @author LeLanN
  */

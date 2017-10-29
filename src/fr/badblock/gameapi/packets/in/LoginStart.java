@@ -4,7 +4,7 @@ import fr.badblock.gameapi.packets.BadblockInPacket;
 import fr.badblock.gameapi.packets.BadblockInPackets;
 
 /**
- * Packet envoyé après le Handhsake par un joueur voulant se connecter.
+ * Packet envoyÃ© aprÄs le Handhsake par un joueur voulant se connecter.
  * 
  * @author LeLanN
  */

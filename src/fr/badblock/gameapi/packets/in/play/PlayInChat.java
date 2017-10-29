@@ -4,14 +4,14 @@ import fr.badblock.gameapi.packets.BadblockInPacket;
 import fr.badblock.gameapi.packets.BadblockInPackets;
 
 /**
- * Packet envoyé par un joueur quand il écrit un message dans le chat (ou
+ * Packet envoyÃ© par un joueur quand il Ã©crit un message dans le chat (ou
  * commande).
  * 
  * @author LeLanN
  */
 public interface PlayInChat extends BadblockInPacket {
 	/**
-	 * Le message envoyé par le joueur
+	 * Le message envoyÃ© par le joueur
 	 * 
 	 * @return Le message
 	 */

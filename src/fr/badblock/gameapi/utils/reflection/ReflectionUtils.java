@@ -8,15 +8,15 @@ import java.lang.reflect.Modifier;
 import org.bukkit.Bukkit;
 
 /**
- * Classe contenant plusieurs méthodes utiles pour l'utilisation de la
- * réflection. Pour la gestion des fields, préférez
+ * Classe contenant plusieurs mÃ©thodes utiles pour l'utilisation de la
+ * rÃ©flection. Pour la gestion des fields, prÃ©fÃ©rez
  * {@link fr.badblock.gameapi.utils.reflection.Reflector}.
  * 
  * @author LeLanN
  */
 public class ReflectionUtils {
 	/**
-	 * Récupère la version Bukkit
+	 * RÃ©cupÄre la version Bukkit
 	 * 
 	 * @return La version
 	 */
@@ -26,7 +26,7 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * Récupère un constructeur
+	 * RÃ©cupÄre un constructeur
 	 * 
 	 * @param clazz
 	 *            La classe contenenant le constructeur
@@ -44,7 +44,7 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * Récupère et rend accessible un Field
+	 * RÃ©cupÄre et rend accessible un Field
 	 * 
 	 * @param clazz
 	 *            Classe contenant le field
@@ -65,11 +65,11 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * Récupère la méthode getHandle présente sur beaucoup d'objets OBC
+	 * RÃ©cupÄre la mÃ©thode getHandle prÃ©sente sur beaucoup d'objets OBC
 	 * 
 	 * @param obj
 	 *            L'object en question
-	 * @return Le résultat du getHandle()s
+	 * @return Le rÃ©sultat du getHandle()s
 	 */
 	public static Object getHandle(Object obj) {
 		try {
@@ -82,15 +82,15 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * Récupère une méthode
+	 * RÃ©cupÄre une mÃ©thode
 	 * 
 	 * @param clazz
-	 *            La classe contenenant la méthode
+	 *            La classe contenenant la mÃ©thode
 	 * @param name
-	 *            Le nom de la méthode
+	 *            Le nom de la mÃ©thode
 	 * @param args
-	 *            Les arguments de la méthode
-	 * @return La méthode
+	 *            Les arguments de la mÃ©thode
+	 * @return La mÃ©thode
 	 */
 	public static Method getMethod(Class<?> clazz, String name, Class<?>... args) {
 		try {
@@ -102,11 +102,11 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * Récupère une classe NMS
+	 * RÃ©cupÄre une classe NMS
 	 * 
 	 * @param className
-	 *            Le nom de la classe recherchée
-	 * @return La classe trouvée
+	 *            Le nom de la classe recherchÃ©e
+	 * @return La classe trouvÃ©e
 	 */
 	public static Class<?> getNMSClass(String className) {
 		try {
@@ -118,11 +118,11 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * Récupère une classe OBC (org.bukkit.craftbukkit)
+	 * RÃ©cupÄre une classe OBC (org.bukkit.craftbukkit)
 	 * 
 	 * @param className
-	 *            Le nom de la classe à trouver
-	 * @return La classe trouvée
+	 *            Le nom de la classe Å• trouver
+	 * @return La classe trouvÃ©e
 	 */
 	public static Class<?> getOBCClass(String className) {
 		try {
@@ -134,13 +134,13 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * Récupère une classe appartenant à une autre
+	 * RÃ©cupÄre une classe appartenant Å• une autre
 	 * 
 	 * @param clazz
-	 *            La classe "mère"
+	 *            La classe "mÄre"
 	 * @param name
 	 *            Le nom de la sous classe
-	 * @return La classe trouvée
+	 * @return La classe trouvÃ©e
 	 */
 	public static Class<?> getSubClass(Class<?> clazz, String name) {
 		for (Class<?> c : clazz.getDeclaredClasses()) {
@@ -153,7 +153,7 @@ public class ReflectionUtils {
 	}
 
 	/**
-	 * Enlève le flag 'final' à un Field.
+	 * EnlÄve le flag 'final' Å• un Field.
 	 * 
 	 * @param field
 	 *            Le field auquel enlever le flag 'final'.

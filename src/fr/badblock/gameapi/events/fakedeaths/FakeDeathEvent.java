@@ -15,10 +15,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 /**
- * Les joueurs ne meurent jamais réellement avec l'API (pour leur éviter un
- * temps de chargement désagréable). Cet event permet au mini-jeux de savoir
+ * Les joueurs ne meurent jamais rÃ©ellement avec l'API (pour leur Ã©viter un
+ * temps de chargement dÃ©sagrÃ©able). Cet event permet au mini-jeux de savoir
  * quand un joueur meurt, et permet de traiter en fonction.<br>
- * Cet event ne peut être appelé.
+ * Cet event ne peut Ä™tre appelÃ©.
  * 
  * @author LeLanN
  */

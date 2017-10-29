@@ -7,7 +7,7 @@ import org.bukkit.entity.Entity;
 import lombok.Getter;
 
 /**
- * Représente une zone dans l'espace définie par un nombre inconnu de vecteurs
+ * ReprÃ©sente une zone dans l'espace dÃ©finie par un nombre inconnu de vecteurs
  * et un monde
  * 
  * @author LeLanN
@@ -25,7 +25,7 @@ public abstract class AbstractSelection {
 	public abstract Location getRandomLocation();
 
 	/**
-	 * Vérifie si un bloc est dans la séléction (monde et coordonnées)
+	 * VÃ©rifie si un bloc est dans la sÃ©lÃ©ction (monde et coordonnÃ©es)
 	 * 
 	 * @param b
 	 *            Le block
@@ -36,7 +36,7 @@ public abstract class AbstractSelection {
 	}
 
 	/**
-	 * Vérifie si trois points sont dans la séléction
+	 * VÃ©rifie si trois points sont dans la sÃ©lÃ©ction
 	 * 
 	 * @param x
 	 *            X
@@ -51,10 +51,10 @@ public abstract class AbstractSelection {
 	}
 
 	/**
-	 * Vérifie si une entité est dans la séléction (monde et coordonnées)
+	 * VÃ©rifie si une entitÃ© est dans la sÃ©lÃ©ction (monde et coordonnÃ©es)
 	 * 
 	 * @param e
-	 *            L'entité
+	 *            L'entitÃ©
 	 * @return Un boolean
 	 */
 	public boolean isInSelection(Entity e) {
@@ -62,7 +62,7 @@ public abstract class AbstractSelection {
 	}
 
 	/**
-	 * Vérifie si une location est dans la séléction (monde et coordonnées)
+	 * VÃ©rifie si une location est dans la sÃ©lÃ©ction (monde et coordonnÃ©es)
 	 * 
 	 * @param loc
 	 *            La location
@@ -74,7 +74,7 @@ public abstract class AbstractSelection {
 	}
 
 	/**
-	 * Vérifie si le vecteur est contenu dans la séléction
+	 * VÃ©rifie si le vecteur est contenu dans la sÃ©lÃ©ction
 	 * 
 	 * @param loc
 	 *            Le vecteur

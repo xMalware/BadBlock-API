@@ -5,7 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import fr.badblock.gameapi.run.RunType;
 
 /**
- * Classe commune à tous les plugins utilisant l'API (possède des méthodes
+ * Classe commune Å• tous les plugins utilisant l'API (possÄde des mÃ©thodes
  * permettant d'aller plus rapidement).
  * 
  * @author LeLanN

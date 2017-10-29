@@ -46,13 +46,13 @@ public class ItemStackUtils {
 	
 	
 	/**
-	 * Compare plusieurs items et vérifie si ils sont exactement pareils
+	 * Compare plusieurs items et vÃ©rifie si ils sont exactement pareils
 	 * (type/data/enchantements/lore/displayname).<br>
-	 * Attention ! Deux livres avec un texte différent ne seront pas
-	 * différenciés; deux fireworks; ...
+	 * Attention ! Deux livres avec un texte diffÃ©rent ne seront pas
+	 * diffÃ©renciÃ©s; deux fireworks; ...
 	 * 
 	 * @param items
-	 *            Les différents items à comparés
+	 *            Les diffÃ©rents items Å• comparÃ©s
 	 * @return Si les items sont exactement pareils
 	 */
 	public static boolean areSame(ItemStack... items) {
@@ -95,11 +95,11 @@ public class ItemStackUtils {
 	}
 
 	/**
-	 * Compare plusieurs items et vérifie si ils ont le même type/data
+	 * Compare plusieurs items et vÃ©rifie si ils ont le mÄ™me type/data
 	 * 
 	 * @param items
-	 *            Les différents items à comparés
-	 * @return Si les items ont le même type/id
+	 *            Les diffÃ©rents items Å• comparÃ©s
+	 * @return Si les items ont le mÄ™me type/id
 	 */
 	public static boolean areSimilar(ItemStack... items) {
 		Material material = null;
@@ -121,11 +121,11 @@ public class ItemStackUtils {
 	 * Change le nom d'affichage et le lore d'un item
 	 * 
 	 * @param item
-	 *            L'item à modifier
+	 *            L'item Å• modifier
 	 * @param displayName
-	 *            Le nom d'affichage à mettre
+	 *            Le nom d'affichage Å• mettre
 	 * @param lore
-	 *            Le lore à mettre
+	 *            Le lore Å• mettre
 	 */
 	public static ItemStack changeDisplay(ItemStack item, String displayName, String... lore) {
 		if (isValid(item)) {
@@ -144,9 +144,9 @@ public class ItemStackUtils {
 	 * Change le lore d'un item
 	 * 
 	 * @param item
-	 *            L'item à modifier
+	 *            L'item Å• modifier
 	 * @param lore
-	 *            Le lore à mettre
+	 *            Le lore Å• mettre
 	 */
 	public static ItemStack changeLore(ItemStack item, List<String> lore) {
 		if (isValid(item)) {
@@ -164,16 +164,16 @@ public class ItemStackUtils {
 	 * Change le lore d'un item
 	 * 
 	 * @param item
-	 *            L'item à modifier
+	 *            L'item Å• modifier
 	 * @param lore
-	 *            Le lore à mettre
+	 *            Le lore Å• mettre
 	 */
 	public static ItemStack changeLore(ItemStack item, String... lore) {
 		return changeLore(item, Arrays.asList(lore));
 	}
 
 	/**
-	 * Véririfie si l'item est valide et si il a un nom d'affichage
+	 * VÃ©ririfie si l'item est valide et si il a un nom d'affichage
 	 * 
 	 * @param item
 	 * @return
@@ -183,7 +183,7 @@ public class ItemStackUtils {
 	}
 
 	/**
-	 * Vérifie si l'item est valide, c'est à dire si il n'est pas null ou vide.
+	 * VÃ©rifie si l'item est valide, c'est Å• dire si il n'est pas null ou vide.
 	 * 
 	 * @param item
 	 *            L'item
@@ -209,11 +209,11 @@ public class ItemStackUtils {
 	}
 
 	/**
-	 * Permet de réparer un ou plusieurs ItemStack
+	 * Permet de rÃ©parer un ou plusieurs ItemStack
 	 * 
 	 * @param items
 	 *            Les items.
-	 * @return Le nombre d'item réparés
+	 * @return Le nombre d'item rÃ©parÃ©s
 	 */
 	public static int repair(ItemStack... items) {
 		int result = 0;

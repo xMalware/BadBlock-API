@@ -3,21 +3,21 @@ package fr.badblock.gameapi.packets.out.play;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 
 /**
- * Packet envoyé quand une entité est 'attachée' à une autre (véhicule ou
+ * Packet envoyÃ© quand une entitÃ© est 'attachÃ©e' Å• une autre (vÃ©hicule ou
  * laisse).
  * 
  * @author LeLanN
  */
 public interface PlayAttachEntity extends BadblockOutPacket {
 	/**
-	 * Récupère l'ID de l'entité attachée
+	 * RÃ©cupÄre l'ID de l'entitÃ© attachÃ©e
 	 * 
 	 * @return L'ID
 	 */
 	public int getEntityId();
 
 	/**
-	 * Récupère l'ID du véhicule (si -1, l'entité descendra du véhicle)
+	 * RÃ©cupÄre l'ID du vÃ©hicule (si -1, l'entitÃ© descendra du vÃ©hicle)
 	 * 
 	 * @return L'ID
 	 */
@@ -31,7 +31,7 @@ public interface PlayAttachEntity extends BadblockOutPacket {
 	public boolean isLeashes();
 
 	/**
-	 * Définit l'ID de l'entité attachée
+	 * DÃ©finit l'ID de l'entitÃ© attachÃ©e
 	 * 
 	 * @param entityId
 	 *            L'ID
@@ -49,7 +49,7 @@ public interface PlayAttachEntity extends BadblockOutPacket {
 	public PlayAttachEntity setLeashes(boolean leashes);
 
 	/**
-	 * Définit l'ID du véhicule (si -1, l'entité descendra du véhicule)
+	 * DÃ©finit l'ID du vÃ©hicule (si -1, l'entitÃ© descendra du vÃ©hicule)
 	 * 
 	 * @param vehicleId
 	 *            L'ID

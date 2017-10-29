@@ -4,13 +4,13 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
 import lombok.Getter;
 
 /**
- * Packet envoyé lorsque l'on veut envoyer un message chat/actionbar au joueur
+ * Packet envoyÃ© lorsque l'on veut envoyer un message chat/actionbar au joueur
  * 
  * @author LeLanN
  */
 public interface PlayChat extends BadblockOutPacket {
 	/**
-	 * Représente les différents types de messages envoyables grâce à
+	 * ReprÃ©sente les diffÃ©rents types de messages envoyables grÃ¢ce Å•
 	 * {@link PlayChat}
 	 * 
 	 * @author LeLanN
@@ -21,7 +21,7 @@ public interface PlayChat extends BadblockOutPacket {
 		 */
 		CHAT(0),
 		/**
-		 * Message (système) dans le chat
+		 * Message (systÄme) dans le chat
 		 */
 		SYSTEM(1),
 		/**
@@ -45,21 +45,21 @@ public interface PlayChat extends BadblockOutPacket {
 	}
 
 	/**
-	 * Récupère le message à envoyer
+	 * RÃ©cupÄre le message Å• envoyer
 	 * 
 	 * @return Les messages
 	 */
 	public String getContent();
 
 	/**
-	 * Récupère le type de message
+	 * RÃ©cupÄre le type de message
 	 * 
 	 * @return Le type
 	 */
 	public ChatType getType();
 
 	/**
-	 * Définit le message à envoyer
+	 * DÃ©finit le message Å• envoyer
 	 * 
 	 * @param content
 	 *            Le messages
@@ -68,7 +68,7 @@ public interface PlayChat extends BadblockOutPacket {
 	public PlayChat setContent(String content);
 
 	/**
-	 * Définit le type de message
+	 * DÃ©finit le type de message
 	 * 
 	 * @param type
 	 *            Le type

@@ -7,19 +7,19 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Classe contenant plusieurs méthodes utiles pour l'utilisation des tableaux et
+ * Classe contenant plusieurs mÃ©thodes utiles pour l'utilisation des tableaux et
  * listes
  * 
  * @author LeLanN
  */
 public class ArraysUtils {
 	/**
-	 * Permet de filtrer une liste de chaîne de caractère en fonction du début
+	 * Permet de filtrer une liste de chaÃ®ne de caractÄre en fonction du dÃ©but
 	 * 
 	 * @param list
-	 *            La liste à filtrer
+	 *            La liste Å• filtrer
 	 * @param prefix
-	 *            Le préfixe
+	 *            Le prÃ©fixe
 	 * @return La nouvelle liste
 	 */
 	public static List<String> filter(Collection<String> list, String prefix) {
@@ -41,7 +41,7 @@ public class ArraysUtils {
 
 	@SuppressWarnings("unchecked")
 	/**
-	 * Permet de concacténé une liste avec des tableaux
+	 * Permet de concactÃ©nÃ© une liste avec des tableaux
 	 * 
 	 * @param base
 	 *            La liste de base
@@ -54,7 +54,7 @@ public class ArraysUtils {
 	}
 
 	/**
-	 * Permet de concacténé une liste avec d'autres
+	 * Permet de concactÃ©nÃ© une liste avec d'autres
 	 * 
 	 * @param base
 	 *            La liste de base
@@ -68,7 +68,7 @@ public class ArraysUtils {
 
 	@SuppressWarnings("unchecked")
 	/**
-	 * Permet de concacténé un tableau avec d'autres
+	 * Permet de concactÃ©nÃ© un tableau avec d'autres
 	 * 
 	 * @param base
 	 *            Le tableau de base
@@ -87,7 +87,7 @@ public class ArraysUtils {
 	}
 
 	/**
-	 * Permet de remplacer une valeur par une autre dans toutes les chaînes d'un
+	 * Permet de remplacer une valeur par une autre dans toutes les chaÃ®nes d'un
 	 * tableau
 	 * 
 	 * @param base

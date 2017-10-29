@@ -6,34 +6,34 @@ import fr.badblock.gameapi.players.BadblockPlayer;
 import fr.badblock.gameapi.utils.general.Callback;
 
 /**
- * Classe permettant de communiquer de manière simple avec Redis.
+ * Classe permettant de communiquer de maniÄre simple avec Redis.
  * 
  * @author xMalware
  */
 public interface RedisSpeaker {
 	
 	/**
-	 * Demande les permissions à Redis.
+	 * Demande les permissions Å• Redis.
 	 */
 	public void askForPermissions();
 
 	/**
-	 * Récupère les données associées à l'IP d'un joueur
+	 * RÃ©cupÄre les donnÃ©es associÃ©es Å• l'IP d'un joueur
 	 * 
 	 * @param player
 	 *            Le joueur
 	 * @param callback
-	 *            Appeler lorsque les données sont reçues
+	 *            Appeler lorsque les donnÃ©es sont reÃ§ues
 	 */
 	public void getIpPlayerData(BadblockPlayer player, Callback<JsonObject> callback);
 
 	/**
-	 * Récupère les données d'un joueur
+	 * RÃ©cupÄre les donnÃ©es d'un joueur
 	 * 
 	 * @param player
 	 *            Le joueur
 	 * @param callback
-	 *            Appeler lorsque les données sont reçues
+	 *            Appeler lorsque les donnÃ©es sont reÃ§ues
 	 */
 	public void getPlayerData(BadblockPlayer player, Callback<JsonObject> callback);
 
@@ -48,7 +48,7 @@ public interface RedisSpeaker {
 	public void sendPing(String[] servers, Callback<Integer> count);
 
 	/***
-	 * Envoit une proposition (ou annulation) pour revenir à la partie
+	 * Envoit une proposition (ou annulation) pour revenir Å• la partie
 	 * 
 	 * @param name
 	 *            Le joueur
@@ -58,22 +58,22 @@ public interface RedisSpeaker {
 	public void sendReconnectionInvitation(String name, boolean invited);
 
 	/**
-	 * Change les données associées à l'IP d'un joueur
+	 * Change les donnÃ©es associÃ©es Å• l'IP d'un joueur
 	 * 
 	 * @param player
 	 *            Le joueur
 	 * @param toUpdate
-	 *            Les données à update (ne doit pas nécessairement être complet)
+	 *            Les donnÃ©es Å• update (ne doit pas nÃ©cessairement Ä™tre complet)
 	 */
 	public void updateIpPlayerData(BadblockPlayer player, JsonObject toUpdate);
 
 	/**
-	 * Change les données d'un joueur
+	 * Change les donnÃ©es d'un joueur
 	 * 
 	 * @param player
 	 *            Le joueur
 	 * @param toUpdate
-	 *            Les données à update (ne doit pas nécessairement être complet)
+	 *            Les donnÃ©es Å• update (ne doit pas nÃ©cessairement Ä™tre complet)
 	 */
 	public void updatePlayerData(BadblockPlayer player, JsonObject toUpdate);
 

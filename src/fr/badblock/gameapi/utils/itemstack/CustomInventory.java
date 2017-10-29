@@ -5,7 +5,7 @@ import org.bukkit.inventory.ItemStack;
 import fr.badblock.gameapi.players.BadblockPlayer;
 
 /**
- * ReprÈsente un inventaire agissant en tant que GUI.<br>
+ * Repr√©sente un inventaire agissant en tant que GUI.<br>
  * Utiliser
  * {@link fr.badblock.gameapi.GameAPI#createCustomInventory(int, String)} pour
  * l'obtenir.
@@ -14,44 +14,44 @@ import fr.badblock.gameapi.players.BadblockPlayer;
  */
 public interface CustomInventory {
 	/**
-	 * Permet d'ajouter un item cliquable dans l'inventaire. Si dÈj‡ placÈ, il
-	 * sera simplement remplacÈ. Le callback sera appelÈ si un joueur clique sur
+	 * Permet d'ajouter un item cliquable dans l'inventaire. Si d√©j≈ï plac√©, il
+	 * sera simplement remplac√©. Le callback sera appel√© si un joueur clique sur
 	 * l'item.
 	 * 
 	 * @param line
-	 *            La ligne de l'item (commence ‡ 0 !)
+	 *            La ligne de l'item (commence ≈ï 0 !)
 	 * @param slot
-	 *            Le slot ‡ utilisÈ (commence ‡ 0 !)
+	 *            Le slot ≈ï utilis√© (commence ≈ï 0 !)
 	 * @param event
-	 *            Le callback qui sera appelÈ
+	 *            Le callback qui sera appel√©
 	 */
 	public CustomInventory addClickableItem(int slot, ItemStack item, ItemEvent event);
 
 	/**
-	 * Permet d'ajouter un item cliquable dans l'inventaire. Si dÈj‡ placÈ, il
-	 * sera simplement remplacÈ. Le callback sera appelÈ si un joueur clique sur
+	 * Permet d'ajouter un item cliquable dans l'inventaire. Si d√©j≈ï plac√©, il
+	 * sera simplement remplac√©. Le callback sera appel√© si un joueur clique sur
 	 * l'item.
 	 * 
 	 * @param slot
-	 *            Le slot ‡ utilisÈ (commence ‡ 0 !)
+	 *            Le slot ≈ï utilis√© (commence ≈ï 0 !)
 	 * @param item
-	 *            L'item ‡ placer. Si null, l'item sera supprimÈ [comme avec
-	 *            removeItem()]. Ici, on attend un itemExtra dÈj‡ 'configurÈ'.
+	 *            L'item ≈ï placer. Si null, l'item sera supprim√© [comme avec
+	 *            removeItem()]. Ici, on attend un itemExtra d√©j≈ï 'configur√©'.
 	 */
 	public CustomInventory addClickableItem(int slot, ItemStackExtra item);
 
 	/**
-	 * Ajouter un item dÈcoratif (aucune action lorsque l'on clique)
+	 * Ajouter un item d√©coratif (aucune action lorsque l'on clique)
 	 * 
 	 * @param slot
-	 *            Le slot ‡ utilisÈ (commence ‡ 0 !)
+	 *            Le slot ≈ï utilis√© (commence ≈ï 0 !)
 	 * @param item
-	 *            L'item dÈcoratif ‡ ajouter
+	 *            L'item d√©coratif ≈ï ajouter
 	 */
 	public CustomInventory addDecorationItem(int slot, ItemStack item);
 
 	/**
-	 * RÈcupËre le nombre de lignes de l'inventaire
+	 * R√©cupƒçre le nombre de lignes de l'inventaire
 	 * 
 	 * @return Le nombre de lignes
 	 */
@@ -69,12 +69,12 @@ public interface CustomInventory {
 	 * Permet de supprimer un item de l'inventaire.
 	 * 
 	 * @param slot
-	 *            Le slot ‡ utilisÈ (commence ‡ 0 !)
+	 *            Le slot ≈ï utilis√© (commence ≈ï 0 !)
 	 */
 	public CustomInventory removeItem(int slot);
 
 	/**
-	 * RÈcupËre la taille de l'inventaire
+	 * R√©cupƒçre la taille de l'inventaire
 	 * 
 	 * @return La taille
 	 */

@@ -3,18 +3,18 @@ package fr.badblock.gameapi.packets;
 import fr.badblock.gameapi.players.BadblockPlayer;
 
 /**
- * Permet d'écouter de manière simple les packets venant du client
+ * Permet d'Ã©couter de maniÄre simple les packets venant du client
  * 
  * @author LeLanN
  *
  * @param <T>
- *            Le type de packet à écouter
+ *            Le type de packet Å• Ã©couter
  * @see fr.badblock.gameapi.GameAPI#listenAtPacket(GlobalPacketListener)
  */
 public abstract class GlobalPacketListener {
 
 	/**
-	 * Appel la classe avant le packet reçu
+	 * Appel la classe avant le packet reÃ§u
 	 * 
 	 * @param packet
 	 *            La classe
@@ -22,7 +22,7 @@ public abstract class GlobalPacketListener {
 	public abstract void listen(BadblockPlayer player, BadblockInPacket packet);
 	
 	/**
-	 * Appel la classe avant le packet reçu
+	 * Appel la classe avant le packet reÃ§u
 	 * 
 	 * @param packet
 	 *            La classe

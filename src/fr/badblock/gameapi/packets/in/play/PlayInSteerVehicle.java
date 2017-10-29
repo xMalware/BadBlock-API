@@ -4,20 +4,20 @@ import fr.badblock.gameapi.packets.BadblockInPacket;
 import fr.badblock.gameapi.packets.BadblockInPackets;
 
 /**
- * Packet envoyé par un joueur pour controller un véhicule
+ * Packet envoyÃ© par un joueur pour controller un vÃ©hicule
  * 
  * @author LelanN
  */
 public interface PlayInSteerVehicle extends BadblockInPacket {
 	/**
-	 * Récupère la valeur du mouvement haut/bas demandé (positif = vers l'avant)
+	 * RÃ©cupÄre la valeur du mouvement haut/bas demandÃ© (positif = vers l'avant)
 	 * 
 	 * @return La valeur
 	 */
 	public float getForward();
 
 	/**
-	 * Récupère la valeur du mouvement latéral demandé (positif = gauche)
+	 * RÃ©cupÄre la valeur du mouvement latÃ©ral demandÃ© (positif = gauche)
 	 * 
 	 * @return La valeur
 	 */
@@ -29,7 +29,7 @@ public interface PlayInSteerVehicle extends BadblockInPacket {
 	}
 
 	/**
-	 * Si le joueur veut que le véhicule saute
+	 * Si le joueur veut que le vÃ©hicule saute
 	 * 
 	 * @return Un boolean
 	 */

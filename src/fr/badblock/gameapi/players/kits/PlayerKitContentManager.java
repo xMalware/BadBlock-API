@@ -7,25 +7,25 @@ import com.google.gson.JsonObject;
 import fr.badblock.gameapi.players.BadblockPlayer;
 
 /**
- * Une interface représentant simplement un manager de contenu du Kit
- * (uniquement les items, en théorie).<br>
- * Doit être fournit par le jeu (onEnable) via
+ * Une interface reprÃ©sentant simplement un manager de contenu du Kit
+ * (uniquement les items, en thÃ©orie).<br>
+ * Doit Ä™tre fournit par le jeu (onEnable) via
  * {@link fr.badblock.gameapi.GameAPI#setKitContentManager(PlayerKitContentManager)}.
  * 
  * @author LeLanN
  */
 public interface PlayerKitContentManager {
 	/**
-	 * Permet de récupère des données depuis l'inventaire d'un joueur
+	 * Permet de rÃ©cupÄre des donnÃ©es depuis l'inventaire d'un joueur
 	 * 
 	 * @param player
 	 *            Le joueur
-	 * @return Les données créées
+	 * @return Les donnÃ©es crÃ©Ã©es
 	 */
 	public JsonObject createFromInventory(BadblockPlayer player);
 
 	/**
-	 * Permet de donner à un joueur un kit
+	 * Permet de donner Å• un joueur un kit
 	 * 
 	 * @param content
 	 *            Le contenu
@@ -35,7 +35,7 @@ public interface PlayerKitContentManager {
 	public void give(JsonObject content, BadblockPlayer player);
 
 	/**
-	 * Permet de donner à un joueur un kit
+	 * Permet de donner Å• un joueur un kit
 	 * 
 	 * @param content
 	 *            Le contenu

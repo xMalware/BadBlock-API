@@ -6,8 +6,8 @@ import fr.badblock.gameapi.GameAPI;
 import fr.badblock.gameapi.players.BadblockPlayer;
 
 /**
- * ReprÈsente un effet de particule.<br>
- * RÈcupÈrable avec {@link GameAPI#createParticleEffect(ParticleEffectType)}<br>
+ * Repr√©sente un effet de particule.<br>
+ * R√©cup√©rable avec {@link GameAPI#createParticleEffect(ParticleEffectType)}<br>
  * Envoyable avec
  * {@link BadblockPlayer#sendParticle(org.bukkit.Location, ParticleEffect)}
  * 
@@ -15,14 +15,14 @@ import fr.badblock.gameapi.players.BadblockPlayer;
  */
 public interface ParticleEffect {
 	/**
-	 * RÈcupËre le nombre de particules ‡ afficher
+	 * R√©cupƒçre le nombre de particules ≈ï afficher
 	 * 
 	 * @return Le nombre de particules
 	 */
 	public int getAmount();
 
 	/**
-	 * RÈcupËre les datas de l'entitÈ. Voir {@link ParticleData} pour savoir
+	 * R√©cupƒçre les datas de l'entit√©. Voir {@link ParticleData} pour savoir
 	 * quand les appliquer.
 	 * 
 	 * @return Les datas
@@ -30,14 +30,14 @@ public interface ParticleEffect {
 	public ParticleData getData();
 
 	/**
-	 * RÈcupËre la vÈlocitÈ de la particule
+	 * R√©cupƒçre la v√©locit√© de la particule
 	 * 
-	 * @return La vÈlocitÈ
+	 * @return La v√©locit√©
 	 */
 	public Vector getOffset();
 
 	/**
-	 * RÈcupËre la vitesse de la particule. Voir {@link ParticleEffectType} pour
+	 * R√©cupƒçre la vitesse de la particule. Voir {@link ParticleEffectType} pour
 	 * voir l'effet sur chaque particule.
 	 * 
 	 * @return La vitesse
@@ -45,21 +45,21 @@ public interface ParticleEffect {
 	public float getSpeed();
 
 	/**
-	 * RÈcupËre la particule ‡ afficher.
+	 * R√©cupƒçre la particule ≈ï afficher.
 	 * 
 	 * @return La particule
 	 */
 	public ParticleEffectType getType();
 
 	/**
-	 * VÈrifie si la particule s'affiche de loin
+	 * V√©rifie si la particule s'affiche de loin
 	 * 
 	 * @return Si elle s'affiche de loin
 	 */
 	public boolean isLongDistance();
 
 	/**
-	 * DÈfinit le nombre de particules ‡ afficher
+	 * D√©finit le nombre de particules ≈ï afficher
 	 * 
 	 * @param amount
 	 *            Le nombre de particules
@@ -68,7 +68,7 @@ public interface ParticleEffect {
 	public ParticleEffect setAmount(int amount);
 
 	/**
-	 * DÈfinit les datas de l'entitÈ. Voir {@link ParticleData} pour savoir
+	 * D√©finit les datas de l'entit√©. Voir {@link ParticleData} pour savoir
 	 * quand les appliquer.
 	 * 
 	 * @param data
@@ -78,7 +78,7 @@ public interface ParticleEffect {
 	public ParticleEffect setData(ParticleData data);
 
 	/**
-	 * DÈfinit si la particule s'affiche de loin
+	 * D√©finit si la particule s'affiche de loin
 	 * 
 	 * @param longDistance
 	 *            Si elle s'affiche de loin
@@ -87,16 +87,16 @@ public interface ParticleEffect {
 	public ParticleEffect setLongDistance(boolean longDistance);
 
 	/**
-	 * DÈfinit la vÈlocitÈ de la particule
+	 * D√©finit la v√©locit√© de la particule
 	 * 
 	 * @param offset
-	 *            La vÈlocitÈ
+	 *            La v√©locit√©
 	 * @return L'effet
 	 */
 	public ParticleEffect setOffset(Vector offset);
 
 	/**
-	 * DÈfinit la vitesse de la particule. Voir {@link ParticleEffectType} pour
+	 * D√©finit la vitesse de la particule. Voir {@link ParticleEffectType} pour
 	 * voir l'effet sur chaque particule.
 	 * 
 	 * @param speed
@@ -106,7 +106,7 @@ public interface ParticleEffect {
 	public ParticleEffect setSpeed(float speed);
 
 	/**
-	 * DÈfinit la particule ‡ afficher
+	 * D√©finit la particule ≈ï afficher
 	 * 
 	 * @param type
 	 *            La particule

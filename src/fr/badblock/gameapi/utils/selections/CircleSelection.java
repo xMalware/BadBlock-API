@@ -6,7 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
 /**
- * Représente une séléction en forme de cercle (la hauteur n'est pas prise en
+ * ReprÃ©sente une sÃ©lÃ©ction en forme de cercle (la hauteur n'est pas prise en
  * compte)
  * 
  * @author LeLanN
@@ -17,7 +17,7 @@ public class CircleSelection extends AbstractSelection {
 	private double radius;
 
 	/**
-	 * Crée une nouvelle séléction à partir du nom du monde et deux de points
+	 * CrÃ©e une nouvelle sÃ©lÃ©ction Å• partir du nom du monde et deux de points
 	 * 
 	 * @param worldName
 	 *            Le monde

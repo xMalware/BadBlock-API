@@ -1,7 +1,7 @@
 package fr.badblock.gameapi.technologies;
 
 /**
- * Classe permettant de communiquer de manière simple avec RabbitMQ.
+ * Classe permettant de communiquer de maniÄre simple avec RabbitMQ.
  * 
  * @author xMalware
  */

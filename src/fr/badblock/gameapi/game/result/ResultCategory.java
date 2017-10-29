@@ -1,38 +1,38 @@
 package fr.badblock.gameapi.game.result;
 
 /**
- * Représente une catégorie pour {@link Result}
+ * ReprÃ©sente une catÃ©gorie pour {@link Result}
  * 
  * @author LeLanN
  */
 public interface ResultCategory {
 	/**
-	 * Représente les différents types de catégories
+	 * ReprÃ©sente les diffÃ©rents types de catÃ©gories
 	 * 
 	 * @author LeLanN
 	 */
 	public enum CategoryType {
 		/**
-		 * Une catégorie à entrée simple
+		 * Une catÃ©gorie Å• entrÃ©e simple
 		 */
 		LINED_DATA,
 		/**
-		 * Une catégorie à double entrée (utile pour un classement par exemple)
+		 * Une catÃ©gorie Å• double entrÃ©e (utile pour un classement par exemple)
 		 */
 		ARRAY_DATA;
 	}
 
 	/**
-	 * Récupère le nom d'affichage de la catégorie
+	 * RÃ©cupÄre le nom d'affichage de la catÃ©gorie
 	 * 
 	 * @return Le nom d'affichage
 	 */
 	public String getCategoryName();
 
 	/**
-	 * Récupère le type de catégorie
+	 * RÃ©cupÄre le type de catÃ©gorie
 	 * 
-	 * @return Le type de catégorie
+	 * @return Le type de catÃ©gorie
 	 */
 	public CategoryType getType();
 }

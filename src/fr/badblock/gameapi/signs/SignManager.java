@@ -6,12 +6,12 @@ import fr.badblock.gameapi.utils.i18n.TranslatableString;
 
 public interface SignManager {
 	/**
-	 * Enlève les traductions de tous les panneaux
+	 * EnlÄve les traductions de tous les panneaux
 	 */
 	public void clearAllSigns();
 
 	/**
-	 * Récupère la traduction d'un panneau
+	 * RÃ©cupÄre la traduction d'un panneau
 	 * 
 	 * @param block
 	 *            Le panneau
@@ -20,7 +20,7 @@ public interface SignManager {
 	public TranslatableString getTraduction(Block block);
 
 	/**
-	 * Vérifie si un panneau est traductible
+	 * VÃ©rifie si un panneau est traductible
 	 * 
 	 * @param block
 	 *            Le panneau
@@ -42,14 +42,14 @@ public interface SignManager {
 	 * @param block
 	 *            Le panneau
 	 * @param key
-	 *            La clé i18n
+	 *            La clÃ© i18n
 	 * @param args
 	 *            Les arguments
 	 */
 	public void setSignTranslatable(Block block, String key, Object... args);
 
 	/**
-	 * Renvois les données du panneau aux joueurs
+	 * Renvois les donnÃ©es du panneau aux joueurs
 	 * 
 	 * @param block
 	 *            Le panneau

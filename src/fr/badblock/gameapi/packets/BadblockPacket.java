@@ -1,24 +1,24 @@
 package fr.badblock.gameapi.packets;
 
 /**
- * Représente un packet BadBlock
+ * ReprÃ©sente un packet BadBlock
  * 
  * @author audra
  *
  */
 public interface BadblockPacket {
 	/**
-	 * Vérifie si le packet sera traité par le serveur
+	 * VÃ©rifie si le packet sera traitÃ© par le serveur
 	 * 
-	 * @return Si il sera traité
+	 * @return Si il sera traitÃ©
 	 */
 	public boolean isCancelled();
 
 	/**
-	 * Définit si le packet sera traité par le serveur
+	 * DÃ©finit si le packet sera traitÃ© par le serveur
 	 * 
 	 * @param cancelled
-	 *            Si il sera traité
+	 *            Si il sera traitÃ©
 	 */
 	public void setCancelled(boolean cancelled);
 }

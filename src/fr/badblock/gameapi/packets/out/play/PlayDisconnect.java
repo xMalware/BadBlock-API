@@ -3,7 +3,7 @@ package fr.badblock.gameapi.packets.out.play;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 
 /**
- * Packet envoyé au client pour le déconnecté.
+ * Packet envoyÃ© au client pour le dÃ©connectÃ©.
  * 
  * @author LeLanN
  */

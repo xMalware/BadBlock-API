@@ -13,14 +13,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * Représente le ScoreBoard commun à tous les joueurs, avec des méthodes
- * précrées.
+ * ReprÃ©sente le ScoreBoard commun Å• tous les joueurs, avec des mÃ©thodes
+ * prÃ©crÃ©es.
  * 
  * @author LeLanN
  */
 public interface BadblockScoreboard {
 	/**
-	 * Représente un élément du vote
+	 * ReprÃ©sente un Ã©lÃ©ment du vote
 	 * 
 	 * @author LeLanN
 	 */
@@ -32,60 +32,60 @@ public interface BadblockScoreboard {
 	}
 
 	/**
-	 * Commence un vote à partir d'une liste de valeur
+	 * Commence un vote Å• partir d'une liste de valeur
 	 * 
 	 * @param maps Un array JSON avec toutes les maps sous forme de VoteElement.
 	 */
 	public void beginVote(JsonArray maps);
 
 	/**
-	 * Commence un vote à partir d'une liste de valeur
+	 * Commence un vote Å• partir d'une liste de valeur
 	 * 
 	 * @param maps Une liste avec toutes les maps sous forme de VoteElement.
 	 */
 	public void beginVote(List<VoteElement> maps);
 	
 	/**
-	 * Si la méthode est appelée, l'API va register un objectif (scoreboard)
-	 * pour gérer l'affichage de la vie sous les pseudos joueurs.
+	 * Si la mÃ©thode est appelÃ©e, l'API va register un objectif (scoreboard)
+	 * pour gÃ©rer l'affichage de la vie sous les pseudos joueurs.
 	 */
 	public void doBelowNameHealth();
 
 	/**
-	 * Si la méthode est appelée, l'API va register des teams (scoreboard) pour
-	 * gérer l'affichage des groups des joueurs dans la tablist et au dessus des
+	 * Si la mÃ©thode est appelÃ©e, l'API va register des teams (scoreboard) pour
+	 * gÃ©rer l'affichage des groups des joueurs dans la tablist et au dessus des
 	 * noms du joueur<br>
 	 */
 	public void doGroupsPrefix();
 	
 	/**
-	 * Si la méthode est appelée l'API va afficher un holograme au dessus des joueurs prenant des dégats
+	 * Si la mÃ©thode est appelÃ©e l'API va afficher un holograme au dessus des joueurs prenant des dÃ©gats
 	 */
 	public void doOnDamageHologram();
 
 	/**
-	 * Si la méthode est appelée, l'API va register un objectif (scoreboard)
-	 * pour gérer l'affichage de la vie dans la tablist.
+	 * Si la mÃ©thode est appelÃ©e, l'API va register un objectif (scoreboard)
+	 * pour gÃ©rer l'affichage de la vie dans la tablist.
 	 */
 	public void doTabListHealth();
 
 	/**
-	 * Si la méthode est appelée, l'API va register des teams (scoreboard) pour
-	 * gérer l'affichage des teams des joueurs dans la tablist et au dessus des
+	 * Si la mÃ©thode est appelÃ©e, l'API va register des teams (scoreboard) pour
+	 * gÃ©rer l'affichage des teams des joueurs dans la tablist et au dessus des
 	 * noms du joueur<br>
-	 * A appelé après avoir register les teams via
+	 * A appelÃ© aprÄs avoir register les teams via
 	 * {@link GameAPI#registerTeams(int, org.bukkit.configuration.ConfigurationSection)}
 	 * !
 	 */
 	public void doTeamsPrefix();
 
 	/**
-	 * Le vote s'arrête (les joueurs ne peuvent plus voter).
+	 * Le vote s'arrÄ™te (les joueurs ne peuvent plus voter).
 	 */
 	public void endVote();
 
 	/**
-	 * Récupère le Scoreboard Bukkit
+	 * RÃ©cupÄre le Scoreboard Bukkit
 	 * 
 	 * @return Le scoreboard
 	 */
@@ -98,7 +98,7 @@ public interface BadblockScoreboard {
 	public boolean hasShownGroupPrefix();
 	
 	/**
-	 * Récupère le nom d'affichage utilisé pour le joueur
+	 * RÃ©cupÄre le nom d'affichage utilisÃ© pour le joueur
 	 * 
 	 * @param player
 	 *            Le joueur
@@ -107,21 +107,21 @@ public interface BadblockScoreboard {
 	public TranslatableString getUsedName(BadblockPlayer player);
 
 	/**
-	 * Récupère le nombre de votes pour le gagnant
+	 * RÃ©cupÄre le nombre de votes pour le gagnant
 	 * 
 	 * @return Le nombre de votes
 	 */
 	public int getVotesForWinner();
 
 	/**
-	 * Récupère la map gagnante
+	 * RÃ©cupÄre la map gagnante
 	 * 
 	 * @return La map gagnante
 	 */
 	public VoteElement getWinner();
 
 	/**
-	 * Ouvre l'inventaire de vote à un joueur
+	 * Ouvre l'inventaire de vote Å• un joueur
 	 * 
 	 * @param player
 	 *            Le joueur

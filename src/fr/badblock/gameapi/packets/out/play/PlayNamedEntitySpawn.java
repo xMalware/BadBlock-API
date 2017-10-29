@@ -9,47 +9,47 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
 import fr.badblock.gameapi.packets.watchers.WatcherEntity;
 
 /**
- * Packet envoyÈ au joueur quand un autre joueur entre dans son champs de vision
+ * Packet envoy√© au joueur quand un autre joueur entre dans son champs de vision
  * 
  * @author LeLanN
  */
 public interface PlayNamedEntitySpawn extends BadblockOutPacket {
 	/**
-	 * RÈcupËre l'ID de l'entitÈ
+	 * R√©cupƒçre l'ID de l'entit√©
 	 * 
 	 * @return L'ID
 	 */
 	public int getEntityId();
 
 	/**
-	 * RÈcupËre la position
+	 * R√©cupƒçre la position
 	 * 
 	 * @return La position
 	 */
 	public Location getLocation();
 
 	/**
-	 * RÈcupËre l'UUID
+	 * R√©cupƒçre l'UUID
 	 * 
 	 * @return L'UUID
 	 */
 	public UUID getUniqueId();
 	
 	/**
-	 * RÈcupËre le type d'objet dans la main
+	 * R√©cupƒçre le type d'objet dans la main
 	 * @return Le type
 	 */
 	public Material getItemInHand();
 
 	/**
-	 * RÈcupËre les watchers de l'entitÈ
+	 * R√©cupƒçre les watchers de l'entit√©
 	 * 
 	 * @return Les watchers
 	 */
 	public WatcherEntity getWatchers();
 
 	/**
-	 * DÈfinit l'ID de l'entitÈ
+	 * D√©finit l'ID de l'entit√©
 	 * 
 	 * @param id
 	 *            L'ID
@@ -58,7 +58,7 @@ public interface PlayNamedEntitySpawn extends BadblockOutPacket {
 	public PlayNamedEntitySpawn setEntityId(int id);
 
 	/**
-	 * DÈfinit la position
+	 * D√©finit la position
 	 * 
 	 * @param location
 	 *            La position
@@ -67,7 +67,7 @@ public interface PlayNamedEntitySpawn extends BadblockOutPacket {
 	public PlayNamedEntitySpawn setLocation(Location location);
 
 	/**
-	 * DÈfinit l'UUID
+	 * D√©finit l'UUID
 	 * 
 	 * @param uniqueId
 	 *            L'UUID
@@ -76,7 +76,7 @@ public interface PlayNamedEntitySpawn extends BadblockOutPacket {
 	public PlayNamedEntitySpawn setUniqueId(UUID uniqueId);
 
 	/**
-	 * DÈfinit le type d'objet dans la main
+	 * D√©finit le type d'objet dans la main
 	 * 
 	 * @param type
 	 *            Le type
@@ -86,7 +86,7 @@ public interface PlayNamedEntitySpawn extends BadblockOutPacket {
 
 	
 	/**
-	 * DÈfinit les watchers de l'entitÈ
+	 * D√©finit les watchers de l'entit√©
 	 * 
 	 * @param watcher
 	 *            Les watchers

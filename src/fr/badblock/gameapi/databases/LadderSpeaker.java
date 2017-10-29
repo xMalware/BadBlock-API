@@ -7,13 +7,13 @@ import fr.badblock.gameapi.players.BadblockPlayer;
 import fr.badblock.gameapi.utils.general.Callback;
 
 /**
- * Classe permettant de communiquer de manière simple avec Ladder.
+ * Classe permettant de communiquer de maniÄre simple avec Ladder.
  * 
  * @author LeLanN
  */
 public interface LadderSpeaker {
 	/**
-	 * Demande les permissions à Ladder.
+	 * Demande les permissions Å• Ladder.
 	 */
 	public void askForPermissions();
 
@@ -36,37 +36,37 @@ public interface LadderSpeaker {
 	public void executeCommand(String command);
 
 	/**
-	 * Récupère les données associées à l'IP d'un joueur
+	 * RÃ©cupÄre les donnÃ©es associÃ©es Å• l'IP d'un joueur
 	 * 
 	 * @param player
 	 *            Le joueur
 	 * @param callback
-	 *            Appeler lorsque les données sont reçues
+	 *            Appeler lorsque les donnÃ©es sont reÃ§ues
 	 */
 	public void getIpPlayerData(BadblockPlayer player, Callback<JsonObject> callback);
 
 	/**
-	 * Récupère les données d'un joueur
+	 * RÃ©cupÄre les donnÃ©es d'un joueur
 	 * 
 	 * @param player
 	 *            Le joueur
 	 * @param callback
-	 *            Appeler lorsque les données sont reçues
+	 *            Appeler lorsque les donnÃ©es sont reÃ§ues
 	 */
 	public void getPlayerData(BadblockPlayer player, Callback<JsonObject> callback);
 
 	/**
-	 * Récupère les données d'un joueur
+	 * RÃ©cupÄre les donnÃ©es d'un joueur
 	 * 
 	 * @param player
 	 *            Le joueur
 	 * @param callback
-	 *            Appeler lorsque les données sont reçues
+	 *            Appeler lorsque les donnÃ©es sont reÃ§ues
 	 */
 	public void getPlayerData(String player, Callback<JsonObject> callback);
 
 	/**
-	 * Envoit un packet de keepalive à ladder
+	 * Envoit un packet de keepalive Å• ladder
 	 * 
 	 * @param state
 	 *            La state actuelle
@@ -88,7 +88,7 @@ public interface LadderSpeaker {
 	public void sendPing(String[] servers, Callback<Integer> count);
 
 	/***
-	 * Envoit une proposition (ou annulation) pour revenir à la partie
+	 * Envoit une proposition (ou annulation) pour revenir Å• la partie
 	 * 
 	 * @param name
 	 *            Le joueur
@@ -98,32 +98,32 @@ public interface LadderSpeaker {
 	public void sendReconnectionInvitation(String name, boolean invited);
 
 	/**
-	 * Change les données associées à l'IP d'un joueur
+	 * Change les donnÃ©es associÃ©es Å• l'IP d'un joueur
 	 * 
 	 * @param player
 	 *            Le joueur
 	 * @param toUpdate
-	 *            Les données à update (ne doit pas nécessairement être complet)
+	 *            Les donnÃ©es Å• update (ne doit pas nÃ©cessairement Ä™tre complet)
 	 */
 	public void updateIpPlayerData(BadblockPlayer player, JsonObject toUpdate);
 
 	/**
-	 * Change les données d'un joueur
+	 * Change les donnÃ©es d'un joueur
 	 * 
 	 * @param player
 	 *            Le joueur
 	 * @param toUpdate
-	 *            Les données à update (ne doit pas nécessairement être complet)
+	 *            Les donnÃ©es Å• update (ne doit pas nÃ©cessairement Ä™tre complet)
 	 */
 	public void updatePlayerData(BadblockPlayer player, JsonObject toUpdate);
 
 	/**
-	 * Change les données d'un joueur
+	 * Change les donnÃ©es d'un joueur
 	 * 
 	 * @param player
 	 *            Le joueur
 	 * @param toUpdate
-	 *            Les données à update (ne doit pas nécessairement être complet)
+	 *            Les donnÃ©es Å• update (ne doit pas nÃ©cessairement Ä™tre complet)
 	 */
 	public void updatePlayerData(String player, JsonObject toUpdate);
 	

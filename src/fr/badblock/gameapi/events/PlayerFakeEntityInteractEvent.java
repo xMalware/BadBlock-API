@@ -11,7 +11,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Appelée lorsque un joueur clique sur un fausse entité.
+ * AppelÃ©e lorsque un joueur clique sur un fausse entitÃ©.
  * 
  * @author LeLanN
  */

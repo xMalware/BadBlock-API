@@ -6,13 +6,13 @@ import fr.badblock.gameapi.utils.selections.Vector3f;
 import lombok.Getter;
 
 /**
- * Packet envoyé par le joueur lorsqu'il intéragit avec une entité
+ * Packet envoyÃ© par le joueur lorsqu'il intÃ©ragit avec une entitÃ©
  * 
  * @author LeLanN
  */
 public interface PlayInUseEntity extends BadblockInPacket {
 	/**
-	 * Représente les différentes actions pour {@link PlayInUseEntity}.
+	 * ReprÃ©sente les diffÃ©rentes actions pour {@link PlayInUseEntity}.
 	 * 
 	 * @author LeLanN
 	 */
@@ -35,35 +35,35 @@ public interface PlayInUseEntity extends BadblockInPacket {
 	}
 
 	/**
-	 * Récupère l'action effectuée par le joueur
+	 * RÃ©cupÄre l'action effectuÃ©e par le joueur
 	 * 
 	 * @return L'action
 	 */
 	public UseEntityAction getAction();
 
 	/**
-	 * Récupère l'action effectuée par le joueur
+	 * RÃ©cupÄre l'action effectuÃ©e par le joueur
 	 * 
 	 * @return L'action
 	 */
 	public void setAction(UseEntityAction action);
 	
 	/**
-	 * Récupère l'ID de l'entité visée
+	 * RÃ©cupÄre l'ID de l'entitÃ© visÃ©e
 	 * 
 	 * @return L'ID
 	 */
 	public int getEntityId();
 	
 	/**
-	 * Récupère l'ID de l'entité visée
+	 * RÃ©cupÄre l'ID de l'entitÃ© visÃ©e
 	 * 
 	 * @return L'ID
 	 */
 	public void setEntityId(int id);
 
 	/**
-	 * Récupère la position du target (uniquement pour
+	 * RÃ©cupÄre la position du target (uniquement pour
 	 * {@link UseEntityAction#INTERACT_AT})
 	 * 
 	 * @return La position

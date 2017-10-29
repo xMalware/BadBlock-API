@@ -10,18 +10,18 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Représente un résultat de partie en fonction du joueur<br>
- * Ce résultat peut contenir :
+ * ReprÃ©sente un rÃ©sultat de partie en fonction du joueur<br>
+ * Ce rÃ©sultat peut contenir :
  * <ul>
  * <li>Les statistiques des joueurs dans la partie</li>
  * <li>Un classement des teams/scores et</li>
- * <li>Des informations comme la durée de la partie</li>
+ * <li>Des informations comme la durÃ©e de la partie</li>
  * </ul>
- * Le résultat doit en théorie être traduit pour le joueur directemment (la
- * traduction n'est pas sur le web) et être spécifique à chaque
+ * Le rÃ©sultat doit en thÃ©orie Ä™tre traduit pour le joueur directemment (la
+ * traduction n'est pas sur le web) et Ä™tre spÃ©cifique Å• chaque
  * joueur/langue<br>
  * Utiliser {@link BadblockPlayer#postResult(Result)}<br>
- * Pour les noms, possibilité d'utiliser [avatar:pseudo] et [img:example.png]
+ * Pour les noms, possibilitÃ© d'utiliser [avatar:pseudo] et [img:example.png]
  * pour afficher des images.
  * 
  * @author LeLanN
@@ -33,24 +33,24 @@ public class Result {
 	private final Map<String, ResultCategory> categories = Maps.newHashMap();
 
 	/**
-	 * Récupère une catégorie
+	 * RÃ©cupÄre une catÃ©gorie
 	 * 
 	 * @param name
-	 *            Le nom (interne) de la catégorie
-	 * @return La catégorie trouvée
+	 *            Le nom (interne) de la catÃ©gorie
+	 * @return La catÃ©gorie trouvÃ©e
 	 */
 	public ResultCategory getCategory(String name) {
 		return categories.get(name.toLowerCase());
 	}
 
 	/**
-	 * Register une nouvelle catégorie au résultat
+	 * Register une nouvelle catÃ©gorie au rÃ©sultat
 	 * 
 	 * @param name
-	 *            Le nom (interne) de la catégorie
+	 *            Le nom (interne) de la catÃ©gorie
 	 * @param category
-	 *            La catégorie
-	 * @return La catégorie
+	 *            La catÃ©gorie
+	 * @return La catÃ©gorie
 	 */
 	public <T extends ResultCategory> T registerCategory(@NonNull String name, @NonNull T category) {
 		name = name.toLowerCase();
@@ -60,10 +60,10 @@ public class Result {
 	}
 
 	/**
-	 * Enlève une catégorie
+	 * EnlÄve une catÃ©gorie
 	 * 
 	 * @param name
-	 *            Le nom (interne) de la catégorie
+	 *            Le nom (interne) de la catÃ©gorie
 	 */
 	public void removeCatagory(String name) {
 		categories.remove(name.toLowerCase());

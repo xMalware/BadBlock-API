@@ -5,7 +5,7 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
 import fr.badblock.gameapi.utils.selections.Vector3f;
 
 /**
- * Packet envoyé pour définir la position
+ * Packet envoyÃ© pour dÃ©finir la position
  * 
  * @author LeLanN
  */

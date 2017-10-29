@@ -5,14 +5,14 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
 import lombok.Getter;
 
 /**
- * Packet envoyé par le joueur pour donner le statut du téléchargement du
+ * Packet envoyÃ© par le joueur pour donner le statut du tÃ©lÃ©chargement du
  * ressource pack.
  * 
  * @author LeLanN
  */
 public interface PlayInResourcePackStatus extends BadblockInPacket {
 	/**
-	 * Représente les différents statuts possible pour le ressource pack
+	 * ReprÃ©sente les diffÃ©rents statuts possible pour le ressource pack
 	 * 
 	 * @author LeLanN
 	 */
@@ -35,14 +35,14 @@ public interface PlayInResourcePackStatus extends BadblockInPacket {
 	}
 
 	/**
-	 * Une clé envoyé par le packet pour envoyé le resource pack
+	 * Une clÃ© envoyÃ© par le packet pour envoyÃ© le resource pack
 	 * 
-	 * @return La clé
+	 * @return La clÃ©
 	 */
 	public String getHash();
 
 	/**
-	 * Récupère le statut actuel du téléchargement
+	 * RÃ©cupÄre le statut actuel du tÃ©lÃ©chargement
 	 * 
 	 * @return Le statut
 	 */

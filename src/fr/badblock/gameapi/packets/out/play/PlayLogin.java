@@ -3,8 +3,8 @@ package fr.badblock.gameapi.packets.out.play;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 
 /**
- * Le packet est envoyé au client uniquement au moment de sa connection, avec
- * des informations peut utilises à changer. Aucune méthode.
+ * Le packet est envoyÃ© au client uniquement au moment de sa connection, avec
+ * des informations peut utilises Å• changer. Aucune mÃ©thode.
  * 
  * @author LeLanN
  */

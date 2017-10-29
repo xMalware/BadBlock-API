@@ -17,7 +17,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Représente un ItemStack Bukkit
+ * ReprÃ©sente un ItemStack Bukkit
  * 
  * @author LeLanN
  */

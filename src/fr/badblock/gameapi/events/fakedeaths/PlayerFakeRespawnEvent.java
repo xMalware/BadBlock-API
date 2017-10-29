@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Appelé lorsqu'un joueur vient d'être téléporté après une fausse mort.
+ * AppelÃ© lorsqu'un joueur vient d'Ä™tre tÃ©lÃ©portÃ© aprÄs une fausse mort.
  * 
  * @author LelanN
  */

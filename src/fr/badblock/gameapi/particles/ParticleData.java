@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * Représente les données de certains effets, c'est à dire :
+ * ReprÃ©sente les donnÃ©es de certains effets, c'est Å• dire :
  * <ul>
  * <li>{@link ParticleEffectType#BLOCK_CRACK}
  * <li>{@link ParticleEffectType#BLOCK_DUST}
@@ -19,7 +19,7 @@ import lombok.Data;
 @AllArgsConstructor
 public abstract class ParticleData {
 	/**
-	 * Utilisé pour {@link ParticleEffectType#BLOCK_DUST} et
+	 * UtilisÃ© pour {@link ParticleEffectType#BLOCK_DUST} et
 	 * {@link ParticleEffectType#BLOCK_CRACK}
 	 * 
 	 * @author LeLanN
@@ -39,7 +39,7 @@ public abstract class ParticleData {
 		}
 	}
 	/**
-	 * Utilisé pour {@link ParticleEffectType#ITEM_CRACK}
+	 * UtilisÃ© pour {@link ParticleEffectType#ITEM_CRACK}
 	 * 
 	 * @author LeLanN
 	 */

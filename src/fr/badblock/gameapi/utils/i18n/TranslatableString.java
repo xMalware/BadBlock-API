@@ -7,7 +7,7 @@ import fr.badblock.gameapi.players.BadblockPlayer;
 import lombok.Data;
 
 /**
- * Représente une chaîne de caractère traductible. Utiliser à plusieurs endroit
+ * ReprÃ©sente une chaÃ®ne de caractÄre traductible. Utiliser Å• plusieurs endroit
  * dans l'API pour simplifier.
  * 
  * @author LeLanN
@@ -18,7 +18,7 @@ public class TranslatableString {
 	private Object[] objects;
 
 	/**
-	 * Crée une nouvelle chaîne traduisible
+	 * CrÃ©e une nouvelle chaÃ®ne traduisible
 	 * 
 	 * @param key
 	 *            La key
@@ -31,14 +31,14 @@ public class TranslatableString {
 	}
 
 	/**
-	 * Envoit le message à tous les joueurs
+	 * Envoit le message Å• tous les joueurs
 	 */
 	public void broadcast() {
 		GameAPI.i18n().broadcast(key, objects);
 	}
 
 	/**
-	 * Récupère le message sur plusieurs lignes
+	 * RÃ©cupÄre le message sur plusieurs lignes
 	 * 
 	 * @param player
 	 *            Le joueur (pour avoir la langue)
@@ -49,7 +49,7 @@ public class TranslatableString {
 	}
 
 	/**
-	 * Récupère le message sur plusieurs lignes
+	 * RÃ©cupÄre le message sur plusieurs lignes
 	 * 
 	 * @param locale
 	 *            La langue
@@ -60,7 +60,7 @@ public class TranslatableString {
 	}
 
 	/**
-	 * Récupère la première ligne du message
+	 * RÃ©cupÄre la premiÄre ligne du message
 	 * 
 	 * @param player
 	 *            Le joueur (pour la langue)
@@ -71,7 +71,7 @@ public class TranslatableString {
 	}
 
 	/**
-	 * Récupère la première ligne du message
+	 * RÃ©cupÄre la premiÄre ligne du message
 	 * 
 	 * @param player
 	 *            Le joueur (pour la langue)
@@ -85,7 +85,7 @@ public class TranslatableString {
 	}
 
 	/**
-	 * Récupère la première ligne du message
+	 * RÃ©cupÄre la premiÄre ligne du message
 	 * 
 	 * @param locale
 	 *            La langue
@@ -96,7 +96,7 @@ public class TranslatableString {
 	}
 
 	/**
-	 * Envoit le message à un command sender
+	 * Envoit le message Å• un command sender
 	 * 
 	 * @param sender
 	 *            Le sender

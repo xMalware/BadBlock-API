@@ -4,27 +4,27 @@ import org.bukkit.command.CommandSender;
 
 public interface WEAction {
 	/**
-	 * Renvoi le nombre total d'itération à faire
-	 * Le résultat peut être une estimation et non un chiffre exacte
+	 * Renvoi le nombre total d'itÃ©ration Å• faire
+	 * Le rÃ©sultat peut Ä™tre une estimation et non un chiffre exacte
 	 * @return Un entier
 	 */
 	public long getTotalIterationCount();
 	
 	/**
-	 * Renvoi le nombre d'appel fait à l'action
+	 * Renvoi le nombre d'appel fait Å• l'action
 	 * @return Un entier
 	 */
 	public long getIterationCount();
 
 	/**
-	 * Renvoi l'utilisateur ayant demandé 
+	 * Renvoi l'utilisateur ayant demandÃ© 
 	 * @return
 	 */
 	public CommandSender getApplicant();
 	
 	/**
-	 * Vérifie si une ou plusieurs autre action doit être faite
-	 * @return Un booléen
+	 * VÃ©rifie si une ou plusieurs autre action doit Ä™tre faite
+	 * @return Un boolÃ©en
 	 */
 	public boolean hasNext();
 	
@@ -34,12 +34,12 @@ public interface WEAction {
 	public void next();
 	
 	/**
-	 * Appelé lorsque l'action commence à être traitée
+	 * AppelÃ© lorsque l'action commence Å• Ä™tre traitÃ©e
 	 */
 	public void notifyStart();
 	
 	/**
-	 * Applé lorsque l'action n'est plus traitée (possiblment en cours de traitement)
+	 * ApplÃ© lorsque l'action n'est plus traitÃ©e (possiblment en cours de traitement)
 	 */
 	public void notifyEnd();
 }

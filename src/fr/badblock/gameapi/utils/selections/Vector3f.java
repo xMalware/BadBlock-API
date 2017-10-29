@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.ToString;
 
 /**
- * Représente un vecteur à trois dimensions
+ * ReprÃ©sente un vecteur Å• trois dimensions
  * 
  * @author LeLanN
  */
@@ -83,7 +83,7 @@ public class Vector3f {
 	}
 
 	/**
-	 * Crée un nouveau vecteur ayant les même coordonnées
+	 * CrÃ©e un nouveau vecteur ayant les mÄ™me coordonnÃ©es
 	 * 
 	 * @return Le nouveau vecteur
 	 */
@@ -98,7 +98,7 @@ public class Vector3f {
 	 * Cherche la distance entre deux vecteurs
 	 * 
 	 * @param v
-	 *            Le deuxième vecteur
+	 *            Le deuxiÄme vecteur
 	 * @return La distance
 	 */
 	public double distance(Vector3f v) {

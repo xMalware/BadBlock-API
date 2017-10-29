@@ -11,10 +11,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Si un joueur déconnecte en pleine partie et que le type de gestion de
- * connection est correctement définit
+ * Si un joueur dÃ©connecte en pleine partie et que le type de gestion de
+ * connection est correctement dÃ©finit
  * [{@link GameServer#whileRunningConnection(WhileRunningConnectionTypes)} cet
- * event sera appelé pour vérifier que le joueur y ai bien autorisé
+ * event sera appelÃ© pour vÃ©rifier que le joueur y ai bien autorisÃ©
  * 
  * @author LeLanN
  */

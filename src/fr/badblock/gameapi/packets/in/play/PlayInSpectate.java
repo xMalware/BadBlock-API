@@ -6,14 +6,14 @@ import fr.badblock.gameapi.packets.BadblockInPacket;
 import fr.badblock.gameapi.packets.BadblockInPackets;
 
 /**
- * Packet envoyé par le client lorsqu'il veut se téléporté à un joueur en tant
+ * Packet envoyÃ© par le client lorsqu'il veut se tÃ©lÃ©portÃ© Å• un joueur en tant
  * que spectateur
  * 
  * @author LelanN
  */
 public interface PlayInSpectate extends BadblockInPacket {
 	/**
-	 * Récupère l'UUID du joueur visé
+	 * RÃ©cupÄre l'UUID du joueur visÃ©
 	 * 
 	 * @return L'UUID
 	 */

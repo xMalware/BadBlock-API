@@ -8,159 +8,159 @@ import org.bukkit.command.CommandSender;
 import fr.badblock.gameapi.utils.i18n.Word.WordDeterminant;
 
 /**
- * Représente le système de traduction et de messages configurables BadBlock.
- * Les différentes langues pouvant être supportées sont representées par
- * l'énumération {@link fr.badblock.gameapi.utils.i18n.Locale}.
+ * ReprÃ©sente le systÄme de traduction et de messages configurables BadBlock.
+ * Les diffÃ©rentes langues pouvant Ä™tre supportÃ©es sont representÃ©es par
+ * l'Ã©numÃ©ration {@link fr.badblock.gameapi.utils.i18n.Locale}.
  * 
  * @author LeLanN
  */
 public interface I18n {
 	/**
-	 * Broadcast un message à tous les joueurs. Le système va rechercher la
-	 * langue la plus adaptée pour tous les joueurs.
+	 * Broadcast un message Å• tous les joueurs. Le systÄme va rechercher la
+	 * langue la plus adaptÃ©e pour tous les joueurs.
 	 * 
 	 * @param key
-	 *            La clé du message dans le ficher configuration
+	 *            La clÃ© du message dans le ficher configuration
 	 * @param args
-	 *            Les arguments à remplacer dans le message (%0 le premier, %1
-	 *            le deuxième, ..., %n le énième)
+	 *            Les arguments Å• remplacer dans le message (%0 le premier, %1
+	 *            le deuxiÄme, ..., %n le Ã©niÄme)
 	 */
 	public void broadcast(String key, Object... args);
 
 	/**
 	 * 
-	 * Récupère un message via la langue du CommandSender.
+	 * RÃ©cupÄre un message via la langue du CommandSender.
 	 * 
 	 * @param sender
 	 *            Le CommandSender (Bukkit)
 	 * @param key
-	 *            La clé du message dans le fichier configuration
+	 *            La clÃ© du message dans le fichier configuration
 	 * @param args
-	 *            Les arguments à remplacer dans le message (%0 le premier, %1
-	 *            le deuxième, ..., %n le énième)
+	 *            Les arguments Å• remplacer dans le message (%0 le premier, %1
+	 *            le deuxiÄme, ..., %n le Ã©niÄme)
 	 * 
-	 * @return Le message formatté et traduit
+	 * @return Le message formattÃ© et traduit
 	 */
 	public String[] get(CommandSender sender, String key, Object... args);
 
 	/**
 	 * 
-	 * Récupère un message via une langue choisie.
+	 * RÃ©cupÄre un message via une langue choisie.
 	 * 
 	 * @param locale
 	 *            La langue choisie
 	 * @param key
-	 *            La clé du message dans le fichier configuration
+	 *            La clÃ© du message dans le fichier configuration
 	 * @param args
-	 *            Les arguments à remplacer dans le message (%0 le premier, %1
-	 *            le deuxième, ..., %n le énième)
+	 *            Les arguments Å• remplacer dans le message (%0 le premier, %1
+	 *            le deuxiÄme, ..., %n le Ã©niÄme)
 	 * 
-	 * @return Le message formatté et traduit
+	 * @return Le message formattÃ© et traduit
 	 */
 	public String[] get(Locale locale, String key, Object... args);
 
 	/**
-	 * Récupère un message via la langue par défaut.
+	 * RÃ©cupÄre un message via la langue par dÃ©faut.
 	 * 
 	 * @param key
-	 *            La clé du message dans le fichier configuration
+	 *            La clÃ© du message dans le fichier configuration
 	 * @param args
-	 *            Les arguments à remplacés dans le message (%0 le premier, %1
-	 *            le deuxième, ..., %n le énième)
+	 *            Les arguments Å• remplacÃ©s dans le message (%0 le premier, %1
+	 *            le deuxiÄme, ..., %n le Ã©niÄme)
 	 * 
-	 * @return Le message formatté
+	 * @return Le message formattÃ©
 	 */
 	public String[] get(String key, Object... args);
 
 	/**
-	 * Tous les langages de l'énumération Locale ne sont pas forcémment traduit.
-	 * Cette méthode permet de récupérer les quels le sont.
+	 * Tous les langages de l'Ã©numÃ©ration Locale ne sont pas forcÃ©mment traduit.
+	 * Cette mÃ©thode permet de rÃ©cupÃ©rer les quels le sont.
 	 * 
 	 * @return La liste des langages traduits
 	 */
 	public Collection<Locale> getConfiguratedLocales();
 
 	/**
-	 * Récupère une langue à partir de son nom
+	 * RÃ©cupÄre une langue Å• partir de son nom
 	 * 
 	 * @param locale
-	 *            La langue à trouver
-	 * @return La langue trouvée (si elle n'existe pas, la langue par défaut est
-	 *         envoyée)
+	 *            La langue Å• trouver
+	 * @return La langue trouvÃ©e (si elle n'existe pas, la langue par dÃ©faut est
+	 *         envoyÃ©e)
 	 */
 	public Language getLanguage(Locale locale);
 
 	/**
-	 * Récupère un message d'une seule ligne via une langue choisie.
+	 * RÃ©cupÄre un message d'une seule ligne via une langue choisie.
 	 * 
 	 * @param locale
 	 *            La langue choisie
 	 * @param key
-	 *            La clé du message dans le fichier configuration
+	 *            La clÃ© du message dans le fichier configuration
 	 * @param plural
-	 *            Si le mot doit être au pluriel
+	 *            Si le mot doit Ä™tre au pluriel
 	 * @param determinant
-	 *            Le type de déterminant avant le mot
+	 *            Le type de dÃ©terminant avant le mot
 	 * 
-	 * @return Le message formatté et traduit
+	 * @return Le message formattÃ© et traduit
 	 */
 	public String getWord(Locale locale, String key, boolean plural, WordDeterminant determinant);
 
 	/**
-	 * Récupère un message d'une seule ligne via la langue par défaut.
+	 * RÃ©cupÄre un message d'une seule ligne via la langue par dÃ©faut.
 	 * 
 	 * @param key
-	 *            La clé du message dans le fichier configuration
+	 *            La clÃ© du message dans le fichier configuration
 	 * @param plural
-	 *            Si le mot doit être au pluriel
+	 *            Si le mot doit Ä™tre au pluriel
 	 * @param determinant
-	 *            Le type de déterminant avant le mot
+	 *            Le type de dÃ©terminant avant le mot
 	 * 
-	 * @return Le message formatté et traduit
+	 * @return Le message formattÃ© et traduit
 	 */
 	public String getWord(String key, boolean plural, WordDeterminant determinant);
 
 	/**
-	 * Permet de remplacer de manière plus rapide les couleurs, pour plusieurs
-	 * messages. Appel en réalité ChatColor.translateAlternateColorCodes.
+	 * Permet de remplacer de maniÄre plus rapide les couleurs, pour plusieurs
+	 * messages. Appel en rÃ©alitÃ© ChatColor.translateAlternateColorCodes.
 	 * 
 	 * @param base
-	 *            Les messages à formatter
-	 * @return Les messages remplacés
+	 *            Les messages Å• formatter
+	 * @return Les messages remplacÃ©s
 	 */
 	public List<String> replaceColors(List<String> base);
 
 	/**
-	 * Permet de remplacer de manière plus rapide les couleurs. Appel en réalité
+	 * Permet de remplacer de maniÄre plus rapide les couleurs. Appel en rÃ©alitÃ©
 	 * ChatColor.translateAlternateColorCodes.
 	 * 
 	 * @param base
-	 *            Le message à formatter
-	 * @return Le message remplacé
+	 *            Le message Å• formatter
+	 * @return Le message remplacÃ©
 	 */
 	public String replaceColors(String base);
 
 	/**
-	 * Permet de remplacer de manière plus rapide les couleurs, pour plusieurs
-	 * messages. Appel en réalité ChatColor.translateAlternateColorCodes.
+	 * Permet de remplacer de maniÄre plus rapide les couleurs, pour plusieurs
+	 * messages. Appel en rÃ©alitÃ© ChatColor.translateAlternateColorCodes.
 	 * 
 	 * @param base
-	 *            Les messages à formatter
-	 * @return Les messages remplacés
+	 *            Les messages Å• formatter
+	 * @return Les messages remplacÃ©s
 	 */
 	public String[] replaceColors(String... base);
 
 	/**
-	 * Envoit un message à un CommandSender. Le système va rechercher la langue
-	 * la plus adaptée.
+	 * Envoit un message Å• un CommandSender. Le systÄme va rechercher la langue
+	 * la plus adaptÃ©e.
 	 * 
 	 * @param sender
 	 *            Le CommandSender (Bukkit)
 	 * @param key
-	 *            La clé du message dans le ficher configuration
+	 *            La clÃ© du message dans le ficher configuration
 	 * @param args
-	 *            Les arguments à remplacer dans le message (%0 le premier, %1
-	 *            le deuxième, ..., %n le énième)
+	 *            Les arguments Å• remplacer dans le message (%0 le premier, %1
+	 *            le deuxiÄme, ..., %n le Ã©niÄme)
 	 */
 	public void sendMessage(CommandSender sender, String key, Object... args);
 }

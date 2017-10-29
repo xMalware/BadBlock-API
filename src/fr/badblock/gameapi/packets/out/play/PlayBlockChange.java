@@ -3,7 +3,7 @@ package fr.badblock.gameapi.packets.out.play;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 
 /**
- * Packet envoyé par le serveur quand un block est changé<br>
+ * Packet envoyÃ© par le serveur quand un block est changÃ©<br>
  * TODO : rendre le packet utilisable (utile ?)
  * 
  * @author LelanN

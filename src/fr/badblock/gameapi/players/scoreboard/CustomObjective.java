@@ -3,8 +3,8 @@ package fr.badblock.gameapi.players.scoreboard;
 import fr.badblock.gameapi.players.BadblockPlayer;
 
 /**
- * Représente un objectif vu par un seul joueur, qui peut être mis à jour de
- * manière très rapide et sans clignements.<br>
+ * ReprÃ©sente un objectif vu par un seul joueur, qui peut Ä™tre mis Å• jour de
+ * maniÄre trÄs rapide et sans clignements.<br>
  * Obtenir avec {@link fr.badblock.gameapi.GameAPI#buildCustomObjective(String)}
  * 
  * @author LeLanN
@@ -12,14 +12,14 @@ import fr.badblock.gameapi.players.BadblockPlayer;
 public interface CustomObjective {
 	/**
 	 * Permet de changer une ligne du scoreboard.<br>
-	 * Attention, la ligne 1 correspond à la ligne du bas du scoreboard et le
+	 * Attention, la ligne 1 correspond Å• la ligne du bas du scoreboard et le
 	 * scoreboard ne peut en afficher que 15.<br>
 	 * 
 	 * @param line
 	 *            La ligne du texte (entre 1 et 15)
 	 * @param text
-	 *            Le texte à afficher, maximum 32 caractères (code couleur = 2
-	 *            caractères)
+	 *            Le texte Å• afficher, maximum 32 caractÄres (code couleur = 2
+	 *            caractÄres)
 	 */
 	public void changeLine(int line, String text);
 
@@ -29,10 +29,10 @@ public interface CustomObjective {
 	public void generate();
 
 	/**
-	 * Récupère le joueur regardant cet objective
+	 * RÃ©cupÄre le joueur regardant cet objective
 	 * 
-	 * @return Le BadblockPlayer (si il n'a pas encore été assigné ou que le
-	 *         joueur n'est plus là, null)
+	 * @return Le BadblockPlayer (si il n'a pas encore Ã©tÃ© assignÃ© ou que le
+	 *         joueur n'est plus lÅ•, null)
 	 */
 	public BadblockPlayer getAssignedPlayer();
 
@@ -40,12 +40,12 @@ public interface CustomObjective {
 	 * Supprime une ligne du scoreboard.
 	 * 
 	 * @param line
-	 *            La ligne à supprimer (entre 1 et 15)
+	 *            La ligne Å• supprimer (entre 1 et 15)
 	 */
 	public void removeLine(int line);
 
 	/**
-	 * Réinitialise l'Objective.
+	 * RÃ©initialise l'Objective.
 	 */
 	public void reset();
 
@@ -53,20 +53,20 @@ public interface CustomObjective {
 	 * Change le nom de l'objective
 	 * 
 	 * @param displayName
-	 *            Le nom (maximum 32 caractères).
+	 *            Le nom (maximum 32 caractÄres).
 	 */
 	public void setDisplayName(String displayName);
 
 	/**
-	 * Définit le générateur
+	 * DÃ©finit le gÃ©nÃ©rateur
 	 * 
 	 * @param generator
-	 *            Le générateur
+	 *            Le gÃ©nÃ©rateur
 	 */
 	public void setGenerator(BadblockScoreboardGenerator generator);
 
 	/**
-	 * Affiche l'objectif à un joueur (un seul par CustomObjective !).
+	 * Affiche l'objectif Å• un joueur (un seul par CustomObjective !).
 	 * 
 	 * @param player
 	 *            Le joueur

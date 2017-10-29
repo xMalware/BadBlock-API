@@ -8,7 +8,7 @@ import org.bukkit.event.block.BlockEvent;
 import lombok.Getter;
 
 /**
- * Appelé lorsque un projectile arrive sur un block.
+ * AppelÃ© lorsque un projectile arrive sur un block.
  * 
  * @author LeLanN
  */

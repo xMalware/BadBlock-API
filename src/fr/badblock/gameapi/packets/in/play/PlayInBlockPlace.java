@@ -8,34 +8,34 @@ import fr.badblock.gameapi.packets.in.play.PlayInBlockDig.BlockFace;
 import fr.badblock.gameapi.utils.selections.Vector3f;
 
 /**
- * Packet envoyé par le joueur quand il pose un block
+ * Packet envoyÃ© par le joueur quand il pose un block
  * 
  * @author LeLanN
  */
 public interface PlayInBlockPlace extends BadblockInPacket {
 	/**
-	 * Récupère la face du block cliqué
+	 * RÃ©cupÄre la face du block cliquÃ©
 	 * 
 	 * @return La face
 	 */
 	public BlockFace getBlockFace();
 
 	/**
-	 * Récupère la position du block
+	 * RÃ©cupÄre la position du block
 	 * 
 	 * @return La position
 	 */
 	public Vector3f getBlockPosition();
 
 	/**
-	 * Récupère la position du block cliqué
+	 * RÃ©cupÄre la position du block cliquÃ©
 	 * 
 	 * @return La position du curseur
 	 */
 	public Vector3f getCursorPosition();
 
 	/**
-	 * Récupère l'item
+	 * RÃ©cupÄre l'item
 	 * 
 	 * @return L'item
 	 */

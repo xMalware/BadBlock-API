@@ -3,7 +3,7 @@ package fr.badblock.gameapi.configuration.values;
 import com.google.gson.JsonElement;
 
 /**
- * ReprÈsente une valeur primitive
+ * Repr√©sente une valeur primitive
  * 
  * @author LelanN
  *
@@ -12,17 +12,17 @@ import com.google.gson.JsonElement;
  */
 public interface MapValuePrimitive<T> extends MapValue<T> {
 	/**
-	 * Charge la valeur depuis un ÈlÈment JSON
+	 * Charge la valeur depuis un √©l√©ment JSON
 	 * 
 	 * @param json
-	 *            L'ÈlÈment
+	 *            L'√©l√©ment
 	 */
 	public void from(JsonElement json);
 
 	/**
-	 * RÈcupËre la valeur sous forme d'ÈlÈment JSON
+	 * R√©cupƒçre la valeur sous forme d'√©l√©ment JSON
 	 * 
-	 * @return L'ÈlÈment
+	 * @return L'√©l√©ment
 	 */
 	public JsonElement to();
 }

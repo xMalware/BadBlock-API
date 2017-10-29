@@ -4,16 +4,16 @@ import fr.badblock.gameapi.packets.BadblockInPacket;
 import fr.badblock.gameapi.packets.BadblockInPackets;
 
 /**
- * Packet envoyé pour vérifier que la connection entre le joueur et le client
+ * Packet envoyÃ© pour vÃ©rifier que la connection entre le joueur et le client
  * est toujours active.
  * 
  * @author LeLanN
  */
 public interface PlayInKeepAlive extends BadblockInPacket {
 	/**
-	 * Une clé aléatoire envoyé précedemment par le serveur.
+	 * Une clÃ© alÃ©atoire envoyÃ© prÃ©cedemment par le serveur.
 	 * 
-	 * @return La clé aléatoire
+	 * @return La clÃ© alÃ©atoire
 	 */
 	public int getKeepAliveId();
 

@@ -5,170 +5,170 @@ import fr.badblock.gameapi.particles.ParticleData.ItemData;
 import lombok.Getter;
 
 /**
- * ReprÈsente les diffÈrents type de particules possible
+ * Repr√©sente les diff√©rents type de particules possible
  * 
  * @author LeLanN
  */
 @Getter
 public enum ParticleEffectType {
 	/**
-	 * Une particule affichÈe lors de l'explosion d'une TNT ou d'un creeper
+	 * Une particule affich√©e lors de l'explosion d'une TNT ou d'un creeper
 	 * <ul>
-	 * <li>Cela ressemble ‡ un "nuage blanc"
-	 * <li>La valeur de la speed value va influer sur la vitesse ‡ laquelle la
+	 * <li>Cela ressemble ≈ï un "nuage blanc"
+	 * <li>La valeur de la speed value va influer sur la vitesse ≈ï laquelle la
 	 * particule va s'envoler
 	 * </ul>
 	 */
 	EXPLOSION_NORMAL("explode", 0),
 	/**
-	 * Une particule affichÈe lors de l'explosion d'une fireball (ghast) ou d'un
-	 * cr‚ne de wither:
+	 * Une particule affich√©e lors de l'explosion d'une fireball (ghast) ou d'un
+	 * cr√¢ne de wither:
 	 * <ul>
-	 * <li>Ressemble ‡ une balle grise qui disparaÓt
-	 * <li>La valeur de la speed value influe lÈgËrement sur la taille de la
+	 * <li>Ressemble ≈ï une balle grise qui dispara√Æt
+	 * <li>La valeur de la speed value influe l√©gƒçrement sur la taille de la
 	 * particule
 	 * </ul>
 	 */
 	EXPLOSION_LARGE("largeexplode", 1),
 	/**
-	 * Une particule affichÈe lors de l'explosion d'une TNT ou d'un creeper
+	 * Une particule affich√©e lors de l'explosion d'une TNT ou d'un creeper
 	 * <ul>
-	 * <li>Ressemble ‡ une multitude de balles grises qui disparaissent
+	 * <li>Ressemble ≈ï une multitude de balles grises qui disparaissent
 	 * <li>La speed value n'a aucune influence
 	 * </ul>
 	 */
 	EXPLOSION_HUGE("hugeexplosion", 2),
 	/**
-	 * Une particule affichÈe lors de l'utilisation d'un firework
+	 * Une particule affich√©e lors de l'utilisation d'un firework
 	 * <ul>
-	 * <li>Ressemble ‡ une Ètoile blanche
-	 * <li>La speed value va influer sur la vitesse ‡ laquelle la particule va
+	 * <li>Ressemble ≈ï une √©toile blanche
+	 * <li>La speed value va influer sur la vitesse ≈ï laquelle la particule va
 	 * s'envoler
 	 * </ul>
 	 */
 	FIREWORKS_SPARK("fireworksSpark", 3),
 	/**
-	 * Une particule affichÈe lorsque une entitÈ nage dans l'eau ou lorsque une
-	 * flËche y entre
+	 * Une particule affich√©e lorsque une entit√© nage dans l'eau ou lorsque une
+	 * flƒçche y entre
 	 * <ul>
-	 * <li>Ressemble ‡ une bulle
-	 * <li>La speed value va influer sur la vitesse ‡ laquelle la particule va
+	 * <li>Ressemble ≈ï une bulle
+	 * <li>La speed value va influer sur la vitesse ≈ï laquelle la particule va
 	 * s'envoler
 	 * </ul>
 	 */
 	WATER_BUBBLE("bubble", 4, null, true),
 	/**
-	 * Une particule affichÈe lorsque une entitÈ nage ou qu'un loup se secoue
+	 * Une particule affich√©e lorsque une entit√© nage ou qu'un loup se secoue
 	 * <ul>
-	 * <li>Ressemble ‡ une goutte bleue
+	 * <li>Ressemble ≈ï une goutte bleue
 	 * <li>La speed value n'a aucune influence
 	 * </ul>
 	 */
 	WATER_SPLASH("splash", 5),
 	/**
-	 * Une particule affichÈe lorsque l'on pÍche
+	 * Une particule affich√©e lorsque l'on pƒôche
 	 * <ul>
-	 * <li>Ressemble ‡ une goutelette bleu
-	 * <li>La speed value va influer sur la vitesse ‡ laquelle la particule va
+	 * <li>Ressemble ≈ï une goutelette bleu
+	 * <li>La speed value va influer sur la vitesse ≈ï laquelle la particule va
 	 * s'envoler
 	 * </ul>
 	 */
 	WATER_WAKE("wake", 6),
 	/**
-	 * Une particule affichÈe par l'eau
+	 * Une particule affich√©e par l'eau
 	 * <ul>
-	 * <li>Ressemble ‡ un petit carrÈ bleu
+	 * <li>Ressemble ≈ï un petit carr√© bleu
 	 * <li>La speed value n'a aucune influence
 	 * </ul>
 	 */
 	SUSPENDED("suspended", 7, null, true),
 	/**
-	 * Une particule affichÈe lorsque l'on est prÍt de la bedrock
+	 * Une particule affich√©e lorsque l'on est prƒôt de la bedrock
 	 * <ul>
-	 * <li>Ressemble ‡ un petit carrÈ gris
+	 * <li>Ressemble ≈ï un petit carr√© gris
 	 * <li>La speed value n'a aucune influence
 	 * </ul>
 	 */
 	SUSPENDED_DEPTH("depthSuspend", 8),
 	/**
-	 * Une particule affichÈe lors d'un coup critique ou lorsque l'on reÁoit une
-	 * flËche
+	 * Une particule affich√©e lors d'un coup critique ou lorsque l'on re√ßoit une
+	 * flƒçche
 	 * <ul>
-	 * <li>Ressemble ‡ une croix marron
-	 * <li>La speed value va influer sur la vitesse ‡ laquelle la particule va
+	 * <li>Ressemble ≈ï une croix marron
+	 * <li>La speed value va influer sur la vitesse ≈ï laquelle la particule va
 	 * s'envoler
 	 * </ul>
 	 */
 	CRIT("crit", 9),
 	/**
-	 * Une particule affichÈe lors d'un coup avec une arme enchantÈe
+	 * Une particule affich√©e lors d'un coup avec une arme enchant√©e
 	 * <ul>
-	 * <li>Ressemble ‡ une Ètoile cyan
-	 * <li>La speed value va influer sur la vitesse ‡ laquelle la particule va
+	 * <li>Ressemble ≈ï une √©toile cyan
+	 * <li>La speed value va influer sur la vitesse ≈ï laquelle la particule va
 	 * s'envoler
 	 * </ul>
 	 */
 	CRIT_MAGIC("magicCrit", 10),
 	/**
-	 * Une particule affichÈe par les tnt allumÈes, les torches, les droppers,
+	 * Une particule affich√©e par les tnt allum√©es, les torches, les droppers,
 	 * les dispensers, les portails de l'end et les brewing stands et les
 	 * spawners
 	 * <ul>
-	 * <li>Ressemble ‡ un petit nuage gris
-	 * <li>La speed value va influer sur la vitesse ‡ laquelle la particule va
+	 * <li>Ressemble ≈ï un petit nuage gris
+	 * <li>La speed value va influer sur la vitesse ≈ï laquelle la particule va
 	 * s'envoler
 	 * </ul>
 	 */
 	SMOKE_NORMAL("smoke", 11),
 	/**
-	 * Une particule affichÈe par le feu, les fours sur minecart et les blazes
+	 * Une particule affich√©e par le feu, les fours sur minecart et les blazes
 	 * <ul>
-	 * <li>Ressemble ‡ un gros nuage gris
-	 * <li>La speed value va influer sur la vitesse ‡ laquelle la particule va
+	 * <li>Ressemble ≈ï un gros nuage gris
+	 * <li>La speed value va influer sur la vitesse ≈ï laquelle la particule va
 	 * s'envoler
 	 * </ul>
 	 */
 	SMOKE_LARGE("largesmoke", 12),
 	/**
-	 * Une particule affichÈe lorsque une potion jetable / xp bottle attÈrit
+	 * Une particule affich√©e lorsque une potion jetable / xp bottle att√©rit
 	 * <ul>
-	 * <li>Ressemble ‡ un petit tourbillon blanc
-	 * <li>Si ‡ 0, la particule n'ira que vers le haut
+	 * <li>Ressemble ≈ï un petit tourbillon blanc
+	 * <li>Si ≈ï 0, la particule n'ira que vers le haut
 	 * </ul>
 	 */
 	SPELL("spell", 13),
 	/**
-	 * Une particule affichÈe lorsque une potion jetable attÈrit
+	 * Une particule affich√©e lorsque une potion jetable att√©rit
 	 * <ul>
-	 * <li>Ressemble ‡ une croix blanche
-	 * <li>Si ‡ 0, la particule n'ira que vers le haut
+	 * <li>Ressemble ≈ï une croix blanche
+	 * <li>Si ≈ï 0, la particule n'ira que vers le haut
 	 * </ul>
 	 */
 	SPELL_INSTANT("instantSpell", 14),
 	/**
-	 * Une particule affichÈe lorsque qu'un effet de potion est actif
+	 * Une particule affich√©e lorsque qu'un effet de potion est actif
 	 * <ul>
-	 * <li>Ressemble ‡ un petit tourbillon colorÈ
-	 * <li>La speed value influe sur la luminositÈ de la particule (0 = noir, 1
+	 * <li>Ressemble ≈ï un petit tourbillon color√©
+	 * <li>La speed value influe sur la luminosit√© de la particule (0 = noir, 1
 	 * = brillant)
 	 * </ul>
 	 */
 	SPELL_MOB("mobSpell", 15),
 	/**
-	 * Une particule affichÈe lorsque qu'un effet de potion est actif via un
+	 * Une particule affich√©e lorsque qu'un effet de potion est actif via un
 	 * beacon
 	 * <ul>
-	 * <li>Ressemble ‡ un petit toubillon transparent colorÈ
-	 * <li>La speed value influe sur la luminositÈ de la particule (0 = noir, 1
+	 * <li>Ressemble ≈ï un petit toubillon transparent color√©
+	 * <li>La speed value influe sur la luminosit√© de la particule (0 = noir, 1
 	 * = brillant)
 	 * </ul>
 	 */
 	SPELL_MOB_AMBIENT("mobSpellAmbient", 16),
 	/**
-	 * Une particule affichÈe par les sorciËres
+	 * Une particule affich√©e par les sorciƒçres
 	 * <ul>
-	 * <li>Ressemble ‡ une croix violette
-	 * <li>Si ‡ 0, la particule n'ira que vers le haut
+	 * <li>Ressemble ≈ï une croix violette
+	 * <li>Si ≈ï 0, la particule n'ira que vers le haut
 	 * </ul>
 	 */
 	SPELL_WITCH("witchMagic", 17),

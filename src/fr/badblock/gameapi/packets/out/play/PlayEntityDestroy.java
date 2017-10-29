@@ -5,24 +5,24 @@ import org.bukkit.entity.Entity;
 import fr.badblock.gameapi.packets.BadblockOutPacket;
 
 /**
- * Packet envoyé au joueur quand des entités sont détruites (c'est à dire,
+ * Packet envoyÃ© au joueur quand des entitÃ©s sont dÃ©truites (c'est Å• dire,
  * {@link Entity#remove()})
  * 
  * @author LeLanN
  */
 public interface PlayEntityDestroy extends BadblockOutPacket {
 	/**
-	 * Récupère entités détruites
+	 * RÃ©cupÄre entitÃ©s dÃ©truites
 	 * 
-	 * @return Les entités
+	 * @return Les entitÃ©s
 	 */
 	public int[] getEntities();
 
 	/**
-	 * Définit les entités détruites
+	 * DÃ©finit les entitÃ©s dÃ©truites
 	 * 
 	 * @param entities
-	 *            Les entités
+	 *            Les entitÃ©s
 	 * @return Le packet
 	 */
 	public PlayEntityDestroy setEntities(int[] entities);

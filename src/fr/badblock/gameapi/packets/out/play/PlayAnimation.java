@@ -4,13 +4,13 @@ import fr.badblock.gameapi.packets.BadblockOutPacket;
 import lombok.Getter;
 
 /**
- * Packet qui fait joueur une 'animation' (mouvement) ‡ une entitÈ.
+ * Packet qui fait joueur une 'animation' (mouvement) ≈ï une entit√©.
  * 
  * @author LeLanN
  */
 public interface PlayAnimation extends BadblockOutPacket {
 	/**
-	 * ReprÈsente les diffÈrentes animations possibles pour
+	 * Repr√©sente les diff√©rentes animations possibles pour
 	 * {@link PlayAnimation}
 	 * 
 	 * @author LeLanN
@@ -34,21 +34,21 @@ public interface PlayAnimation extends BadblockOutPacket {
 	}
 
 	/**
-	 * RÈcupËre l'animation ‡ jouer
+	 * R√©cupƒçre l'animation ≈ï jouer
 	 * 
 	 * @return L'animation
 	 */
 	public Animation getAnimation();
 
 	/**
-	 * RÈcupËre l'id de l'entitÈ devant faire le mouuvement
+	 * R√©cupƒçre l'id de l'entit√© devant faire le mouuvement
 	 * 
 	 * @return L'id
 	 */
 	public int getEntityId();
 
 	/**
-	 * DÈfinit l'animation ‡ jouer
+	 * D√©finit l'animation ≈ï jouer
 	 * 
 	 * @param animation
 	 *            L'animation
@@ -57,7 +57,7 @@ public interface PlayAnimation extends BadblockOutPacket {
 	public PlayAnimation setAnimation(Animation animation);
 
 	/**
-	 * DÈfinit l'id de l'entitÈ devant faire le mouvement
+	 * D√©finit l'id de l'entit√© devant faire le mouvement
 	 * 
 	 * @param entityId
 	 *            L'id

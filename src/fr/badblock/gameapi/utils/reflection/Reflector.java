@@ -9,8 +9,8 @@ import java.util.List;
 import lombok.Data;
 
 /**
- * Classe permettant d'utiliser facilement la réfléction à l'échelle d'une
- * unique classe (principalement la gestion des Fields°.
+ * Classe permettant d'utiliser facilement la rÃ©flÃ©ction Å• l'Ã©chelle d'une
+ * unique classe (principalement la gestion des FieldsÂ°.
  * 
  * @author LeLanN
  */
@@ -20,7 +20,7 @@ public class Reflector {
 	private final Class<?>[] clazz;
 
 	/**
-	 * Crée un nouveau Reflector à partir d'un objet.
+	 * CrÃ©e un nouveau Reflector Å• partir d'un objet.
 	 * 
 	 * @param object
 	 *            L'objet sur lequel les modifications / lectures aurront
@@ -61,7 +61,7 @@ public class Reflector {
 		for (Class<?> clazz : this.clazz) {
 			try {
 				field = clazz.getDeclaredField(name);
-				return field; // le field semble trouvé ! :)
+				return field; // le field semble trouvÃ© ! :)
 			} catch (NoSuchFieldException e) {
 
 			} catch (SecurityException e) {
@@ -82,7 +82,7 @@ public class Reflector {
 				if (!method.isAccessible())
 					method.setAccessible(true);
 
-				return method; // la method semble trouvé ! :)
+				return method; // la method semble trouvÃ© ! :)
 			} catch (NoSuchMethodException e) {
 
 			} catch (SecurityException e) {

@@ -5,14 +5,14 @@ import fr.badblock.gameapi.packets.BadblockInPackets;
 import lombok.Getter;
 
 /**
- * Packet envoyé dans certains cas particuliers (voir {@link ClientCommands} par
+ * Packet envoyÃ© dans certains cas particuliers (voir {@link ClientCommands} par
  * le client.
  * 
  * @author LeLanN
  */
 public interface PlayInClientCommand extends BadblockInPacket {
 	/**
-	 * Représente les différentes actions pour {@link PlayInClientCommand}.
+	 * ReprÃ©sente les diffÃ©rentes actions pour {@link PlayInClientCommand}.
 	 * 
 	 * @author LeLanN
 	 */
@@ -35,7 +35,7 @@ public interface PlayInClientCommand extends BadblockInPacket {
 	}
 
 	/**
-	 * Récupère l'action demandée par le packet
+	 * RÃ©cupÄre l'action demandÃ©e par le packet
 	 * 
 	 * @return L'action
 	 */

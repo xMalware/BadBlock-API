@@ -3,16 +3,16 @@ package fr.badblock.gameapi.utils.i18n.messages;
 import fr.badblock.gameapi.utils.i18n.TranslatableString;
 
 /**
- * Liste de messages utilisés par l'API ou à déstination des plugins annexes
- * pour unifier le système de traduction (pas de doublon) et simplifier le
- * développement.<br>
+ * Liste de messages utilisÃ©s par l'API ou Å• dÃ©stination des plugins annexes
+ * pour unifier le systÄme de traduction (pas de doublon) et simplifier le
+ * dÃ©veloppement.<br>
  * Messages commandes.
  * 
  * @author LeLanN
  */
 public class CommandMessages {
 	/**
-	 * Lorsqu'un joueur n'a pas la permission d'utilisé une commande.
+	 * Lorsqu'un joueur n'a pas la permission d'utilisÃ© une commande.
 	 * 
 	 * @return Le message
 	 */

@@ -3,19 +3,19 @@ package fr.badblock.gameapi.utils.itemstack;
 import fr.badblock.gameapi.players.BadblockPlayer;
 
 /**
- * Appelé lorsqu'un ItemStackExtra est utilisé
+ * AppelÃ© lorsqu'un ItemStackExtra est utilisÃ©
  * 
  * @author LeLanN
  */
 public abstract class ItemEvent {
 	/**
-	 * Appelée quand l'item est utilisé
+	 * AppelÃ©e quand l'item est utilisÃ©
 	 * 
 	 * @param action
 	 *            L'action
 	 * @param player
 	 *            Le joueur
-	 * @return Si l'action doit être annulée
+	 * @return Si l'action doit Ä™tre annulÃ©e
 	 */
 	public abstract boolean call(ItemAction action, BadblockPlayer player);
 }

@@ -10,7 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /***
- * Représente une Location Bukkit
+ * ReprÃ©sente une Location Bukkit
  * 
  * @author LeLanN
  */
@@ -36,7 +36,7 @@ public class MapLocation implements MapValue<Location> {
 	private float pitch = 0.0f;
 
 	/**
-	 * Créé une MapLocation depuis une location Bukkit
+	 * CrÃ©Ã© une MapLocation depuis une location Bukkit
 	 * 
 	 * @param location
 	 *            La location

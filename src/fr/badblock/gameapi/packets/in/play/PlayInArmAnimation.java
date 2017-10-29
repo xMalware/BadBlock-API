@@ -4,7 +4,7 @@ import fr.badblock.gameapi.packets.BadblockInPacket;
 import fr.badblock.gameapi.packets.BadblockInPackets;
 
 /**
- * Packet envoyé par le joueur lorsque il bouge les bras. Aucun paramètre.
+ * Packet envoyÃ© par le joueur lorsque il bouge les bras. Aucun paramÄtre.
  * 
  * @author LeLanN
  */

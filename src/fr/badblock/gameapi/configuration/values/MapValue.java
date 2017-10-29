@@ -1,7 +1,7 @@
 package fr.badblock.gameapi.configuration.values;
 
 /**
- * Représente une valeur pour la configuration des maps
+ * ReprÃ©sente une valeur pour la configuration des maps
  * 
  * @author LelanN
  *
@@ -10,9 +10,9 @@ package fr.badblock.gameapi.configuration.values;
  */
 public interface MapValue<T> {
 	/**
-	 * Récupère la véritable valeur
+	 * RÃ©cupÄre la vÃ©ritable valeur
 	 * 
-	 * @return La véritable valeur
+	 * @return La vÃ©ritable valeur
 	 */
 	public T getHandle();
 

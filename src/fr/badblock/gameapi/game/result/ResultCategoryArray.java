@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 /**
- * Représente une catégorie ayant une construction à double entrée
+ * ReprÃ©sente une catÃ©gorie ayant une construction Å• double entrÃ©e
  * 
  * @author LeLanN
  */
@@ -18,7 +18,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class ResultCategoryArray implements ResultCategory {
 	/**
-	 * Représente une ligne pour {@link ResultCategoryLined}
+	 * ReprÃ©sente une ligne pour {@link ResultCategoryLined}
 	 * 
 	 * @author LeLanN
 	 */
@@ -38,7 +38,7 @@ public class ResultCategoryArray implements ResultCategory {
 	private final List<ResultCategoryEntry> lines = new ArrayList<>();
 
 	/**
-	 * Ajoute une ligne à la catégorie
+	 * Ajoute une ligne Å• la catÃ©gorie
 	 * 
 	 * @param description
 	 *            La description de la ligne
@@ -56,7 +56,7 @@ public class ResultCategoryArray implements ResultCategory {
 	}
 
 	/**
-	 * Récupère une ligne afin de la modifier
+	 * RÃ©cupÄre une ligne afin de la modifier
 	 * 
 	 * @param at
 	 *            L'ID
@@ -70,7 +70,7 @@ public class ResultCategoryArray implements ResultCategory {
 	}
 
 	/**
-	 * Enlève une ligne à la catégorie
+	 * EnlÄve une ligne Å• la catÃ©gorie
 	 * 
 	 * @param id
 	 *            La ligne

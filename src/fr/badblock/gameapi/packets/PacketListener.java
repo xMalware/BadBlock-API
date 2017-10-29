@@ -1,7 +1,7 @@
 package fr.badblock.gameapi.packets;
 
 /**
- * Représente une classe permettant d'écouter des packets entrants et sortant
+ * ReprÃ©sente une classe permettant d'Ã©couter des packets entrants et sortant
  * 
  * @author LeLanN
  *

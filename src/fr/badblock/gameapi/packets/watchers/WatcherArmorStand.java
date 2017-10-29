@@ -4,13 +4,13 @@ import fr.badblock.gameapi.utils.selections.Vector3f;
 import lombok.Getter;
 
 /**
- * ReprÈsente les watchers d'un armor stand
+ * Repr√©sente les watchers d'un armor stand
  * 
  * @author LeLanN
  */
 public interface WatcherArmorStand extends WatcherLivingEntity {
 	/**
-	 * ReprÈsente les diffÈrentes propriÈtÈs possible pour une armor stand
+	 * Repr√©sente les diff√©rentes propri√©t√©s possible pour une armor stand
 	 * 
 	 * @author LeLanN
 	 */
@@ -20,7 +20,7 @@ public interface WatcherArmorStand extends WatcherLivingEntity {
 		 */
 		SMALL_ARMORSTAND(0x01),
 		/**
-		 * L'armor stand est soumise ‡ la gravitÈ
+		 * L'armor stand est soumise ≈ï la gravit√©
 		 */
 		HAS_GRAVITY(0x02),
 		/**
@@ -33,7 +33,7 @@ public interface WatcherArmorStand extends WatcherLivingEntity {
 		REMOVE_BASEPLATE(0x08),
 		/**
 		 * L'armor stand est totalement invisible<br>
-		 * Utile si l'on veut faire disparaÓtre temporairement une armor stand.
+		 * Utile si l'on veut faire dispara√Ætre temporairement une armor stand.
 		 */
 		MARKER(0x10);
 
@@ -46,19 +46,19 @@ public interface WatcherArmorStand extends WatcherLivingEntity {
 	}
 
 	/**
-	 * Ajoute une propriÈtÈ ‡ l'armor stand
+	 * Ajoute une propri√©t√© ≈ï l'armor stand
 	 * 
 	 * @param flag
-	 *            La propriÈtÈ
+	 *            La propri√©t√©
 	 * @return Le watcher
 	 */
 	public WatcherArmorStand addFlag(ArmorStandFlag flag);
 
 	/**
-	 * EnlËve une propriÈtÈ ‡ l'armor stand
+	 * Enlƒçve une propri√©t√© ≈ï l'armor stand
 	 * 
 	 * @param flag
-	 *            La propriÈtÈ
+	 *            La propri√©t√©
 	 * @return Le watcher
 	 */
 	public WatcherArmorStand removeFlag(ArmorStandFlag flag);
@@ -73,10 +73,10 @@ public interface WatcherArmorStand extends WatcherLivingEntity {
 	public WatcherArmorStand setBodyRotation(Vector3f position);
 
 	/**
-	 * Chhange la position de la tÍte d'une armor stand
+	 * Chhange la position de la tƒôte d'une armor stand
 	 * 
 	 * @param position
-	 *            La position de la tÍte
+	 *            La position de la tƒôte
 	 * @return le watcher
 	 */
 	public WatcherArmorStand setHeadRotation(Vector3f position);

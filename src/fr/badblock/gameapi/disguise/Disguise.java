@@ -10,7 +10,7 @@ import fr.badblock.gameapi.utils.i18n.TranslatableString;
 import lombok.Getter;
 
 /**
- * Représente un déguisement
+ * ReprÃ©sente un dÃ©guisement
  * 
  * @author LeLanN
  */
@@ -22,16 +22,16 @@ public class Disguise {
 	protected boolean canSeeHimself;
 
 	/**
-	 * Créé un nouveau déguisement
+	 * CrÃ©Ã© un nouveau dÃ©guisement
 	 * 
 	 * @param entityType
-	 *            Le type d'entité
+	 *            Le type d'entitÃ©
 	 * @param customName
-	 *            Le nom de l'entité (null = aucun)
+	 *            Le nom de l'entitÃ© (null = aucun)
 	 * @param doWithScoreboard
-	 *            Si le nom de l'entité doit être fait avec le scoreboard
+	 *            Si le nom de l'entitÃ© doit Ä™tre fait avec le scoreboard
 	 * @param canSeeHimself
-	 *            Si le joueur peut voir le déguisement
+	 *            Si le joueur peut voir le dÃ©guisement
 	 */
 	public Disguise(EntityType entityType, TranslatableString customName, boolean doWithScoreboard,
 			boolean canSeeHimself) {
@@ -42,11 +42,11 @@ public class Disguise {
 	}
 
 	/**
-	 * Créé l'entité qui servivra de déguisement
+	 * CrÃ©Ã© l'entitÃ© qui servivra de dÃ©guisement
 	 * 
 	 * @param location
 	 *            La position de spawn
-	 * @return L'entité
+	 * @return L'entitÃ©
 	 */
 	public final FakeEntity<?> createEntity(BadblockPlayer player) {
 		FakeEntity<?> entity = createFakeEntity(player);
@@ -65,11 +65,11 @@ public class Disguise {
 	}
 
 	/**
-	 * Créé l'entité, en interne. A override pour faire des entités customs
+	 * CrÃ©Ã© l'entitÃ©, en interne. A override pour faire des entitÃ©s customs
 	 * 
 	 * @param player
 	 *            Le joueur
-	 * @return L'entité
+	 * @return L'entitÃ©
 	 */
 	public FakeEntity<?> createFakeEntity(BadblockPlayer player) {
 		return GameAPI.getAPI().spawnFakeLivingEntity(player.getLocation(), entityType, WatcherEntity.class);
