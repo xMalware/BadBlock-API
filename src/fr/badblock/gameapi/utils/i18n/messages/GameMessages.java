@@ -24,7 +24,8 @@ public class GameMessages {
 	public static TranslatableString deathEventMessage(FightingDeathEvent e) {
 		if (e.getKiller().getType() == EntityType.PLAYER) {
 			return new TranslatableString("deathmessages.pvp." + e.getLastDamageCause().name().toLowerCase(),
-					e.getPlayer().getTabGroupPrefix() + e.getPlayer().getName(), ((BadblockPlayer) ((Player) e.getKiller())).getTabGroupPrefix() + e.getKiller().getName());
+					e.getPlayer().getTabGroupPrefix().get(e.getPlayer()) + e.getPlayer().getName(), 
+					((BadblockPlayer) ((Player) e.getKiller())).getTabGroupPrefix().get(e.getPlayer()) + e.getKiller().getName());
 		} else {
 			return new TranslatableString("deathmessages.pve." + e.getLastDamageCause().name().toLowerCase(),
 					new TranslatableWord("entities." + e.getKiller().getType().name().toLowerCase(), false,
@@ -34,7 +35,7 @@ public class GameMessages {
 
 	public static TranslatableString deathEventMessage(NormalDeathEvent e) {
 		return new TranslatableString("deathmessages.normal." + e.getLastDamageCause().name().toLowerCase(),
-				e.getPlayer().getTabGroupPrefix() + e.getPlayer().getName());
+				e.getPlayer().getTabGroupPrefix().get(e.getPlayer()) + e.getPlayer().getName());
 	}
 
 	/**
