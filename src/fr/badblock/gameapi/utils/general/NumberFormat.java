@@ -1,6 +1,7 @@
 package fr.badblock.gameapi.utils.general;
 
 import java.util.Map.Entry;
+import java.text.DecimalFormat;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 
@@ -21,9 +22,11 @@ public class NumberFormat {
 	  Long divideBy = e.getKey();
 	  String suffix = e.getValue();
 
-	  long truncated = value / (divideBy / 10);
-	  boolean hasDecimal = truncated < 100 && (truncated / 10d) != (truncated / 10);
-	  return hasDecimal ? (truncated / 10d) + suffix : (truncated / 10) + suffix;
+	  double truncated = ((double) value) / ((double) (((double) divideBy) / 10.0D));
+	  truncated /= 10d;
+	  DecimalFormat format = new DecimalFormat("0.##");
+	  String result = format.format(truncated) + suffix;
+	  return result;
 	}
 	
 }
