@@ -3,9 +3,11 @@ package fr.badblock.gameapi.utils.i18n.messages;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
 
 import fr.badblock.gameapi.events.fakedeaths.FightingDeathEvent;
 import fr.badblock.gameapi.events.fakedeaths.NormalDeathEvent;
+import fr.badblock.gameapi.players.BadblockPlayer;
 import fr.badblock.gameapi.utils.i18n.TranslatableString;
 import fr.badblock.gameapi.utils.i18n.TranslatableWord;
 import fr.badblock.gameapi.utils.i18n.Word.WordDeterminant;
@@ -22,7 +24,7 @@ public class GameMessages {
 	public static TranslatableString deathEventMessage(FightingDeathEvent e) {
 		if (e.getKiller().getType() == EntityType.PLAYER) {
 			return new TranslatableString("deathmessages.pvp." + e.getLastDamageCause().name().toLowerCase(),
-					e.getPlayer().getName(), e.getKiller().getName());
+					e.getPlayer().getTabGroupPrefix() + e.getPlayer().getName(), ((BadblockPlayer) ((Player) e.getKiller())).getTabGroupPrefix() + e.getKiller().getName());
 		} else {
 			return new TranslatableString("deathmessages.pve." + e.getLastDamageCause().name().toLowerCase(),
 					new TranslatableWord("entities." + e.getKiller().getType().name().toLowerCase(), false,
@@ -32,7 +34,7 @@ public class GameMessages {
 
 	public static TranslatableString deathEventMessage(NormalDeathEvent e) {
 		return new TranslatableString("deathmessages.normal." + e.getLastDamageCause().name().toLowerCase(),
-				e.getPlayer().getName());
+				e.getPlayer().getTabGroupPrefix() + e.getPlayer().getName());
 	}
 
 	/**
