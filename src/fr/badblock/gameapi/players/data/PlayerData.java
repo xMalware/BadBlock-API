@@ -17,6 +17,17 @@ import fr.badblock.gameapi.utils.i18n.Locale;
  * @author LeLanN
  */
 public interface PlayerData {
+
+	/**
+	 * Get replay
+	 */
+	public List<String> getReplay();
+
+	/**
+	 * Set replay
+	 */
+	public void setReplay(List<String> replay);
+	
 	/**
 	 * Ajoute des BadCoins au joueur
 	 * 

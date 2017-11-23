@@ -64,16 +64,6 @@ public interface BadblockPlayerData {
 	public UUID getUniqueId();
 
 	/**
-	 * Get replay
-	 */
-	public String getReplay();
-
-	/**
-	 * Set replay
-	 */
-	public void setReplay(String replay);
-
-	/**
 	 * Récupčre les données ingame du joueur, avant sa déconnection. Attention,
 	 * la classe fournie doit avoir un constructeur sans arguments.
 	 * 
