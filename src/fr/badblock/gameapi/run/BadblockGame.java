@@ -15,6 +15,7 @@ public enum BadblockGame {
 
 	// PROD GAMES
 	RUSH("rush", "Rush", "xMalware", createItemStackFactory(Material.BED)),
+	BEDWARS("bedwars", "BedWars", "xMalware", createItemStackFactory(Material.BED)),
 	TOWER("tower", "Tower", "LeLanN", createItemStackFactory(Material.NETHER_FENCE)),
 	SURVIVAL_GAMES("survivalgames", "SurvivalGames", "LeLanN & xMalware", createItemStackFactory(Material.IRON_SWORD)),
 	UHCSPEED("uhcSpeed", "UHCSpeed", "LeLanN", createItemStackFactory(Material.GOLDEN_APPLE)), 
