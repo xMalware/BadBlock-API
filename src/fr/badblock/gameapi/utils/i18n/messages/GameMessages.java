@@ -79,7 +79,7 @@ public class GameMessages {
 	 * @return Le message
 	 */
 	public static TranslatableString quitMessage(String name, String player, int current, int max) {
-		return new TranslatableString("game.quit", name, player, current, max);
+		return new TranslatableString("game.quit", name, player, current - 1, max);
 	}
 
 	public static TranslatableWord material(Material material, boolean plural, WordDeterminant determinant) {
