@@ -65,6 +65,23 @@ public class GameMessages {
 		return new TranslatableString("game.join", name, player, current, max);
 	}
 
+	/**
+	 * Lorsqu'un un joueur quitte, on récupère le message de quit
+	 * 
+	 * @param name
+	 *            Le nom du jeu ou serveur.
+	 * @param player
+	 *            Le nom du joueur
+	 * @param current
+	 *            Le nombre de joueurs connectés
+	 * @param max
+	 *            Le nombre maximum de joueurs connectés.
+	 * @return Le message
+	 */
+	public static TranslatableString quitMessage(String name, String player, int current, int max) {
+		return new TranslatableString("game.quit", name, player, current, max);
+	}
+
 	public static TranslatableWord material(Material material, boolean plural, WordDeterminant determinant) {
 		return new TranslatableWord("materials." + material.name().toLowerCase(), plural, determinant);
 	}
