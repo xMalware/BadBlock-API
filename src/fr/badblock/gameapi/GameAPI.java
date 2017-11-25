@@ -762,4 +762,7 @@ public abstract class GameAPI extends JavaPlugin {
 	public abstract ItemStack generateQrCode(World world, String content);
 	
 	public abstract ItemStack generateGoogleAuthQrCode(BadblockPlayer player, String googleAuthKey, String image);
+	
+	public abstract void setAntiAfk(boolean enabled);
+	
 }
