@@ -16,6 +16,11 @@ public class FakeRankedManager extends RankedManager
 	}
 
 	@Override
+	public void fill(String gameName, String playerName) {
+		System.out.println("[FakeRankedManager] (" + gameName + ") Fill for " + playerName);
+	}
+
+	@Override
 	public String getCurrentRankedGameName() {
 		return "unknown";
 	}
