@@ -33,7 +33,8 @@ public enum BadblockGame {
 	DOMINATION("domination", "Domination", "Odanorr", createItemStackFactory(Material.BLAZE_ROD).fakeEnchantment()),
 	POINTOUT("pointout", "PointOut", "RedSpri", createItemStackFactory(Material.AIR).fakeEnchantment()),
 	SKYWARS("skywars", "SkyWars", "xMalware", createItemStackFactory(Material.FEATHER).fakeEnchantment()),
-	POTIONGAME("potiongame", "PotionGame", "Frekzz", createItemStackFactory(Material.POTION).fakeEnchantment());
+	POTIONGAME("potiongame", "PotionGame", "Frekzz", createItemStackFactory(Material.POTION).fakeEnchantment()),
+	FIGHT("fight", "fight", "xMalware", createItemStackFactory(Material.GOLD_SWORD).fakeEnchantment());
 
 	public static BadblockGame current;
 
