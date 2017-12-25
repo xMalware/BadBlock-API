@@ -14,7 +14,9 @@ import lombok.Data;
  */
 @Data
 public class TranslatableString {
+	
 	private String key;
+	private String overrideString;
 	private Object[] objects;
 
 	/**
@@ -45,6 +47,10 @@ public class TranslatableString {
 	 * @return Le message
 	 */
 	public String[] get(BadblockPlayer player) {
+		if (getOverrideString() != null)
+		{
+			return new String[] { getOverrideString() };
+		}
 		return get(player.getPlayerData().getLocale());
 	}
 
@@ -56,6 +62,10 @@ public class TranslatableString {
 	 * @return Le message
 	 */
 	public String[] get(Locale locale) {
+		if (getOverrideString() != null)
+		{
+			return new String[] { getOverrideString() };
+		}
 		return GameAPI.i18n().get(locale, key, objects);
 	}
 
@@ -92,6 +102,10 @@ public class TranslatableString {
 	 * @return La ligne
 	 */
 	public String getAsLine(Locale locale) {
+		if (getOverrideString() != null)
+		{
+			return getOverrideString();
+		}
 		return GameAPI.i18n().get(locale, key, objects)[0];
 	}
 
@@ -104,4 +118,5 @@ public class TranslatableString {
 	public void send(CommandSender sender) {
 		GameAPI.i18n().sendMessage(sender, key, objects);
 	}
+	
 }
