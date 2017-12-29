@@ -11,6 +11,7 @@ import org.bukkit.scheduler.BukkitScheduler;
 import org.bukkit.scheduler.BukkitTask;
 
 import fr.badblock.gameapi.GameAPI;
+import fr.badblock.gameapi.utils.general.MathsUtils;
 
 /**
  * Gestion des tasks
@@ -23,7 +24,7 @@ public class TaskManager {
 	public static HashMap<String, Integer> taskList = new HashMap<>();
 	public static BukkitScheduler scheduler = Bukkit.getScheduler();
 	static Plugin plugin = GameAPI.getAPI();
-	private static String currentThreadName = Thread.currentThread().getName();
+	private static Thread currentThread = Thread.currentThread();
 
 	/**
 	 * Rajout une task dans la list
@@ -130,10 +131,10 @@ public class TaskManager {
 			public void run() {
 				long timeExecute = System.nanoTime();
 				runnable.run();
-				boolean sync = currentThreadName.equals(Thread.currentThread().getName());
+				boolean sync = currentThread.equals(Thread.currentThread());
 				if (sync) {
 					double time = (System.nanoTime() - timeExecute) / 1_000_000D;
-					tasksTime.put(name, time);
+					tasksTime.put(name, MathsUtils.round(time, 2));
 				}
 			}
 		};
