@@ -31,9 +31,9 @@ import net.md_5.bungee.api.chat.BaseComponent;
 
 /**
 
- * Classe ajoutant des m�thodes (BadBlock et utilitaires) � la classe
+ * Classe ajoutant des mï¿½thodes (BadBlock et utilitaires) ï¿½ la classe
 
- * Classe ajoutant des méthodes (BadBlock et utilitaires) ŕ la classe
+ * Classe ajoutant des mÃ©thodes (BadBlock et utilitaires) Å• la classe
 
  * Player.<br>
  * Pour l'obtenir il suffit de caster le Player.
@@ -49,9 +49,9 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	
 	/**
 
-	 * Repr�sente les diff�rents modes de jeux possibles pour un joueur Badblock
+	 * Reprï¿½sente les diffï¿½rents modes de jeux possibles pour un joueur Badblock
 
-	 * Représente les différents modes de jeux possibles pour un joueur Badblock
+	 * ReprÃ©sente les diffÃ©rents modes de jeux possibles pour un joueur Badblock
 
 	 * 
 	 * @author LeLanN
@@ -59,26 +59,26 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	public static enum BadblockMode {
 		/**
 
-		 * Repr�sente un joueur 'normal' (entrain de jouer ou au lobby
+		 * Reprï¿½sente un joueur 'normal' (entrain de jouer ou au lobby
 
-		 * Représente un joueur 'normal' (entrain de jouer ou au lobby
+		 * ReprÃ©sente un joueur 'normal' (entrain de jouer ou au lobby
 
 		 * d'attente)
 		 */
 		PLAYER(),
 		/**
 
-		 * Repr�sente un joueur attendant en spectateur d'�tre respawn
+		 * Reprï¿½sente un joueur attendant en spectateur d'ï¿½tre respawn
 
-		 * Représente un joueur attendant en spectateur d'ętre respawn
+		 * ReprÃ©sente un joueur attendant en spectateur d'Ä™tre respawn
 
 		 */
 		RESPAWNING(),
 		/**
 
-		 * Repr�sente un joueur observant la partie sans y interf�rer
+		 * Reprï¿½sente un joueur observant la partie sans y interfï¿½rer
 
-		 * Représente un joueur observant la partie sans y interférer
+		 * ReprÃ©sente un joueur observant la partie sans y interfÃ©rer
 
 		 */
 		SPECTATOR();
@@ -86,9 +86,9 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * Repr�sente les permissions basiques des MiniJeux, pour une gestion plus
+	 * Reprï¿½sente les permissions basiques des MiniJeux, pour une gestion plus
 
-	 * Représente les permissions basiques des MiniJeux, pour une gestion plus
+	 * ReprÃ©sente les permissions basiques des MiniJeux, pour une gestion plus
 
 	 * simple.
 	 * 
@@ -111,9 +111,9 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * V�rifie si le joueur peut build
+	 * Vï¿½rifie si le joueur peut build
 
-	 * Vérifie si le joueur peut build
+	 * VÃ©rifie si le joueur peut build
 
 	 * 
 	 * @return Si le joueur peut build
@@ -122,24 +122,24 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * V�rifie si le joueur peut build instantan�ment
+	 * Vï¿½rifie si le joueur peut build instantanï¿½ment
 
-	 * Vérifie si le joueur peut build instantanément
+	 * VÃ©rifie si le joueur peut build instantanÃ©ment
 
 	 * 
 
-	 * @return Si le joueur peut build instantan�ment
+	 * @return Si le joueur peut build instantanï¿½ment
 
-	 * @return Si le joueur peut build instantanément
+	 * @return Si le joueur peut build instantanÃ©ment
 
 	 */
 	public boolean canInstantlyBuild();
 
 	/**
 
-	 * Change la dimension affich�e par le joueur sans le changer r�ellement de
+	 * Change la dimension affichï¿½e par le joueur sans le changer rï¿½ellement de
 
-	 * Change la dimension affichée par le joueur sans le changer réellement de
+	 * Change la dimension affichÃ©e par le joueur sans le changer rÃ©ellement de
 
 	 * monde
 	 * 
@@ -155,9 +155,9 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * Enl�ve le title de l'�cran du joueur
+	 * Enlï¿½ve le title de l'ï¿½cran du joueur
 
-	 * Enlčve le title de l'écran du joueur
+	 * EnlÄ�ve le title de l'Ã©cran du joueur
 
 	 */
 	public void clearTitle();
@@ -173,11 +173,11 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	
 	/**
 
-	 * R�cup�re les groupes secondaires du joueur (par exemple emeraude et
-	 * modo). Peut �tre vide.
+	 * Rï¿½cupï¿½re les groupes secondaires du joueur (par exemple emeraude et
+	 * modo). Peut ï¿½tre vide.
 
-	 * Récupčre les groupes secondaires du joueur (par exemple emeraude et
-	 * modo). Peut ętre vide.
+	 * RÃ©cupÄ�re les groupes secondaires du joueur (par exemple emeraude et
+	 * modo). Peut Ä™tre vide.
 
 	 * 
 	 * @return Les groupes secondaires
@@ -186,9 +186,9 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * R�cup�re le mode actuel de jeu du joueur
+	 * Rï¿½cupï¿½re le mode actuel de jeu du joueur
 
-	 * Récupčre le mode actuel de jeu du joueur
+	 * RÃ©cupÄ�re le mode actuel de jeu du joueur
 
 	 * 
 	 * @return Le mode
@@ -197,24 +197,24 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * R�cup�re le CustomObjective vu par le joueur
+	 * Rï¿½cupï¿½re le CustomObjective vu par le joueur
 
-	 * Récupčre le CustomObjective vu par le joueur
+	 * RÃ©cupÄ�re le CustomObjective vu par le joueur
 
 	 * 
 
-	 * @return Le CustomObjective (null si non d�finit)
+	 * @return Le CustomObjective (null si non dï¿½finit)
 
-	 * @return Le CustomObjective (null si non définit)
+	 * @return Le CustomObjective (null si non dÃ©finit)
 
 	 */
 	public CustomObjective getCustomObjective();
 
 	/**
 
-	 * R�cup�re le groupe principal du joueur (par exemple admin)
+	 * Rï¿½cupï¿½re le groupe principal du joueur (par exemple admin)
 
-	 * Récupčre le groupe principal du joueur (par exemple admin)
+	 * RÃ©cupÄ�re le groupe principal du joueur (par exemple admin)
 
 	 * 
 	 * @return Le groupe principal
@@ -223,26 +223,26 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	
 	/**
 
-	 * Met � jour le nombre de points boutique du joueur
-	 * en r�cup�rant du site sur la m�thode getShopPoints
+	 * Met ï¿½ jour le nombre de points boutique du joueur
+	 * en rï¿½cupï¿½rant du site sur la mï¿½thode getShopPoints
 
-	 * Met ŕ jour le nombre de points boutique du joueur
-	 * en récupérant du site sur la méthode getShopPoints
+	 * Met Å• jour le nombre de points boutique du joueur
+	 * en rÃ©cupÃ©rant du site sur la mÃ©thode getShopPoints
 
 	 */
 	public void refreshShopPoints();
 
 	/**
 
-	 * R�cup�re le nombre de points boutique
+	 * Rï¿½cupï¿½re le nombre de points boutique
 
-	 * Récupčre le nombre de points boutique
+	 * RÃ©cupÄ�re le nombre de points boutique
 
 	 * (attention: il est en cache !)
 
-	 * Ne pas oublier � le refresh (refreshShopPoints)
+	 * Ne pas oublier ï¿½ le refresh (refreshShopPoints)
 
-	 * Ne pas oublier ŕ le refresh (refreshShopPoints)
+	 * Ne pas oublier Å• le refresh (refreshShopPoints)
 
 	 * @return
 	 */
@@ -250,9 +250,9 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	
 	/**
 
-	 * R�cup�re le ping du joueur
+	 * Rï¿½cupï¿½re le ping du joueur
 
-	 * Récupčre le ping du joueur
+	 * RÃ©cupÄ�re le ping du joueur
 
 	 * 
 	 * @return
@@ -261,26 +261,26 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * R�cup�re la s�l�ction d�finie par le joueur via un baton de blaze. Peut
-	 * retourner null si non d�finie.
+	 * Rï¿½cupï¿½re la sï¿½lï¿½ction dï¿½finie par le joueur via un baton de blaze. Peut
+	 * retourner null si non dï¿½finie.
 
-	 * Récupčre la séléction définie par le joueur via un baton de blaze. Peut
-	 * retourner null si non définie.
+	 * RÃ©cupÄ�re la sÃ©lÃ©ction dÃ©finie par le joueur via un baton de blaze. Peut
+	 * retourner null si non dÃ©finie.
 
 	 * 
 
-	 * @return La s�l�ction ou null
+	 * @return La sï¿½lï¿½ction ou null
 
-	 * @return La séléction ou null
+	 * @return La sÃ©lÃ©ction ou null
 
 	 */
 	public CuboidSelection getSelection();
 
 	/**
 
-	 * R�cup�re un message traduit dans la langue du joueur
+	 * Rï¿½cupï¿½re un message traduit dans la langue du joueur
 
-	 * Récupčre un message traduit dans la langue du joueur
+	 * RÃ©cupÄ�re un message traduit dans la langue du joueur
 
 	 * 
 	 * @param key
@@ -300,9 +300,9 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	
 	/**
 
-	 * R�cup�re la version du protocol du joueur
+	 * Rï¿½cupï¿½re la version du protocol du joueur
 
-	 * Récupčre la version du protocol du joueur
+	 * RÃ©cupÄ�re la version du protocol du joueur
 
 	 * @return La version
 	 */
@@ -310,9 +310,9 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * V�rifie si le joueur a une des permissions basiques des mini-jeux.
+	 * Vï¿½rifie si le joueur a une des permissions basiques des mini-jeux.
 
-	 * Vérifie si le joueur a une des permissions basiques des mini-jeux.
+	 * VÃ©rifie si le joueur a une des permissions basiques des mini-jeux.
 
 	 * 
 	 * @param permission
@@ -323,9 +323,9 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * Soigne le joueur (vie, faim, feu et effets n�gatifs de potions)
+	 * Soigne le joueur (vie, faim, feu et effets nï¿½gatifs de potions)
 
-	 * Soigne le joueur (vie, faim, feu et effets négatifs de potions)
+	 * Soigne le joueur (vie, faim, feu et effets nÃ©gatifs de potions)
 
 	 */
 	public void heal();
@@ -334,76 +334,76 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * V�rifie si le joueur est invuln�rable (si il ne peut pas prendre de
-	 * d�gats).
+	 * Vï¿½rifie si le joueur est invulnï¿½rable (si il ne peut pas prendre de
+	 * dï¿½gats).
 
-	 * Vérifie si le joueur est invulnérable (si il ne peut pas prendre de
-	 * dégats).
+	 * VÃ©rifie si le joueur est invulnÃ©rable (si il ne peut pas prendre de
+	 * dÃ©gats).
 
 	 * 
 
-	 * @return Si le joueur est invuln�rable
+	 * @return Si le joueur est invulnï¿½rable
 
-	 * @return Si le joueur est invulnérable
+	 * @return Si le joueur est invulnÃ©rable
 
 	 */
 	public boolean isInvulnerable();
 
 	/**
 
-	 * Permet de savoir si le joueur a �t� bloqu� avec
+	 * Permet de savoir si le joueur a ï¿½tï¿½ bloquï¿½ avec
 
-	 * Permet de savoir si le joueur a été bloqué avec
+	 * Permet de savoir si le joueur a Ã©tÃ© bloquÃ© avec
 
 	 * {@link #jailPlayerAt(Location)}.
 	 * 
 
-	 * @return Si il est bloqu�
+	 * @return Si il est bloquï¿½
 
-	 * @return Si il est bloqué
+	 * @return Si il est bloquÃ©
 
 	 */
 	public boolean isJailed();
 
 	/**
 
-	 * Permet de v�rifier si le joueur est confin� dans une zone
+	 * Permet de vï¿½rifier si le joueur est confinï¿½ dans une zone
 
-	 * Permet de vérifier si le joueur est confiné dans une zone
+	 * Permet de vÃ©rifier si le joueur est confinÃ© dans une zone
 
 	 * 
 
-	 * @return Si il est bloqu�
+	 * @return Si il est bloquï¿½
 
-	 * @return Si il est bloqué
+	 * @return Si il est bloquÃ©
 
 	 */
 	public boolean isPseudoJailed();
 
 	/**
 
-	 * Permet de faire que le joueur ne puisse pas du tout bouger � la position
-	 * donn�e.<br>
+	 * Permet de faire que le joueur ne puisse pas du tout bouger ï¿½ la position
+	 * donnï¿½e.<br>
 
-	 * Permet de faire que le joueur ne puisse pas du tout bouger ŕ la position
-	 * donnée.<br>
+	 * Permet de faire que le joueur ne puisse pas du tout bouger Å• la position
+	 * donnÃ©e.<br>
 
 	 * * Si null, le joueur pourra de nouveau bouger.
 	 * 
 	 * @param location
 
-	 *            La position o� il doit rester.
+	 *            La position oï¿½ il doit rester.
 
-	 *            La position oů il doit rester.
+	 *            La position oÅ¯ il doit rester.
 
 	 */
 	public void jailPlayerAt(Location location);
 
 	/**
 
-	 * Lance un projectile custom, qui appelera une m�thode lorsqu'il touchera un block ou une entit�
+	 * Lance un projectile custom, qui appelera une mï¿½thode lorsqu'il touchera un block ou une entitï¿½
 
-	 * Lance un projectile custom, qui appelera une méthode lorsqu'il touchera un block ou une entité
+	 * Lance un projectile custom, qui appelera une mÃ©thode lorsqu'il touchera un block ou une entitÃ©
 
 	 * @param projectile La classe du projectile
 	 * @param action L'action
@@ -413,16 +413,16 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	
 	/**
 
-	 * Lance un projectile custom, qui appelera une m�thode lorsqu'il touchera un block ou une entit�
+	 * Lance un projectile custom, qui appelera une mï¿½thode lorsqu'il touchera un block ou une entitï¿½
 
-	 * Lance un projectile custom, qui appelera une méthode lorsqu'il touchera un block ou une entité
+	 * Lance un projectile custom, qui appelera une mÃ©thode lorsqu'il touchera un block ou une entitÃ©
 
 	 * @param projectile La classe du projectile
 	 * @param action L'action
 
-	 * @param range Gb�h
+	 * @param range Gbï¿½h
 
-	 * @param range Gbéh
+	 * @param range GbÃ©h
 
 	 * @return Le projectile
 	 */
@@ -434,9 +434,9 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 * 
 	 * @param block
 
-	 *            Le coffre � 'ouvrir/fermer'
+	 *            Le coffre ï¿½ 'ouvrir/fermer'
 
-	 *            Le coffre ŕ 'ouvrir/fermer'
+	 *            Le coffre Å• 'ouvrir/fermer'
 
 	 * @param open
 	 *            Si le coffre est ouvert
@@ -445,11 +445,11 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * Force le client � voir de la pluie/neige (bien que cela ne soit pas
-	 * r�ellement le cas c�t� serveur).
+	 * Force le client ï¿½ voir de la pluie/neige (bien que cela ne soit pas
+	 * rï¿½ellement le cas cï¿½tï¿½ serveur).
 
-	 * Force le client ŕ voir de la pluie/neige (bien que cela ne soit pas
-	 * réellement le cas côté serveur).
+	 * Force le client Å• voir de la pluie/neige (bien que cela ne soit pas
+	 * rÃ©ellement le cas cÃ´tÃ© serveur).
 
 	 * 
 	 * @param rain
@@ -459,50 +459,50 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * Fait jouer un son au joueur avec des param�tres par d�faut
+	 * Fait jouer un son au joueur avec des paramï¿½tres par dï¿½faut
 
-	 * Fait jouer un son au joueur avec des paramčtres par défaut
+	 * Fait jouer un son au joueur avec des paramÄ�tres par dÃ©faut
 
 	 * 
 	 * @param location
 	 *            L'origine du son
 	 * @param sound
 
-	 *            Le son � jouer
+	 *            Le son ï¿½ jouer
 
-	 *            Le son ŕ jouer
+	 *            Le son Å• jouer
 
 	 */
 	public void playSound(Location location, Sound sound);
 
 	/**
 
-	 * Fait jouer un son au joueur avec des param�tres par d�faut
+	 * Fait jouer un son au joueur avec des paramï¿½tres par dï¿½faut
 
-	 * Fait jouer un son au joueur avec des paramčtres par défaut
+	 * Fait jouer un son au joueur avec des paramÄ�tres par dÃ©faut
 
 	 * 
 	 * @param sound
 
-	 *            Le son � jouer
+	 *            Le son ï¿½ jouer
 
-	 *            Le son ŕ jouer
+	 *            Le son Å• jouer
 
 	 */
 	public void playSound(Sound sound);
 
 	/**
 
-	 * Upload un r�sultat de partie pour le joueur. Le joueur en sera notifi�.
+	 * Upload un rï¿½sultat de partie pour le joueur. Le joueur en sera notifiï¿½.
 
-	 * Upload un résultat de partie pour le joueur. Le joueur en sera notifié.
+	 * Upload un rÃ©sultat de partie pour le joueur. Le joueur en sera notifiÃ©.
 
 	 * 
 	 * @param result
 
-	 *            Le r�sultat
+	 *            Le rï¿½sultat
 
-	 *            Le résultat
+	 *            Le rÃ©sultat
 
 	 */
 	public void postResult(Result result);
@@ -514,15 +514,15 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 * 
 	 * @param location
 
-	 *            La position o� il doit rester
+	 *            La position oï¿½ il doit rester
 
-	 *            La position oů il doit rester
+	 *            La position oÅ¯ il doit rester
 
 	 * @param radius
 
-	 *            Le rayon autour duquel il peut se d�placer
+	 *            Le rayon autour duquel il peut se dï¿½placer
 
-	 *            Le rayon autour duquel il peut se déplacer
+	 *            Le rayon autour duquel il peut se dÃ©placer
 
 	 */
 	public void pseudoJail(Location location, double radius);
@@ -534,27 +534,27 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * Enl�ve les effets n�gatifs (potions)
+	 * Enlï¿½ve les effets nï¿½gatifs (potions)
 
-	 * Enlčve les effets négatifs (potions)
+	 * EnlÄ�ve les effets nÃ©gatifs (potions)
 
 	 */
 	public void removeBadPotionEffects();
 
 	/**
 
-	 * Enl�ve tous les effets (potions)
+	 * Enlï¿½ve tous les effets (potions)
 
-	 * Enlčve tous les effets (potions)
+	 * EnlÄ�ve tous les effets (potions)
 
 	 */
 	public void removePotionEffects();
 
 	/**
 
-	 * Sauvegarde (envoit � Ladder) les donn�es joueurs
+	 * Sauvegarde (envoit ï¿½ Ladder) les donnï¿½es joueurs
 
-	 * Sauvegarde (envoit ŕ Ladder) les données joueurs
+	 * Sauvegarde (envoit Å• Ladder) les donnÃ©es joueurs
 
 	 */
 	public void saveGameData();
@@ -579,9 +579,9 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	
 	/**
 
-	 * Enl�ve le message de la 'Boss Bar' du joueur (si il y en a un)
+	 * Enlï¿½ve le message de la 'Boss Bar' du joueur (si il y en a un)
 
-	 * Enlčve le message de la 'Boss Bar' du joueur (si il y en a un)
+	 * EnlÄ�ve le message de la 'Boss Bar' du joueur (si il y en a un)
 
 	 */
 	public default void removeBossBar(){
@@ -600,17 +600,17 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * Envoit un packet � un joueur. Pour utiliser les packets voir
+	 * Envoit un packet ï¿½ un joueur. Pour utiliser les packets voir
 
-	 * Envoit un packet ŕ un joueur. Pour utiliser les packets voir
+	 * Envoit un packet Å• un joueur. Pour utiliser les packets voir
 
 	 * {@link fr.badblock.gameapi.GameAPI#createPacket(Class)}.
 	 * 
 	 * @param packet
 
-	 *            Le packet � envoyer.
+	 *            Le packet ï¿½ envoyer.
 
-	 *            Le packet ŕ envoyer.
+	 *            Le packet Å• envoyer.
 
 	 */
 	public void sendPacket(BadblockOutPacket packet);
@@ -622,9 +622,9 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 *            La position de la particule
 	 * @param effect
 
-	 *            La particule (r�cup�rable avec
+	 *            La particule (rï¿½cupï¿½rable avec
 
-	 *            La particule (récupérable avec
+	 *            La particule (rÃ©cupÃ©rable avec
 
 	 *            {@link GameAPI#createParticleEffect(fr.badblock.gameapi.particles.ParticleEffectType)}
 	 */
@@ -632,13 +632,13 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * R�cup�re la valeur d'une perssion de type cl�/valeur
-	 * @param key La cl�
-	 * @param clazz Le type dmand�
+	 * Rï¿½cupï¿½re la valeur d'une perssion de type clï¿½/valeur
+	 * @param key La clï¿½
+	 * @param clazz Le type dmandï¿½
 
-	 * Récupčre la valeur d'une perssion de type clé/valeur
-	 * @param key La clé
-	 * @param clazz Le type dmandé
+	 * RÃ©cupÄ�re la valeur d'une perssion de type clÃ©/valeur
+	 * @param key La clÃ©
+	 * @param clazz Le type dmandÃ©
 
 	 * @return Le retour
 	 */
@@ -655,9 +655,9 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	/**
 	 * Envoit le header et le footer de la tablist au joueur. Utiliser le
 
-	 * symbole {@literal \n} pour revenir � la ligne.
+	 * symbole {@literal \n} pour revenir ï¿½ la ligne.
 
-	 * symbole {@literal \n} pour revenir ŕ la ligne.
+	 * symbole {@literal \n} pour revenir Å• la ligne.
 
 	 * 
 	 * @param header
@@ -672,21 +672,21 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 * 
 	 * @param fadeIn
 
-	 *            Le temps que le message met � s'afficher
+	 *            Le temps que le message met ï¿½ s'afficher
 
-	 *            Le temps que le message met ŕ s'afficher
+	 *            Le temps que le message met Å• s'afficher
 
 	 * @param stay
 
-	 *            Le temps o� le message reste
+	 *            Le temps oï¿½ le message reste
 
-	 *            Le temps oů le message reste
+	 *            Le temps oÅ¯ le message reste
 
 	 * @param fadeOut
 
-	 *            Le temps que le message met � dispara�tre
+	 *            Le temps que le message met ï¿½ disparaï¿½tre
 
-	 *            Le temps que le message met ŕ disparaître
+	 *            Le temps que le message met Å• disparaÃ®tre
 
 	 */
 	public void sendTimings(long fadeIn, long stay, long fadeOut);
@@ -763,9 +763,9 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * D�finit si le joueur est en mode bypass (pour casser les blocs ect)
+	 * Dï¿½finit si le joueur est en mode bypass (pour casser les blocs ect)
 
-	 * Définit si le joueur est en mode bypass (pour casser les blocs ect)
+	 * DÃ©finit si le joueur est en mode bypass (pour casser les blocs ect)
 
 	 * 
 	 * @param adminMode
@@ -775,25 +775,25 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * Change le nombre de fl�ches dans le corps du joueurs.
+	 * Change le nombre de flï¿½ches dans le corps du joueurs.
 
-	 * Change le nombre de flčches dans le corps du joueurs.
+	 * Change le nombre de flÄ�ches dans le corps du joueurs.
 
 	 * 
 	 * @param amount
 
-	 *            Le nombe de fl�ches.
+	 *            Le nombe de flï¿½ches.
 
-	 *            Le nombe de flčches.
+	 *            Le nombe de flÄ�ches.
 
 	 */
 	public void setArrowsInBody(byte amount);
 
 	/**
 
-	 * Change le mode de jeu du joueur (les protections et items seront g�r�s
+	 * Change le mode de jeu du joueur (les protections et items seront gï¿½rï¿½s
 
-	 * Change le mode de jeu du joueur (les protections et items seront gérés
+	 * Change le mode de jeu du joueur (les protections et items seront gÃ©rÃ©s
 
 	 * automatiquement)
 	 * 
@@ -804,9 +804,9 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * D�finit si le joueur peut build
+	 * Dï¿½finit si le joueur peut build
 
-	 * Définit si le joueur peut build
+	 * DÃ©finit si le joueur peut build
 
 	 * 
 	 * @param canBuild
@@ -816,73 +816,73 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * Dz�finit si le joueur peut build instantan�ment
+	 * Dzï¿½finit si le joueur peut build instantanï¿½ment
 
-	 * Dzéfinit si le joueur peut build instantanément
+	 * DzÃ©finit si le joueur peut build instantanÃ©ment
 
 	 * 
 	 * @param instantlyBuild
 
-	 *            Si le joueur peut build instantan�ment
+	 *            Si le joueur peut build instantanï¿½ment
 
-	 *            Si le joueur peut build instantanément
+	 *            Si le joueur peut build instantanÃ©ment
 
 	 */
 	public void setCanInstantlyBuild(boolean instantlyBuild);
 
 	/**
 
-	 * Active ou d�sactive la collision entre le joueur et les entit�s
+	 * Active ou dï¿½sactive la collision entre le joueur et les entitï¿½s
 
-	 * Active ou désactive la collision entre le joueur et les entités
+	 * Active ou dÃ©sactive la collision entre le joueur et les entitÃ©s
 
 	 * 
 	 * @param collision
 
-	 *            Si les collisions sont activ�s
+	 *            Si les collisions sont activï¿½s
 
-	 *            Si les collisions sont activés
+	 *            Si les collisions sont activÃ©s
 
 	 */
 	public void setEntityCollision(boolean collision);
 
 	/**
 
-	 * D�finit si le joueur est invuln�rable (si il ne peut pas prendre de
-	 * d�gats).<br>
+	 * Dï¿½finit si le joueur est invulnï¿½rable (si il ne peut pas prendre de
+	 * dï¿½gats).<br>
 
-	 * Définit si le joueur est invulnérable (si il ne peut pas prendre de
-	 * dégats).<br>
+	 * DÃ©finit si le joueur est invulnÃ©rable (si il ne peut pas prendre de
+	 * dÃ©gats).<br>
 
 	 * Attention, un changement de gamemode l'annule.
 	 * 
 	 * @param invulnerable
 
-	 *            Si le joueur est invuln�rable
+	 *            Si le joueur est invulnï¿½rable
 
-	 *            Si le joueur est invulnérable
+	 *            Si le joueur est invulnÃ©rable
 
 	 */
 	public void setInvulnerable(boolean invulnerable);
 
 	/**
 
-	 * D�finit si le joueur a ou non des informations de d�bug (F3) r�duites
-	 * (par exemple plus les coordonn�es).<br>
-	 * Bien entendu, cela est fait c�t� client, ce n'est donc pas fiable (le
-	 * client peut �tre modd�).
+	 * Dï¿½finit si le joueur a ou non des informations de dï¿½bug (F3) rï¿½duites
+	 * (par exemple plus les coordonnï¿½es).<br>
+	 * Bien entendu, cela est fait cï¿½tï¿½ client, ce n'est donc pas fiable (le
+	 * client peut ï¿½tre moddï¿½).
 
-	 * Définit si le joueur a ou non des informations de débug (F3) réduites
-	 * (par exemple plus les coordonnées).<br>
-	 * Bien entendu, cela est fait côté client, ce n'est donc pas fiable (le
-	 * client peut ętre moddé).
+	 * DÃ©finit si le joueur a ou non des informations de dÃ©bug (F3) rÃ©duites
+	 * (par exemple plus les coordonnÃ©es).<br>
+	 * Bien entendu, cela est fait cÃ´tÃ© client, ce n'est donc pas fiable (le
+	 * client peut Ä™tre moddÃ©).
 
 	 * 
 	 * @param reducedDebugInfo
 
-	 *            Si le joueur a des informations de d�bug r�duites
+	 *            Si le joueur a des informations de dï¿½bug rï¿½duites
 
-	 *            Si le joueur a des informations de débug réduites
+	 *            Si le joueur a des informations de dÃ©bug rÃ©duites
 
 	 */
 	public void setReducedDebugInfo(boolean reducedDebugInfo);
@@ -897,13 +897,13 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 
 	/**
 
-	 * Fait voir l'image de 'd�mo' de MineCraft au joueur. Utile uniquement si
-	 * le serveur est dot� d'un resource pack.<br>
-	 * Le joueur doit �tre en GameMode 3
+	 * Fait voir l'image de 'dï¿½mo' de MineCraft au joueur. Utile uniquement si
+	 * le serveur est dotï¿½ d'un resource pack.<br>
+	 * Le joueur doit ï¿½tre en GameMode 3
 
-	 * Fait voir l'image de 'démo' de MineCraft au joueur. Utile uniquement si
-	 * le serveur est doté d'un resource pack.<br>
-	 * Le joueur doit ętre en GameMode 3
+	 * Fait voir l'image de 'dÃ©mo' de MineCraft au joueur. Utile uniquement si
+	 * le serveur est dotÃ© d'un resource pack.<br>
+	 * Le joueur doit Ä™tre en GameMode 3
 
 	 */
 	public void showDemoScreen();
@@ -913,23 +913,23 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 * 
 	 * @param text
 
-	 *            Le texte � afficher.
+	 *            Le texte ï¿½ afficher.
 
-	 *            Le texte ŕ afficher.
+	 *            Le texte Å• afficher.
 
 	 * @param location
 	 *            La position du texte (si null, juste devant ses yeux)
 	 * @param lifeTime
 
-	 *            La dur�e de vie du texte (en ticks)
+	 *            La durï¿½e de vie du texte (en ticks)
 
-	 *            La durée de vie du texte (en ticks)
+	 *            La durÃ©e de vie du texte (en ticks)
 
 	 * @param offset
 
-	 *            Le d�placement que peut subir le texte par rapport � la
+	 *            Le dï¿½placement que peut subir le texte par rapport ï¿½ la
 
-	 *            Le déplacement que peut subir le texte par rapport ŕ la
+	 *            Le dÃ©placement que peut subir le texte par rapport Å• la
 
 	 *            position initiale (random). Aucun si 0.
 	 */
@@ -942,15 +942,15 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 *            La position du texte (si null, juste devant ses yeux)
 	 * @param lifeTime
 
-	 *            La dur�e de vie du texte (en ticks)
+	 *            La durï¿½e de vie du texte (en ticks)
 
-	 *            La durée de vie du texte (en ticks)
+	 *            La durÃ©e de vie du texte (en ticks)
 
 	 * @param offset
 
-	 *            Le d�placement que peut subir le texte par rapport � la
+	 *            Le dï¿½placement que peut subir le texte par rapport ï¿½ la
 
-	 *            Le déplacement que peut subir le texte par rapport ŕ la
+	 *            Le dÃ©placement que peut subir le texte par rapport Å• la
 
 	 *            position initiale (random). Aucun si 0.
 	 * @param key
@@ -980,29 +980,29 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	
 	/**
 
-	 * Enl�ve les items d'un certains type
+	 * Enlï¿½ve les items d'un certains type
 
-	 * Enlčve les items d'un certains type
+	 * EnlÄ�ve les items d'un certains type
 
 	 * @param type Le material
 	 * @param data La data
 
-	 * @param amount Le nombre d'items � enlever (-1 = tous)
-	 * @return Le nombre qui n'a pas pu �tre retir�
+	 * @param amount Le nombre d'items ï¿½ enlever (-1 = tous)
+	 * @return Le nombre qui n'a pas pu ï¿½tre retirï¿½
 
-	 * @param amount Le nombre d'items ŕ enlever (-1 = tous)
-	 * @return Le nombre qui n'a pas pu ętre retiré
+	 * @param amount Le nombre d'items Å• enlever (-1 = tous)
+	 * @return Le nombre qui n'a pas pu Ä™tre retirÃ©
 
 	 */
 	public int removeItems(Material type, byte data, int amount);
 
 	/**
 
-	 * R�cup�rer le timestamp quand le joueur a utilis� une 
-	 * fausse entit�
+	 * Rï¿½cupï¿½rer le timestamp quand le joueur a utilisï¿½ une 
+	 * fausse entitï¿½
 
-	 * Récupérer le timestamp quand le joueur a utilisé une 
-	 * fausse entité
+	 * RÃ©cupÃ©rer le timestamp quand le joueur a utilisÃ© une 
+	 * fausse entitÃ©
 
 	 * @return un timestamp en millisecondes
 	 */
@@ -1010,11 +1010,11 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	
 	/**
 
-	 * Dire � l'objet que l'on a utilis� une fausse entit�
-	 * r�cemment afin de le comptabiliser
+	 * Dire ï¿½ l'objet que l'on a utilisï¿½ une fausse entitï¿½
+	 * rï¿½cemment afin de le comptabiliser
 
-	 * Dire ŕ l'objet que l'on a utilisé une fausse entité
-	 * récemment afin de le comptabiliser
+	 * Dire Å• l'objet que l'on a utilisÃ© une fausse entitÃ©
+	 * rÃ©cemment afin de le comptabiliser
 
 	 */
 	public void useFakeEntity();
@@ -1054,4 +1054,7 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	public void setPlayerSkin(String skinUrl, String capeUrl);
 
 	public void setTextureProperty(String value, String signature);
+	
+	public RankedPlayer getRanked();
+	
 }
