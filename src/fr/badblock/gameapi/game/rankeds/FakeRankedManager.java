@@ -47,4 +47,9 @@ public class FakeRankedManager extends RankedManager
 		callback.done(0, null);
 	}
 	
+	@Override
+	public void getTotalPoints(String gameName, BadblockPlayer player, Callback<Integer> callback) {
+		callback.done(0, null);
+	}
+	
 }
