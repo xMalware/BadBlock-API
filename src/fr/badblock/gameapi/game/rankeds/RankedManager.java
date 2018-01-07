@@ -13,6 +13,7 @@ public abstract class RankedManager {
 	public abstract void fill(String gameName, String playerName);
 	public abstract void getTotalRank(String gameName, BadblockPlayer player, Callback<Integer> callback);
 	public abstract void getMonthRank(String gameName, BadblockPlayer player, Callback<Integer> callback);
+	public abstract void getTotalPoints(String gameName, BadblockPlayer player, Callback<Integer> callback);
 	public abstract long getData(String gameName, BadblockPlayer player, String fieldName);
 	public abstract void calcPoints(String gameName, BadblockPlayer player, RankedCalc calc);
 	
