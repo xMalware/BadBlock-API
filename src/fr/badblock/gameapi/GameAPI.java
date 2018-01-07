@@ -89,16 +89,16 @@ public abstract class GameAPI extends JavaPlugin {
 
 	public static final boolean TEST_MODE;
 
-	
+
 	static {
 		String testMode = System.getProperty("badblock.testmode");
-		
+
 		if(testMode == null){
 			testMode = ServerProperties.getProperties().getProperty("badblock.testmode", "false");
 		}
-		
+
 		boolean isTestMode = false;
-		
+
 		try {
 			isTestMode = Boolean.parseBoolean(testMode);
 		} catch(Exception e){
@@ -107,7 +107,7 @@ public abstract class GameAPI extends JavaPlugin {
 			TEST_MODE = isTestMode;
 		}
 	}
-	
+
 	@Getter
 	protected static GameAPI API;
 	@Getter
@@ -118,10 +118,10 @@ public abstract class GameAPI extends JavaPlugin {
 	protected static String internalGameName;
 	@Getter
 	protected static Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT).disableHtmlEscaping()
-			.create();
+	.create();
 	@Getter
 	protected static Gson prettyGson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT)
-			.disableHtmlEscaping().setPrettyPrinting().create();
+	.disableHtmlEscaping().setPrettyPrinting().create();
 	@Getter@Setter
 	protected static boolean isJoinable = true;
 	@Getter@Setter
@@ -136,7 +136,7 @@ public abstract class GameAPI extends JavaPlugin {
 	public static I18n i18n() {
 		return API.getI18n();
 	}
-	
+
 	/**
 	 * Log un message 'normal' (plus rapide que de rďż˝cupďż˝rrer le logger)
 	 * 
@@ -178,23 +178,23 @@ public abstract class GameAPI extends JavaPlugin {
 	public static void logWarning(String message) {
 		Bukkit.getLogger().log(Level.WARNING, message);
 	}
-	
+
 	public static String getPrettyServerName(){
 		String[] splitted = getServerName().split("_");
-		
+
 		String type = StringUtils.getUpperFirstLetter(splitted[0].toLowerCase());
-		
+
 		if(splitted.length == 1){
 			return type;
 		} else {
 			return type + " nďż˝" + splitted[1];
 		}
 	}
-	
+
 	public static String getServerName(){
 		return Bukkit.getServer().getServerName();
 	}
-	
+
 	/**
 	 * Rďż˝cupďż˝re l'ensemble des joueurs en ligne
 	 * @return Une liste non modifiable
@@ -206,7 +206,7 @@ public abstract class GameAPI extends JavaPlugin {
 	 * @return Une liste non modifiable
 	 */
 	public abstract List<BadblockPlayer> getRealOnlinePlayers();
-	
+
 	/**
 	 * Permet d'ďż˝quilibrer les teams
 	 * 
@@ -546,7 +546,7 @@ public abstract class GameAPI extends JavaPlugin {
 	 *            Le listener
 	 */
 	public abstract <T extends BadblockOutPacket> void listenAtPacket(OutPacketListener<T> listener);
-	
+
 	/**
 	 * Ecouter tous les packets
 	 * 
@@ -686,7 +686,7 @@ public abstract class GameAPI extends JavaPlugin {
 	 */
 	public abstract FakeEntity<WatcherLivingEntity> spawnFakePlayer(Location location, PlayerInfo infos);
 
-	
+
 	/**
 	 * Spawn un faux falling block
 	 * 
@@ -737,32 +737,30 @@ public abstract class GameAPI extends JavaPlugin {
 	 *            Le joueur
 	 */
 	public abstract void whitelistPlayer(String player);
-	
+
 	public abstract void setEmptyChunks(CuboidSelection selection, boolean exclusion);
-	
+
 	public abstract void setLightChunks(CuboidSelection selection, boolean exclusion);
-	
 	/**
 	 * Charge une zone en un certains nombre de ticks serveurs (de maniďż˝re synchrone)
 	 * @param selection La zone
 	 * @param ticks Le nombre de ticks
 	 */
 	public abstract void loadChunks(CuboidSelection selection, int ticks);
-	
 	public void updateScoreboards(){
 		getOnlinePlayers().stream().filter(player -> player.getCustomObjective() != null).forEach(player -> player.getCustomObjective().generate());
 	}
 
 	public abstract boolean isLeaverBusterEnabled();
-	
+
 	public abstract void setLeaverBusterEnabled(boolean enabled);
-	
+
 	public abstract void balancePlayers(BadblockPlayer leader, List<UUID> slaves);
-	
+
 	public abstract ItemStack generateQrCode(World world, String content);
-	
+
 	public abstract ItemStack generateGoogleAuthQrCode(BadblockPlayer player, String googleAuthKey, String image);
-	
+
 	public abstract void setAntiAfk(boolean enabled);
-	
+
 }
