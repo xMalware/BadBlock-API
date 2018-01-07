@@ -1,5 +1,9 @@
 package fr.badblock.gameapi.players.scoreboard;
 
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.scheduler.BukkitTask;
+
 import fr.badblock.gameapi.GameAPI;
 
 /**
@@ -9,6 +13,10 @@ import fr.badblock.gameapi.GameAPI;
  */
 public abstract class BadblockScoreboardGenerator {
 
+	private BukkitTask		bukkitTask;
+	private CustomObjective	objective;
+	private int				current;
+	
 	/**
 	 * Permet de générer une derničre ligne animée
 	 * 
@@ -17,10 +25,10 @@ public abstract class BadblockScoreboardGenerator {
 	 */
 	public void doBadblockFooter(CustomObjective objective) {
 		objective.changeLine(1, "&7badblock.fr / " + GameAPI.getServerName());
-		//bukkitTask = Bukkit.getScheduler().runTaskTimer(GameAPI.getAPI(), this::doBadblockFooter0, 0, 1L);
+		bukkitTask = Bukkit.getScheduler().runTaskTimer(GameAPI.getAPI(), this::doBadblockFooter0, 0, 5L);
 	}
 
-	/*private void doBadblockFooter0() {
+	private void doBadblockFooter0() {
 		if (objective.getAssignedPlayer() == null || !objective.getAssignedPlayer().isOnline()) {
 			bukkitTask.cancel();
 			return;
@@ -41,7 +49,7 @@ public abstract class BadblockScoreboardGenerator {
 		if (current == base.length()) {
 			current = -10;
 		}
-	}*/
+	}
 
 	/**
 	 * Génčre le scoreboard
