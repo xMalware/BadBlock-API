@@ -1,6 +1,7 @@
 package fr.badblock.gameapi.game.rankeds;
 
 import fr.badblock.gameapi.players.BadblockPlayer;
+import fr.badblock.gameapi.utils.general.Callback;
 
 public class FakeRankedManager extends RankedManager
 {
@@ -34,6 +35,16 @@ public class FakeRankedManager extends RankedManager
 	public void calcPoints(String gameName, BadblockPlayer player, RankedCalc calc) {
 		long points = calc.done();
 		System.out.println("[FakeRankedManager] (" + gameName + ") Calculated points for " + player.getName() + " : " + points);
+	}
+
+	@Override
+	public void getTotalPoints(BadblockPlayer player, Callback<Integer> callback) {
+		callback.done(0, null);
+	}
+
+	@Override
+	public void getMonthPoints(BadblockPlayer player, Callback<Integer> callback) {
+		callback.done(0, null);
 	}
 	
 }
