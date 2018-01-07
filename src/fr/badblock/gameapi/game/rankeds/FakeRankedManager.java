@@ -38,12 +38,12 @@ public class FakeRankedManager extends RankedManager
 	}
 
 	@Override
-	public void getTotalPoints(BadblockPlayer player, Callback<Integer> callback) {
+	public void getTotalRank(String gameName, BadblockPlayer player, Callback<Integer> callback) {
 		callback.done(0, null);
 	}
 
 	@Override
-	public void getMonthPoints(BadblockPlayer player, Callback<Integer> callback) {
+	public void getMonthRank(String gameName, BadblockPlayer player, Callback<Integer> callback) {
 		callback.done(0, null);
 	}
 	
