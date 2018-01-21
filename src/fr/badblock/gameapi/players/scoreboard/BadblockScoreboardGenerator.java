@@ -7,7 +7,7 @@ import org.bukkit.scheduler.BukkitTask;
 import fr.badblock.gameapi.GameAPI;
 
 /**
- * Représente la classe permettant de générer le scoreboard.
+ * ReprÃ©sente la classe permettant de gÃ©nÃ©rer le scoreboard.
  * 
  * @author LeLanN
  */
@@ -18,14 +18,15 @@ public abstract class BadblockScoreboardGenerator {
 	private int				current;
 	
 	/**
-	 * Permet de générer une derničre ligne animée
+	 * Permet de gÃ©nÃ©rer une derniÄ�re ligne animÃ©e
 	 * 
 	 * @param objective
-	 *            L'objectif géré
+	 *            L'objectif gÃ©rÃ©
 	 */
 	public void doBadblockFooter(CustomObjective objective) {
-		objective.changeLine(1, "&7badblock.fr / " + GameAPI.getServerName());
-		bukkitTask = Bukkit.getScheduler().runTaskTimer(GameAPI.getAPI(), this::doBadblockFooter0, 0, 5L);
+		this.objective = objective;
+		objective.changeLine(1, "&7badblock.fr " + GameAPI.getServerName());
+		bukkitTask = Bukkit.getScheduler().runTaskTimer(GameAPI.getAPI(), this::doBadblockFooter0, 0, 1L);
 	}
 
 	private void doBadblockFooter0() {
@@ -34,7 +35,7 @@ public abstract class BadblockScoreboardGenerator {
 			return;
 		}
 
-		String base = "badblock.fr / " + GameAPI.getServerName();
+		String base = "badblock.fr " + GameAPI.getServerName();
 
 		if (current < 0) {
 			objective.changeLine(1, "&b" + base);
@@ -52,7 +53,7 @@ public abstract class BadblockScoreboardGenerator {
 	}
 
 	/**
-	 * Génčre le scoreboard
+	 * GÃ©nÄ�re le scoreboard
 	 */
 	public abstract void generate();
 }
