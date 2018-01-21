@@ -31,17 +31,22 @@ public class JsonUtils {
 		return new InputStreamReader(new FileInputStream(file), Charsets.UTF_8.name());
 	}
 
+	@SuppressWarnings("deprecation")
 	public static <T> T load(File file, Class<T> clazz) {
 		try {
 			if (!file.exists())
 				save(file, "{}");
 			T t = GameAPI.getGson().fromJson(getInputStream(file), clazz);
 			if (t == null) {
-				try {
+				try
+				{
 					t = clazz.newInstance();
-				} catch (Exception e) {
+				}
+				catch (Exception e)
+				{
 					e.printStackTrace();
 				}
+				
 				JsonUtils.save(file, t, true);
 			}
 			return t;
