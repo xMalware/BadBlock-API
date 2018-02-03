@@ -248,6 +248,10 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	 */
 	public int getShopPoints();
 	
+	public void removeShopPoints(int shopPointsToRemove);
+	
+	public void addShopPoints(int shopPointsToAdd);
+	
 	/**
 
 	 * Rï¿½cupï¿½re le ping du joueur
