@@ -31,7 +31,6 @@ public class JsonUtils {
 		return new InputStreamReader(new FileInputStream(file), Charsets.UTF_8.name());
 	}
 
-	@SuppressWarnings("deprecation")
 	public static <T> T load(File file, Class<T> clazz) {
 		try {
 			if (!file.exists())
