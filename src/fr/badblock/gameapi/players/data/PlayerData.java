@@ -11,7 +11,7 @@ import fr.badblock.gameapi.players.kits.PlayerKit;
 import fr.badblock.gameapi.utils.i18n.Locale;
 
 /**
- * Répresente les différentes données d'un joueur (coins/xp, kits, achievements,
+ * RÃ©presente les diffÃ©rentes donnÃ©es d'un joueur (coins/xp, kits, achievements,
  * stats, ...)
  * 
  * @author LeLanN
@@ -35,31 +35,31 @@ public interface PlayerData {
 	 *            Une valeur POSITIVE
 	 * @param applyBonus
 	 *            Si il faut appliquer les bonus joueur/serveur
-	 * @return Le nombre de badcoins donnés
+	 * @return Le nombre de badcoins donnÃ©s
 	 */
 	public int addBadcoins(int badcoins, boolean applyBonus);
 
 	/**
-	 * Ajoute des XP dans une valeur temporaire qui seront ajouté ŕ l'ajout de nouveaux XP définitif (addXp())
+	 * Ajoute des XP dans une valeur temporaire qui seront ajoutÃ© Å• l'ajout de nouveaux XP dÃ©finitif (addXp())
 	 * Cela permet de mettre les achievements dans le gain final de la partie
 	 * 
 	 * @param xp
-	 *            L'XP ŕ ajouter
+	 *            L'XP Å• ajouter
 	 * @param applyBonus
 	 *            Si il faut appliquer les bonus joueur/serveur
-	 * @return Le nombre d'xp donnés
+	 * @return Le nombre d'xp donnÃ©s
 	 */
 	public void addTempXp(long xp, boolean applyBonus);
 
 	/**
-	 * Ajoute des BadCoins dans une valeur temporaire qui seront ajouté ŕ l'ajout de nouveaux BadCoins définitif (addXp())
+	 * Ajoute des BadCoins dans une valeur temporaire qui seront ajoutÃ© Å• l'ajout de nouveaux BadCoins dÃ©finitif (addXp())
 	 * Cela permet de mettre les achievements dans le gain final de la partie
 	 * 
 	 * @param badcoins
 	 *            Une valeur POSITIVE
 	 * @param applyBonus
 	 *            Si il faut appliquer les bonus joueur/serveur
-	 * @return Le nombre de badcoins donnés
+	 * @return Le nombre de badcoins donnÃ©s
 	 */
 	public void addTempBadcoins(long badcoins, boolean applyBonus);
 
@@ -67,29 +67,29 @@ public interface PlayerData {
 	 * Ajoute de l'XP au joueur
 	 * 
 	 * @param xp
-	 *            L'XP ŕ ajouter
+	 *            L'XP Å• ajouter
 	 * @param applyBonus
 	 *            Si il faut appliquer les bonus joueur/serveur
-	 * @return Le nombre d'xp donné
+	 * @return Le nombre d'xp donnÃ©
 	 */
 	public long addXp(long xp, boolean applyBonus);
 	
 	/**
-	 * Ajouter des données temporaires au joueur
-	 * (bien mettre le nombre de données initialisées!)
+	 * Ajouter des donnÃ©es temporaires au joueur
+	 * (bien mettre le nombre de donnÃ©es initialisÃ©es!)
 	 * @param data
 	 */
 	public void incrementTempRankedData(String gameName, String field, long data);
 	
 	/**
-	 * Mettre des données temporaires au joueur
-	 * (bien mettre le nombre de données initialisées!)
+	 * Mettre des donnÃ©es temporaires au joueur
+	 * (bien mettre le nombre de donnÃ©es initialisÃ©es!)
 	 * @param data
 	 */
 	public void setTempRankedData(String gameName, String field, long data);
 
 	/**
-	 * Vérifie si le joueur peut obtenir le niveau suivant du kit (achievements
+	 * VÃ©rifie si le joueur peut obtenir le niveau suivant du kit (achievements
 	 * et badcoins)
 	 * 
 	 * @param kit
@@ -99,12 +99,12 @@ public interface PlayerData {
 	public boolean canUnlockNextLevel(PlayerKit kit);
 
 	/**
-	 * Récupčre des données joueurs spécialisées.<br>
-	 * Attentin, si la clé ŕ déjŕ été chargée avec une autre classe, peut
+	 * RÃ©cupÄ�re des donnÃ©es joueurs spÃ©cialisÃ©es.<br>
+	 * Attentin, si la clÃ© Å• dÃ©jÅ• Ã©tÃ© chargÃ©e avec une autre classe, peut
 	 * provoquer une erreur.
 	 * 
 	 * @param key
-	 *            La clé
+	 *            La clÃ©
 	 * @param clazz
 	 *            La classe
 	 * @return Le PlayerData
@@ -112,17 +112,17 @@ public interface PlayerData {
 	public <T extends GameData> T gameData(String key, Class<T> clazz);
 
 	/**
-	 * Récupčre l'avancement du joueur dans un achievement
+	 * RÃ©cupÄ�re l'avancement du joueur dans un achievement
 	 * 
 	 * @param achievement
 	 *            L'achievement en question
 	 * @return L'avancement du joueur (si pas d'avancement, un nouveau sera
-	 *         créé)
+	 *         crÃ©Ã©)
 	 */
 	public PlayerAchievementState getAchievementState(PlayerAchievement achievement);
 
 	/**
-	 * Récupčre le nombre de BadCoins du joueur
+	 * RÃ©cupÄ�re le nombre de BadCoins du joueur
 	 * 
 	 * @return Le nombre de BadCoins
 	 */
@@ -136,14 +136,28 @@ public interface PlayerData {
 	public double getXpMultiplier();
 
 	/**
-	 * Récupčre les boosters du joueur
+	 * RÃ©cupÄ�re les boosters du joueur
 	 * 
 	 * @return les boosters du joueur dans une liste
 	 */
 	public List<PlayerBooster> getBoosters();
+
+	/**
+	 * Récupère la liste des ignorés
+	 * 
+	 * @return ignore list
+	 */
+	public List<String> getIgnoreList();
 	
 	/**
-	 * Récupčre le nom interne du dernier kit utilisé dans un jeu
+	 * Insère une liste des ignorés
+	 * 
+	 * @return ignore list
+	 */
+	public void setIgnoreList(List<String> list);
+	
+	/**
+	 * RÃ©cupÄ�re le nom interne du dernier kit utilisÃ© dans un jeu
 	 * 
 	 * @param game
 	 *            Le nom (interne) du jeu
@@ -152,21 +166,21 @@ public interface PlayerData {
 	public String getLastUsedKit(String game);
 
 	/**
-	 * Récupčre le niveau du joueur
+	 * RÃ©cupÄ�re le niveau du joueur
 	 * 
 	 * @return Le niveau du joueur
 	 */
 	public int getLevel();
 
 	/**
-	 * Récupčre le langage choisit par le joueur.
+	 * RÃ©cupÄ�re le langage choisit par le joueur.
 	 * 
 	 * @return Le langage.
 	 */
 	public Locale getLocale();
 
 	/**
-	 * Récupčre une statistique du joueur
+	 * RÃ©cupÄ�re une statistique du joueur
 	 * 
 	 * @param gameName
 	 *            Le jeu
@@ -177,7 +191,7 @@ public interface PlayerData {
 	public double getStatistics(String gameName, String stat);
 
 	/**
-	 * Récupčre le niveau que le joueur a pour un kit.
+	 * RÃ©cupÄ�re le niveau que le joueur a pour un kit.
 	 * 
 	 * @param kit
 	 *            Le kit
@@ -186,18 +200,18 @@ public interface PlayerData {
 	public int getUnlockedKitLevel(PlayerKit kit);
 
 	/**
-	 * Récupčre l'XP obtenue dans le niveau en cours (autrement dit,
-	 * réinitialisée ŕ chaque niveau)
+	 * RÃ©cupÄ�re l'XP obtenue dans le niveau en cours (autrement dit,
+	 * rÃ©initialisÃ©e Å• chaque niveau)
 	 * 
 	 * @return L'XP
 	 */
 	public long getXp();
 
 	/**
-	 * Récupčre l'XP obtenue pour passer au niveau suivant (réinitialisée ŕ
+	 * RÃ©cupÄ�re l'XP obtenue pour passer au niveau suivant (rÃ©initialisÃ©e Å•
 	 * chaque niveau)
 	 * 
-	 * @return L'Xp nécessaire
+	 * @return L'Xp nÃ©cessaire
 	 */
 	public long getXpUntilNextLevel();
 
@@ -209,12 +223,12 @@ public interface PlayerData {
 	 * @param stat
 	 *            La statistique
 	 * @param value
-	 *            La valeur ŕ ajouter
+	 *            La valeur Å• ajouter
 	 */
 	public void increaseStatistic(String gameName, String stat, double value);
 
 	/**
-	 * Augmente toutes les valeurs des achievements donnés de 1
+	 * Augmente toutes les valeurs des achievements donnÃ©s de 1
 	 * 
 	 * @param player
 	 *            Le joueur pour tenter de valider les achievements
@@ -224,7 +238,7 @@ public interface PlayerData {
 	public void incrementAchievements(BadblockPlayer player, PlayerAchievement... achievements);
 
 	/**
-	 * Incrémente (1) la statistique du joueur
+	 * IncrÃ©mente (1) la statistique du joueur
 	 * 
 	 * @param gameName
 	 *            Le jeu
@@ -242,15 +256,15 @@ public interface PlayerData {
 	public void removeBadcoins(int badcoins);
 
 	/**
-	 * Renvoit les informations modifiées ŕ Ladder pour qu'elles soient
-	 * sauvegardées.
+	 * Renvoit les informations modifiÃ©es Å• Ladder pour qu'elles soient
+	 * sauvegardÃ©es.
 	 * 
 	 * @return L'objet
 	 */
 	public JsonObject saveData();
 
 	/**
-	 * Définit le nom interne du dernier kit utilisé dans un jeu
+	 * DÃ©finit le nom interne du dernier kit utilisÃ© dans un jeu
 	 * 
 	 * @param game
 	 *            Le nom (interne) du jeu
@@ -260,7 +274,7 @@ public interface PlayerData {
 	public void setLastUsedKit(String game, String kit);
 
 	/**
-	 * Débloque le niveau suivant du kit. Ne fonctionne pas si
+	 * DÃ©bloque le niveau suivant du kit. Ne fonctionne pas si
 	 * {@link #canUnlockNextLevel(PlayerKit)} retourne false.
 	 * 
 	 * @param kit
