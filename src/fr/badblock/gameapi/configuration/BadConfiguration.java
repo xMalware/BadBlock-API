@@ -1,6 +1,7 @@
 package fr.badblock.gameapi.configuration;
 
 import java.io.File;
+import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.List;
 
@@ -10,68 +11,70 @@ import fr.badblock.gameapi.configuration.values.MapList;
 import fr.badblock.gameapi.configuration.values.MapValue;
 
 /**
- * Représente une configuration simplifiée
+ * ReprÃ©sente une configuration simplifiÃ©e
  * 
  * @author LeLanN
  */
 public interface BadConfiguration {
 	/**
-	 * Récupčre une sous-section ŕ la configuration
+	 * RÃ©cupÄ�re une sous-section Å• la configuration
 	 * 
 	 * @param key
-	 *            La clé de la sous-section
+	 *            La clÃ© de la sous-section
 	 * @return La sous-section
 	 */
 	public BadConfiguration getSection(String key);
 
 	/**
-	 * Récupčre une valeur
+	 * RÃ©cupÄ�re une valeur
 	 * 
 	 * @param key
-	 *            La clé de la valeur
+	 *            La clÃ© de la valeur
 	 * @param clazzValue
 	 *            Le type de la valeur
-	 * @return La valeur (les modifications ne s'appliquent pas ŕ la
+	 * @return La valeur (les modifications ne s'appliquent pas Å• la
 	 *         configuration)
 	 */
 	public <T extends MapValue<?>> T getValue(String key, Class<T> clazzValue);
 
 	/**
-	 * Récupčre une valeur
+	 * RÃ©cupÄ�re une valeur
 	 * 
 	 * @param key
-	 *            La clé de la valeur
+	 *            La clÃ© de la valeur
 	 * @param clazzValue
 	 *            Le type de la valeur
 	 * @param def
-	 *            La valeur par défaut (sera set si non trouvéee)
-	 * @return La valeur (les modifications ne s'appliquent pas ŕ la
+	 *            La valeur par dÃ©faut (sera set si non trouvÃ©ee)
+	 * @return La valeur (les modifications ne s'appliquent pas Å• la
 	 *         configuration)
 	 */
 	public <T extends MapValue<?>> T getValue(String key, Class<T> clazzValue, T def);
+	
+	public <T> T getSimpleValueList(String key, Type clazzValue);
 
 	/**
-	 * Récupčre une liste de valeurs
+	 * RÃ©cupÄ�re une liste de valeurs
 	 * 
 	 * @param key
-	 *            La clé de la liste
+	 *            La clÃ© de la liste
 	 * @param clazzValue
 	 *            Le type de valeur
-	 * @return La liste de valeurs (les modifications ne s'appliquent pas ŕ la
+	 * @return La liste de valeurs (les modifications ne s'appliquent pas Å• la
 	 *         configuration)
 	 */
 	public <T extends MapValue<K>, K> MapList<T, K> getValueList(String key, Class<T> clazzValue);
 
 	/**
-	 * Récupčre une liste de valeurs
+	 * RÃ©cupÄ�re une liste de valeurs
 	 * 
 	 * @param key
-	 *            La clé de la liste
+	 *            La clÃ© de la liste
 	 * @param clazzValue
 	 *            Le type de valeur
 	 * @param def
-	 *            La valeur par défaut (sera set si non trouvée)
-	 * @return La liste de valeurs (les modifications ne s'appliquent pas ŕ la
+	 *            La valeur par dÃ©faut (sera set si non trouvÃ©e)
+	 * @return La liste de valeurs (les modifications ne s'appliquent pas Å• la
 	 *         configuration)
 	 */
 	public <T extends MapValue<K>, K> MapList<T, K> getValueList(String key, Class<T> clazzValue, List<T> def);
@@ -92,20 +95,20 @@ public interface BadConfiguration {
 	public void save(File file);
 
 	/**
-	 * Définit une valeur
+	 * DÃ©finit une valeur
 	 * 
 	 * @param key
-	 *            La clé de la valeur
+	 *            La clÃ© de la valeur
 	 * @param value
 	 *            La valeur
 	 */
 	public <T extends MapValue<?>> void setValue(String key, T value);
 
 	/**
-	 * Définit une liste de valeurs
+	 * DÃ©finit une liste de valeurs
 	 * 
 	 * @param key
-	 *            La clé de la liste
+	 *            La clÃ© de la liste
 	 * @param value
 	 *            La liste de valeurs
 	 */
