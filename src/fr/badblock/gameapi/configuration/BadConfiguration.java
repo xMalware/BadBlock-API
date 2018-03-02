@@ -114,5 +114,5 @@ public interface BadConfiguration {
 	 */
 	public <T extends MapValue<?>> void setValueList(String key, Collection<T> value);
 	
-	public <T> void setValueSimpleList(String key, Collection<T> value);
+	public <T> void setValueSimpleList(String key, Collection<T> value, Type type);
 }
