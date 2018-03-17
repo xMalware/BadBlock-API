@@ -60,6 +60,7 @@ import fr.badblock.gameapi.utils.itemstack.ItemStackExtra;
 import fr.badblock.gameapi.utils.itemstack.ItemStackFactory;
 import fr.badblock.gameapi.utils.merchants.CustomMerchantInventory;
 import fr.badblock.gameapi.utils.selections.CuboidSelection;
+import fr.toenga.common.tech.mongodb.MongoService;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -126,6 +127,8 @@ public abstract class GameAPI extends JavaPlugin {
 	protected static boolean isJoinable = true;
 	@Getter@Setter
 	private boolean finished;
+	@Getter@Setter
+	private MongoService	mongoService;
 
 	/**
 	 * RÄ�Å¼Ë�cupÄ�Å¼Ë�re le systÄ�Å¼Ë�me d'internationalisation (pour Ä�Å¼Ë�viter de rÄ�Å¼Ë�cupÄ�Å¼Ë�rer
