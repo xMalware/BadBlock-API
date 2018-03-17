@@ -22,6 +22,11 @@ public interface PlayerData {
 	 * Get replay
 	 */
 	public List<String> getReplay();
+	
+	public boolean isTempAccess();
+	
+	public void setTempAccess(boolean b);
+	
 
 	/**
 	 * Set replay

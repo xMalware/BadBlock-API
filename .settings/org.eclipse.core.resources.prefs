@@ -1,2 +1,6 @@
 eclipse.preferences.version=1
+encoding//src/fr/badblock/gameapi/GameAPI.java=UTF-8
+encoding//src/fr/badblock/gameapi/configuration/BadConfiguration.java=UTF-8
 encoding//src/fr/badblock/gameapi/players/BadblockPlayer.java=UTF-8
+encoding//src/fr/badblock/gameapi/players/data/PlayerData.java=UTF-8
+encoding//src/fr/badblock/gameapi/players/scoreboard/BadblockScoreboardGenerator.java=UTF-8
