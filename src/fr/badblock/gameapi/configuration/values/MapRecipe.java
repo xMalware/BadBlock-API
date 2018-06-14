@@ -4,10 +4,12 @@ import java.util.List;
 
 import fr.badblock.gameapi.utils.merchants.CustomMerchantRecipe;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class MapRecipe implements MapValue<CustomMerchantRecipe> {

@@ -6,15 +6,17 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /***
  * Représente une Location Bukkit
  * 
  * @author LeLanN
  */
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class MapLocation implements MapValue<Location> {

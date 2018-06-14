@@ -13,15 +13,17 @@ import com.google.common.collect.Maps;
 import fr.badblock.gameapi.GameAPI;
 import fr.badblock.gameapi.utils.itemstack.ItemStackFactory;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * Représente un ItemStack Bukkit
  * 
  * @author LeLanN
  */
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class MapItemStack implements MapValue<ItemStack> {

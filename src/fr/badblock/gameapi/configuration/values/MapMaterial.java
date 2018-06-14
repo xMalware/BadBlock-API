@@ -5,15 +5,17 @@ import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * Représente un Material Bukkit et sa data (ex : Stone:1)
  * 
  * @author LeLanN
  */
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class MapMaterial implements MapValue<Material> {

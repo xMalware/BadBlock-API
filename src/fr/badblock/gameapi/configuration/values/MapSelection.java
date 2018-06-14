@@ -3,10 +3,12 @@ package fr.badblock.gameapi.configuration.values;
 import fr.badblock.gameapi.utils.selections.CuboidSelection;
 import fr.badblock.gameapi.utils.selections.Vector3f;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class MapSelection implements MapValue<CuboidSelection> {
