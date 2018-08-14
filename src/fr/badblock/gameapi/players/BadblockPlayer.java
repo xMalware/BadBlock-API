@@ -136,6 +136,23 @@ public interface BadblockPlayer extends Player, BadblockPlayerData {
 	public boolean canInstantlyBuild();
 
 	/**
+	 * If the player is in online mode
+	 * @return
+	 */
+	public boolean isOnlineMode();
+	
+	/**
+	 * Save and update online mode
+	 */
+	public void saveOnlineMode();
+	
+	/**
+	 * Set the online mode
+	 * @param onlineMode
+	 */
+	public void setOnlineMode(boolean onlineMode);
+	
+	/**
 
 	 * Change la dimension affichï¿½e par le joueur sans le changer rï¿½ellement de
 

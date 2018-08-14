@@ -146,6 +146,7 @@ public class TaskManager {
 
 	// Run async task later
 	public static BukkitTask runAsyncTaskLater(Runnable runnable, int tick) {
+		System.out.println("runAsyncTaskLater [duration " + tick + "]");
 		return scheduler.runTaskLaterAsynchronously(plugin,
 				loadRunnable("laterTask_" + tick + "_" + (new Random().nextInt(655555)), runnable), tick);
 	}
@@ -160,6 +161,7 @@ public class TaskManager {
 	 * @param duration
 	 */
 	public static BukkitTask runAsyncTaskLater(final String taskName, Runnable task, int duration) {
+		System.out.println("runAsyncTaskLater [duration " + duration + "] : " + taskName);
 		BukkitTask bukkitTask = scheduler.runTaskLaterAsynchronously(plugin, loadRunnable(taskName, task), duration);
 		final int id = bukkitTask.getTaskId();
 		TaskManager.addTask(taskName, id);
@@ -177,6 +179,7 @@ public class TaskManager {
 
 	// Run task now
 	public static BukkitTask runTask(Runnable runnable) {
+		System.out.println("runTask");
 		return scheduler.runTask(plugin, loadRunnable("runTask_" + (new Random().nextInt(6555555)), runnable));
 	}
 
@@ -187,6 +190,7 @@ public class TaskManager {
 	 * @return
 	 */
 	public static BukkitTask runTaskAsync(Runnable runnable) {
+		System.out.println("runTaskAsync");
 		return scheduler.runTaskAsynchronously(plugin,
 				loadRunnable("runTask_" + (new Random().nextInt(6555555)), runnable));
 	}
@@ -199,6 +203,7 @@ public class TaskManager {
 	 * @return
 	 */
 	public static BukkitTask runTaskLater(Runnable runnable, int tick) {
+		System.out.println("runTaskLater : [duration " + tick + "]");
 		return scheduler.runTaskLater(plugin,
 				loadRunnable("laterTask_" + tick + "_" + (new Random().nextInt(655555)), runnable), tick);
 	}
@@ -213,6 +218,7 @@ public class TaskManager {
 	 * @param duration
 	 */
 	public static BukkitTask runTaskLater(final String taskName, Runnable task, int duration) {
+		System.out.println("runTaskLater : [duration " + duration+ "]");
 		BukkitTask bukkitTask = scheduler.runTaskLater(plugin, loadRunnable(taskName, task), duration);
 		final int id = bukkitTask.getTaskId();
 		TaskManager.addTask(taskName, id);
@@ -239,6 +245,7 @@ public class TaskManager {
 	 */
 	public static BukkitTask scheduleAsyncRepeatingTask(String taskName, Runnable runnable, int delay, int refresh) {
 		cancelTaskByName(taskName);
+		System.out.println("runTaskTimerAsynchronously : [delay " + delay + "];[refresh " + refresh + "] - " + taskName);
 		BukkitTask task = scheduler.runTaskTimerAsynchronously(plugin, loadRunnable(taskName, runnable), delay,
 				refresh);
 		taskList.put(taskName, task.getTaskId());
@@ -256,6 +263,7 @@ public class TaskManager {
 	 */
 	public static BukkitTask scheduleSyncRepeatingTask(String taskName, Runnable runnable, int delay, int refresh) {
 		cancelTaskByName(taskName);
+		System.out.println("scheduleSyncRepeatingTask : [delay " + delay + "];[refresh " + refresh + "] - " + taskName);
 		BukkitTask task = scheduler.runTaskTimer(plugin, loadRunnable(taskName, runnable), delay, refresh);
 		taskList.put(taskName, task.getTaskId());
 		return task;

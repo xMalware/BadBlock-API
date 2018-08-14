@@ -23,6 +23,8 @@ public class ServerProperties {
 			e.printStackTrace();
 		}
 	}
+	
+	private static String givenTo = "cixxor";
 
 	/**
 	 * Récupčre les données

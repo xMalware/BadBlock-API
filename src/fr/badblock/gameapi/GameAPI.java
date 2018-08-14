@@ -21,6 +21,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 
+import fr.badblock.api.common.tech.mongodb.MongoService;
 import fr.badblock.gameapi.configuration.BadConfiguration;
 import fr.badblock.gameapi.databases.LadderSpeaker;
 import fr.badblock.gameapi.databases.SQLDatabase;
@@ -52,9 +53,7 @@ import fr.badblock.gameapi.servers.MapProtector;
 import fr.badblock.gameapi.signs.SignManager;
 import fr.badblock.gameapi.technologies.RabbitSpeaker;
 import fr.badblock.gameapi.utils.ServerProperties;
-import fr.badblock.gameapi.utils.entities.CreatureType;
 import fr.badblock.gameapi.utils.entities.CustomCreature;
-import fr.badblock.gameapi.utils.entities.CreatureType.Reaction;
 import fr.badblock.gameapi.utils.general.StringUtils;
 import fr.badblock.gameapi.utils.i18n.I18n;
 import fr.badblock.gameapi.utils.itemstack.CustomInventory;
@@ -62,7 +61,6 @@ import fr.badblock.gameapi.utils.itemstack.ItemStackExtra;
 import fr.badblock.gameapi.utils.itemstack.ItemStackFactory;
 import fr.badblock.gameapi.utils.merchants.CustomMerchantInventory;
 import fr.badblock.gameapi.utils.selections.CuboidSelection;
-import fr.toenga.common.tech.mongodb.MongoService;
 import lombok.Getter;
 import lombok.Setter;
 
