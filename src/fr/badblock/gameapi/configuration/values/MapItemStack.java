@@ -26,20 +26,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class MapItemStack implements MapValue<ItemStack> {
-	public static MapList<MapItemStack, ItemStack> toMapList(List<ItemStack> items) {
-		MapList<MapItemStack, ItemStack> result = new MapList<>();
-
-		for (ItemStack is : items) {
-			if (is != null)
-				result.add(new MapItemStack(is));
-			else {
-				result.add(new MapItemStack(new ItemStack(Material.AIR)));
-			}
-		}
-
-		return result;
-	}
+public class MapItemStack implements MapValue<ItemStack>
+{
+	
 	private int amount = 0;
 	private Material type = Material.STONE;
 	private short durability = 0;
@@ -49,8 +38,30 @@ public class MapItemStack implements MapValue<ItemStack> {
 
 	private String displayName = null;
 
-	public MapItemStack(ItemStack item) {
-		if (item == null) {
+
+	public static MapList<MapItemStack, ItemStack> toMapList(List<ItemStack> items)
+	{
+		MapList<MapItemStack, ItemStack> result = new MapList<>();
+
+		for (ItemStack is : items)
+		{
+			if (is != null)
+			{
+				result.add(new MapItemStack(is));
+			}
+			else
+			{
+				result.add(new MapItemStack(new ItemStack(Material.AIR)));
+			}
+		}
+
+		return result;
+	}
+	
+	public MapItemStack(ItemStack item)
+	{
+		if (item == null)
+		{
 			amount = -1;
 			return;
 		}
@@ -59,12 +70,16 @@ public class MapItemStack implements MapValue<ItemStack> {
 		this.type = item.getType();
 		this.durability = item.getDurability();
 
-		if (item.getItemMeta() != null) {
+		if (item.getItemMeta() != null)
+		{
 			this.unbreakable = item.getItemMeta().spigot().isUnbreakable();
 
-			if (item.getItemMeta().getLore() != null) {
+			if (item.getItemMeta().getLore() != null)
+			{
 				this.lore = item.getItemMeta().getLore().toArray(new String[0]);
-			} else {
+			}
+			else
+			{
 				this.lore = new String[] {};
 			}
 			this.displayName = item.getItemMeta().getDisplayName();
@@ -72,23 +87,30 @@ public class MapItemStack implements MapValue<ItemStack> {
 
 		this.enchants = Maps.newConcurrentMap();
 
-		item.getEnchantments().entrySet().forEach(entry -> {
+		for (Entry<Enchantment, Integer> entry : item.getEnchantments().entrySet())
+		{
 			enchants.put(entry.getKey().getName(), entry.getValue());
-		});
+		}
 	}
 
+	
 	@Override
-	public ItemStack getHandle() {
+	public ItemStack getHandle()
+	{
 		if (amount == -1)
+		{
 			return null;
+		}
 
 		ItemStackFactory factory = GameAPI.getAPI().createItemStackFactory().unbreakable(unbreakable).lore(lore)
 				.displayName(displayName).durability(durability).type(type);
 
-		for (Entry<String, Integer> entry : enchants.entrySet()) {
+		for (Entry<String, Integer> entry : enchants.entrySet())
+		{
 			factory.enchant(Enchantment.getByName(entry.getKey()), entry.getValue());
 		}
 
 		return factory.create(amount);
 	}
+	
 }
